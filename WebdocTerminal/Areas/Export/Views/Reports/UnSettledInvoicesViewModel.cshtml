@@ -1,0 +1,114 @@
+﻿
+<style>
+
+    #CargoInformation {
+        max-height: 750px;
+    }
+
+    .my-class {
+        background-color: #4b5f71;
+        color: white;
+    }
+
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+    .dx-header-row > td > .dx-datagrid-text-content {
+        white-space: normal;
+        vertical-align: top;
+        text-align: center;
+    }
+
+    .myClass {
+    }
+</style>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+
+<script src="~/js/app.js/UnSettledInvoicesViewModel.js"></script>
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3> Un Settled Invoices </h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+
+
+                    <div class="ln_solid"></div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="large-indicator"></div>
+                            <div id="CargoInformation">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

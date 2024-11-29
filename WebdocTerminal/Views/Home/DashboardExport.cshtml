@@ -1,0 +1,263 @@
+﻿<style>
+    #chart {
+        height: 440px;
+    }
+
+    .tooltip-header {
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 500;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #c5c5c5;
+    }
+
+    .tooltip-body {
+        width: 170px;
+    }
+
+        .tooltip-body .series-name {
+            font-weight: normal;
+            opacity: 0.6;
+            display: inline-block;
+            line-height: 1.5;
+            padding-right: 10px;
+            width: 126px;
+        }
+
+        .tooltip-body .value-text {
+            display: inline-block;
+            line-height: 1.5;
+            width: 30px;
+        }
+
+    .x_title h2 {
+        margin: 5px 0 6px;
+        display: block;
+        text-align: left !important;
+        float: none !important;
+        font-weight: 600;
+        color: #045d80;
+        font-size: x-large;
+    }
+</style>
+
+
+
+<script src="~/js/app.js/DashboardExport.js"></script>
+ 
+
+
+<div class="right_col" role="main">
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h2>Total</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="row top_tiles">
+                    <a href="import/Reports/ListofUpcomingContainer">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/shipping.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="totalCargoReceived">00</div>
+                                <h4>Cargo Received (GDs)</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/import/Reports/ContainerReceiveDuringThePeriod">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/boat.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="cargoReceivedCBM">00</div>
+                                <h4>Cargo Received (CBM)</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="totalContainerGateOut">00</div>
+                                <h4>Container GateOut</h4>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/import/Reports/DeStuffingContainerWise">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/truck.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="emptyContainerReceiving">00</div>
+                                <h4>Empty Receiving</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+
+                <div class="row top_tiles">
+                    @*<a href="import/Reports/ListofUpcomingContainer">
+                            <div class="animated flipInY col-md-3 ">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa"> <img src="~/images/shipping.svg" style="width: 55px;" /></i></div>
+                                    <div class="count" id="emptyReceving">00</div>
+                                    <h4>Empty Receving</h4>
+
+                                </div>
+                            </div>
+                        </a>*@
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h2>
+                        Current
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="row top_tiles">
+                    <a href="import/Reports/ListofUpcomingContainer">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/shipping.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="upcomingGDsCount">00</div>
+                                <h4>Upcoming GDs</h4>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/import/Reports/ContainerReceiveDuringThePeriod">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/boat.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="waitingforExaminationMarkedGDs">00</div>
+                                <h4>Waiting Examination Marked GDs</h4>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="groundedGDs">00</div>
+                                <h4>Grounded GDs</h4>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/import/Reports/DeStuffingContainerWise">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/truck.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="containerReadyForGateOut">00</div>
+                                <h4>Ready For GateOut</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+
+                <div class="row top_tiles">
+                    <a href="import/Reports/ListofUpcomingContainer">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/shipping.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="currentGDHold">00</div>
+                                <h4>GDs On Hold</h4>
+                            </div>
+                        </div>
+                    </a>
+                    @* ReadyForGateOutContainer Containers *@
+                    <a href="/import/Reports/ContainerReceiveDuringThePeriod">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/boat.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="cutterntGateOutContainer">00</div>
+                                <h4> Ready For GateOut </h4>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="totalDrayOFFGDs">00</div>
+                                <h4>Total DrayOFF GDs</h4>
+                            </div>
+                        </div>
+                    </a> 
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    @*<div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+
+
+
+                    <div class="row top_tiles">
+                        <div class="col-md-6">
+                            <div class="demo-container">
+                                <div id="chart-demo">
+                                    <div id="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>*@
+</div> 
+

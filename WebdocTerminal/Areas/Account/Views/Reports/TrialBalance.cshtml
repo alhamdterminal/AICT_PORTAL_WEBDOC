@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Voucher";
+    var Department = (IEnumerable<SelectListItem>)ViewData["Department"];
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/TrialBalance.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Trial Balance
+            </h3>
+        </div>
+        <div class="title_right"></div>
+    </div>
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <div class="row">
+ 
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Account :
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div id="gridBox"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Department :
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @Html.DropDownList("DepartmentId", Department, "Select Department", new { @class = "form-control select2", @id = "departmentId" })
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
+                                    From Date:
+                                </label>
+                                <div class="col-md-8 col-xs-12">
+                                    <input type="text" class="form-control has-feedback-left" id="single_cal2" name="fromdate" aria-describedby="inputSuccess2Status2">
+                                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                    <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="first-name">
+                                    To Date:
+                                </label>
+                                <div class="col-md-8 col-xs-12">
+                                    <input type="text" class="form-control has-feedback-left" id="single_cal3" name="todate" aria-describedby="inputSuccess2Status2">
+                                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                    <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <button type="button" id="btnSubmitReport" class="btn btn-dark" onclick="myFunction()" style="float:right">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

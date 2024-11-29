@@ -1,0 +1,71 @@
+﻿<script src="~/js/app.js/UpdatePreAlertPayorder.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Pay Order Update</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-label-left" novalidate="" id="filterForm">
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                        From:
+                                    </label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input type="text" class="form-control has-feedback-left" id="single_cal2" name="fromdate" aria-describedby="inputSuccess2Status2">
+                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                        To:
+                                    </label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input type="text" class="form-control has-feedback-left" id="single_cal3" name="todate" aria-describedby="inputSuccess2Status2">
+                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pad">
+                            <button type="button" id="btnSubmitReport" class="btn btn-dark" onclick="ShowDetail()">Show</button>
+                        </div>
+                    </form>
+
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div id="prealertpayorerdetails"></div>
+                                    <div class="ln_solid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

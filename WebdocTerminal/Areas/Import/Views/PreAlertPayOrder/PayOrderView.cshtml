@@ -1,0 +1,216 @@
+﻿
+@{
+
+
+    var RequestNo = (IEnumerable<SelectListItem>)ViewData["RequestNo"];
+
+    var BankList = (IEnumerable<SelectListItem>)ViewData["BankList"];
+
+    var BranchList = (IEnumerable<SelectListItem>)ViewData["BranchList"];
+
+
+}
+<style>
+    .dx-revert-button {
+        display: none !important;
+    }
+
+
+    .dx-datagrid-borders .dx-datagrid-headers .dx-datagrid-table {
+        border-bottom-width: 1 px;
+        color: black;
+    }
+
+</style>
+
+<script src="~/js/app.js/PayOrderView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Payorder</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="PayOrderForm">
+
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Request-Number: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*@(Html.DevExtreme()
+                        .SelectBox()
+                        .ID("RequestNumber")
+                        .Name("RequestNumber")
+                        .AcceptCustomValue(true)
+                        .SearchEnabled(true)
+                        .DataSource(d => d.Mvc()
+                        .Controller("APICalls")
+                        .Area("")
+                        .LoadAction("GetRequestNumbers"))
+                        .Placeholder("Type Request Number ...")
+                        .OnSelectionChanged("requestNumber_changed"))*@
+                                        @Html.DropDownList("RequestNumber", RequestNo, "Select Request Numner", new { @class = "form-control select2", @id = "requestNumber", @required = "required", @onchange = "requestNumber_changed(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        PayOrder Number
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="preAlertPayOrderNumber" name="PreAlertPayOrderNumber" required readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> </th>
+                                                <th scope="col">Number Of PO's</th>
+                                                <th scope="col">Amount</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Total Po's</th>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="totalnoofpos" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="totalpoamount" required=""></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Selected</th>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="Selectednoofpos" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="Selectedpoamount" required=""></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Balance</th>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="Balancenoofpos" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="Balancepoamount" required=""></td>
+                                            </tr>
+
+
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                <div class="form-horizontal form-label-left row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                                Cheque No :
+                                            </label>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="number" class="form-control col-md-7 col-xs-12" id="chequeNumber" name="ChequeNumber" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal form-label-left row">
+
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                                Bvp :
+                                            </label>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" class="form-control col-md-7 col-xs-12" id="bvp" name="Bvp" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal form-label-left row">
+
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                                Bank: <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("BankId", BankList, "Select  Bank", new { @class = "form-control select2", @id = "bankId", @required = "required", })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal form-label-left row">
+
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                                Branch: <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("BankBranchId", BranchList, "Select  Bank", new { @class = "form-control select2", @id = "bankBranchId", @required = "required", })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                 <button id="btnSubmit" type="button" onclick="selectAll()" class="btn btn-success" style="float:right;">Select ALL</button>
+                                 <button id="btnSubmit" type="button" onclick="unselectAll()" class="btn btn-primary" style="float:right;">Un-Select ALL</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div id="PreAlertPayorderDetails"></div>
+                                    <div class="ln_solid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button type="button" id="btnCancel" class="btn btn-primary" onClick="restform()" style="float:right;">Cancel</button>
+                            <button id="btnSubmit" type="button" onclick="submitPreAlterPayorder()" class="btn btn-success" style="float:right;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.select2').select2();
+
+</script>

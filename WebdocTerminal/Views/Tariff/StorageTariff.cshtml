@@ -1,0 +1,73 @@
+﻿@{
+    var tariff = (IEnumerable<SelectListItem>)ViewData["Tariffs"];
+}
+
+<script src="~/js/app.js/StorageTariff.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Storage Traiff</h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left">
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Tariff <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.DropDownList("TariffId", tariff, "--Select Tariff--", new { @class = "form-control select2", @id = "tariff" })
+                            </div>
+                        </div>
+
+
+                        @*<div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Extra Free Days
+                            </label>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <input type="number" id="freedays" class="form-control" />
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <button onclick="saveFreeDays()" id="btnSubmit" type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>*@
+
+                        <div class="form-group">
+                            <label class="control-label col-md-12 col-sm-12 col-xs-12" for="first-name" style=" text-align: center; color: red; ">
+
+                                When the limit of the day have been end user  type (OVER) in  description  and number of days 
+                            </label>
+                             
+                        </div>
+                        <div class="form-group" id="gridContainer">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

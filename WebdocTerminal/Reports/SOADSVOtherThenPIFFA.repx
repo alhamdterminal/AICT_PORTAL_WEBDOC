@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="18.2.4.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="SOADSVOtherThenPIFFA" Landscape="true" Margins="4, 291, 108, 100" PaperKind="LegalExtra" PageWidth="1500" PageHeight="927" Version="18.2" EventsInfo="|label16,BeforePrint,label16_BeforePrint" DataSource="#Ref-0" Font="Arial, 9.75pt">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" AllowNull="true" Name="fromDate" />
+    <Item2 Ref="4" Visible="false" AllowNull="true" Name="toDate" />
+    <Item3 Ref="5" Visible="false" AllowNull="true" Name="year" />
+    <Item4 Ref="6" Visible="false" AllowNull="true" Name="month" />
+    <Item5 Ref="7" Visible="false" AllowNull="true" Name="shippingagent" />
+    <Item6 Ref="8" Visible="false" AllowNull="true" Name="Vessel" />
+    <Item7 Ref="9" Visible="false" AllowNull="true" Name="voyage" />
+    <Item8 Ref="10" Visible="false" ValueInfo="3000" AllowNull="true" Name="shareofBayWest20" />
+    <Item9 Ref="11" Visible="false" ValueInfo="4000" AllowNull="true" Name="shareofBayWest40" />
+    <Item10 Ref="12" Visible="false" ValueInfo="10" AllowNull="true" Name="tax" />
+    <Item11 Ref="14" Visible="false" Description="CompanyId" ValueInfo="33" AllowNull="true" Name="CompanyId" Type="#Ref-13" />
+    <Item12 Ref="15" Visible="false" Description="path" AllowNull="true" Name="path" />
+  </Parameters>
+  <CalculatedFields>
+    <Item1 Ref="16" Name="calculatedField1" Expression="Sum([TOTALCBM])" DataMember="SOADSVOtherThenPIFFA" />
+  </CalculatedFields>
+  <Bands>
+    <Item1 Ref="17" ControlType="TopMarginBand" Name="TopMargin" HeightF="108">
+      <Controls>
+        <Item1 Ref="18" ControlType="XRPictureBox" Name="pictureBox1" ImageAlignment="TopCenter" SizeF="239.583328,80.99998" LocationFloat="25.8749962, 8.333333">
+          <EditOptions Ref="19" Enabled="true" />
+          <ExpressionBindings>
+            <Item1 Ref="20" Expression="?path+'/'+ [Query].[FilePath]" PropertyName="ImageUrl" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="21" ControlType="XRLabel" Name="label2" Multiline="true" Text="ACCOUNT : DSV EXPORT SOA DETAIL " TextAlignment="TopCenter" SizeF="526.91626,30.4999981" LocationFloat="292.401764, 21.208271" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="22" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="23" ControlType="XRLabel" Name="label3" Multiline="true" TextAlignment="TopRight" SizeF="378.000122,23" LocationFloat="728.0001, 75" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="24" Expression="[Query].[CompanyEmail]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="25" UseTextAlignment="false" />
+        </Item3>
+      </Controls>
+    </Item1>
+    <Item2 Ref="26" ControlType="BottomMarginBand" Name="BottomMargin">
+      <Controls>
+        <Item1 Ref="27" ControlType="XRLabel" Name="label10" Multiline="true" TextAlignment="TopCenter" SizeF="1114.08337,23" LocationFloat="0, 51.1585236" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="28" Expression="[Query].[Address]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="29" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="30" ControlType="DetailBand" Name="Detail" HeightF="501.25">
+      <Controls>
+        <Item1 Ref="31" ControlType="XRLabel" Name="label1" Multiline="true" Text="LESS : BAY WEST SHARE" TextAlignment="TopLeft" SizeF="223.833374,22.9999924" LocationFloat="10.0000067, 113.875008" Padding="2,2,0,0,100">
+          <StylePriority Ref="32" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="33" ControlType="XRLabel" Name="label4" Multiline="true" Text="CONTAINER 20" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="9.999998, 147.833374" Padding="2,2,0,0,100">
+          <StylePriority Ref="34" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="35" ControlType="XRLabel" Name="label6" Multiline="true" Text="Total" TextAlignment="TopLeft" SizeF="271.750031,23" LocationFloat="9.999998, 222.416687" Padding="2,2,0,0,100">
+          <StylePriority Ref="36" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="37" ControlType="XRLabel" Name="label5" Multiline="true" Text="CONTAINER 40" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="9.999998, 188.458374" Padding="2,2,0,0,100">
+          <StylePriority Ref="38" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="39" ControlType="XRLabel" Name="label8" Multiline="true" Text="Amount Payable To PortLink After Tax" TextAlignment="TopLeft" SizeF="271.750031,23" LocationFloat="9.999998, 379.291656" Padding="2,2,0,0,100">
+          <StylePriority Ref="40" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="41" ControlType="XRLabel" Name="label11" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="325.208374, 188.458435" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="42" Expression="[SOADSVOtherThenPIFFA].[share40]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="43" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="44" ControlType="XRLabel" Name="label9" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="325.208374, 147.833374" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="45" Expression="[SOADSVOtherThenPIFFA].[share20]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="46" UseTextAlignment="false" />
+        </Item7>
+        <Item8 Ref="47" ControlType="XRLabel" Name="label12" Multiline="true" Text="x" TextAlignment="TopLeft" SizeF="24.875061,23" LocationFloat="545.000061, 147.833435" Padding="2,2,0,0,100">
+          <StylePriority Ref="48" UseTextAlignment="false" />
+        </Item8>
+        <Item9 Ref="49" ControlType="XRLabel" Name="label15" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="608.5419, 188.458435" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="50" Expression="?shareofBayWest40" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="51" UseTextAlignment="false" />
+        </Item9>
+        <Item10 Ref="52" ControlType="XRLabel" Name="label14" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="608.5419, 147.833435" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="53" Expression="?shareofBayWest20" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="54" UseTextAlignment="false" />
+        </Item10>
+        <Item11 Ref="55" ControlType="XRLabel" Name="label16" Multiline="true" TextAlignment="TopLeft" SizeF="279.041718,23" LocationFloat="0, 345.874969" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="56" Expression="'Less :'+ ?tax + '% With Holding Income Tax'" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="57" UseTextAlignment="false" />
+        </Item11>
+        <Item12 Ref="58" ControlType="XRLabel" Name="label17" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="899.791748, 222.416748" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="59" Expression="(ToInt([SOADSVOtherThenPIFFA].[share20]) * ToInt(?shareofBayWest20) )&#xA;+(ToInt([SOADSVOtherThenPIFFA].[share40]) * ToInt(?shareofBayWest40) )" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="60" UseTextAlignment="false" />
+        </Item12>
+        <Item13 Ref="61" ControlType="XRLabel" Name="label18" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="899.791748, 379.291656" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="62" Expression="(( [SOADSVOtherThenPIFFA].[calculatedField1])&#xA; - ((ToInt( [SOADSVOtherThenPIFFA].[share20]) * ToInt(?shareofBayWest20) )&#xA;+(ToInt( [SOADSVOtherThenPIFFA].[share40]) * ToInt(?shareofBayWest40) ))&#xA;) &#xA;-&#xA;(&#xA;(ToDecimal(?tax) / 100 ) &#xA;*&#xA;(( [SOADSVOtherThenPIFFA].[calculatedField1])&#xA; - ((ToInt([SOADSVOtherThenPIFFA].[share20]) * ToInt(?shareofBayWest20) )&#xA;+(ToInt( [SOADSVOtherThenPIFFA].[share40]) * ToInt(?shareofBayWest40) ))&#xA;)&#xA;)" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="63" UseTextAlignment="false" />
+        </Item13>
+        <Item14 Ref="64" ControlType="XRLabel" Name="label20" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="899.791748, 147.833435" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="65" Expression="ToInt([SOADSVOtherThenPIFFA].[share20]) * ToInt(  ?shareofBayWest20)" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="66" UseTextAlignment="false" />
+        </Item14>
+        <Item15 Ref="67" ControlType="XRLabel" Name="label19" Multiline="true" TextAlignment="TopLeft" SizeF="162.374878,23" LocationFloat="899.791748, 188.458374" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="68" Expression="ToInt([SOADSVOtherThenPIFFA].[share40]) * ToInt(?shareofBayWest40)" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="69" UseTextAlignment="false" />
+        </Item15>
+        <Item16 Ref="70" ControlType="XRLabel" Name="label22" Multiline="true" Text="=" TextAlignment="TopLeft" SizeF="24.875061,23" LocationFloat="806.488159, 147.833435" Padding="2,2,0,0,100">
+          <StylePriority Ref="71" UseTextAlignment="false" />
+        </Item16>
+        <Item17 Ref="72" ControlType="XRLabel" Name="label21" Multiline="true" Text="=" TextAlignment="TopLeft" SizeF="24.875061,23" LocationFloat="806.488159, 188.458435" Padding="2,2,0,0,100">
+          <StylePriority Ref="73" UseTextAlignment="false" />
+        </Item17>
+        <Item18 Ref="74" ControlType="XRLabel" Name="label23" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="899.791748, 334.500061" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="75" Expression="(ToDecimal(?tax) / 100 ) &#xA;*&#xA;(([SOADSVOtherThenPIFFA].[calculatedField1])&#xA; - ((ToInt([SOADSVOtherThenPIFFA].[share20]) * ToInt(?shareofBayWest20) )&#xA;+(ToInt([SOADSVOtherThenPIFFA].[share40]) * ToInt(?shareofBayWest40) ))&#xA;)" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="76" UseTextAlignment="false" />
+        </Item18>
+        <Item19 Ref="77" ControlType="XRLabel" Name="label24" Multiline="true" Text="x" TextAlignment="TopLeft" SizeF="24.875061,23" LocationFloat="545.000061, 188.458435" Padding="2,2,0,0,100">
+          <StylePriority Ref="78" UseTextAlignment="false" />
+        </Item19>
+        <Item20 Ref="79" ControlType="XRLabel" Name="label25" Multiline="true" Text="Amount Payable To PortLink Before Tax" TextAlignment="TopLeft" SizeF="271.750031,23" LocationFloat="10.0000067, 269.291748" Padding="2,2,0,0,100">
+          <StylePriority Ref="80" UseTextAlignment="false" />
+        </Item20>
+        <Item21 Ref="81" ControlType="XRLabel" Name="label13" Multiline="true" TextAlignment="TopLeft" SizeF="162.375046,23" LocationFloat="899.791748, 269.291748" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="82" Expression="([SOADSVOtherThenPIFFA].[calculatedField1])&#xA; - ((ToInt([SOADSVOtherThenPIFFA].[share20]) * ToInt(?shareofBayWest20) )&#xA;+(ToInt([SOADSVOtherThenPIFFA].[share40]) * ToInt(?shareofBayWest40) ))" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="83" UseTextAlignment="false" />
+        </Item21>
+        <Item22 Ref="84" ControlType="XRPivotGrid" Name="pivotGrid1" DataMember="SOADSVOtherThenPIFFA" SizeF="1205,92.7083359" LocationFloat="4.23855236E-05, 0">
+          <Appearance Ref="85">
+            <Cell Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </Cell>
+            <FieldHeader Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </FieldHeader>
+            <TotalCell Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </TotalCell>
+            <GrandTotalCell Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </GrandTotalCell>
+            <CustomTotalCell Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </CustomTotalCell>
+            <FieldValue Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </FieldValue>
+            <FieldValueTotal Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </FieldValueTotal>
+            <FieldValueGrandTotal Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </FieldValueGrandTotal>
+            <Lines Font="Tahoma, 8pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </Lines>
+          </Appearance>
+          <OptionsPrint Ref="86" UsePrintAppearance="true" PrintDataHeaders="False" PrintFilterHeaders="False" PrintColumnHeaders="False" FilterSeparatorBarPadding="3" />
+          <OptionsView Ref="87" />
+          <Fields>
+            <Item1 Ref="88" FieldName="InvoiceNo" Name="fieldInvoiceNo1" Area="RowArea" Caption="Invoice No" Index="0" AreaIndex="0" MinWidth="20" Width="106">
+              <FilterValues Ref="89" />
+              <SummaryFilter Ref="90" />
+            </Item1>
+            <Item2 Ref="91" FieldName="InvoiceDate" Name="fieldInvoiceDate1" Area="RowArea" Caption="InvoiceDate" Index="1" AreaIndex="2" MinWidth="20" Width="130">
+              <FilterValues Ref="92" />
+              <SummaryFilter Ref="93" />
+            </Item2>
+            <Item3 Ref="94" FieldName="No Of Pkgs" Name="fieldNoOfPkgs1" Area="RowArea" Caption="No Of Pkgs" Index="2" AreaIndex="3" MinWidth="20" Width="80">
+              <FilterValues Ref="95" />
+              <SummaryFilter Ref="96" />
+            </Item3>
+            <Item4 Ref="97" FieldName="ClearingAgentName" Name="fieldClearingAgentName1" Area="RowArea" Caption="Clearing Agent Name" Index="3" AreaIndex="5" MinWidth="20" Width="141">
+              <FilterValues Ref="98" />
+              <SummaryFilter Ref="99" />
+            </Item4>
+            <Item5 Ref="100" FieldName="CBM" Name="fieldCBM1" Area="RowArea" Caption="CBM" Index="4" AreaIndex="6" MinWidth="20" Width="50">
+              <FilterValues Ref="101" />
+              <SummaryFilter Ref="102" />
+            </Item5>
+            <Item6 Ref="103" FieldName="TariffHeadExport" Name="fieldTariffHeadExport1" Area="RowArea" Caption="Tariff Head Export" Index="5" ColumnValueLineCount="3" AreaIndex="7" MinWidth="20" Width="178">
+              <FilterValues Ref="104" />
+              <SummaryFilter Ref="105" />
+            </Item6>
+            <Item7 Ref="106" FieldName="TOTALCBM" Name="fieldTOTALCBM1" Area="DataArea" Caption="TOTALCBM" Index="6" AreaIndex="0" MinWidth="20" Width="100">
+              <FilterValues Ref="107" />
+              <SummaryFilter Ref="108" />
+            </Item7>
+            <Item8 Ref="109" FieldName="ContainerNumber" Name="pivotGridField1" Area="RowArea" Index="7" AreaIndex="4" MinWidth="20" Width="149">
+              <FilterValues Ref="110" />
+              <SummaryFilter Ref="111" />
+            </Item8>
+            <Item9 Ref="112" FieldName="GDNumber" Name="pivotGridField2" Area="RowArea" Index="8" AreaIndex="1" MinWidth="20" Width="149">
+              <FilterValues Ref="113" />
+              <SummaryFilter Ref="114" />
+            </Item9>
+          </Fields>
+          <Prefilter Ref="115" />
+          <OptionsChartDataSource Ref="116" />
+        </Item22>
+      </Controls>
+    </Item3>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v18.2" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IlNPQURTVk90aGVyVGhlblBJRkZBIj48UGFyYW1ldGVyIE5hbWU9IkB5ZWFyIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3llYXIpPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAbW9udGgiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/bW9udGgpPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAZnJvbURhdGUiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/ZnJvbURhdGUpPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAdG9EYXRlIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3RvRGF0ZSk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkBzaGlwcGluZ2FnZW50IiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3NoaXBwaW5nYWdlbnQpPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAVmVzc2VsIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP1Zlc3NlbCk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkB2b3lhZ2UiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/dm95YWdlKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQHNoYXJlb2ZCYXlXZXN0MjAiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/c2hhcmVvZkJheVdlc3QyMCk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkBzaGFyZW9mQmF5V2VzdDQwIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3NoYXJlb2ZCYXlXZXN0NDApPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAdGF4IiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3RheCk8L1BhcmFtZXRlcj48UHJvY05hbWU+U09BRFNWT3RoZXJUaGVuUElGRkE8L1Byb2NOYW1lPjwvUXVlcnk+PFF1ZXJ5IFR5cGU9IkN1c3RvbVNxbFF1ZXJ5IiBOYW1lPSJRdWVyeSI+PFBhcmFtZXRlciBOYW1lPSJDb21wYW55SWQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDY0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9Db21wYW55SWQpPC9QYXJhbWV0ZXI+PFNxbD5zZWxlY3QgIkNvbXBhbnkiLiJDb21wYW55SWQiLA0KICAgICAgICJDb21wYW55Ii4iQ29tcGFueU5hbWUiLA0KICAgICAgICJDb21wYW55Ii4iQ29tcGFueUVtYWlsIiwNCiAgICAgICAiQ29tcGFueSIuIkFkZHJlc3MiLCAiQ29tcGFueSIuIkZpbGVQYXRoIg0KICBmcm9tICJkYm8iLiJDb21wYW55IiAiQ29tcGFueSINCg0Kd2hlcmUgIkNvbXBhbnkiLiJDb21wYW55SWQiID0gQENvbXBhbnlJZDwvU3FsPjwvUXVlcnk+PFJlc3VsdFNjaGVtYT48RGF0YVNldCBOYW1lPSJzcWxEYXRhU291cmNlMSI+PFZpZXcgTmFtZT0iU09BRFNWT3RoZXJUaGVuUElGRkEiPjxGaWVsZCBOYW1lPSJJbnZvaWNlTm8iIFR5cGU9IkludDY0IiAvPjxGaWVsZCBOYW1lPSJJbnZvaWNlRGF0ZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJObyBPZiBQa2dzIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iR0ROdW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ29udGFpbmVyTnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkNsZWFyaW5nQWdlbnROYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkNCTSIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJUYXJpZmZIZWFkRXhwb3J0IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlRPVEFMQ0JNIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9InNoYXJlNDAiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJzaGFyZTIwIiBUeXBlPSJJbnQzMiIgLz48L1ZpZXc+PFZpZXcgTmFtZT0iUXVlcnkiPjxGaWVsZCBOYW1lPSJDb21wYW55SWQiIFR5cGU9IkludDY0IiAvPjxGaWVsZCBOYW1lPSJDb21wYW55TmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb21wYW55RW1haWwiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQWRkcmVzcyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJGaWxlUGF0aCIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v18.2" Ref="13" Content="System.Int64" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

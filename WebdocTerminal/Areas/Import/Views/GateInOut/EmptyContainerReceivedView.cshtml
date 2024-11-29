@@ -1,0 +1,329 @@
+﻿@{
+
+    var ShippingLine = (IEnumerable<SelectListItem>)ViewData["ShippingLine"];
+
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var ISOCodes = (IEnumerable<SelectListItem>)ViewData["ISOCodes"];
+
+    var ClearingAgents = (IEnumerable<SelectListItem>)ViewData["ClearingAgents"];
+
+    var Transporters = (IEnumerable<SelectListItem>)ViewData["Transporters"];
+
+}
+<style>
+
+    .error {
+        color: red;
+    }
+
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+
+<script src="~/js/app.js/EmptyContainerReceivedView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Empty Container Received</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>   
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="EmptyContainerReceived">
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Line:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentId", ShippingAgent, "Select Shipping Agent ", new { @class = "form-control select2", @id = "shippingAgents" , required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Principal:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingLineId", ShippingLine, "Select Principal ", new { @class = "form-control select2", @id = "shippingLiness" , required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Arrival From:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form form-control" id="arrivedFrom" name="ArrivedFrom"  required/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Type:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ISOCodeHeadId", ISOCodes, "Select Container Type", new { @class = "form-control select2", @id = "isoCode" , required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12" id="consigneecolm">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Consignee:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div id="searchBoxForConsigne"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Clearing Agent:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ClearingAgentId", ClearingAgents, "Select Clearing Agent", new { @class = "form-control select2", @id = "clearingAgent"   })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                          
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Vessel:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="vessel" name="Vessel" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Voyage:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="voyage" name="Voyage" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Actual Arrive:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form form-control" id="actualArrive" name="ActualArrive" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Container No:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="containerNo" name="ContainerNo" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                @*<div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Size:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form form-control" id="size" name="Size" required/>
+                                    </div>
+                                </div>*@
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Size <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="item form-control" id="size" name="Size" required> 
+                                            <option value="20">20</option>
+                                            <option value="40">40</option>
+                                            <option value="45">45</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Transporter:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("TransporterId", Transporters, "Select Principal ", new { @class = "form-control select2", @id = "transporter" ,  required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Shift:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="shift" name="Shift" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Truck No:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="truckNo" name="TruckNo" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Damage Type:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="damageType" name="DamageType" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Pick Location:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="pickLocation" name="PickLocation" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Gurantee No:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="guranteeNo" name="GuranteeNo" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Remarks:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="remarks" name="Remarks"  required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                         
+                        <div class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button class="btn btn-primary" style="float:right;" onclick="saveinfo()" type="button" id="btnSubmit">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_content">
+                                        <div id="containerDetailList"></div>
+                                        <div class="ln_solid"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+ 
+
+
+
+    
+
+</div>
+
+
+
+
+<script>
+    $('.select2').select2();
+</script>

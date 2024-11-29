@@ -1,0 +1,231 @@
+﻿<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+    #error.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+</style>
+
+<script src="~/js/app.js/MultiTariff.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Multi Tariff</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="multitariffForm">
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                <div class="item form-group  x_panel">
+
+                                    <div class="newbox">
+                                        Action Type
+                                    </div>
+
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="insert" name="type" value="insert" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   Insert
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="update" name="type" value="update" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   Update
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="delete" name="type" value="delete" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   Delete
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="topup" name="type" value="topup" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   Topup
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="filters">
+
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+
+                                        <div class="">
+
+                                            <div class="row">
+
+                                                <div class="col-md-8 col-sm-4 col-xs-12">
+                                                    <div class="item form-group">
+                                                        <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                            Description:
+                                                        </label>
+                                                        <div class="col-md-10 col-sm-8 col-xs-12">
+                                                            <textarea class="form-control" id="desc" cols="100" maxlength="100"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <div class="item form-group">
+                                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                                            Tariff Type:
+                                                        </label>
+                                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                                            <select id="tarifftype" class="form-control" onchange="ontypechange()">
+                                                                <option value="default">Select...</option>
+                                                                <option value="tariff">Tariff</option>
+                                                                <option value="tariffinformation">Contract</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <div class="item form-group">
+                                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                            Fields:
+                                                        </label>
+                                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                                            <select class="form-control" id="field" onchange="fieldchange()">
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <div class="item form-group">
+                                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                            Operator:
+                                                        </label>
+                                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                                            <select class="form-control" id="operator">
+                                                                <option>Select...</option>
+                                                                <option value="IN">IN</option>
+                                                                <option value="NOT IN">Not IN</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <div class="item form-group">
+                                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                            Criteria:
+                                                        </label>
+                                                        <div class="">
+                                                            <div class="dx-field-value">
+                                                                <div id="gridBox"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                </div>
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
+
+                                                    <button type="button" class="btn btn-success" onclick="adddata()" style="float: right;">Add</button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-8 col-sm-12 col-xs-12"></div>
+
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+
+                                <button type="button" class="btn btn-primary" onclick="UpdateDays()" style="float: right;">Save</button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="data-grid-demo">
+                                <div id="gridContainer1"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="form-group" id="gridContainer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="resdataGrid"></div>
+
+                    </div>
+
+                </div>
+                    </div>
+                </div>
+    </div>
+</div>
+
+

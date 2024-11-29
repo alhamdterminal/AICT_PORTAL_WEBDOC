@@ -1,0 +1,107 @@
+﻿@{
+
+    var EGM = (IEnumerable<SelectListItem>)ViewData["EGM"];
+
+    var Agent = (IEnumerable<SelectListItem>)ViewData["Agent"];
+}
+
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/ExportDailyCFSReport.js"></script>
+
+
+
+<div class="right_col" role="main">
+    <div class="x_panel">
+        <div class="page-title ">
+            <div class="title_left">
+                <h3>
+                    Export Daily CFS Report
+                </h3>
+            </div>
+            <div class="">
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+                    <div class="form-horizontal form-label-left row">
+                        <div class="col-md-4 col-xs-12" style="float: right;">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Report Type
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" id="type">
+                                        <option value="Vessel" selected>Vessel Wise</option>
+                                        <option value="Agent">Agent Wise</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        @{ Html.RenderPartial("_VesselVoyageSelection"); }
+
+
+
+                    </div>
+                    <div class="form-horizontal form-label-left row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    EGM
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("EGM", EGM, "Select EGM", new { @class = "form-control select2", @id = "egm" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Freight Forwarder
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("Agent", Agent, "Select Agent", new { @class = "form-control select2", @id = "agent" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                @{ Html.RenderPartial("_DateFilter"); }
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

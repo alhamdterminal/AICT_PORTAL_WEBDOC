@@ -1,0 +1,295 @@
+﻿
+<style>
+    .x_title h2 {
+        margin: 5px 0 6px;
+        display: block;
+        text-align: left !important;
+        float: none !important;
+        font-weight: 600;
+        color: #045d80;
+        font-size: inherit;
+    }
+
+    @@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-55, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            min-height: 1px;
+            padding-right: 10px;
+            padding-left: 10px;
+            float: inherit;
+        }
+
+        .index {
+            color: #1abb9c;
+            font-size: 13px;
+            margin-left: 0px;
+        }
+    }
+
+    @@media only screen and (min-device-width : 980px) {
+        .index {
+            color: #1abb9c;
+            font-size: 10px;
+        }
+    }
+</style>
+
+
+<script src="~/js/app.js/DashboardImport.js"></script>
+
+
+<div class="right_col" role="main">
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-4 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h2>Dashboard CFS Import</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="row top_tiles">
+                    <a href="import/Reports/ListofUpcomingContainer">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="upcommingContainer">00</div>
+                                <h4>Upcoming Containers</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/import/Reports/ContainerReceiveDuringThePeriod">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/truck.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="gateInContainer">00</div>
+                                <h4>
+                                    Gate In Containers
+                                    <span class="index">(Indexes)</span>
+                                    <span style=" color: #1abb9c;
+    font-size: 10px;" class="count" id="gateinIndex">00</span>
+
+                                </h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/boat.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="groundedContainer">00</div>
+                                <h4>Grounded</h4>
+                            </div>
+                        </div>
+                    </a>
+
+                    @*<a href="/import/Reports/DeStuffingContainerWise">
+                            <div class="animated flipInY col-md-3 ">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa"> <img src="~/images/shipping.svg" style="width: 60px;" /></i></div>
+                                    <div class="count" id="destuffedContainer">00</div>
+                                    <h4>Destuffed</h4>
+
+                                </div>
+                            </div>
+                        </a>*@
+
+                    <a href="/import/Reports/ContainerReceiveDuringThePeriod">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/truck.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="destuffedContainer">00</div>
+                                <h4>
+                                    Destuffed
+                                    <span class="index">(Indexes)</span>
+                                    <span style=" color: #1abb9c;
+    font-size: 10px;" class="count" id="destuffedIndexCFS">00</span>
+
+                                </h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+
+
+                <div class="clearfix"></div>
+                <div class="row top_tiles">
+
+                    <a href="#">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="examinationMark">00</div>
+                                <h4>Examination Mark</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="groundingAwaited">00</div>
+                                <h4>Grounding Awaited</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="animated flipInY col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/boxes.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="holdContainer">00</div>
+                                <h4>On Hold</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/import/Reports/DeliveryOrderReportCFSContainer">
+                        <div class="animated flipInY  col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/delivery.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="gateOutContainer">00</div>
+                                <h4>
+                                    Gate Out Container
+                                    <span class="index">(Indexes)</span>
+                                    <span style="  color: #1abb9c;
+    font-size: 10px;" class="count" id="gateOutCountainerIndex">00</span>
+                                </h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h2>Dashboard CY Import</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="row top_tiles">
+                    <a href="import/Reports/ListofUpcomingContainerCY">
+                        <div class="animated flipInY col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="upcommingContainerCY">00</div>
+                                <h4>Upcoming Containers</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/import/Reports/ContainerReceiveDuringThePeriod">
+                        <div class="animated flipInY col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/truck.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="gateInContainerCY">00</div>
+                                <h4>Gate In Containers</h4>
+
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/import/Reports/GroundingContainerCY">
+                        <div class="animated flipInY col-md-3 ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/boat.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="groundedContainerCY">00</div>
+                                <h4>Grounded</h4>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/import/Reports/ExaminationMarkCYContainer">
+
+                        <div class="animated flipInY col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="examinationMarkCY">00</div>
+                                <h4>Examination Mark</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row top_tiles">
+                    <a href="#">
+                        <div class="animated flipInY col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="weighmentContainerCY">00</div>
+                                <h4>Weighment</h4>
+
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="animated flipInY col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/box.svg" style="width: 55px;" /></i></div>
+                                <div class="count" id="groundingAwaitedCY">00</div>
+                                <h4>Grounding Awaited</h4>
+
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="animated flipInY  col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/boxes.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="holdContainerCY">00</div>
+                                <h4>On Hold</h4>
+
+                            </div>
+                        </div>
+                    </a>
+                    <a href="import/Reports/CYDeliveryReport">
+                        <div class="animated flipInY col-md-3">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa"> <img src="~/images/delivery.svg" style="width: 60px;" /></i></div>
+                                <div class="count" id="gateOutContainerCY">00</div>
+                                <h4>Gate Out</h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

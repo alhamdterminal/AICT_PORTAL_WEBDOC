@@ -1,0 +1,228 @@
+﻿@{
+
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var PortAndTerminal = (IEnumerable<SelectListItem>)ViewData["PortAndTerminal"];
+
+
+
+}
+
+
+
+<script src="~/js/app.js/PreAlertBindingView.js"></script>
+<style>
+
+
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Pre-Alert Binding</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="PrealterForm">
+
+
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Principal
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentId", ShippingAgent, "Select Principal", new { @class = "form-control select2", @id = "shippingAgent", @required = "required" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Line / F.F
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentLineId", ShippingAgent, "Select Line", new { @class = "form-control select2", @id = "line", @required = "required" })
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Port
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("PortAndTerminalId", PortAndTerminal, "Select Port", new { @class = "form-control select2", @id = "portAndTerminal", @required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4  col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-xs-12" for="first-name">
+                                            From:
+                                        </label>
+                                        <div class="col-md-8  col-xs-12">
+                                            <input type="date" class="form-control" id="fromdate">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4  col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4  col-xs-12" for="first-name">
+                                            To:
+                                        </label>
+                                        <div class="col-md-8  col-xs-12">
+                                            <input type="date" class="form-control" id="todate">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Vessel: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @(Html.DevExtreme()
+                                .Autocomplete()
+                                .ID("VESSEL")
+                                .DataSource(d => d.Mvc()
+                                .Controller("APICalls")
+                                .Area("")
+                                .LoadAction("GetPreAlertVesselName"))
+                                .Placeholder("Type Vessel...")
+                                .OnValueChanged("vessel_changed"))
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Voyage
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form form-control select2" id="voyageid"> 
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        IGM: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @(Html.DevExtreme()
+                                .Autocomplete()
+                                .ID("IGM")
+                                .DataSource(d => d.Mvc()
+                                .Controller("APICalls")
+                                .Area("")
+                                .LoadAction("GetIGMS"))
+                                .Placeholder("Type IGM...")
+                                .OnValueChanged("igm_changed"))
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-dark" onclick="find()" style=" float: right;"> View Detail</button>
+                                    <button id="btnSubmit" type="button" onclick="selectAll()" class="btn btn-success" style="float:right;">Select ALL</button>
+                                    <button id="btnSubmit" type="button" onclick="unselectAll()" class="btn btn-primary" style="float:right;">Un-Select ALL</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </form>
+
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div id="unbindgrid"></div>
+                                    <div class="ln_solid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button id="btnSubmit" type="button" onclick="updateAlert()" class="btn btn-success" style="float:right;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+
+</script>

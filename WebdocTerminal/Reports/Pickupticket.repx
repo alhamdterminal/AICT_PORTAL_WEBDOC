@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Pickupticket" Margins="14, 11, 115, 100" PageWidth="850" PageHeight="1100" Version="19.1" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" ValueInfo="3495" AllowNull="true" Name="TruckInOutId" Type="#Ref-2" />
+    <Item2 Ref="5" Visible="false" ValueInfo="CFS" AllowNull="true" Name="ContainerType" />
+    <Item3 Ref="6" Visible="false" ValueInfo="49" AllowNull="true" Name="ConpanyId" Type="#Ref-2" />
+    <Item4 Ref="7" Visible="false" AllowNull="true" Name="path" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="8" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="115.374992">
+      <Controls>
+        <Item1 Ref="9" ControlType="XRLabel" Name="label34" Multiline="true" Text="PICK UP TICKET" TextAlignment="TopLeft" SizeF="573.416748,30.5" LocationFloat="251.583221, 50.4999771" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="10" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="11" ControlType="XRLabel" Name="label2" Multiline="true" TextAlignment="TopLeft" SizeF="573.4166,30.5" LocationFloat="251.583221, 0" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="12" Expression="[Query].[CompanyName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="13" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="14" ControlType="XRLabel" Name="label3" Multiline="true" TextAlignment="TopRight" SizeF="323.416656,23" LocationFloat="501.58313, 92.37499" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="15" Expression="[Query].[CompanyEmail]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="16" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="17" ControlType="XRPictureBox" Name="pictureBox1" ImageAlignment="TopCenter" SizeF="239.583328,80.99998" LocationFloat="1.99987793, 0">
+          <EditOptions Ref="18" Enabled="true" />
+          <ExpressionBindings>
+            <Item1 Ref="19" Expression="?path+'/'+[Query].[FilePath]" PropertyName="ImageUrl" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item4>
+      </Controls>
+    </Item1>
+    <Item2 Ref="20" ControlType="DetailBand" Name="detailBand1" HeightF="354.666656">
+      <Controls>
+        <Item1 Ref="21" ControlType="XRLabel" Name="label31" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="676.0413,23" LocationFloat="148.95845, 295.625" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="22" Expression="[Pickupticket].[SealNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="23" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="24" ControlType="XRLabel" Name="label32" Multiline="true" Text="Seal No" TextAlignment="TopLeft" SizeF="112.916656,23" LocationFloat="10.0000067, 295.624939" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="25" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="26" ControlType="XRLabel" Name="label29" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="232.166565,23" LocationFloat="592.833252, 256.386871" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="27" Expression="[Pickupticket].[Size]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="28" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="29" ControlType="XRLabel" Name="label30" Multiline="true" Text="Container Size" TextAlignment="TopLeft" SizeF="114.999756,23" LocationFloat="477.8335, 256.386871" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="30" UseFont="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="31" ControlType="XRLabel" Name="label27" Multiline="true" Text="BRT No" TextAlignment="TopLeft" SizeF="112.916656,23" LocationFloat="9.999998, 256.386871" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="32" UseFont="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="33" ControlType="XRLabel" Name="label28" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="271.750061,23" LocationFloat="148.958435, 256.3869" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="34" Expression="[Pickupticket].[brt]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="35" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="36" ControlType="XRLabel" Name="label25" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="271.750061,23" LocationFloat="148.95842, 219.3036" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="37" Expression="[Pickupticket].[ContainerNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="38" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item7>
+        <Item8 Ref="39" ControlType="XRLabel" Name="label26" Multiline="true" Text="Container No " TextAlignment="TopLeft" SizeF="112.916656,23" LocationFloat="10.0000067, 219.303574" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="40" UseFont="false" UseTextAlignment="false" />
+        </Item8>
+        <Item9 Ref="41" ControlType="XRLabel" Name="label10" Multiline="true" Text="BL Number" TextAlignment="TopLeft" SizeF="98.3333359,22.9999981" LocationFloat="9.999998, 184.3036" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="42" UseFont="false" UseTextAlignment="false" />
+        </Item9>
+        <Item10 Ref="43" ControlType="XRLabel" Name="label24" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="271.750061,23" LocationFloat="148.9584, 184.3036" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="44" Expression="[Pickupticket].[BLNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="45" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item10>
+        <Item11 Ref="46" ControlType="XRLabel" Name="label4" Multiline="true" Text="Truck Entry Time" TextAlignment="TopLeft" SizeF="126.458328,22.9999981" LocationFloat="6.999874, 5.87501526" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="47" UseFont="false" UseTextAlignment="false" />
+        </Item11>
+        <Item12 Ref="48" ControlType="XRLabel" Name="label5" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="271.750122,22.9999981" LocationFloat="145.9582, 5.87501526" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="49" Expression="[Pickupticket].[TruckEntryDate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="50" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item12>
+        <Item13 Ref="51" ControlType="XRLabel" Name="label11" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="232.166565,23" LocationFloat="592.833252, 94.0416" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="52" Expression="[Pickupticket].[VesselName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="53" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item13>
+        <Item14 Ref="54" ControlType="XRLabel" Name="label1" Multiline="true" Text="Vessel Name" TextAlignment="TopLeft" SizeF="114.999695,23" LocationFloat="477.833374, 94.0416" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="55" UseFont="false" UseTextAlignment="false" />
+        </Item14>
+        <Item15 Ref="56" ControlType="XRLabel" Name="label13" Multiline="true" Text="Processing Time" TextAlignment="TopLeft" SizeF="85.83325,23.0000038" LocationFloat="477.8335, 9.999974" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="57" UseFont="false" UseTextAlignment="false" />
+        </Item15>
+        <Item16 Ref="58" ControlType="XRLabel" Name="label12" TextFormatString="{0:yyyy-MM-dd}" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="232.1665,23" LocationFloat="592.8334, 9.999974" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="59" Expression="[Pickupticket].[TruckInDate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="60" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item16>
+        <Item17 Ref="61" ControlType="XRLabel" Name="label7" TextFormatString="{0:MMMM d, yyyy}" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="232.166565,22.9999962" LocationFloat="592.8334, 59.04166" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="62" Expression="[Pickupticket].[ShippingAgentName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="63" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item17>
+        <Item18 Ref="64" ControlType="XRLabel" Name="label6" Multiline="true" Text="Line Name" TextAlignment="TopLeft" SizeF="114.999695,22.9999962" LocationFloat="477.8335, 59.04166" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="65" UseFont="false" UseTextAlignment="false" />
+        </Item18>
+        <Item19 Ref="66" ControlType="XRLabel" Name="label9" Multiline="true" Text="Aict Do No" TextAlignment="TopLeft" SizeF="98.3333359,22.9999981" LocationFloat="6.99994946, 59.04166" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="67" UseFont="false" UseTextAlignment="false" />
+        </Item19>
+        <Item20 Ref="68" ControlType="XRLabel" Name="label8" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="271.750061,22.9999962" LocationFloat="145.958252, 59.04166" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="69" Expression="[Pickupticket].[DONumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="70" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item20>
+        <Item21 Ref="71" ControlType="XRLabel" Name="label15" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="271.750061,23" LocationFloat="145.958252, 141.004" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="72" Expression="[Pickupticket].[IndexNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="73" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item21>
+        <Item22 Ref="74" ControlType="XRLabel" Name="label14" Multiline="true" Text="Index No" TextAlignment="TopLeft" SizeF="98.3333359,22.9999981" LocationFloat="6.999878, 141.004" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="75" UseFont="false" UseTextAlignment="false" />
+        </Item22>
+        <Item23 Ref="76" ControlType="XRLabel" Name="label17" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="232.166565,23" LocationFloat="592.833252, 139.095245" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="77" Expression="[Pickupticket].[ClearingAgentName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="78" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item23>
+        <Item24 Ref="79" ControlType="XRLabel" Name="label16" Multiline="true" Text="Clearing Agent" TextAlignment="TopLeft" SizeF="114.999695,23" LocationFloat="477.833374, 139.095245" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="80" UseFont="false" UseTextAlignment="false" />
+        </Item24>
+        <Item25 Ref="81" ControlType="XRLabel" Name="label19" Multiline="true" Text="IGM No" TextAlignment="TopLeft" SizeF="98.3333359,22.9999981" LocationFloat="6.99994946, 104.0953" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="82" UseFont="false" UseTextAlignment="false" />
+        </Item25>
+        <Item26 Ref="83" ControlType="XRLabel" Name="label18" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="271.750061,23.0000076" LocationFloat="145.958221, 104.0953" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="84" Expression="[Pickupticket].[VirNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="85" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item26>
+        <Item27 Ref="86" ControlType="XRLabel" Name="label23" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="232.166626,23" LocationFloat="592.8334, 176.003967" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="87" Expression="[Pickupticket].[billentryno]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="88" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item27>
+        <Item28 Ref="89" ControlType="XRLabel" Name="label22" Multiline="true" Text="Bill Entry No" TextAlignment="TopLeft" SizeF="114.999634,22.9999847" LocationFloat="477.8335, 176.003967" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="90" UseFont="false" UseTextAlignment="false" />
+        </Item28>
+        <Item29 Ref="91" ControlType="XRLabel" Name="label21" Multiline="true" Text="Truck No :" TextAlignment="TopLeft" SizeF="114.999756,23" LocationFloat="477.8335, 219.303574" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="92" UseFont="false" UseTextAlignment="false" />
+        </Item29>
+        <Item30 Ref="93" ControlType="XRLabel" Name="label20" Multiline="true" AutoWidth="true" CanGrow="false" TextAlignment="TopLeft" SizeF="232.166565,23" LocationFloat="592.833252, 219.303574" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="94" Expression="[Pickupticket].[TruckNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="95" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item30>
+      </Controls>
+    </Item2>
+    <Item3 Ref="96" ControlType="BottomMarginBand" Name="bottomMarginBand1" />
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IlBpY2t1cHRpY2tldCI+PFBhcmFtZXRlciBOYW1lPSJAVHJ1Y2tJbk91dElkIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5JbnQ2NCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/VHJ1Y2tJbk91dElkKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQENvbnRhaW5lclR5cGUiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/Q29udGFpbmVyVHlwZSk8L1BhcmFtZXRlcj48UHJvY05hbWU+UGlja3VwdGlja2V0PC9Qcm9jTmFtZT48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJDdXN0b21TcWxRdWVyeSIgTmFtZT0iUXVlcnkiPjxQYXJhbWV0ZXIgTmFtZT0iQ29tcGFueUlkIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5JbnQ2NCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/Q29ucGFueUlkKTwvUGFyYW1ldGVyPjxTcWw+c2VsZWN0ICJDb21wYW55Ii4iQ29tcGFueUlkIiwNCiAgICAgICAiQ29tcGFueSIuIkNvbXBhbnlOYW1lIiwNCiAgICAgICAiQ29tcGFueSIuIkNvbXBhbnlFbWFpbCIsDQogICAgICAgIkNvbXBhbnkiLiJBZGRyZXNzIiwgIkNvbXBhbnkiLiJGaWxlUGF0aCINCiAgZnJvbSAiZGJvIi4iQ29tcGFueSIgIkNvbXBhbnkiDQoNCndoZXJlICJDb21wYW55Ii4iQ29tcGFueUlkIiA9IEBDb21wYW55SWQ8L1NxbD48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlBpY2t1cHRpY2tldCI+PEZpZWxkIE5hbWU9IlRydWNrRW50cnlEYXRlIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iVHJ1Y2tJbkRhdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJUcnVja05vIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkNvbnRhaW5lck51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJWaXJOdW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSW5kZXhOdW1iZXIiIFR5cGU9IkludDY0IiAvPjxGaWVsZCBOYW1lPSJTaXplIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQkxObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJiaWxsZW50cnlubyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDbGVhcmluZ0FnZW50TmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJWZXNzZWxOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRPTnVtYmVyIiBUeXBlPSJJbnQ2NCIgLz48RmllbGQgTmFtZT0iU2hpcHBpbmdBZ2VudE5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iYnJ0IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlNlYWxOdW1iZXIiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PFZpZXcgTmFtZT0iUXVlcnkiPjxGaWVsZCBOYW1lPSJDb21wYW55SWQiIFR5cGU9IkludDY0IiAvPjxGaWVsZCBOYW1lPSJDb21wYW55TmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb21wYW55RW1haWwiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQWRkcmVzcyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJGaWxlUGF0aCIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v19.1" Ref="2" Content="System.Int64" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

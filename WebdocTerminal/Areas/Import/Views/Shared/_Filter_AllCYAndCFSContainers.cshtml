@@ -1,0 +1,144 @@
+﻿
+<script>
+
+    var voyagList = [];
+
+    var igm;
+
+    function igm_changed(data) {
+        igm = data.value;
+        console.log(igm)
+
+        $.get('/APICalls/GetVessel?IGM=' + igm, function (data) {
+
+            if (data) {
+
+                $('#igmyear').val(data.igmYear);
+                $('#vessel').val(data.vesselName);
+                console.log(data.voyages);
+                voyagList = data.voyages;
+                console.log(voyagList)
+                // all contaiers  var voyageNo = data.voyages[data.voyages.length - 1].voyageNo;
+                var index = voyagList.findIndex(t => t.voyageNo == data.voyages[data.voyages.length - 1].voyageNo);
+
+                $("#searchBox").dxSelectBox({
+                    dataSource: voyagList,
+                    displayExpr: "voyageNo",
+                    value: voyagList[index],
+                    acceptCustomValue: true,
+                    onValueChanged: function (data) {
+                        voyageNo = data.value.voyageNo;
+                        $.get('/APICalls/GetAllCFSAndCYContainersDropdown?VoyageNo=' + voyageNo + "&IGM=" + igm, function (containerdb) {
+                            $('#containerdiv').html(containerdb);
+                            //  ChangeContainerIndexDropbox();
+                            containerChangeCallback("container");
+
+                        });
+                    },
+
+                })
+
+                var voyageNo = data.voyages[data.voyages.length - 1].voyageNo;
+                $('#voyageno').val(voyageNo);
+
+                //  $('#voyageno').val(voyageNo);
+
+                $.get('/APICalls/GetAllCFSAndCYContainersDropdown?VoyageNo=' + voyageNo + "&IGM=" + igm, function (containerdb) {
+
+                    $('#containerdiv').html(containerdb);
+
+                    containerChangeCallback("container");
+
+                });
+            }
+
+        });
+    }
+
+    $(function () {
+
+        $('#containerdiv').on('change', function (val) {
+            console.log(val, "val");
+            containerChangeCallback("container");
+
+        });
+
+
+
+
+    });
+
+</script>
+
+ 
+  
+
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                IGM: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @(Html.DevExtreme()
+                                .Autocomplete()
+                                .ID("IGM")
+                                .DataSource(d => d.Mvc()
+                                .Controller("APICalls")
+                                .Area("")
+                                .LoadAction("GetIGMS"))
+                                .Placeholder("Type IGM...")
+                                .OnValueChanged("igm_changed"))
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Year:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="igmyear">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Vessel:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="vessel" name="VesselName">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Voyage:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div id="searchBox"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Container # <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div id="containerdiv"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+       
+ 

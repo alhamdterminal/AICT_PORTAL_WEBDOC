@@ -1,0 +1,179 @@
+﻿@{
+
+
+    var Party = (IEnumerable<SelectListItem>)ViewData["Party"];
+}
+<style>
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+    .select2 {
+        width: 100% !important;
+    }
+
+    .select2-container select2-container--default {
+        width: 100% !important;
+    }
+</style>
+
+
+<script src="~/js/app.js/DeleteInvoiceExportView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Payments Detail</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" id="tabsdiv">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+                        <li class="nav-item active">
+                            <a class="nav-link active" id="anf-tab" data-toggle="tab" href="#anf" role="tab" aria-controls="anf" aria-selected="true">Invoice Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="paperready-tab" data-toggle="tab" href="#paperready" role="tab" aria-controls="paperready" aria-selected="false">Cheque Received Info</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active in" id="anf" role="tabpanel" aria-labelledby="anf-tab">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_content">
+                                            <form class="form-horizontal form-label-left" novalidate="" id="SearchDOForm">
+                                                <div class="form-horizontal form-label-left row">
+
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="item form-group">
+                                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                                                Invoice No:
+                                                            </label>
+                                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                <input type="text" class="form-control" id="invoiceNo">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2 col-sm-4 col-xs-12">
+                                                        <div class="form-group">
+                                                            <button id="send" type="button" onclick="FindInvoice()" class="btn btn-success">Find</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="item form-group">
+                                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                                                GD No:
+                                                            </label>
+                                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                <input type="text" class="form-control" id="gdno">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2 col-sm-4 col-xs-12">
+                                                        <div class="form-group">
+                                                            <button id="send" type="button" onclick="FindInvoicebygd()" class="btn btn-success">Find By GD Number</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="gateinContainer"></div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="paperready" role="tabpanel" aria-labelledby="paperready-tab">
+                            <div class="row">
+
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_content">
+                                                <form class="form-horizontal form-label-left" novalidate="" id="SearchDOForm">
+                                                    <div class="form-horizontal form-label-left row">
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    Party *:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    @Html.DropDownList("PartyId", Party, "Select Party", new { @class = "form-control select2", @id = "partyId", @required = "required" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                                                    Instrument No:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <input type="text" class="form-control" id="instrumentNo">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group">
+                                                                <button id="send" type="button" onclick="FindInvoicebyPartyAndInstrumentNo()" class="btn btn-success" style="float:right">Find By Party With Instrument</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div id="chequeDetailGrid"></div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

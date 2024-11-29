@@ -1,0 +1,64 @@
+﻿<div class="right_col" role="main">
+
+    <div class="clearfix"></div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Audit Logs</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @(Html.DevExtreme().DataGrid<WebdocTerminal.Models.Audit>()
+                              .ID("AuditGrid")
+                               .AllowColumnResizing(true)
+                               .ColumnAutoWidth(true)
+
+                              .FilterRow(filterRow => filterRow
+                              .Visible(true)
+                              .ApplyFilter(GridApplyFilterMode.Auto))
+                              .Paging(paging => paging.PageSize(10))
+                              .Editing(editing =>
+                              {
+                                  editing.Mode(GridEditMode.Popup);
+                                  editing.AllowAdding(false);
+                                  editing.AllowDeleting(false);
+                                  editing.AllowUpdating(false);
+                                  editing.UseIcons(true);
+                                  editing.Popup(p => p
+                                  .ShowTitle(false)
+                                  .Width(700)
+                                  .Height(345)
+                                  .Position(pos => pos
+                                  .My(HorizontalAlignment.Center, VerticalAlignment.Center)
+                                  .At(HorizontalAlignment.Center, VerticalAlignment.Center)
+                                  .Of(new JS("window"))
+                                  )
+                                  );
+                              })
+                              .Columns(c =>
+                              {
+                                  c.Add().DataField("tableName");
+                                  c.Add().DataField("dateTime").DataType(GridColumnDataType.DateTime);
+                                  c.Add().DataField("keyValues");
+                                  c.Add().DataField("oldValues");
+                                  c.Add().DataField("newValues");
+                                  c.Add().DataField("username");
+                              })
+                                        .DataSource(d => d.Mvc()
+                                        .Controller("Audit")
+                                        .LoadAction("GetAuditData")
+                                        .Key("id")))
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+

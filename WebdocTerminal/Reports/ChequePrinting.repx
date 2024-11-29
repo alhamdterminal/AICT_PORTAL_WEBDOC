@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="XtraReport1" Landscape="true" Margins="0, 0, 0, 17" PaperKind="Custom" PageWidth="951" PageHeight="800" Version="19.1" DataMember="ChequePrint" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" ValueInfo="123456" AllowNull="true" Name="amount" Type="#Ref-2" />
+    <Item2 Ref="5" Visible="false" ValueInfo="Al HAMZA INTERNATIONAL PVT LTD" AllowNull="true" Name="PartyName" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="6" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="0" />
+    <Item2 Ref="7" ControlType="DetailBand" Name="detailBand1" HeightF="0" />
+    <Item3 Ref="8" ControlType="BottomMarginBand" Name="bottomMarginBand1" HeightF="16.982523" />
+    <Item4 Ref="9" ControlType="ReportHeaderBand" Name="ReportHeader" HeightF="433.760681">
+      <Controls>
+        <Item1 Ref="10" ControlType="XRLabel" Name="label1" Multiline="true" SizeF="326.447418,12.0614929" LocationFloat="440.29837, 352.0086" Font="Arial, 10.2pt, charSet=0" BackColor="White" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="11" Expression="[PartyName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="12" UseFont="false" UseBackColor="false" />
+        </Item1>
+        <Item2 Ref="13" ControlType="XRLabel" Name="label2" TextFormatString="{0:dd-MM-yyyy}" Multiline="true" TextAlignment="TopRight" SizeF="145.945984,23" LocationFloat="801.053955, 300.192871" Font="Arial, 10.8pt, style=Bold, charSet=0" BackColor="White" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="14" Expression="GetDate(Now())" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="15" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="16" ControlType="XRLabel" Name="label5" Multiline="true" SizeF="393.2964,40.1140747" LocationFloat="423.535156, 377.070068" Font="Arial, 10.2pt, charSet=0" BackColor="White" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="17" Expression="[amountinwords]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="18" UseFont="false" UseBackColor="false" />
+        </Item3>
+        <Item4 Ref="19" ControlType="XRLabel" Name="label6" TextFormatString="{0:#,#}" Multiline="true" Text="50,000" TextAlignment="TopRight" SizeF="177.017639,23.00003" LocationFloat="760.982544, 364.0701" Font="Arial, 10.8pt, charSet=0" BackColor="White" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="20" Expression=" FormatString('{0:#,#}', [amount] ) + '/='" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="21" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+        </Item4>
+      </Controls>
+    </Item4>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IkNoZXF1ZVByaW50Ij48UGFyYW1ldGVyIE5hbWU9IkBhbW91bnQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkRlY2ltYWwsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP2Ftb3VudCk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkBQYXJ0eU5hbWUiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/UGFydHlOYW1lKTwvUGFyYW1ldGVyPjxQcm9jTmFtZT5DaGVxdWVQcmludDwvUHJvY05hbWU+PC9RdWVyeT48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9InNxbERhdGFTb3VyY2UxIj48VmlldyBOYW1lPSJDaGVxdWVQcmludCI+PEZpZWxkIE5hbWU9ImFtb3VudCIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iUGFydHlOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImFtb3VudGlud29yZHMiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0PjwvUmVzdWx0U2NoZW1hPjxDb25uZWN0aW9uT3B0aW9ucyBDbG9zZUNvbm5lY3Rpb249InRydWUiIC8+PC9TcWxEYXRhU291cmNlPg==" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v19.1" Ref="2" Content="System.Decimal" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

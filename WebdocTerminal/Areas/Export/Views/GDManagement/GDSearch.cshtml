@@ -1,0 +1,67 @@
+﻿@{ 
+    var type = ViewData["Type"].ToString();
+}
+
+<div class="form-horizontal form-label-left row">
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="item form-group">
+            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                GD-Number: <span class="required">*</span>
+            </label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                @(Html.DevExtreme()
+                                                            .Autocomplete()
+                                                            .ID("GDNumber")
+                                                            .DataSource(d => d.Mvc()
+                                                            .Controller("APICalls")
+                                                            .Area("")
+                                                            .LoadAction("GetGDNumbers"))
+                                                            .Placeholder("Type GDNumber..."))
+                <span class="error" id="gdnumberError"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="item form-group">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                From
+            </label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                @(Html.DevExtreme().DateBox()
+                       .Type(DateBoxType.Date)
+                     .Name("RecevingStartTime")
+                    .ID("recevingStartTime")
+
+                )
+                <span class="error" id="RecevingStartTimeerror"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="item form-group">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+               To
+            </label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                @(Html.DevExtreme().DateBox()
+                                .Type(DateBoxType.Date)
+                                 .Name("RecevingEndTime")
+                                .ID("recevingEndTime")
+
+                )
+                <span class="error" id="RecevingEndTimeerror"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button type="button" class="btn btn-primary" style="float: right;" onclick="searchGDs('@type')">
+            Search
+        </button>
+    </div>
+
+</div>

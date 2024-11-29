@@ -1,0 +1,95 @@
+﻿<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/TellySheetReport.js"></script>
+
+<style>
+    .modal-dialog {
+        width: 50% !important;
+        margin: 30px auto;
+    }
+</style>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Tally Sheet</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left" novalidate="" id="TellySheet">
+
+                        <partial name="~/Areas/Import/Views/Shared/_ContainerOrientation.cshtml" />
+                        <div class="container-index">
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12  col-md-12 col-xs-12">
+                                <div class="form-group pull-right">
+                                    <a id="buttn" class="btn btn-success" onclick="CheckHoldStatus()">Print Telly Sheet</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="clearfix"></div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="HoldStatusModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Hold Status</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="x_content" id="holdGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+

@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="ContainerArrival" Margins="12, 10, 0, 238" PageWidth="850" PageHeight="1100" Version="19.1" DataMember="ContainerArrival" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" ValueInfo="AICT1234567" Name="ContainerNo" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="4" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="0" />
+    <Item2 Ref="5" ControlType="DetailBand" Name="detailBand1" HeightF="668.75">
+      <SortFields>
+        <Item1 Ref="6" FieldName="arrivaldate" SortOrder="Descending" />
+      </SortFields>
+      <Controls>
+        <Item1 Ref="7" ControlType="XRLabel" Name="label58" Multiline="true" Text="label58" TextAlignment="MiddleCenter" SizeF="828,32.9999962" LocationFloat="0, 59.2500038" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="8" Expression="[FullOrEmpty]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="9" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="10" ControlType="XRLabel" Name="label2" Multiline="true" Text="CONTAINER ARRIVAL" TextAlignment="TopCenter" SizeF="828,30.5000019" LocationFloat="0, 28.7500057" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="11" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="12" ControlType="XRPageBreak" Name="pageBreak1" LocationFloat="0, 632.3334" />
+        <Item4 Ref="13" ControlType="XRLabel" Name="label56" Multiline="true" SizeF="168.333069,23" LocationFloat="395.9167, 336.624969" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="14" Expression="[MBL]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="15" UseBackColor="false" UseBorders="false" />
+        </Item4>
+        <Item5 Ref="16" ControlType="XRLabel" Name="label57" Multiline="true" Text="MBL No" SizeF="59.375,23" LocationFloat="336.5417, 336.624969" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="17" UseBackColor="false" />
+        </Item5>
+        <Item6 Ref="18" ControlType="XRLabel" Name="label54" Multiline="true" Text="Good Type" SizeF="76.04172,23" LocationFloat="456.333282, 411.8333" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="19" UseBackColor="false" />
+        </Item6>
+        <Item7 Ref="20" ControlType="XRLabel" Name="label55" Multiline="true" SizeF="288.750183,23" LocationFloat="532.3747, 411.8333" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="21" Expression="[GoodsHeadName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="22" UseBackColor="false" UseBorders="false" />
+        </Item7>
+        <Item8 Ref="23" ControlType="XRLabel" Name="label52" Multiline="true" SizeF="140.833435,23" LocationFloat="680.2916, 234.791687" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="24" UseBackColor="false" UseBorders="false" />
+        </Item8>
+        <Item9 Ref="25" ControlType="XRLabel" Name="label53" Multiline="true" Text="Port Of Loading" SizeF="109.375,23" LocationFloat="570.9166, 234.791687" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="26" UseBackColor="false" />
+        </Item9>
+        <Item10 Ref="27" ControlType="XRLabel" Name="label50" Multiline="true" Text="Shipper Name" SizeF="86.875,23" LocationFloat="24.4583282, 519.750061" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="28" UseBackColor="false" />
+        </Item10>
+        <Item11 Ref="29" ControlType="XRLabel" Name="label51" Multiline="true" SizeF="707.083252,23" LocationFloat="114.041695, 519.750061" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="30" Expression="[ShipperName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="31" UseBackColor="false" UseBorders="false" />
+        </Item11>
+        <Item12 Ref="32" ControlType="XRLabel" Name="label48" Multiline="true" SizeF="290.208252,23" LocationFloat="144.250046, 411.8333" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="33" Expression="[holdremarks]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="34" UseBackColor="false" UseBorders="false" />
+        </Item12>
+        <Item13 Ref="35" ControlType="XRLabel" Name="label49" Multiline="true" Text="Remarks Hold Etc" SizeF="119.791733,23" LocationFloat="24.4582977, 411.8333" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="36" UseBackColor="false" />
+        </Item13>
+        <Item14 Ref="37" ControlType="XRLabel" Name="label46" Multiline="true" Text="Veesel Arrival Date" SizeF="119.7917,23" LocationFloat="24.4583282, 371.625" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="38" UseBackColor="false" />
+        </Item14>
+        <Item15 Ref="39" ControlType="XRLabel" Name="label47" TextFormatString="{0:dd-MMM-yy HH:mm:tt}" Multiline="true" SizeF="170.833145,23" LocationFloat="144.250046, 371.625" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="40" Expression="[VeeselArrivalDate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="41" UseBackColor="false" UseBorders="false" />
+        </Item15>
+        <Item16 Ref="42" ControlType="XRLabel" Name="label44" Multiline="true" SizeF="707.083252,23" LocationFloat="114.041695, 486.7083" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="43" Expression="[Principle]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="44" UseBackColor="false" UseBorders="false" />
+        </Item16>
+        <Item17 Ref="45" ControlType="XRLabel" Name="label45" Multiline="true" Text="Principle Name" SizeF="89.58337,23" LocationFloat="24.4583282, 486.7083" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="46" UseBackColor="false" />
+        </Item17>
+        <Item18 Ref="47" ControlType="XRLabel" Name="label42" Multiline="true" Text="Destuffing Date" SizeF="100.000031,23" LocationFloat="334.458282, 371.625" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="48" UseBackColor="false" />
+        </Item18>
+        <Item19 Ref="49" ControlType="XRLabel" Name="label43" Multiline="true" SizeF="142.208344,23" LocationFloat="434.458282, 371.625" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="50" Expression="[destuffdate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="51" UseBackColor="false" UseBorders="false" />
+        </Item19>
+        <Item20 Ref="52" ControlType="XRLabel" Name="label40" Multiline="true" SizeF="151.666565,23" LocationFloat="669.4583, 371.625" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="53" Expression="[HSCode]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="54" UseBackColor="false" UseBorders="false" />
+        </Item20>
+        <Item21 Ref="55" ControlType="XRLabel" Name="label41" Multiline="true" Text="HS Code" SizeF="76.04172,23" LocationFloat="593.4167, 371.625" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="56" UseBackColor="false" />
+        </Item21>
+        <Item22 Ref="57" ControlType="XRLabel" Name="label38" Multiline="true" Text="Offhire Date" SizeF="76.04172,23" LocationFloat="593.4166, 336.625031" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="58" UseBackColor="false" />
+        </Item22>
+        <Item23 Ref="59" ControlType="XRLabel" Name="label39" Multiline="true" SizeF="151.666565,23" LocationFloat="669.4583, 336.625031" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="60" Expression="[OffhireDate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="61" UseBackColor="false" UseBorders="false" />
+        </Item23>
+        <Item24 Ref="62" ControlType="XRLabel" Name="label36" Multiline="true" Text="IGM No" SizeF="60.4166641,23" LocationFloat="24.4583282, 336.624969" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="63" UseBackColor="false" />
+        </Item24>
+        <Item25 Ref="64" ControlType="XRLabel" Name="label37" Multiline="true" SizeF="230.208191,23" LocationFloat="84.87499, 336.624969" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="65" Expression="[VirNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="66" UseBackColor="false" UseBorders="false" />
+        </Item25>
+        <Item26 Ref="67" ControlType="XRLabel" Name="label34" Multiline="true" SizeF="707.083252,23" LocationFloat="114.041695, 453.291626" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="68" Expression="[ShippingLineName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="69" UseBackColor="false" UseBorders="false" />
+        </Item26>
+        <Item27 Ref="70" ControlType="XRLabel" Name="label35" Multiline="true" Text="Line Name" SizeF="86.87499,23" LocationFloat="24.4583282, 453.291626" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="71" UseBackColor="false" />
+        </Item27>
+        <Item28 Ref="72" ControlType="XRLabel" Name="label32" Multiline="true" Text="Truck No" SizeF="100,23" LocationFloat="24.4583282, 302.666656" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="73" UseBackColor="false" />
+        </Item28>
+        <Item29 Ref="74" ControlType="XRLabel" Name="label33" Multiline="true" SizeF="131.249878,23" LocationFloat="124.458328, 302.666656" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="75" Expression="[VehicleNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="76" UseBackColor="false" UseBorders="false" />
+        </Item29>
+        <Item30 Ref="77" ControlType="XRLabel" Name="label30" Multiline="true" SizeF="140.833313,23.0000038" LocationFloat="680.2916, 268.2083" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="78" Expression="[PortOfEntry]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="79" UseBackColor="false" UseBorders="false" />
+        </Item30>
+        <Item31 Ref="80" ControlType="XRLabel" Name="label31" Multiline="true" Text="Port" SizeF="109.375031,23" LocationFloat="570.9166, 268.2083" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="81" UseBackColor="false" />
+        </Item31>
+        <Item32 Ref="82" ControlType="XRLabel" Name="label28" Multiline="true" SizeF="116.666656,23" LocationFloat="410.500031, 268.2083" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="83" Expression="[portweight]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="84" UseBackColor="false" UseBorders="false" />
+        </Item32>
+        <Item33 Ref="85" ControlType="XRLabel" Name="label29" Multiline="true" Text="Port Weight" SizeF="76.04172,23" LocationFloat="334.458282, 268.2083" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="86" UseBackColor="false" />
+        </Item33>
+        <Item34 Ref="87" ControlType="XRLabel" Name="label26" Multiline="true" Text="Weight" SizeF="100,23" LocationFloat="24.4583282, 268.2083" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="88" UseBackColor="false" />
+        </Item34>
+        <Item35 Ref="89" ControlType="XRLabel" Name="label27" Multiline="true" SizeF="131.249878,23" LocationFloat="124.458328, 268.2083" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="90" Expression="[ManifestedWeight]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="91" UseBackColor="false" UseBorders="false" />
+        </Item35>
+        <Item36 Ref="92" ControlType="XRLabel" Name="label24" Multiline="true" Text="Transporter" SizeF="86.87502,23" LocationFloat="24.4582977, 563.9584" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="93" UseBackColor="false" />
+        </Item36>
+        <Item37 Ref="94" ControlType="XRLabel" Name="label25" Multiline="true" SizeF="707.083252,23" LocationFloat="114.041695, 563.9584" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="95" Expression="[TransporterName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="96" UseBackColor="false" UseBorders="false" />
+        </Item37>
+        <Item38 Ref="97" ControlType="XRLabel" Name="label22" Multiline="true" Text="Port Time" SizeF="61.4584961,22.9999924" LocationFloat="334.458282, 234.791687" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="98" UseBackColor="false" />
+        </Item38>
+        <Item39 Ref="99" ControlType="XRLabel" Name="label23" TextFormatString="{0:h:mm tt}" Multiline="true" SizeF="131.249878,23" LocationFloat="395.916748, 234.791687" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="100" Expression="[porttime]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="101" UseBackColor="false" UseBorders="false" />
+        </Item39>
+        <Item40 Ref="102" ControlType="XRLabel" Name="label20" Multiline="true" SizeF="131.249878,23" LocationFloat="124.458328, 234.791687" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="103" Expression="[daynight]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="104" UseBackColor="false" UseBorders="false" />
+        </Item40>
+        <Item41 Ref="105" ControlType="XRLabel" Name="label21" Multiline="true" Text="Shift" SizeF="100,23" LocationFloat="24.4583282, 234.791687" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="106" UseBackColor="false" />
+        </Item41>
+        <Item42 Ref="107" ControlType="XRLabel" Name="label18" Multiline="true" SizeF="140.833313,23.0000038" LocationFloat="680.2916, 200.833359" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="108" Expression="[PCCSSSealNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="109" UseBackColor="false" UseBorders="false" />
+        </Item42>
+        <Item43 Ref="110" ControlType="XRLabel" Name="label19" Multiline="true" Text="Actual Seal" SizeF="109.375031,23" LocationFloat="570.9166, 200.833359" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="111" UseBackColor="false" />
+        </Item43>
+        <Item44 Ref="112" ControlType="XRLabel" Name="label16" Multiline="true" Text="Container Arrival" SizeF="109.375031,23" LocationFloat="570.9166, 166.875015" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="113" UseBackColor="false" />
+        </Item44>
+        <Item45 Ref="114" ControlType="XRLabel" Name="label17" TextFormatString="{0:dd-MMM-yy HH:mm:tt}" Multiline="true" SizeF="140.833313,23.0000038" LocationFloat="680.2916, 166.875015" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="115" Expression="[arrivaldate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="116" UseBackColor="false" UseBorders="false" />
+        </Item45>
+        <Item46 Ref="117" ControlType="XRLabel" Name="label14" Multiline="true" SizeF="131.249878,23.0000038" LocationFloat="395.9167, 200.833359" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="118" Expression="[Voyage]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="119" UseBackColor="false" UseBorders="false" />
+        </Item46>
+        <Item47 Ref="120" ControlType="XRLabel" Name="label15" Multiline="true" Text="Voyage" SizeF="61.4584351,23" LocationFloat="334.458282, 200.833359" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="121" UseBackColor="false" />
+        </Item47>
+        <Item48 Ref="122" ControlType="XRLabel" Name="label12" Multiline="true" Text="Vessel" SizeF="100,23" LocationFloat="24.4583282, 200.833359" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="123" UseBackColor="false" />
+        </Item48>
+        <Item49 Ref="124" ControlType="XRLabel" Name="label13" Multiline="true" SizeF="131.249878,23" LocationFloat="124.458328, 200.833359" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="125" Expression="[VesselName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="126" UseBackColor="false" UseBorders="false" />
+        </Item49>
+        <Item50 Ref="127" ControlType="XRLabel" Name="label10" Multiline="true" SizeF="131.249878,23.0000038" LocationFloat="395.9167, 166.875015" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="128" Expression="[CyCfs]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="129" UseBackColor="false" UseBorders="false" />
+        </Item50>
+        <Item51 Ref="130" ControlType="XRLabel" Name="label11" Multiline="true" Text="CY / CFS" SizeF="61.458374,23.0000038" LocationFloat="334.458282, 166.875015" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="131" UseBackColor="false" />
+        </Item51>
+        <Item52 Ref="132" ControlType="XRLabel" Name="label8" Multiline="true" Text="Type" SizeF="44.791687,23" LocationFloat="570.9166, 131.875" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="133" UseBackColor="false" />
+        </Item52>
+        <Item53 Ref="134" ControlType="XRLabel" Name="label9" Multiline="true" SizeF="205.416626,23" LocationFloat="615.7083, 131.875" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="135" Expression="[ISOCodeDescrition]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="136" UseBackColor="false" UseBorders="false" />
+        </Item53>
+        <Item54 Ref="137" ControlType="XRLabel" Name="label6" Multiline="true" Text="Size" SizeF="61.458374,23" LocationFloat="334.458282, 131.875" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="138" UseBackColor="false" />
+        </Item54>
+        <Item55 Ref="139" ControlType="XRLabel" Name="label7" Multiline="true" SizeF="131.249878,23" LocationFloat="395.9167, 131.875" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="140" Expression="[Size]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="141" UseBackColor="false" UseBorders="false" />
+        </Item55>
+        <Item56 Ref="142" ControlType="XRLabel" Name="label4" Multiline="true" Text="FCL / LCL" SizeF="100,23" LocationFloat="24.4583282, 166.875015" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="143" UseBackColor="false" />
+        </Item56>
+        <Item57 Ref="144" ControlType="XRLabel" Name="label5" Multiline="true" SizeF="131.249878,23.0000038" LocationFloat="124.458328, 166.875015" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="145" Expression="[CargoType]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="146" UseBackColor="false" UseBorders="false" />
+        </Item57>
+        <Item58 Ref="147" ControlType="XRLabel" Name="label3" Multiline="true" SizeF="131.249878,23" LocationFloat="124.458328, 131.875" BackColor="White" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="148" Expression="[ContainerNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="149" UseBackColor="false" UseBorders="false" />
+        </Item58>
+        <Item59 Ref="150" ControlType="XRLabel" Name="label1" Multiline="true" Text="Container No" SizeF="100,23" LocationFloat="24.4583282, 131.875" BackColor="LightBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="151" UseBackColor="false" />
+        </Item59>
+      </Controls>
+    </Item2>
+    <Item3 Ref="152" ControlType="BottomMarginBand" Name="bottomMarginBand1" HeightF="237.5" />
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IkNvbnRhaW5lckFycml2YWwiPjxQYXJhbWV0ZXIgTmFtZT0iQENvbnRhaW5lck51bWJlciIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9Db250YWluZXJObyk8L1BhcmFtZXRlcj48UHJvY05hbWU+Q29udGFpbmVyQXJyaXZhbDwvUHJvY05hbWU+PC9RdWVyeT48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9InNxbERhdGFTb3VyY2UxIj48VmlldyBOYW1lPSJDb250YWluZXJBcnJpdmFsIj48RmllbGQgTmFtZT0iRnVsbE9yRW1wdHkiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ29udGFpbmVyTm8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iU2l6ZSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IklTT0NvZGVEZXNjcml0aW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkNhcmdvVHlwZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDeUNmcyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJhcnJpdmFsZGF0ZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IlZlc3NlbE5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVm95YWdlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlBDQ1NTU2VhbE51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJkYXluaWdodCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJwb3J0dGltZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IlRyYW5zcG9ydGVyTmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJWZWhpY2xlTnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlBvcnRPZkVudHJ5IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik1hbmlmZXN0ZWRXZWlnaHQiIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0icG9ydHdlaWdodCIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJWaXJObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJTaGlwcGluZ0xpbmVOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik9mZmhpcmVEYXRlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlByaW5jaXBsZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJkZXN0dWZmZGF0ZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJIU0NvZGUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVmVlc2VsQXJyaXZhbERhdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJob2xkcmVtYXJrcyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJTaGlwcGVyTmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJQb3J0TmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJHb29kc0hlYWROYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik1CTCIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

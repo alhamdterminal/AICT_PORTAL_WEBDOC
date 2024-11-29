@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="GatePassAuctionReport" Margins="5, 43, 157, 100" PageWidth="850" PageHeight="1100" Version="19.1" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" Description="CompanyId" ValueInfo="49" AllowNull="true" Name="CompanyId" Type="#Ref-2" />
+    <Item2 Ref="5" Visible="false" ValueInfo="3" AllowNull="true" Name="gatePassId" Type="#Ref-4" />
+    <Item3 Ref="7" Visible="false" ValueInfo="CFS" AllowNull="true" Name="type" />
+    <Item4 Ref="8" Visible="false" AllowNull="true" Name="path" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="9" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="156.944443">
+      <Controls>
+        <Item1 Ref="10" ControlType="XRLabel" Name="label2" Multiline="true" Text="AUCTION DELIVERY&#xD;&#xA;GATE PASS" TextAlignment="TopCenter" SizeF="298.332367,59.08337" LocationFloat="286.00473, 54.86109" Font="Calibri, 16.2pt, style=Bold, Underline" Padding="2,2,0,0,100">
+          <StylePriority Ref="11" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="12" ControlType="XRLine" Name="line1" LineWidth="2" SizeF="799.000061,10" LocationFloat="0, 146.944443" BorderWidth="1">
+          <StylePriority Ref="13" UseBorderWidth="false" />
+        </Item2>
+        <Item3 Ref="14" ControlType="XRLabel" Name="label3" Multiline="true" TextAlignment="TopRight" SizeF="329.041656,23.0000038" LocationFloat="467.291443, 113.944458" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="15" Expression="[Query].[CompanyEmail]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="16" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="17" ControlType="XRPictureBox" Name="pictureBox1" ImageAlignment="TopCenter" SizeF="239.583328,80.99998" LocationFloat="23.097229, 32.94449">
+          <EditOptions Ref="18" Enabled="true" />
+          <ExpressionBindings>
+            <Item1 Ref="19" Expression="?path+'/'+ [Query].[FilePath]" PropertyName="ImageUrl" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item4>
+      </Controls>
+    </Item1>
+    <Item2 Ref="20" ControlType="DetailBand" Name="detailBand1" HeightF="233.333328">
+      <Controls>
+        <Item1 Ref="21" ControlType="XRLabel" Name="label38" Multiline="true" TextAlignment="MiddleLeft" SizeF="263.8331,23" LocationFloat="127.499954, 181.500031" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="22" Expression="[GatePassAuctionReport].[AuctionLotNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="23" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="24" ControlType="XRLabel" Name="label41" Multiline="true" Text="Auction Lot No" TextAlignment="MiddleLeft" SizeF="127.500015,23.0000153" LocationFloat="0, 181.500031" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="25" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="26" ControlType="XRLabel" Name="label5" TextFormatString="{0:dd-MMM-yy}" Multiline="true" TextAlignment="MiddleJustify" SizeF="209.666534,23" LocationFloat="90.00009, 28.3333454" Font="Calibri, 10pt" Padding="0,0,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="27" Expression="[GatePassAuctionReport].[GatePassNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="28" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="29" ControlType="XRLabel" Name="label6" Multiline="true" Text="Gate Pass #" TextAlignment="MiddleLeft" SizeF="90,23" LocationFloat="7.947286E-05, 28.3333454" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="30" UseFont="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="31" ControlType="XRLabel" Name="label25" Multiline="true" Text="019" TextAlignment="MiddleLeft" SizeF="98.1665649,23" LocationFloat="520.5, 66.49995" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="32" Expression="[GatePassAuctionReport].[IndexNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="33" UseFont="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="34" ControlType="XRLabel" Name="label26" Multiline="true" Text="Index #" TextAlignment="MiddleRight" SizeF="102.000214,23.00003" LocationFloat="403.8332, 66.50001" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="35" UseFont="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="36" ControlType="XRLabel" Name="label27" Multiline="true" TextAlignment="MiddleLeft" SizeF="275.83313,23.0000076" LocationFloat="520.5, 112.499916" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="37" Expression="[GatePassAuctionReport].[GDNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="38" UseFont="false" UseTextAlignment="false" />
+        </Item7>
+        <Item8 Ref="39" ControlType="XRLabel" Name="label28" Multiline="true" Text="GD No." TextAlignment="MiddleRight" SizeF="102.000305,23.00003" LocationFloat="403.8332, 112.499916" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="40" UseFont="false" UseTextAlignment="false" />
+        </Item8>
+        <Item9 Ref="41" ControlType="XRLabel" Name="label30" Multiline="true" Text="Arrival Date" TextAlignment="MiddleRight" SizeF="75.6665649,23.0000458" LocationFloat="430.1668, 158.499908" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="42" UseFont="false" UseTextAlignment="false" />
+        </Item9>
+        <Item10 Ref="43" ControlType="XRLabel" Name="label21" Multiline="true" Text="275" TextAlignment="MiddleLeft" SizeF="76.9584961,23.0000458" LocationFloat="520.5001, 89.49983" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="44" Expression="[GatePassAuctionReport].[VoyageNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="45" UseFont="false" UseTextAlignment="false" />
+        </Item10>
+        <Item11 Ref="46" ControlType="XRLabel" Name="label20" Multiline="true" Text="Voyage" TextAlignment="MiddleRight" SizeF="102.000214,22.9999924" LocationFloat="403.833252, 89.49983" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="47" UseFont="false" UseTextAlignment="false" />
+        </Item11>
+        <Item12 Ref="48" ControlType="XRLabel" Name="label14" Multiline="true" Text="Bidder " TextAlignment="MiddleLeft" SizeF="127.500015,23.0000153" LocationFloat="6.35782862E-06, 158.500015" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="49" UseFont="false" UseTextAlignment="false" />
+        </Item12>
+        <Item13 Ref="50" ControlType="XRLabel" Name="label15" Multiline="true" TextAlignment="MiddleLeft" SizeF="263.8331,23" LocationFloat="127.499962, 158.500031" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="51" Expression="[GatePassAuctionReport].[BidderName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="52" UseFont="false" UseTextAlignment="false" />
+        </Item13>
+        <Item14 Ref="53" ControlType="XRLabel" Name="label12" Multiline="true" Text="Vessel Name" TextAlignment="MiddleLeft" SizeF="127.500015,23.0000076" LocationFloat="0, 89.50013" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="54" UseFont="false" UseTextAlignment="false" />
+        </Item14>
+        <Item15 Ref="55" ControlType="XRLabel" Name="label13" Multiline="true" TextAlignment="MiddleLeft" SizeF="263.83313,23.0000153" LocationFloat="127.499908, 89.5001755" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="56" Expression="[GatePassAuctionReport].[VesselName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="57" UseFont="false" UseTextAlignment="false" />
+        </Item15>
+        <Item16 Ref="58" ControlType="XRLabel" Name="label10" Multiline="true" Text="VIR #" TextAlignment="MiddleLeft" SizeF="127.500015,23.0000153" LocationFloat="0, 66.50001" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="59" UseFont="false" UseTextAlignment="false" />
+        </Item16>
+        <Item17 Ref="60" ControlType="XRLabel" Name="label11" Multiline="true" Text="KAPE-0076-18022019" TextAlignment="MiddleLeft" SizeF="262.9997,23.0000076" LocationFloat="127.499992, 66.50001" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="61" Expression="[GatePassAuctionReport].[VIRNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="62" UseFont="false" UseTextAlignment="false" />
+        </Item17>
+        <Item18 Ref="63" ControlType="XRLabel" Name="label8" Multiline="true" Text="ST Import Bill" TextAlignment="MiddleLeft" SizeF="127.500015,23.0000153" LocationFloat="0, 112.5" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="64" UseFont="false" UseTextAlignment="false" />
+        </Item18>
+        <Item19 Ref="65" ControlType="XRLabel" Name="label9" Multiline="true" Text="44527735" TextAlignment="MiddleLeft" SizeF="263.83313,23.0000076" LocationFloat="127.499954, 112.5" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="66" Expression="[GatePassAuctionReport].[ImportBillNumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="67" UseFont="false" UseTextAlignment="false" />
+        </Item19>
+        <Item20 Ref="68" ControlType="XRLabel" Name="label4" Multiline="true" Text="Bill of Landing No." TextAlignment="MiddleLeft" SizeF="127.500015,23.0000038" LocationFloat="0, 135.5" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="69" UseFont="false" UseTextAlignment="false" />
+        </Item20>
+        <Item21 Ref="70" ControlType="XRLabel" Name="label7" Multiline="true" Text="18022019-123" TextAlignment="MiddleLeft" SizeF="263.83313,23" LocationFloat="127.500038, 135.500122" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="71" Expression="[GatePassAuctionReport].[BLNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="72" UseFont="false" UseTextAlignment="false" />
+        </Item21>
+        <Item22 Ref="73" ControlType="XRLabel" Name="label19" TextFormatString="{0:dd-MMM-yy hh:mm tt}" Multiline="true" Text=" " TextAlignment="MiddleCenter" SizeF="135.749817,23.0000019" LocationFloat="663.249939, 28.3333454" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <ExpressionBindings>
+            <Item1 Ref="74" Expression="[GatePassAuctionReport].[GatePassDate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="75" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item22>
+        <Item23 Ref="76" ControlType="XRLabel" Name="label36" TextFormatString="{0:dd-MMM-yy hh:mm tt}" Multiline="true" TextAlignment="MiddleLeft" SizeF="117.166138,23" LocationFloat="520.5001, 135.499832" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="77" Expression="[GatePassAuctionReport].[BillDate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="78" UseFont="false" UseTextAlignment="false" />
+        </Item23>
+        <Item24 Ref="79" ControlType="XRLabel" Name="label35" Multiline="true" Text="Issuance Date" TextAlignment="MiddleRight" SizeF="102.000305,23.00003" LocationFloat="403.833252, 135.499908" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="80" UseFont="false" UseTextAlignment="false" />
+        </Item24>
+        <Item25 Ref="81" ControlType="XRLabel" Name="label37" Multiline="true" Text="Print Date" TextAlignment="MiddleRight" SizeF="97.03369,22.9999981" LocationFloat="564.5913, 28.3333454" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="82" UseFont="false" UseTextAlignment="false" />
+        </Item25>
+        <Item26 Ref="83" ControlType="XRLabel" Name="label29" TextFormatString="{0:dd/MM/yyyy HH:mm}" Multiline="true" Text="23-Jan-2019" TextAlignment="MiddleCenter" SizeF="117.16626,23" LocationFloat="520.5, 158.500076" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <ExpressionBindings>
+            <Item1 Ref="84" Expression="[GatePassAuctionReport].[ArrivalDate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="85" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item26>
+      </Controls>
+    </Item2>
+    <Item3 Ref="86" ControlType="BottomMarginBand" Name="bottomMarginBand1">
+      <Controls>
+        <Item1 Ref="87" ControlType="XRLabel" Name="label40" Multiline="true" TextAlignment="TopCenter" SizeF="798.999939,23" LocationFloat="6.10351563E-05, 20.833334" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="88" Expression="[Query].[Address]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="89" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item3>
+    <Item4 Ref="90" ControlType="PageFooterBand" Name="PageFooter">
+      <Controls>
+        <Item1 Ref="91" ControlType="XRLabel" Name="label34" Multiline="true" Text="Delivery Clerk Signature" TextAlignment="MiddleCenter" SizeF="209.666367,23.0000019" LocationFloat="7.62939453E-05, 35.3333549" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100" Borders="Top">
+          <StylePriority Ref="92" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="93" ControlType="XRLabel" Name="label39" Multiline="true" Text="Gate S.P.O Signature" TextAlignment="MiddleCenter" SizeF="209.666367,23.0000019" LocationFloat="589.3336, 35.3333549" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100" Borders="Top">
+          <StylePriority Ref="94" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+      </Controls>
+    </Item4>
+    <Item5 Ref="95" ControlType="DetailReportBand" Name="DetailReport" Level="0" DataSource="#Ref-0">
+      <Bands>
+        <Item1 Ref="96" ControlType="DetailBand" Name="Detail" HeightF="50">
+          <Controls>
+            <Item1 Ref="97" ControlType="XRTable" Name="table1" TextAlignment="MiddleCenter" SizeF="799.000061,50" LocationFloat="1.90734863E-05, 0" Font="Calibri, 9pt" Borders="All">
+              <Rows>
+                <Item1 Ref="98" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+                  <Cells>
+                    <Item1 Ref="99" ControlType="XRTableCell" Name="tableCell3" Weight="1.7773017901253363" Multiline="true" Text="MAGNACRETE PVT LIMITED" TextAlignment="MiddleCenter" Padding="5,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="100" Expression="[GatePassAuctionReport].[MarksAndNumber]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="101" UseTextAlignment="false" />
+                    </Item1>
+                    <Item2 Ref="102" ControlType="XRTableCell" Name="tableCell4" Weight="2.2087169717498223" Multiline="true" Text="LCL/LCL 1 UNIT STC : USED VEHICLE (S) CH NO : KGC30-02516731 PCS INNER CARGO AUTOPARTS" TextAlignment="MiddleCenter" Padding="5,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="103" Expression="[GatePassAuctionReport].[Description]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="104" UseTextAlignment="false" />
+                    </Item2>
+                    <Item3 Ref="105" ControlType="XRTableCell" Name="tableCell13" Weight="1.9784539095214695" Multiline="true" Text="Unit = 01" TextAlignment="MiddleCenter" Padding="5,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="106" Expression="[GatePassAuctionReport].[NoOfPackages]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="107" UsePadding="false" UseTextAlignment="false" />
+                    </Item3>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="108" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item1>
+        <Item2 Ref="109" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="25">
+          <Controls>
+            <Item1 Ref="110" ControlType="XRTable" Name="table2" TextAlignment="MiddleCenter" SizeF="799.000061,25" LocationFloat="0, 0" Font="Calibri, 9pt, style=Bold" Borders="All">
+              <Rows>
+                <Item1 Ref="111" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+                  <Cells>
+                    <Item1 Ref="112" ControlType="XRTableCell" Name="tableCell1" Weight="1.7773017901253363" Multiline="true" Text="Mark &amp; Nos." Padding="5,2,0,0,100" />
+                    <Item2 Ref="113" ControlType="XRTableCell" Name="tableCell2" Weight="2.2087169717498223" Multiline="true" Text="Description &amp; Contents" TextAlignment="MiddleCenter" Padding="5,2,0,0,100" />
+                    <Item3 Ref="114" ControlType="XRTableCell" Name="tableCell5" Weight="1.9784539095214695" Multiline="true" Text="No. of Packages &amp; Running No." TextAlignment="MiddleCenter" Padding="5,2,0,0,100">
+                      <StylePriority Ref="115" UsePadding="false" UseTextAlignment="false" />
+                    </Item3>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="116" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item2>
+      </Bands>
+    </Item5>
+    <Item6 Ref="117" ControlType="DetailReportBand" Name="DetailReport1" Level="1" DataSource="#Ref-0">
+      <Bands>
+        <Item1 Ref="118" ControlType="DetailBand" Name="Detail1" HeightF="259.561951">
+          <Controls>
+            <Item1 Ref="119" ControlType="XRLabel" Name="label17" Multiline="true" Text="Incurred services in consolidation/deconsolidation, Terminal Handling, Warehousing and Transportation Incurred services in consolidation/deconsolidation, Terminal Handling, Warehousing and Transportation" TextAlignment="MiddleLeft" SizeF="698.9995,23.00003" LocationFloat="100.000114, 71.28427" Font="Calibri, 10pt, style=Underline" Padding="2,2,0,0,100" Borders="All">
+              <ExpressionBindings>
+                <Item1 Ref="120" Expression="[GatePassAuctionReport].[Remarks]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="121" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+            <Item2 Ref="122" ControlType="XRLabel" Name="label16" Multiline="true" Text="Remarks:" TextAlignment="MiddleLeft" SizeF="90.0000839,22.9999924" LocationFloat="10.000001, 71.28427" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="123" UseFont="false" UseTextAlignment="false" />
+            </Item2>
+            <Item3 Ref="124" ControlType="XRLabel" Name="label23" Multiline="true" Text="18022019-123" TextAlignment="MiddleLeft" SizeF="550.9125,23.0000153" LocationFloat="248.087051, 126.950882" Font="Calibri, 10pt" Padding="10,2,0,0,100" Borders="Bottom">
+              <ExpressionBindings>
+                <Item1 Ref="125" Expression="[GatePassAuctionReport].[ClearingAgentName]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="126" UseFont="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+            </Item3>
+            <Item4 Ref="127" ControlType="XRLabel" Name="label22" Multiline="true" Text="Name of Clearing Agent &amp; Licence No." TextAlignment="MiddleLeft" SizeF="238.087128,23.0000076" LocationFloat="10.000001, 126.950882" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="128" UseFont="false" UseTextAlignment="false" />
+            </Item4>
+            <Item5 Ref="129" ControlType="XRLabel" Name="label31" Multiline="true" TextAlignment="MiddleLeft" SizeF="214.662781,23.0000153" LocationFloat="584.337036, 26.3890152" Font="Calibri, 10pt" Padding="10,2,0,0,100" Borders="Bottom">
+              <ExpressionBindings>
+                <Item1 Ref="130" Expression="[GatePassAuctionReport].[VehicleNo]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="131" UseFont="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+            </Item5>
+            <Item6 Ref="132" ControlType="XRLabel" Name="label24" Multiline="true" Text="Vehicle No." TextAlignment="MiddleLeft" SizeF="76.42046,23.0000076" LocationFloat="507.916626, 26.3890152" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="133" UseFont="false" UseTextAlignment="false" />
+            </Item6>
+            <Item7 Ref="134" ControlType="XRLabel" Name="label33" Multiline="true" TextAlignment="MiddleLeft" SizeF="405.833557,23.0000153" LocationFloat="390.499573, 196.284149" Font="Calibri, 10pt" Padding="10,2,0,0,100" Borders="Bottom">
+              <StylePriority Ref="135" UseFont="false" UsePadding="false" UseBorders="false" UseTextAlignment="false" />
+            </Item7>
+            <Item8 Ref="136" ControlType="XRLabel" Name="label32" Multiline="true" Text="Clearing Agent's representative's signature &amp; custom permit No." TextAlignment="MiddleLeft" SizeF="380.4997,23.0000153" LocationFloat="10.000001, 196.284149" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="137" UseFont="false" UseTextAlignment="false" />
+            </Item8>
+            <Item9 Ref="138" ControlType="XRLabel" Name="label18" Multiline="true" Text="Container No" TextAlignment="MiddleRight" SizeF="85.5003052,23.00003" LocationFloat="10.000001, 26.38889" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+              <ExpressionBindings>
+                <Item1 Ref="139" Expression="Iif(?type == 'CFS','' ,'Container No' )" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="140" UseFont="false" UseTextAlignment="false" />
+            </Item9>
+            <Item10 Ref="141" ControlType="XRLabel" Name="label1" Multiline="true" Text="019" TextAlignment="MiddleLeft" SizeF="107.333191,23" LocationFloat="100.000137, 26.3889313" Font="Calibri, 10pt" Padding="2,2,0,0,100">
+              <ExpressionBindings>
+                <Item1 Ref="142" Expression="Iif(?type == 'CFS','' ,[GatePassAuctionReport].[ContainerNo]&#xA; )" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="143" UseFont="false" UseTextAlignment="false" />
+            </Item10>
+          </Controls>
+        </Item1>
+      </Bands>
+    </Item6>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IkdhdGVQYXNzQXVjdGlvblJlcG9ydCI+PFBhcmFtZXRlciBOYW1lPSJAdHlwZSIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD90eXBlKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQGdhdGVQYXNzSWQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDMyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9nYXRlUGFzc0lkKTwvUGFyYW1ldGVyPjxQcm9jTmFtZT5HYXRlUGFzc0F1Y3Rpb25SZXBvcnQ8L1Byb2NOYW1lPjwvUXVlcnk+PFF1ZXJ5IFR5cGU9IkN1c3RvbVNxbFF1ZXJ5IiBOYW1lPSJRdWVyeSI+PFBhcmFtZXRlciBOYW1lPSJDb21wYW55SWQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDY0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9Db21wYW55SWQpPC9QYXJhbWV0ZXI+PFNxbD5zZWxlY3QgIkNvbXBhbnkiLiJDb21wYW55SWQiLA0KICAgICAgICJDb21wYW55Ii4iQ29tcGFueU5hbWUiLA0KICAgICAgICJDb21wYW55Ii4iQ29tcGFueUVtYWlsIiwNCiAgICAgICAiQ29tcGFueSIuIkFkZHJlc3MiLCAiQ29tcGFueSIuIkZpbGVQYXRoIg0KICBmcm9tICJkYm8iLiJDb21wYW55IiAiQ29tcGFueSINCg0Kd2hlcmUgIkNvbXBhbnkiLiJDb21wYW55SWQiID0gQENvbXBhbnlJZDwvU3FsPjwvUXVlcnk+PFJlc3VsdFNjaGVtYT48RGF0YVNldCBOYW1lPSJzcWxEYXRhU291cmNlMSI+PFZpZXcgTmFtZT0iR2F0ZVBhc3NBdWN0aW9uUmVwb3J0Ij48RmllbGQgTmFtZT0iR2F0ZVBhc3NOdW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iR2F0ZVBhc3NEYXRlIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iR2F0ZVBhc3N0aW1lIiBUeXBlPSJVbmtub3duIiAvPjxGaWVsZCBOYW1lPSJJbXBvcnRCaWxsTnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkJpbGxEYXRlIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iVG90YWxQYWNrYWdlcyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkJhbGFuY2VQYWNrYWdlcyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlJlbWFya3MiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQXJyaXZhbERhdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJDb250YWluZXJObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJUb3RhbERlbGl2ZXJlZCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9Ik5vT2ZQYWNrYWdlcyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJNYXJrc0FuZE51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEZXNjcmlwdGlvbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJHRE51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCTE5vIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkluZGV4Tm8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJWSVJObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJWb3lhZ2VObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJWZXNzZWxOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlZlaGljbGVObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCaWRkZXJOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkF1Y3Rpb25Mb3ROdW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icHJ2aW9zRGVsaXJkIiBUeXBlPSJJbnQzMiIgLz48L1ZpZXc+PFZpZXcgTmFtZT0iUXVlcnkiPjxGaWVsZCBOYW1lPSJDb21wYW55SWQiIFR5cGU9IkludDY0IiAvPjxGaWVsZCBOYW1lPSJDb21wYW55TmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb21wYW55RW1haWwiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQWRkcmVzcyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJGaWxlUGF0aCIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v19.1" Ref="2" Content="System.Int64" Type="System.Type" />
+    <Item2 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v19.1" Ref="4" Content="System.Int32" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

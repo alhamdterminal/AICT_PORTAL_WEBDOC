@@ -1,0 +1,227 @@
+﻿<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/CFSShedClearIndex.js"></script>
+
+<style>
+    .control-label{
+        font-size:smaller;
+    }
+
+  
+</style>
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                CFS Shed Cleared Indexes
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+
+
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <div class="row">
+                    <div class="col-md-3" id="form-sub">
+                        <div class="form-group">
+                            <label class="control-label col-md-4" for="first-name">
+                                From :
+                            </label>
+                            <div class="col-md-8">
+                                <input type="date" id="fromdate" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" id="form-sub">
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="first-name">
+                                To :
+                            </label>
+                            <div class="col-md-8">
+                                <input type="date" id="todate" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" id="form-sub">
+                        <div class="form-group">
+                            <label class="control-label col-md-5" for="first-name">
+                                Type :
+                            </label>
+                            <div class="col-md-7">
+                                <select id="type" name="type" class="form-control" onclick="showcfs()">
+                                    <option value="">All</option>
+                                    <option value="CFS">CFS</option>
+                                    <option value="CY">CY</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" id="containertype">
+                        <div class="form-group">
+                            <label class="control-label col-md-4" for="first-name">
+                                CFS Type :
+                            </label>
+                            <div class="col-md-8">
+                                <select id="ctype" name="ctype" class="form-control">
+                                    <option value="">All</option>
+                                    <option value="LCL Lose Cargo">LCL Lose Cargo</option>
+                                    <option value="LCL Vehicle">LCL Vehicle</option>
+                                    <option value="FCL">FCL</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <button type="button" id="btnSubmitReport" class="btn btn-dark" onclick="myFunction()" style="float:right;">Submit</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_content" id="">
+
+
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="form-horizontal form-label-left row">
+
+                                        <div class="col-md-12 col-sm-12 col-xs-12 " align="center">
+                                            <div class="item form-group  x_panel">
+                                                <div class="newbox">
+                                                    Select Type
+                                                </div>
+                                                <div>
+                                                    <div class="radio" style="display: inline-block;">
+                                                        <label>
+                                                            <input type="radio" id="ALL" name="type" value="" onclick="showcfs()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   ALL
+                                                        </label>
+                                                    </div>
+                                                    <br />
+                                                    <div class="radio" style="display: inline-block;">
+                                                        <label>
+                                                            <input type="radio" id="CFS" name="type" value="CFS" onclick="showcfs()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CFS
+                                                        </label>
+                                                    </div>
+                                                    <br />
+                                                    <div class="radio" style="display: inline-block;">
+                                                        <label>
+                                                            <input type="radio" id="CY" value="CY" name="type" onclick="showcfs()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CY
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div id="cfscontainerdiv">
+                                                    <div class="contentcontainer">
+                                                        <label for="conainer-type">
+                                                            Container Type:
+                                                        </label>
+                                                        <div>
+                                                            <select id="ctype" name="ctype">
+                                                                <option value="">All</option>
+                                                                <option value="LCL Lose Cargo">LCL Lose Cargo</option>
+                                                                <option value="LCL Vehicle">LCL Vehicle</option>
+                                                                <option value="FCL">FCL</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="x_content">
+
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label  col-md-3" for="first-name">
+                                                        From :
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input type="date" id="fromdate" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label  col-md-3" for="first-name">
+                                                        To :
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input type="date" id="todate" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <button type="button" id="btnSubmitReport" class="btn btn-dark" onclick="myFunction()" style="float:right">Submit</button>
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div id="large-indicator"></div>
+                        <div class="x_content" id="repotdata">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            -->
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

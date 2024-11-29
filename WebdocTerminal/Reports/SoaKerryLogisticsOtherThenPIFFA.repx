@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="18.2.4.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="SoaKerryLogisticsOtherThenPIFFA" VerticalContentSplitting="Smart" Landscape="true" Margins="0, 0, 100, 100" PaperKind="Custom" PageWidth="1535" PageHeight="927" Version="18.2" DataSource="#Ref-0" Font="Arial, 9.75pt">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" ValueInfo="2" Name="usercbm" Type="#Ref-2" />
+    <Item2 Ref="4" Visible="false" ValueInfo="4" Name="usergd" Type="#Ref-2" />
+    <Item3 Ref="6" Visible="false" AllowNull="true" Name="fromDate" />
+    <Item4 Ref="7" Visible="false" AllowNull="true" Name="toDate" />
+    <Item5 Ref="8" Visible="false" AllowNull="true" Name="year" />
+    <Item6 Ref="9" Visible="false" AllowNull="true" Name="month" />
+    <Item7 Ref="10" Visible="false" AllowNull="true" Name="shippingagent" />
+    <Item8 Ref="11" Visible="false" AllowNull="true" Name="Vessel" />
+    <Item9 Ref="12" Visible="false" AllowNull="true" Name="voyage" />
+    <Item10 Ref="13" Visible="false" ValueInfo="0" AllowNull="true" Name="tax" />
+    <Item11 Ref="14" Visible="false" Description="CompanyId" ValueInfo="33" AllowNull="true" Name="CompanyId" Type="#Ref-2" />
+    <Item12 Ref="15" Visible="false" Description="path" AllowNull="true" Name="path" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="16" ControlType="TopMarginBand" Name="TopMargin">
+      <Controls>
+        <Item1 Ref="17" ControlType="XRPictureBox" Name="pictureBox1" ImageAlignment="TopCenter" SizeF="239.583328,80.99998" LocationFloat="25.8749962, 8.333333">
+          <EditOptions Ref="18" Enabled="true" />
+          <ExpressionBindings>
+            <Item1 Ref="19" Expression="?path+'/'+ [Query].[FilePath]" PropertyName="ImageUrl" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="20" ControlType="XRLabel" Name="label3" Multiline="true" TextAlignment="TopRight" SizeF="323.833374,23" LocationFloat="1158.16663, 69.33327" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="21" Expression="[Query].[CompanyEmail]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="22" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="23" ControlType="XRLabel" Name="label2" Multiline="true" Text="ACCOUNT :   KERRY FREIGHT PAKISTAN (PVT) LIMITED EXPORT SOA DETAIL " TextAlignment="TopCenter" SizeF="715.9044,30.4999924" LocationFloat="437.044617, 29.276123" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="24" UseFont="false" UseTextAlignment="false" />
+        </Item3>
+      </Controls>
+    </Item1>
+    <Item2 Ref="25" ControlType="BottomMarginBand" Name="BottomMargin">
+      <Controls>
+        <Item1 Ref="26" ControlType="XRLabel" Name="label10" Multiline="true" TextAlignment="TopCenter" SizeF="1482,23.0000114" LocationFloat="0, 51.1585426" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="27" Expression="[Query].[Address]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="28" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="29" ControlType="DetailBand" Name="Detail" HeightF="495.8333">
+      <Controls>
+        <Item1 Ref="30" ControlType="XRPivotGrid" Name="pivotGrid1" DataMember="ForwarderSOACBMWise" DataSource="#Ref-0" SizeF="1535,110.416656" LocationFloat="0, 69.7916641">
+          <Appearance Ref="31">
+            <Cell Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </Cell>
+            <FieldHeader Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </FieldHeader>
+            <TotalCell Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </TotalCell>
+            <GrandTotalCell Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </GrandTotalCell>
+            <CustomTotalCell Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </CustomTotalCell>
+            <FieldValue Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </FieldValue>
+            <FieldValueTotal Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </FieldValueTotal>
+            <FieldValueGrandTotal Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </FieldValueGrandTotal>
+            <Lines Font="Tahoma, 8.25pt">
+              <TextOptions WordWrap="NoWrap" Trimming="None" RightToLeft="false" />
+            </Lines>
+          </Appearance>
+          <OptionsPrint Ref="32" UsePrintAppearance="true" PrintDataHeaders="False" PrintFilterHeaders="False" PrintColumnHeaders="False" FilterSeparatorBarPadding="3" />
+          <OptionsView Ref="33" />
+          <Fields>
+            <Item1 Ref="34" FieldName="InvoiceNo" Name="fieldInvoiceNo1" Area="RowArea" Caption="Invoice No" Index="0" AreaIndex="0" MinWidth="20" Width="72">
+              <FilterValues Ref="35" />
+              <SummaryFilter Ref="36" />
+            </Item1>
+            <Item2 Ref="37" FieldName="InvoiceDate" Name="fieldInvoiceDate1" Area="RowArea" Caption="InvoiceDate" Index="1" AreaIndex="1" MinWidth="20" Width="90">
+              <FilterValues Ref="38" />
+              <SummaryFilter Ref="39" />
+            </Item2>
+            <Item3 Ref="40" FieldName="ContainerNumber" Name="fieldContainerNumber1" Area="RowArea" Caption="Container Number" Index="2" AreaIndex="6" MinWidth="20" Width="124">
+              <FilterValues Ref="41" />
+              <SummaryFilter Ref="42" />
+            </Item3>
+            <Item4 Ref="43" FieldName="GDNumber" Name="fieldGDNumber1" Area="RowArea" Caption="GD Number" Index="3" AreaIndex="2" MinWidth="20" Width="165">
+              <FilterValues Ref="44" />
+              <SummaryFilter Ref="45" />
+            </Item4>
+            <Item5 Ref="46" FieldName="No Of Pkgs" Name="fieldNoOfPkgs1" Area="RowArea" Caption="No Of Pkgs" Index="4" AreaIndex="4" MinWidth="20" Width="76">
+              <FilterValues Ref="47" />
+              <SummaryFilter Ref="48" />
+            </Item5>
+            <Item6 Ref="49" FieldName="ClearingAgentName" Name="fieldClearingAgentName1" Area="RowArea" Caption="Clearing Agent Name" Index="5" AreaIndex="5" MinWidth="20" Width="129">
+              <FilterValues Ref="50" />
+              <SummaryFilter Ref="51" />
+            </Item6>
+            <Item7 Ref="52" FieldName="CBM" Name="fieldCBM1" Area="RowArea" Caption="CBM" Index="6" AreaIndex="3" MinWidth="20" Width="48">
+              <FilterValues Ref="53" />
+              <SummaryFilter Ref="54" />
+            </Item7>
+            <Item8 Ref="55" FieldName="TariffHeadExport" Name="fieldTariffHeadExport1" Area="RowArea" Caption="Tariff Head Export" Index="7" AreaIndex="13" MinWidth="20" Width="164">
+              <FilterValues Ref="56" />
+              <SummaryFilter Ref="57" />
+            </Item8>
+            <Item9 Ref="58" FieldName="TOTALCBM" Name="fieldTOTALCBM1" Area="DataArea" Caption="TOTALCBM" Index="8" AreaIndex="0" MinWidth="20" Width="100">
+              <FilterValues Ref="59" />
+              <SummaryFilter Ref="60" />
+            </Item9>
+            <Item10 Ref="61" FieldName="PerCbm" Name="fieldPerCbm1" Area="RowArea" Caption="Per Cbm" Index="9" AreaIndex="9" MinWidth="20" Width="68">
+              <FilterValues Ref="62" />
+              <SummaryFilter Ref="63" />
+            </Item10>
+            <Item11 Ref="64" FieldName="PerGD" Name="fieldPerGD1" Area="RowArea" Caption="Per GD" Index="10" AreaIndex="10" MinWidth="20" Width="63">
+              <FilterValues Ref="65" />
+              <SummaryFilter Ref="66" />
+            </Item11>
+            <Item12 Ref="67" FieldName="TOTALRefundtoKerry" Name="fieldTOTALRefundtoKerry1" Area="RowArea" Caption="TOTAL Refundto Kerry" Index="11" AreaIndex="11" MinWidth="20" Width="136">
+              <FilterValues Ref="68" />
+              <SummaryFilter Ref="69" />
+            </Item12>
+            <Item13 Ref="70" FieldName="GrandTotal" Name="fieldGrandTotal1" Caption="Grand Total" Index="12" AreaIndex="0" MinWidth="20" Width="100">
+              <FilterValues Ref="71" />
+              <SummaryFilter Ref="72" />
+            </Item13>
+            <Item14 Ref="73" FieldName="netvalue" Name="fieldnetvalue1" Area="RowArea" Caption="netvalue" Index="13" AreaIndex="12" MinWidth="20" Width="67">
+              <FilterValues Ref="74" />
+              <SummaryFilter Ref="75" />
+            </Item14>
+            <Item15 Ref="76" FieldName="tax" Name="fieldtax1" Area="RowArea" Caption="tax" Index="14" AreaIndex="7" MinWidth="20" Width="46">
+              <FilterValues Ref="77" />
+              <SummaryFilter Ref="78" />
+            </Item15>
+            <Item16 Ref="79" FieldName="TotalAfterTax" Name="fieldTotalAfterTax1" Area="RowArea" Caption="Total After Tax" Index="15" AreaIndex="8" MinWidth="20" Width="102">
+              <FilterValues Ref="80" />
+              <SummaryFilter Ref="81" />
+            </Item16>
+          </Fields>
+          <Prefilter Ref="82" />
+          <OptionsChartDataSource Ref="83" />
+        </Item1>
+        <Item2 Ref="84" ControlType="XRLabel" Name="label4" Multiline="true" Text="WINDOW COLLECTION" TextAlignment="TopCenter" SizeF="343,23.0000038" LocationFloat="1168.45813, 45.5000572" Font="Arial, 9.75pt, style=Bold" BackColor="LightSkyBlue" Padding="2,2,0,0,100">
+          <StylePriority Ref="85" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="86" ControlType="XRLabel" Name="label1" Multiline="true" Text="KERRY SHARE" TextAlignment="TopCenter" SizeF="281.124939,21.7083969" LocationFloat="887.3332, 46.79165" Font="Arial, 9.75pt, style=Bold" BackColor="PaleGreen" Padding="2,2,0,0,100">
+          <StylePriority Ref="87" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+        </Item3>
+      </Controls>
+    </Item3>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v18.2" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IkZvcndhcmRlclNPQUNCTVdpc2UiPjxQYXJhbWV0ZXIgTmFtZT0iQHllYXIiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/eWVhcik8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkBtb250aCIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9tb250aCk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkBmcm9tRGF0ZSIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9mcm9tRGF0ZSk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkB0b0RhdGUiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/dG9EYXRlKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQHNoaXBwaW5nYWdlbnQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/c2hpcHBpbmdhZ2VudCk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkBWZXNzZWwiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/VmVzc2VsKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQHZveWFnZSIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD92b3lhZ2UpPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAdGF4IiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3RheCk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkB1c2VyY2JtIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3VzZXJjYm0pPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAdXNlcmdkIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3VzZXJnZCk8L1BhcmFtZXRlcj48UHJvY05hbWU+Rm9yd2FyZGVyU09BQ0JNV2lzZTwvUHJvY05hbWU+PC9RdWVyeT48UXVlcnkgVHlwZT0iQ3VzdG9tU3FsUXVlcnkiIE5hbWU9IlF1ZXJ5Ij48UGFyYW1ldGVyIE5hbWU9IkNvbXBhbnlJZCIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uSW50NjQsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP0NvbXBhbnlJZCk8L1BhcmFtZXRlcj48U3FsPnNlbGVjdCAiQ29tcGFueSIuIkNvbXBhbnlJZCIsDQogICAgICAgIkNvbXBhbnkiLiJDb21wYW55TmFtZSIsDQogICAgICAgIkNvbXBhbnkiLiJDb21wYW55RW1haWwiLA0KICAgICAgICJDb21wYW55Ii4iQWRkcmVzcyIsICJDb21wYW55Ii4iRmlsZVBhdGgiDQogIGZyb20gImRibyIuIkNvbXBhbnkiICJDb21wYW55Ig0Kd2hlcmUgIkNvbXBhbnkiLiJDb21wYW55SWQiID0gQENvbXBhbnlJZDwvU3FsPjwvUXVlcnk+PFJlc3VsdFNjaGVtYT48RGF0YVNldCBOYW1lPSJzcWxEYXRhU291cmNlMSI+PFZpZXcgTmFtZT0iRm9yd2FyZGVyU09BQ0JNV2lzZSI+PEZpZWxkIE5hbWU9Ikludm9pY2VObyIgVHlwZT0iVW5rbm93biIgLz48RmllbGQgTmFtZT0iSW52b2ljZURhdGUiIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9IkNvbnRhaW5lck51bWJlciIgVHlwZT0iVW5rbm93biIgLz48RmllbGQgTmFtZT0iR0ROdW1iZXIiIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9Ik5vIE9mIFBrZ3MiIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9IkNsZWFyaW5nQWdlbnROYW1lIiBUeXBlPSJVbmtub3duIiAvPjxGaWVsZCBOYW1lPSJDQk0iIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9IlRhcmlmZkhlYWRFeHBvcnQiIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9IlRPVEFMQ0JNIiBUeXBlPSJVbmtub3duIiAvPjxGaWVsZCBOYW1lPSJQZXJDYm0iIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9IlBlckdEIiBUeXBlPSJVbmtub3duIiAvPjxGaWVsZCBOYW1lPSJUT1RBTFJlZnVuZHRvS2VycnkiIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9IkdyYW5kVG90YWwiIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9Im5ldHZhbHVlIiBUeXBlPSJVbmtub3duIiAvPjxGaWVsZCBOYW1lPSJ0YXgiIFR5cGU9IlVua25vd24iIC8+PEZpZWxkIE5hbWU9IlRvdGFsQWZ0ZXJUYXgiIFR5cGU9IlVua25vd24iIC8+PC9WaWV3PjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iQ29tcGFueUlkIiBUeXBlPSJJbnQ2NCIgLz48RmllbGQgTmFtZT0iQ29tcGFueU5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ29tcGFueUVtYWlsIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkFkZHJlc3MiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRmlsZVBhdGgiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0PjwvUmVzdWx0U2NoZW1hPjxDb25uZWN0aW9uT3B0aW9ucyBDbG9zZUNvbm5lY3Rpb249InRydWUiIC8+PC9TcWxEYXRhU291cmNlPg==" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v18.2" Ref="2" Content="System.Int64" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

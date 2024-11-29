@@ -1,0 +1,287 @@
+﻿@model WebdocTerminal.Models.UserViewModel
+
+@{
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var ShippingagentExport = (IEnumerable<SelectListItem>)ViewData["ShippingagentExport"];
+
+    var roles = (List<string>)ViewData["Roles"];
+
+    var Companies = (IEnumerable<SelectListItem>)ViewData["Companies"];
+}
+
+
+<script src="~/js/app.js/UpdateUser.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Update User</h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Update Profile
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+
+                                <div class="x_content">
+                                    <form asp-controller="Users" asp-action="EditUser" method="post" id="passwordupdate" class="form-horizontal form-label-left input_mask">
+
+                                        @Html.HiddenFor(h => h.UserId)
+                                        @Html.HiddenFor(h => h.IdentityId)
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                First Name <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="first-name" required="required" name="FirstName" value="@Model.FirstName" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                                                Last Name <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="last-name" required="required" name="LastName" value="@Model.LastName" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dob">
+                                                Date of Birth <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        <div class="">
+                                                            <input type="date" class="fa fa-calendar-o form-control" id="dob" name="DateOfBirth" value="@Model.DateOfBirth">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cnic">
+                                                CNIC <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" placeholder="XXXXX-XXXXXXX-X" id="cnic" maxlength="13" required="required" name="CNIC" value="@Model.CNIC" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contact">
+                                                Contact No <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="contact" required="required" name="ContactNo" value="@Model.ContactNo" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">
+                                                Email <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="email" id="email" required="required" name="Email" value="@Model.Email" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                Company <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6">
+                                                @* @Html.DropDownList("CompanyId", Companies, "Select Company", new { @class = "form-control", @id = "companyId", required = "required" })*@
+
+                                                <select id="companyId" name="CompanyId" class="form-control">
+
+                                                    @foreach (var Company in Companies)
+                                                    {
+                                                        if (Model.CompanyId.ToString() == Company.Value)
+                                                        {
+                                                            <option value="@Company.Value" selected>@Company.Text</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@Company.Value">@Company.Text</option>
+                                                        }
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="shippingAgnt" class="form-group" style="display:none">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                Agent Import <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6">
+                                                @* @Html.DropDownList("CompanyId", Companies, "Select Company", new { @class = "form-control", @id = "companyId", required = "required" })*@
+
+                                                <select id="shippingAgentId" name="ShippingAgentId" class="form-control" required>
+                                                    <option selected>Please Select</option>
+                                                    @foreach (var agent in ShippingAgent)
+                                                    {
+                                                        if (Model.ShippingAgentId.ToString() == agent.Value)
+                                                        {
+                                                            <option value="@agent.Value" selected>@agent.Text</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@agent.Value">@agent.Text</option>
+                                                        }
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="shippingAgntExport" class="form-group" style="display:none">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                Agent Export <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6">
+                                                @* @Html.DropDownList("CompanyId", Companies, "Select Company", new { @class = "form-control", @id = "companyId", required = "required" })*@
+
+                                                <select id="shippingAgentExportId" name="ShippingAgentExportId" class="form-control">
+                                                    <option selected>Please Select</option>
+                                                    @foreach (var agentExport in ShippingagentExport)
+                                                    {
+                                                        if (Model.ShippingAgentExportId.ToString() == agentExport.Value)
+                                                        {
+                                                            <option value="@agentExport.Value" selected>@agentExport.Text</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@agentExport.Value">@agentExport.Text</option>
+                                                        }
+
+
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roles">
+                                                Role <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select id="roles" multiple="multiple" name="Role" onchange="onrolechage()">
+                                                    @foreach (var role in roles)
+                                                    {
+                                                        if (Model.Role.Contains(role))
+                                                        {
+                                                            <option value="@role" selected>@role</option>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@role">@role</option>
+                                                        }
+                                                    }
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                <button type="button" class="btn btn-primary">Cancel</button>
+
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Update Password
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+
+                                <div class="x_content">
+                                    <form asp-controller="Users" asp-action="UpdatePassword" method="post" id="passwordupdate" class="form-horizontal form-label-left input_mask">
+                                        @Html.HiddenFor(h => h.Username)
+                                        @Html.HiddenFor(h => h.UserId)
+                                        @Html.HiddenFor(h => h.IdentityId)
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                Username <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="first-name" required="required" name="FirstName" value="@Model.Username" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="password" class="form-control" id="pass1" name="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirm Password</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="password" class="form-control" id="pass2">
+                                            </div>
+                                        </div>
+                                        <span style="color:red;" id="errorspan"></span>
+
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                <button type="button" id="btnCancel" class="btn btn-primary">Cancel</button>
+
+                                                <button type="submit" id="btnSubmit" class="btn btn-success" onclick="saveUser()">Submit</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

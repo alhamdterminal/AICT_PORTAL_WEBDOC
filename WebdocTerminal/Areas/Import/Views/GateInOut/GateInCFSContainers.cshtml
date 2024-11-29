@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Gate In";
+}
+<style>
+    @@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+        .x_title span {
+            color: #BDBDBD;
+            padding: 5px;
+            margin-top: 24px;
+        }
+
+        .mobBtn {
+            margin-top: 23px;
+        }
+    }
+
+
+    #gateinContainer {
+        max-height: 700px;
+    }
+
+</style>
+
+
+<script src="~/js/app.js/GateInCFSContainers.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Arrival Boxes
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <div id="gateinContainer"></div>
+                    <div class="ln_solid"></div> 
+                    <div class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn btn-primary" style="float:right;" type="button" id="btnSubmit" onclick="gateIn()">Save & create EDI</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h2>Pre-Arrival Messages</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label for="first-name" style="padding-right: 10px;">
+                                                Date :
+                                            </label>
+
+                                            <input type="text" class="form-control" id="single_cal2" name="fromdate" aria-describedby="inputSuccess2Status2">
+                                            <span class="fa fa-calendar-o form-control-feedback" aria-hidden="true"></span>
+                                            <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li style="padding-left:10px;"> <button type="button" class="btn btn-primary mobBtn" onclick="GetCFSPaiosByDate()">Submit</button></li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="x_content">
+                    <div id="ipoascfs"></div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

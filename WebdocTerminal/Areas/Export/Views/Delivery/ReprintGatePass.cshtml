@@ -1,0 +1,75 @@
+﻿<script src="~/js/app.js/ReprintGatePass.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>GateOut Container</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="">
+
+                    <div class="form-horizontal form-label-left row">
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        GD#: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @(Html.DevExtreme()
+                                          .Autocomplete()
+                                          .ID("GDNumber")
+                                          .Name("gdnum")
+                                          .DataSource(d => d.Mvc()
+                                          .Controller("APICalls")
+                                          .Area("")
+                                          .LoadAction("GetGDNumbers"))
+                                          .Placeholder("Type GDNumber...")
+                                          .OnValueChanged("gdNumber_changed")
+                                          )
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-8">
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <div id="gridgds"></div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,142 @@
+﻿<script src="~/js/app.js/DropOfTicketView.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Drop Of Ticket</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left" novalidate="" id="DropOfTicketForm">
+
+                        <partial name="~/Areas/Import/Views/Shared/_Filter_AllCYAndCFSContainers.cshtml" />
+                         
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Line:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="shippingLine" name="ShippingLine" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Size:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="size" name="Size" readonly />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Type:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="type" name="Type" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Manifest Seal Number:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="manifestedSealNumber" name="ManifestedSealNumber" required />
+                                        <span class="error" id="manifestedSealNumbererror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Truck No:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="truckNo" name="TruckNumber" required />
+                                        <span class="error" id="truckNoerror"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            In Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" id="inTime" name="InTime" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             
+
+                        </div>
+                     
+                        <div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <div class="control-label col-md-5 col-sm-5 col-xs-12" for="name">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="ischeckOutTime" name="IscheckOutTime" value="true">
+                                                Out Time
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input type="date" class="form-control" id="outTime" name="OutTime" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button id="btnSubmit" class="btn btn-primary" style="float:right;" onclick="addDropOfTicket()" type="button">Save</button>
+                                        <a id="btnSubmitUpdate" class="btn btn-success" onclick="updateDropOfTicket()" style="float: right; display: none">Update</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+
+</div>
+
+
+
+

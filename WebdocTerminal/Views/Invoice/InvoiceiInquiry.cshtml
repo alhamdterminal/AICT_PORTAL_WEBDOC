@@ -1,0 +1,1202 @@
+﻿@{
+    var clearingAgentsAgents = (IEnumerable<SelectListItem>)ViewData["ClearingAgentsAgents"];
+
+     
+
+}
+
+
+
+<style>
+
+        .modal-dialog {
+        width: 50% !important;
+        margin: 30px auto;
+    }
+
+
+    input[type=text]:disabled {
+        background: #dddddd;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+    .tdstyle {
+        border: 1px solid #51b5ab;
+        border-left: none;
+        color: black;
+        padding-left: 18px !important;
+    }
+</style>
+
+<script type="text/javascript" src="~/webcamjs/webcam.min.js"></script>
+<script src="~/js/app.js/InvoiceiInquiry.js"></script>
+
+
+<style>
+    .custom[role="columnheader"] {
+        font-size: 17px;
+    }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Import Bill</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="invoiceForm">
+                        <div class="row">
+                        </div>
+                        <hr />
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                <div class="item form-group  x_panel">
+                                    <div class="newbox">
+                                        Container Type
+                                    </div>
+
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="CFS" name="type" value="CFS" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CFS
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="CY" value="CY" name="type" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CY
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="ContainerType" style="display:none">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                <div class="item form-group  x_panel">
+                                    <div class="newbox">
+                                        Container Type
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="item form-group">
+
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                                    <select class="form-control selectpicker" id="orientation_db">
+                                                        <option value="ContainerWise">ContainerWise</option>
+                                                        <option value="IndexWise" disabled>IndexWise</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="filters">
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        IGM CBM:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="igmCBM" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Destuff CBM:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="destuffCBM" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Examination CBM:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="examinationCBM" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        FF CBM:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="ffCBM" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        NTN No:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="consigneeNTNNumber" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Reg No:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="clearingAgentRegNumber" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Actual Qty
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="actualQty" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-8 col-sm-4 col-xs-12" for="name">
+                                        Actual WT:
+                                    </label>
+                                    <div class="col-md-4 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="actualWeight" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        In Ton:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="actualweightInTon" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Packages
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="packages" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Clearing Agent *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ClearingAgentId", clearingAgentsAgents, "Select Clearing Agent", new { @class = "form-control select2", @id = "agents", @required = "required" })
+                                        <span class="error" id="clearingagenterror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-8 col-sm-4 col-xs-12" for="name">
+                                        MFT WT:
+                                    </label>
+                                    <div class="col-md-4 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="MainfestedWeight" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        In Ton:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="weightInTon" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-8 col-sm-4 col-xs-12" for="name">
+                                        Higher   CBM:
+                                    </label>
+                                    <div class="col-md-4 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="CBM" name="CBM" style="background-color: #6ab3af; color: white; ">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Higher WT
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="Weight" name="Weight" style="background-color: #6ab3af; color: white; ">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Phone No:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="phoneNumber" name="PhoneNumber" required>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Clearing Agent Rep :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="clearingAgentRep" name="ClearingAgentRep" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        CNIC:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="cnic" name="CNIC" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Gate-In Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" id="gateindate" name="GateInDate" required readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Destuff Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" id="destuffdate" name="DestuffDate" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <div class="control-label col-md-5 col-sm-5 col-xs-12" for="name">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="ischeckAdvanceBill" name="IsAdvanceBill" value="true">
+                                                Advance Bill
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input type="date" class="form-control" id="pass1" name="AdvanceDate" disabled>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Storage Days:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="StorageDays" id="storageDays" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-8 col-sm-4 col-xs-12" for="name">
+                                        Free Days:
+                                    </label>
+                                    <div class="col-md-4 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="additionalFreeDays" name="AdditionalFreeDays" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Total Days:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="totalFreeDays" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Remarks
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="WaiveRemarks">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Shipping Agent:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="shippingAgetName" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Consignee Name IGM:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="consigneeNameIGM" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Good:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="good" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Shipper :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="shipper" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Port And Terminal:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="portAndTerminalId" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Container Type:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="isoCodeDesc" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Is Part Container
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="PartContainer" id="partContainer" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        F.F Allow Vechile
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="vehcileAmountAllow" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Cargo Type
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="indexCargoType" name="CargoType" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        BL Number
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="blNumber" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Tariff Code
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="tariffCode" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Balance Qty / Weight
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="totalBalanceCargo" name="BalanceCargo" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-2 col-sm-4 col-xs-12" for="name">
+                                        Description
+                                    </label>
+                                    <div class="col-md-10 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="description" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Delivery Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" id="deliveryDate" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-2 col-sm-12 col-xs-12" style="display:none">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Total Part Containers:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="totalPartContainers" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Previous Waive
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" class="form-control" readonly id="previousWaiVerAmount">
+                                        </div>
+                                    </div>
+                                </div>*@
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Exchange Rate
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="ExchangeRateAmount" readonly id="exchangeRateAmount">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Document Code:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" readonly="readonly" id="documentCode" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Delivery Status
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" readonly id="deliveryStatus">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Storage Type:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" readonly="readonly" id="storageFreeDaysType" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Storage Applicable on:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" readonly="readonly" id="storageApplicableon" name="StorageApplicableon" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-8 col-sm-4 col-xs-12" for="name">
+                                        Short WT:
+                                    </label>
+                                    <div class="col-md-4 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="shortweight" style="background-color: #6ab3af; color: white; " readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Excess WT
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="excessweight" style="background-color: #6ab3af; color: white; " readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12"></div>
+
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <a class="btn btn-info" onclick="generateBill()" style="float: right;"> Generate Bill</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+
+                        <div class="ln_solid"></div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
+                                    <table class="table" style=" background-color: #2a3f54; color: white; font-size: 14px;">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Invoice Amount (A+E):</th>
+                                                <th scope="col">Previous Paid Amount (Ex. Bill to Line):</th>
+                                                <th scope="col">Waiver (E):</th>
+                                                <th scope="col">Credit Allowed:</th>
+                                                <th scope="col">BILL TO LINE (Inc. GST) (D)</th>
+                                                <th scope="col">Counter Collection</th>
+                                                <th scope="col">Knock Off Amount </th>
+                                                <th scope="col"> Payment Received</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><input type="number" class="form-control mask" readonly="readonly" id="invoiceAmount" required=""></th>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" name="PreviousBillAmount" id="previousBillAmount" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="waiverDiscountAmounte" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="creditAllowedAmount" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="billTOLINEIncGSTD" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="counterCollection" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="knockOffAmountg" required=""></td>
+                                                <td><input type="number" class="form-control mask" readonly="readonly" id="paymentReceivedh" required=""></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 col-xs-12" style="overflow: scroll;height: 250px;">
+
+                                <table class="table">
+                                    <thead class="info">
+                                        <tr>
+                                            <th scope="col">Sr No #</th>
+                                            <th scope="col">Container #</th>
+                                            <th scope="col">Size</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                    </tbody>
+                                    <tfoot id="tfoot">
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                            </div>
+
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div id="tariffGrid">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+
+                            </div>
+                            <div class="col-md-4">
+                                <table class="table">
+
+                                    <tbody>
+                                        <tr>
+
+                                            <td class="tdstyle">Storage :</td>
+                                            <td class="tdstyle"><input type="number" class="form-control mask" readonly="readonly" name="StorageTotal" id="storageTotal" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);"></td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td class="tdstyle"> Seal Charges :</td>
+                                            <td class="tdstyle"><input type="number" class="form-control mask" readonly="readonly" name="SealCharger" id="sealCharger" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);"></td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td class="tdstyle"> Container Storage :</td>
+                                            <td class="tdstyle">   <input type="number" class="form-control mask" readonly="readonly" name="CYStorageSizeAmount" id="cyStorageSizeAmount" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);"></td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td class="tdstyle"> Special Handling Charges :</td>
+                                            <td class="tdstyle">   <input type="number" class="form-control mask" readonly="readonly" name="OtherChargeAmount" id="otherChargeAmount" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);"></td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td class="tdstyle">Vehicle Charges :</td>
+                                            <td class="tdstyle">  <input type="number" class="form-control mask" readonly="readonly" name="VehicleCharges" id="vehicleCharges" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);"></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4" style="background-color: #d4e1ed;">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                        Previous Waive:
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="text" class="form-control mask" readonly="readonly" id="previousWaiVerAmount" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4" style="background-color: #d4e1ed;">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                        Total Charges:
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control mask" readonly="readonly" name="TotalCharges" id="totalCharges" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                        Waiver Amount :
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control mask" readonly="readonly" name="WaiverDiscountAmount" id="waiverDiscountAmount" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4" style="background-color: #d4e1ed;">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left; ">
+                                        Total Charges - After Waiver :
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control mask" readonly="readonly" name="TotalChargesAfterWaiver" id="totalChargesAfterWaiver" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left; ">
+                                        GST :
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control mask" readonly="readonly" name="GST" id="gst" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4" style="background-color: #d4e1ed;">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left; ">
+                                        Total Invoice Amount ( Ex Waiver):
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control mask" readonly="readonly" name="TotalInvoiceAmountExWaiver" id="totalInvoiceAmountExWaiver" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item form-group">
+
+                                    <label class="control-label col-md-12 col-sm-12 col-xs-12" for="cnic" style="text-align: center; font-size: 17px; margin-top: 10px; color: white; background-color: #2a3f54; padding: 10px; ">
+                                        Bill To Line
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item form-group">
+
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                        BILL  TO LINE :
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control mask" readonly="readonly" name="BillToLineAmount" id="billToLineAmount" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item form-group">
+
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                        GST on BILL TO LINE
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control mask" readonly="readonly" name="GSTonBILLTOLINE" id="gstonBILLTOLINE" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4" style="background-color: #d4e1ed;">
+                                <div class="item form-group">
+
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                        Total BTL Amount
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control mask" readonly="readonly" name="TotalBTLAmount" id="totalBTLAmount" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="ln_solid" style="border-color: black;"></div>
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-12 col-sm-12 col-xs-12" for="cnic" style=" text-align: center; font-size: 17px; color: white; background-color: #2a3f54; padding: 10px; ">
+                                            Auction Charges
+                                        </label>
+                                    </div>
+                                    <div class="ln_solid" style="border-color: black;"></div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                            Handing Charges :
+                                        </label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="number" class="form-control mask" readonly="readonly" name="HandingCharges" id="handingCharges" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                            Weightment Charges:
+                                        </label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="number" class="form-control mask" readonly="readonly" name="WeightmentCharges" id="weightmentCharges" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                            Sales Tax:
+                                        </label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="number" class="form-control mask" readonly="readonly" name="AuctionSalesTax" id="auctionSalesTax" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                            Grand Total:
+                                        </label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="number" class="form-control mask" readonly="readonly" name="AuctionGrandTotal" id="auctionGrandTotal" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                        <div class="row">
+
+
+                            <div class="col-md-3">
+
+
+
+
+                                <div class="item form-group" style="display:none">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Tariff Amount:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="TariffAmountTotal" id="tariffAmountTotal" required="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="item form-group" style="display:none">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Sales Tax:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="SalesTax" id="salesTax" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
+                                    <div id="gridContainer2"></div>
+                                    <div class="ln_solid"></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="HoldStatusModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Hold Status</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="x_content" id="holdGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<script>
+    $('.select2').select2();
+</script>
+
+

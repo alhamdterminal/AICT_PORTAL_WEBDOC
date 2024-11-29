@@ -1,0 +1,88 @@
+﻿@{
+    var Agent = (IEnumerable<SelectListItem>)ViewData["agent"];
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/IndexSummaryReport.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Index Summary Of CFS SHED
+            </h3>
+        </div>
+        <div class="title_right"></div>
+    </div>
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Freight Forward:
+                            </label>
+
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @Html.DropDownList("ShippingAgentId", Agent, "Select", new { @class = "form-control select2", @id = "shippingagentid" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                From:
+                            </label>
+                            <div class="col-md-8 col-xs-12">
+                                <input type="date" id="fromdate" class="form-control has-feedback-left" />
+                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                To:
+                            </label>
+                            <div class="col-md-8 col-xs-12">
+                                <input type="date" id="todate" class="form-control has-feedback-left" />
+                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <button type="button" id="btnSubmitReport" class="btn btn-dark" onclick="myFunction()" style="float:right">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $('.select2').select2();
+</script>

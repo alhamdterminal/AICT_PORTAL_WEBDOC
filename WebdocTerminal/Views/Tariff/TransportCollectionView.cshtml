@@ -1,0 +1,367 @@
+﻿@{
+
+    var tariffHeads = (IEnumerable<SelectListItem>)ViewData["TariffHead"];
+
+    var transportCollections = (IEnumerable<SelectListItem>)ViewData["TransportCollections"];
+      
+    var consignes = (IEnumerable<SelectListItem>)ViewData["Consignes"];
+    var clearingAgents = (IEnumerable<SelectListItem>)ViewData["ClearingAgents"];
+    var goods = (IEnumerable<SelectListItem>)ViewData["Goods"];
+    var shippers = (IEnumerable<SelectListItem>)ViewData["Shippers"];
+    var isocodes = (IEnumerable<SelectListItem>)ViewData["ISOCodes"];
+    var PortAndTerminal = (IEnumerable<SelectListItem>)ViewData["PortAndTerminal"];
+      
+}
+
+
+<script src="~/js/app.js/TransportCollectionView.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Transport Collection</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Collection Name:
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form form-control" id="transportCollectionName" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Shipping Agent:
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @(Html.DevExtreme().DropDownBox()
+                                             // .Value(new[] { 3 , 5 } )
+                                             .ID("ShippingAgentdatagrid")
+                                             .Value( new[] { ""} )
+                                            .ValueExpr("prescriberId").DisplayExpr("display")
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .LoadAction("GetShippingAgentName")
+                                            .LoadMode(DataSourceLoadMode.Raw).Key("value"))
+                                            .Placeholder("Select a Shipping Agent..")
+                                            .ShowClearButton(true)
+                                            //.OnValueChanged("gridBox_valueChanged")
+                                            .ContentTemplate(new TemplateName("GridForShippingAgent"))
+                                            )
+
+                                    @using (Html.DevExtreme().NamedTemplate("GridForShippingAgent"))
+                                    {
+                                        @(Html.DevExtreme().DataGrid()
+                                        .ID("ShippingAgent-datagrid")
+                                        .DataSource(new JS(@"component.getDataSource()"))
+                                        .Columns(columns => {
+                                            columns.Add().DataField("value");
+                                            columns.Add().DataField("text");
+                                        })
+                                        .HoverStateEnabled(true)
+                                        .Paging(p => p.PageSize(10))
+                                        .FilterRow(f => f.Visible(true))
+                                        .Scrolling(s => s.Mode(GridScrollingMode.Virtual))
+                                        .Height(345)
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                         .SelectedRowKeys(new JS(@"component.option(""value"")"))
+
+                                        )
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                    Consignee:
+                                </label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("Name", consignes, "Select Consignee", new { @class = "form-control select2", @id = "consigneedropdown" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                    ClearingAgent:
+                                </label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("Name", clearingAgents, "Select ClearingAgent", new { @class = "form-control select2", @id = "clearingAgentdropdown" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                    <div class="form-horizontal form-label-left row">
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                    Good:
+                                </label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("Name", goods, "Select Good", new { @class = "form-control select2", @id = "gooddropdown" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                    Shipper:
+                                </label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("Name", shippers, "Select Shipper", new { @class = "form-control select2", @id = "shipperdropdown" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                    Container Type:
+                                </label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("Name", isocodes, "Select Container Type", new { @class = "form-control select2", @id = "isocodesdropdown" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-horizontal form-label-left row">
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                    Cargo Type:
+                                </label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <select class="form form-control" name="IndexCargoType" id="indexCargoType">
+                                        <option value="LCL">CFS / LCL</option>
+                                        <option value="FCL">CFS / FCL</option>
+                                        <option value="CY">CY</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                    Port And Terminal:
+                                </label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("Name", PortAndTerminal, "Select Port And Terminal", new { @class = "form-control select2", @id = "portAndTerminalId" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn btn-success" style="float:right;" onclick="addInfo()" type="button" id="btnSubmit">Add Info</button>
+                                <button class="btn btn-success" style="float:right; display:none" onclick="updateInfo()" type="button" id="btnSubmitUpdate">Update Info</button>
+                                <button class="btn btn-success" style="float:right; display:none" onclick="DeleteInfo()" type="button" id="btnSubmitDelete">Delete Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+                            <div class="x_content">
+                                <div id="agentTariffGrid"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row" style="border: #0a0a0a 4px solid;">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+                            <div class="x_content">
+                                <form id="tariffCharegsForm" class="panelform">
+
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="item form-group">
+                                                    <label class="control-label col-md-12 col-sm-12 col-xs-12" for="name" style=" text-align: center; font-size: 20px; color: black;">
+                                                        Tariff Head Amount
+                                                    </label>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="borderline"></div>
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                <div class="item form-group">
+                                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                        Tariff Contract:
+                                                    </label>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        @Html.DropDownList("TariffHeadId", tariffHeads, "Select Tariff Head", new { @class = "form-control select2", @id = "tariffHead" })
+                                                        <span class="error" id="TariffHeadIderror"></span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                <div class="item form-group">
+                                                    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                        Port And Terminal:
+                                                    </label>
+                                                    <div class="col-md-10 col-sm-8 col-xs-12">
+                                                        @Html.DropDownList("PortAndTerminalId", PortAndTerminal, "Select Port And Terminal", new { @class = "form-control select2", @id = "portTerminalId" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                <div class="item form-group">
+                                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                        Tariff Collection Head:
+                                                    </label>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        @Html.DropDownList("TransportCollectionId", transportCollections, "Select Collection Head", new { @class = "form-control select2", @id = "transportCollectionId" })
+                                                        <span class="error" id="TariffHeadIderror"></span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                                <div class="item form-group">
+                                                    <div class="control-label col-md-5 col-sm-5 col-xs-12" for="name">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ischeckupdate" value="true">
+                                                                For  Update
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+ 
+
+                                        <div class="form-horizontal form-label-left row">
+
+                                            <div class="col-md-5 col-sm-5 col-xs-12 ">
+                                                <div class="item form-group  x_panel">
+                                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                                        Rate 20
+                                                    </label>
+                                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                                        <input type="number" class="form-control mask" id="rate20" name="Rate20">
+                                                    </div>
+                                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                                        Rate 40
+                                                    </label>
+                                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                                        <input type="number" class="form-control mask" id="rate40" name="Rate40">
+                                                    </div>
+                                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                                        Rate 45
+                                                    </label>
+                                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                                        <input type="number" class="form-control mask" id="rate45" name="Rate45">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-7 col-sm-7 col-xs-12 ">
+                                                <div class="item form-group  x_panel">
+                                                    <label class="control-label col-md-1 col-sm-2 col-xs-12" for="name">
+                                                        CBM Rate
+                                                    </label>
+                                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                                        <input type="number" class="form-control mask" id="cbmRate" name="CBMRate">
+                                                    </div>
+                                                    <label class="control-label col-md-1 col-sm-2 col-xs-12" for="name">
+                                                        Weight Rate
+                                                    </label>
+                                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                                        <input type="number" class="form-control mask" id="weightRate" name="WeightRate">
+                                                    </div>
+                                                    <label class="control-label col-md-1 col-sm-2 col-xs-12" for="name">
+                                                        PerIndex Rate
+                                                    </label>
+                                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                                        <input type="number" class="form-control mask" id="perIndexRate" name="PerIndexRate">
+                                                    </div>
+                                                    <label class="control-label col-md-1 col-sm-2 col-xs-12" for="name">
+                                                        Divided Index
+                                                    </label>
+                                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                                        <input type="number" class="form-control mask" id="devededIndexAmount" name="DevededIndexAmount">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-horizontal form-label-left">
+                                            <div class="form-group">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <button class="btn btn-success" style="float:right;" onclick="createtariff()" type="button" id="btnSubmit">Add Tariff</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                    </div>
+                </div>
+    </div>
+
+
+
+
+
+</div>
+
+<script>
+    $('.select2').select2();
+</script>

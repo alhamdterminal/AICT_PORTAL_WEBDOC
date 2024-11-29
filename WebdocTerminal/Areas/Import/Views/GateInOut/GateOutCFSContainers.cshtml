@@ -1,0 +1,331 @@
+﻿
+
+<style>
+    #gateoutContainer {
+        max-height: 700px;
+    }
+
+    .modal-dialog {
+        width: 50% !important;
+        margin: 30px auto;
+    }
+</style>
+
+<script src="~/js/app.js/GateOutCFSContainers.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Gate Out CFS
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <div id="gateoutContainer"></div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn btn-primary" style="float:right;" id="btnSubmit" onclick="gateOutCFS()">Save & create</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="HoldStatusModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Hold Status</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="x_content" id="holdGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--<script>
+
+    var grid;
+
+    var onOptionChanged = function (e) {
+        console.log(e);
+    };
+
+    var containers = [];
+
+    var shippingAgents = [];
+
+    //$(function () {
+
+    //    formfiled();
+
+    //});
+
+
+
+    function checkColumn(e, field) {
+
+        if (e.parentType === "dataRow" && e.dataField !== field) {
+            return;
+        }
+
+        e.editorOptions.disabled = true;
+    }
+
+    function hideMenifestedColumns(e) {
+
+        checkColumn(e, "blNo");
+        checkColumn(e, "virNo");
+        checkColumn(e, "noOfPackages");
+        checkColumn(e, "indexNo");
+
+        if (PermissionInputs.find(x => x.fieldName == "IsGateOut" && x.isChecked == false)) {
+
+            checkColumn(e, "isGateOut");
+        }
+        if (PermissionInputs.find(x => x.fieldName == "ShiftedYard" && x.isChecked == false)) {
+
+            checkColumn(e, "shiftedYard");
+        }
+        if (PermissionInputs.find(x => x.fieldName == "ShippingAgentId" && x.isChecked == false)) {
+
+            checkColumn(e, "shippingAgentId");
+        }
+        if (PermissionInputs.find(x => x.fieldName == "BondedCarrierNTN" && x.isChecked == false)) {
+
+            checkColumn(e, "bondedCarrierNTN");
+        }
+        if (PermissionInputs.find(x => x.fieldName == "TruckNo" && x.isChecked == false)) {
+
+            checkColumn(e, "truckNo");
+        }
+        if (PermissionInputs.find(x => x.fieldName == "GateOutTime" && x.isChecked == false)) {
+
+            checkColumn(e, "gateOutTime");
+        }
+        if (PermissionInputs.find(x => x.fieldName == "Status" && x.isChecked == false)) {
+
+            checkColumn(e, "status");
+        }
+        if (PermissionInputs.find(x => x.fieldName == "PackageType" && x.isChecked == false)) {
+
+            checkColumn(e, "packageType");
+        }
+     }
+
+    function showToast(message, icon) {
+
+        $.toast({
+            heading: message,
+            showHideTransition: 'slide',
+            position: 'bottom-right',
+            icon: icon
+        });
+    }
+
+    function loadGrid(dataSource) {
+
+        $.get('/APICalls/GetGateOutCFSIndexes', function (data) {
+             if (dataSource)
+                containers = dataSource
+
+            else
+                containers = data;
+
+            $.get('/APICalls/GetShippingAgents', function (agents) {
+                console.log(containers)
+                shippingAgents = agents;
+
+                var dataGrid = $("#gateoutContainer").dxDataGrid({
+                    dataSource: containers,
+                    keyExpr: "key",
+
+                    wordWrapEnabled: true,
+                    showBorders: true,
+                    showBorders: true,
+                    allowColumnResizing: true,
+                    columnAutoWidth: true,
+                    dateSerializationFormat: "yyyy/MM/dd HH:mm:ss",
+                    paging: {
+                        pageSize: 10
+                    },
+
+                    searchPanel: {
+                        visible: true,
+                        width: 240,
+                        placeholder: "Search..."
+
+                    },
+
+                    editing: {
+
+                        allowUpdating: true,
+                        selectTextOnEditStart: true,
+                        startEditAction: "click",
+                        mode: "cell"
+                    },
+                    columns: [
+                        "virNo",
+                        {
+                            dataField: "blNo",
+                            caption: "BL No",
+                            width : 120
+                        },
+                        "indexNo",
+
+                        "noOfPackages",
+                        "packageType",
+                        {
+                            dataField: "status",
+                            caption: "Status",
+                            //lookup: {
+                            //    dataSource: [{ status: "F" }, { status: "E" }],
+                            //    displayExpr: "status",
+                            //    valueExpr: "status"
+                            //}
+                        },
+                        {
+                            dataField: "gateOutTime",
+                            caption: "Out Time",
+                            dataType: 'date',
+                            format: 'dd/MM/yyyy',
+                            width : 100
+                        },
+                        //{
+                        //    dataField: "truckNo",
+                        //    caption: "Truck No",
+                        //},
+                        //"bondedCarrierNTN",
+                        {
+                            dataField: "shippingAgentId",
+                            caption: "Agent",
+                            width: 200,
+                            lookup: {
+                                dataSource: shippingAgents,
+                                displayExpr: "name",
+                                valueExpr: "shippingAgentId"
+                            }
+                        },
+                        //"shiftedYard",
+                        //{
+                        //    caption: "",
+                        //    dataField: "isGateOut",
+                        //    dataType: "boolean"
+                        //}
+                    ],
+                    onEditorPreparing: function (e) {
+                        console.log(e);
+                        hideMenifestedColumns(e);
+                    },
+                    onRowUpdated: function (e) {
+
+                    }
+
+                }).dxDataGrid("instance");
+
+                $('.dx-datagrid-search-panel').removeClass('dx-state-disabled');
+                $('div.dx-texteditor-input-container > input.dx-texteditor-input').removeAttr('disabled');
+
+
+            })
+
+
+        });
+    }
+
+
+    //function gateOutCFS() {
+
+    //    $(this).children('#btnSubmit').prop('disabled', true);
+
+    //    setTimeout(function () { $("#btnSubmit").attr("disabled", false); }, 120000);
+
+    //    var gateOtCFS = containers.filter(c => c.isGateOut == true);
+
+    //    $.post('AddGetOutCFS', { model: gateOtCFS }, function (data) {
+    //        console.log('1');
+    //        if (data.error == true) {
+    //            console.log('2');
+    //            showToast(data.message, "error");
+    //        }
+    //        else {
+    //            console.log('3');
+    //            showToast("Gate Out CFS Created", "success");
+
+    //            loadGrid(containers.filter(c => c.isGateOut == false));
+    //        }
+    //    });
+    //}
+
+
+    function formfiled() {
+        loadGrid();
+    }
+
+
+</script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Index Gate Out
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <div id="gateoutContainer"></div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">-->
+@*    <button class="btn btn-primary" style="float:right;" id="btnSubmit" onclick="gateOutCFS()">Save & create</button>*@
+<!--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>-->

@@ -1,0 +1,111 @@
+﻿<script src="~/lib/devextreme-aspnet-data/js/dx.aspnet.data.js"></script>
+<script src="~/lib/devextreme/js/dx.aspnet.mvc.js"></script>
+
+<script src="~/js/app.js/IndexUsers.js"></script>
+@*<div class="right_col" role="main">
+
+        <div class="clearfix"></div>
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Users </h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a href="/users/UserRegistration"><i class="fa fa-user-plus" style="font-size: 16px; padding-right: 5px;"></i> Create New User</a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        @(Html.DevExtreme().DataGrid<WebdocTerminal.Models.User>()
+                                  .ID("UserGrid")
+                                  .FilterRow(filterRow => filterRow
+                                  .Visible(true)
+                                  .ApplyFilter(GridApplyFilterMode.Auto))
+                                  .Paging(paging => paging.PageSize(10))
+                                  .Editing(editing =>
+                                  {
+                                      editing.Mode(GridEditMode.Popup);
+                                      editing.AllowAdding(false);
+                                      editing.AllowDeleting(false);
+                                      editing.AllowUpdating(true);
+                                      editing.UseIcons(true);
+                                      editing.Popup(p => p
+                                      .ShowTitle(false)
+                                      .Width(700)
+                                      .Height(345)
+                                      .Position(pos => pos
+                                      .My(HorizontalAlignment.Center, VerticalAlignment.Center)
+                                      .At(HorizontalAlignment.Center, VerticalAlignment.Center)
+                                      .Of(new JS("window"))
+                                      )
+                                      );
+                                  })
+                                  .Columns(c =>
+                                  {
+                                      c.Add().DataField("firstName");
+                                      c.Add().DataField("lastName");
+                                      c.Add().DataField("contactNo");
+                                      c.Add().DataField("username");
+                                      c.Add().Caption("").Width(50).CellTemplate(@<text>
+                                                <a href="javascript:;" title="Edit" onclick="editUser('<%= data.userId %>')">
+                                                    <i class="fa fa-edit stylo blue"></i>
+                                                </a></text> );
+
+
+                        })
+                        .DataSource(d => d.Mvc()
+                        .Controller("Users")
+                        .LoadAction("GetUsers")
+                        .Key("userId"))
+                        )
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>*@
+
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+
+        <div class="row">
+            <div class="col-md-2 col-sm-2 col-xs-2">
+                <div class="title_left ">
+                    <h3>Users</h3>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-10">
+                <div class="">
+                    <a href="/users/UserRegistration" class="btn btn-primary" style="float:right" onclick="routeToRegistration()">Add</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="User"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

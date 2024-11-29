@@ -1,0 +1,222 @@
+﻿
+<script>
+
+    var voyagList = [];
+
+    var igm;
+
+    function igm_changed(data) {
+        igm = data.value;
+        console.log(igm)
+
+        $.get('/APICalls/GetVessel?IGM=' + igm, function (data) {
+
+            if (data) {
+
+                $('#igmyear').val(data.igmYear);
+                $('#vessel').val(data.vesselName);
+                console.log(data.voyages);
+                voyagList = data.voyages;
+                console.log(voyagList)
+                // all contaiers  var voyageNo = data.voyages[data.voyages.length - 1].voyageNo;
+                var index = voyagList.findIndex(t => t.voyageNo == data.voyages[data.voyages.length - 1].voyageNo);
+
+                $("#searchBox").dxSelectBox({
+                    dataSource: voyagList,
+                    displayExpr: "voyageNo",
+                    value: voyagList[index],
+                    acceptCustomValue: true,
+                    onValueChanged: function (data) {
+                        voyageNo = data.value.voyageNo;
+                        $.get('/APICalls/GetAllCFSAndCYIGMDropdown?VoyageNo=' + voyageNo + "&IGM=" + igm, function (containersResult) {
+
+                            console.log("containersResult", containersResult);
+                            cfscyContainerdetails(containersResult)
+                            WorkForCSDdetails()
+                        });
+                    },
+
+                })
+
+                var voyageNo = data.voyages[data.voyages.length - 1].voyageNo;
+                $('#voyageno').val(voyageNo);
+                 
+                $.get('/APICalls/GetAllCFSAndCYIGMDropdown?VoyageNo=' + voyageNo + "&IGM=" + igm, function (containersResult) {
+
+                    console.log("containersResult", containersResult);
+
+                    cfscyContainerdetails(containersResult)
+                    WorkForCSDdetails()
+
+                });
+            }
+
+        });
+    }
+
+
+ 
+
+    function cfscyContainerdetails(containersResult) {
+
+
+        console.log("WorkOrderCDSData", WorkOrderCDSData)
+
+        $("#gridContainerDetail").dxDataGrid({
+            dataSource: containersResult,
+            keyExpr: "containerNo",
+            showBorders: true,
+            allowColumnResizing: true,
+            columnAutoWidth: true,
+            paging: {
+                pageSize: 10
+            },
+            searchPanel: {
+                visible: true,
+                width: 240,
+                placeholder: "Search..."
+            },
+
+            editing: {
+                mode: "row", 
+            },
+            columns: [
+                {
+                    dataField: "containerNo",
+                    allowEditing: false,
+                    caption: "Container No"
+                },
+
+                {
+                    dataField: "foundSealNumber",
+                    allowEditing: false,
+                    caption: "Seal"
+                },
+                {
+                    dataField: "gateInDate",
+                    allowEditing: false,
+                    dataType: "date",
+                     caption: "Arrival Date"
+                },
+                {
+                    dataField: "lineName",
+                    allowEditing: false,
+                    caption: "Principal"
+                },
+                {
+                    dataField: "agentName",
+                    allowEditing: false,
+                     caption: "Line"
+                },
+                {
+                    dataField: "size",
+                    allowEditing: false,                   
+                    caption: "Size"
+                },
+                {
+                    dataField: "status",
+                    allowEditing: false,
+                    caption: "Status"
+                },
+                
+            ],
+
+
+            onRowInserted: function (e) {
+
+             
+
+
+            },
+
+            onRowUpdated: function (e) {
+                console.log(e);
+            }
+        });
+    }
+
+
+ 
+
+</script>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="">
+
+            <div class="">
+
+
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                IGM: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @(Html.DevExtreme()
+                                .Autocomplete()
+                                .ID("IGM")
+                                .DataSource(d => d.Mvc()
+                                .Controller("APICalls")
+                                .Area("")
+                                .LoadAction("GetIGMS"))
+                                .Placeholder("Type IGM...")
+                                .OnValueChanged("igm_changed"))
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Year:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="igmyear">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Vessel:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="vessel" name="VesselName">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Voyage:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="searchBox">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                           
+                            <div class="col-md-12 col-sm-12 col-xs-12" id="gridContainerDetail">
+
+                            </div>
+
+
+                            <div class="ln_solid"></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

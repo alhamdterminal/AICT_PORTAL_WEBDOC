@@ -1,0 +1,119 @@
+﻿
+@{
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+}
+
+<script src="~/js/app.js/PercentForAictBillingToLineView.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>% For Aict BillingToLine</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="PercentForAictBillingToLineForm">
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Line:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentId", ShippingAgent, "Select Shipping Agent ", new { @class = "form-control select2", @id = "shippingAgentId", @onchange = "callChangefunc(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Storage %:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" name="StoragePercentToLine" id="storagePercentToLine">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Service Charges %:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" name="ServiceChargesPercentToLine" id="serviceChargesPercentToLine">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-horizontal form-label-left">
+
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+
+
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button class="btn btn-primary" style="float:right;" onclick="savedetail()" type="button" id="btnSubmit">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </form>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+
+                                    <div class="row">
+                                        <div id="gridlist"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>
+

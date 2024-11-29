@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewData["Title"] = "Extra Free Days";
+
+    var GDNumbers = (IEnumerable<SelectListItem>)ViewData["GDNumbers"];
+}
+
+<script src="~/js/app.js/ExtraFreeDays.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Extra Free Days</h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left" novalidate="" id="ExtraFreeDays">
+                        @*    <partial name="~/Areas/Import/Views/Shared/_Filters_Container_Index.cshtml" id="UGB" />*@
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        GD#: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*@(Html.DevExtreme()
+                                            .Autocomplete()
+                                            .ID("GDNumber")
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .Area("")
+                                            .LoadAction("GetGDNumbers"))
+                                            .Placeholder("Type GDNumber...")
+                                            .OnValueChanged("gdNumber_changed"))*@
+
+                                        @Html.DropDownList("GDNumber", GDNumbers, "Select GD Number", new { @class = "form-control select2", @id = "gdnumbers", @onchange = "gdNumber_changed(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div id="filters">
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Additional Free Days :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input class="form-control" type="number" id="additionalFreeDays" name="AdditionalFreeDays">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Waive Amount :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input class="form-control" type="number" id="waiverAmount" name="WaiverAmount">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Approved by :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*<select class="item form-control" name="ApprovedBy"  id="approvedBy"  required>
+                                                <option value="" selected disabled>Please Select</option>
+                                                <option value="BILAL SAB">BILAL SAB</option>
+                                                <option value="OMER SAB">OMER SAB</option>
+                                                <option value="MANAGEMENT">MANAGEMENT</option>
+                                            </select>*@
+                                        <input class="form-control" type="text" id="approvedBy" name="ApprovedBy" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Remarks:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input class="form-control" type="text" id="extraFreeDaysRemarks" name="ExtraFreeDaysRemarks">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button type="submit" id="btnCancel" class="btn btn-primary" style="float:right;">Cancel</button>
+                                <button id="btnSubmit" type="button" onclick="submitExtraFreeDays()" class="btn btn-success" style="float:right;">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.select2').select2();
+</script>

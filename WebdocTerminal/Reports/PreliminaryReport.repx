@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="PreliminaryReport" Margins="24, 26, 110, 100" PageWidth="850" PageHeight="1100" Version="19.1" Font="Arial, 9.75pt">
+  <Bands>
+    <Item1 Ref="1" ControlType="TopMarginBand" Name="TopMargin" HeightF="110.166626">
+      <Controls>
+        <Item1 Ref="2" ControlType="XRLine" Name="line1" LineWidth="2" SizeF="799.000061,10" LocationFloat="0.999895751, 100.166626" BorderWidth="1">
+          <StylePriority Ref="3" UseBorderWidth="false" />
+        </Item1>
+      </Controls>
+    </Item1>
+    <Item2 Ref="4" ControlType="BottomMarginBand" Name="BottomMargin" />
+    <Item3 Ref="5" ControlType="DetailBand" Name="Detail" HeightF="127.666725">
+      <Controls>
+        <Item1 Ref="6" ControlType="XRLabel" Name="label5" Multiline="true" Text="40" TextAlignment="MiddleCenter" SizeF="50.8333435,23.0000076" LocationFloat="332.4167, 72.50005" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="7" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="8" ControlType="XRLabel" Name="label4" Multiline="true" Text="Size" TextAlignment="MiddleLeft" SizeF="50.00009,23.0000076" LocationFloat="282.4166, 72.50005" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="9" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="10" ControlType="XRLabel" Name="label7" Multiline="true" Text="KAPW-0009-14012019" TextAlignment="MiddleLeft" SizeF="297.999847,23" LocationFloat="86.83323, 26.50004" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="11" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="12" ControlType="XRLabel" Name="label6" Multiline="true" Text="VIR No" TextAlignment="MiddleLeft" SizeF="85.8333359,22.9999981" LocationFloat="0, 26.50004" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="13" UseFont="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="14" ControlType="XRLabel" Name="label9" Multiline="true" Text="APL ENGLAND" TextAlignment="MiddleLeft" SizeF="297.999878,22.9999962" LocationFloat="86.83319, 49.5000458" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="15" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="16" ControlType="XRLabel" Name="label8" Multiline="true" Text="Vessel" TextAlignment="MiddleLeft" SizeF="85.8333359,23" LocationFloat="0, 49.5000458" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="17" UseFont="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="18" ControlType="XRLabel" Name="label11" Multiline="true" Text="BMOU4338533" TextAlignment="MiddleLeft" SizeF="178.83316,23.0000076" LocationFloat="86.83323, 72.50005" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="19" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item7>
+        <Item8 Ref="20" ControlType="XRLabel" Name="label10" Multiline="true" Text="Container #" TextAlignment="MiddleLeft" SizeF="85.8333359,22.9999924" LocationFloat="0.999895751, 72.50005" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="21" UseFont="false" UseTextAlignment="false" />
+        </Item8>
+        <Item9 Ref="22" ControlType="XRLabel" Name="label13" Multiline="true" Text="FOCUS SHIPPING" TextAlignment="MiddleLeft" SizeF="296.4168,22.9999924" LocationFloat="86.83323, 95.50005" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="23" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item9>
+        <Item10 Ref="24" ControlType="XRLabel" Name="label12" Multiline="true" Text="Agent" TextAlignment="MiddleLeft" SizeF="85.8333359,22.9999924" LocationFloat="0, 95.50003" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="25" UseFont="false" UseTextAlignment="false" />
+        </Item10>
+        <Item11 Ref="26" ControlType="XRLabel" Name="label15" Multiline="true" Text="034" TextAlignment="MiddleCenter" SizeF="56.33319,23" LocationFloat="472.583374, 49.5000458" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="27" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item11>
+        <Item12 Ref="28" ControlType="XRLabel" Name="label14" Multiline="true" Text="Voyage" TextAlignment="MiddleLeft" SizeF="75,23" LocationFloat="397.5833, 49.5000458" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="29" UseFont="false" UseTextAlignment="false" />
+        </Item12>
+        <Item13 Ref="30" ControlType="XRLabel" Name="label17" Multiline="true" Text="LCL/FCL" TextAlignment="MiddleLeft" SizeF="75,23" LocationFloat="397.583374, 72.50005" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="31" UseFont="false" UseTextAlignment="false" />
+        </Item13>
+        <Item14 Ref="32" ControlType="XRLabel" Name="label16" Multiline="true" Text="LCL" TextAlignment="MiddleCenter" SizeF="56.33319,23" LocationFloat="472.5834, 72.50005" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="33" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item14>
+        <Item15 Ref="34" ControlType="XRLabel" Name="label19" Multiline="true" Text="23-Jan-2019" TextAlignment="MiddleLeft" SizeF="97.99994,22.9999981" LocationFloat="702, 26.50004" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="35" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item15>
+        <Item16 Ref="36" ControlType="XRLabel" Name="label18" Multiline="true" Text="DeStuffing Date" TextAlignment="MiddleRight" SizeF="106.666687,22.9999981" LocationFloat="581.1666, 26.50004" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="37" UseFont="false" UseTextAlignment="false" />
+        </Item16>
+        <Item17 Ref="38" ControlType="XRLabel" Name="label21" Multiline="true" Text="23-Jan-2019" TextAlignment="MiddleLeft" SizeF="97.99994,23" LocationFloat="702.0001, 49.5000458" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="39" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item17>
+        <Item18 Ref="40" ControlType="XRLabel" Name="label20" Multiline="true" Text="Arival " TextAlignment="MiddleRight" SizeF="106.66687,23" LocationFloat="581.166565, 49.5000458" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="41" UseFont="false" UseTextAlignment="false" />
+        </Item18>
+        <Item19 Ref="42" ControlType="XRLabel" Name="label23" Multiline="true" Text="DAY" TextAlignment="MiddleCenter" SizeF="97.99988,23" LocationFloat="702, 72.50005" Font="Calibri, 10pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <StylePriority Ref="43" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item19>
+        <Item20 Ref="44" ControlType="XRLabel" Name="label22" Multiline="true" Text="Day/Night" TextAlignment="MiddleRight" SizeF="106.666687,23.0000076" LocationFloat="581.1666, 72.50005" Font="Calibri, 10pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="45" UseFont="false" UseTextAlignment="false" />
+        </Item20>
+      </Controls>
+    </Item3>
+    <Item4 Ref="46" ControlType="DetailReportBand" Name="DetailReport" Level="0">
+      <Bands>
+        <Item1 Ref="47" ControlType="DetailBand" Name="Detail1" HeightF="25">
+          <Controls>
+            <Item1 Ref="48" ControlType="XRTable" Name="table2" TextAlignment="MiddleLeft" SizeF="799.999939,25" LocationFloat="0, 0" Font="Calibri, 9pt" Borders="All">
+              <Rows>
+                <Item1 Ref="49" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+                  <Cells>
+                    <Item1 Ref="50" ControlType="XRTableCell" Name="tableCell7" Weight="0.607124573947819" Multiline="true" Text="Index #" Padding="5,2,0,0,100">
+                      <StylePriority Ref="51" UsePadding="false" />
+                    </Item1>
+                    <Item2 Ref="52" ControlType="XRTableCell" Name="tableCell11" Weight="1.7280141415608821" Multiline="true" Text="Description" Padding="5,2,0,0,100">
+                      <StylePriority Ref="53" UsePadding="false" />
+                    </Item2>
+                    <Item3 Ref="54" ControlType="XRTableCell" Name="tableCell12" Weight="1.4639399091517196" Multiline="true" Text="Marks &amp; No" Padding="5,2,0,0,100">
+                      <StylePriority Ref="55" UsePadding="false" />
+                    </Item3>
+                    <Item4 Ref="56" ControlType="XRTableCell" Name="tableCell14" Weight="0.65828121882136093" Multiline="true" Text="Manifest" Padding="5,2,0,0,100">
+                      <StylePriority Ref="57" UsePadding="false" />
+                    </Item4>
+                    <Item5 Ref="58" ControlType="XRTableCell" Name="tableCell15" Weight="0.4282995107113749" Multiline="true" Text="UOP" Padding="5,2,0,0,100">
+                      <StylePriority Ref="59" UsePadding="false" />
+                    </Item5>
+                    <Item6 Ref="60" ControlType="XRTableCell" Name="tableCell16" Weight="0.77057333551820451" Multiline="true" Text="DeStuffed" Padding="5,2,0,0,100">
+                      <StylePriority Ref="61" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="62" ControlType="XRTableCell" Name="tableCell17" Weight="0.49869704624507627" Multiline="true" Text="UOP" Padding="5,2,0,0,100">
+                      <StylePriority Ref="63" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="64" ControlType="XRTableCell" Name="tableCell18" Weight="0.671247092906519" Multiline="true" Text="Mnf. WT" Padding="5,2,0,0,100">
+                      <StylePriority Ref="65" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="66" ControlType="XRTableCell" Name="tableCell19" Weight="0.85682918771198247" Multiline="true" Text="Found WT" Padding="5,2,0,0,100">
+                      <StylePriority Ref="67" UsePadding="false" />
+                    </Item9>
+                    <Item10 Ref="68" ControlType="XRTableCell" Name="tableCell20" Weight="1.891992749699281" Multiline="true" Text="Remarks" Padding="5,2,0,0,100">
+                      <StylePriority Ref="69" UsePadding="false" />
+                    </Item10>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="70" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item1>
+        <Item2 Ref="71" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="25">
+          <Controls>
+            <Item1 Ref="72" ControlType="XRTable" Name="table1" TextAlignment="MiddleLeft" SizeF="799.999939,25" LocationFloat="0, 0" Font="Calibri, 9pt, style=Bold" Borders="All">
+              <Rows>
+                <Item1 Ref="73" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+                  <Cells>
+                    <Item1 Ref="74" ControlType="XRTableCell" Name="tableCell2" Weight="0.607124573947819" Multiline="true" Text="Index #" Padding="5,2,0,0,100">
+                      <StylePriority Ref="75" UsePadding="false" />
+                    </Item1>
+                    <Item2 Ref="76" ControlType="XRTableCell" Name="tableCell3" Weight="1.7280141415608821" Multiline="true" Text="Description" Padding="5,2,0,0,100">
+                      <StylePriority Ref="77" UsePadding="false" />
+                    </Item2>
+                    <Item3 Ref="78" ControlType="XRTableCell" Name="tableCell4" Weight="1.4639399091517196" Multiline="true" Text="Marks &amp; No" Padding="5,2,0,0,100">
+                      <StylePriority Ref="79" UsePadding="false" />
+                    </Item3>
+                    <Item4 Ref="80" ControlType="XRTableCell" Name="tableCell5" Weight="0.65828121882136093" Multiline="true" Text="Manifest" Padding="5,2,0,0,100">
+                      <StylePriority Ref="81" UsePadding="false" />
+                    </Item4>
+                    <Item5 Ref="82" ControlType="XRTableCell" Name="tableCell6" Weight="0.4282995107113749" Multiline="true" Text="UOP" Padding="5,2,0,0,100">
+                      <StylePriority Ref="83" UsePadding="false" />
+                    </Item5>
+                    <Item6 Ref="84" ControlType="XRTableCell" Name="tableCell8" Weight="0.77057333551820451" Multiline="true" Text="DeStuffed" Padding="5,2,0,0,100">
+                      <StylePriority Ref="85" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="86" ControlType="XRTableCell" Name="tableCell9" Weight="0.49869704624507627" Multiline="true" Text="UOP" Padding="5,2,0,0,100">
+                      <StylePriority Ref="87" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="88" ControlType="XRTableCell" Name="tableCell10" Weight="0.671247092906519" Multiline="true" Text="Mnf. WT" Padding="5,2,0,0,100">
+                      <StylePriority Ref="89" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="90" ControlType="XRTableCell" Name="tableCell1" Weight="0.85682918771198247" Multiline="true" Text="Found WT" Padding="5,2,0,0,100">
+                      <StylePriority Ref="91" UsePadding="false" />
+                    </Item9>
+                    <Item10 Ref="92" ControlType="XRTableCell" Name="tableCell13" Weight="1.891992749699281" Multiline="true" Text="Remarks" Padding="5,2,0,0,100">
+                      <StylePriority Ref="93" UsePadding="false" />
+                    </Item10>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="94" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item2>
+      </Bands>
+    </Item4>
+  </Bands>
+</XtraReportsLayoutSerializer>

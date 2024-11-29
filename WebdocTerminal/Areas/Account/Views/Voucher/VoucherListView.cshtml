@@ -1,0 +1,210 @@
+﻿@{
+    ViewData["Title"] = "Voucher List";
+    var Users = (IEnumerable<SelectListItem>)ViewData["Users"];
+    var VoucherType = (IEnumerable<SelectListItem>)ViewData["VoucherType"];
+}
+
+
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+
+<style>
+    #groundedContainer {
+        max-height: 700px;
+    }
+
+    .dx-checkbox-indeterminate .dx-checkbox-icon {
+        background-color: #ffffff;
+        color: #3e3b3b;
+        border: none;
+        font: 14px/1 DXIcons;
+        font-size: 20px;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .modal-dialog {
+        width: 50% !important;
+        margin: 30px auto;
+    }
+</style>
+
+<script src="~/js/app.js/VoucherListView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Voucher List
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Users:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @Html.DropDownList("UserId", Users, "Select User", new { @class = "form-control select2", @id = "userId", @required = "required", })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    From Date:
+                                </label>
+                                <div class="col-md-9 col-xs-12">
+                                    <input type="text" class="form-control has-feedback-left" id="single_cal2" name="fromdate" aria-describedby="inputSuccess2Status2">
+                                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                    <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    To Date:
+                                </label>
+                                <div class="col-md-9 col-xs-12">
+                                    <input type="text" class="form-control has-feedback-left" id="single_cal3" name="todate" aria-describedby="inputSuccess2Status2">
+                                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                    <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label  col-md-4" for="first-name">
+                                Status
+                            </label>
+                            <div class="col-md-8">
+                                <select class="item form-control" id="statusType">
+                                    <option value="">Please Select</option>
+                                    <option value="InProgress">InProgress</option>
+                                    <option value="Posted">Posted</option>
+                                    <option value="Canceled">Canceled</option>
+                                </select>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Search:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="search">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Voucher Type:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @Html.DropDownList("VoucherTypeId", VoucherType, "Select Voucher Type", new { @class = "form-control select2", @id = "voucherTypeId", @required = "required", })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-8 col-xs-12">
+                        <button class="btn btn-danger" style="float:right;" id="btnSubmitFind" onclick="PrintDetail()">Find</button>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button id="btnSubmitSelectALL" type="button" onclick="selectAll()" class="btn btn-success" style="float:left;">Select ALL</button>
+                            <button id="btnSubmitUnSelectALL" type="button" onclick="unselectAll()" class="btn btn-primary" style="float: left;">Un-Select ALL</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x_content">
+
+                    <div id="gridContainer"></div>
+                    <div class="ln_solid"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn btn-success" style="float:right;" id="btnSubmit" onclick="PostVouchers()">Post</button>
+                            <button class="btn btn-primary" style="float:right;" id="btnSubmitPrint" onclick="Printvouchers()">Print</button>
+                            <button class="btn btn-danger" style="float:right;" id="btnSubmitCancel" onclick="cancelvouchers()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="ErroeStatusModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error List</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="x_content" id="errorGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>
+
+

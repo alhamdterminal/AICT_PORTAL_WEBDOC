@@ -1,0 +1,379 @@
+﻿
+
+
+
+
+
+<script src="~/js/app.js/SealIssuance.js"></script>
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Seal Issuance</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="form-group" id="gridContainer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--@{
+
+//var Seals = (IEnumerable<SelectListItem>)ViewData["SealIssuance"];
+
+}
+
+<script>
+    var igm;
+
+    function refresh() {
+        window.location.reload();
+    }
+
+    var PaymentUpdateId = 0;
+    var PaymentUpdateDetail = [];
+
+    var SealsPurchase = [];
+
+    var ShippingLineList = [];
+
+
+
+    function sendgroundingcontainers(unAssignseals) {
+        console.log(unAssignseals, "unAssignseals");
+
+        $.post('UpdateSealIssuance', { model: unAssignseals }, function (data) {
+
+            if (data.error == true) {
+
+                showToast(data.message, "error");
+
+                window.location.href = window.location.href;
+
+            }
+            else {
+
+                showToast(data.message, "success");
+
+                window.location.href = window.location.href;
+
+
+            }
+
+        });
+
+    }
+
+
+    function saveIssueDetail() {
+
+        $("#butonSubmit").attr("disabled", true);
+
+        setTimeout(function () { $("#butonSubmit").attr("disabled", false); }, 120000);
+
+        sendgroundingcontainers(resuktContainers);
+    }
+
+
+    function getsealCode(data) {
+
+        igm = data.value;
+        console.log(igm)
+    }
+
+    function ShowDetail() {
+        console.log(igm)
+
+        var fromdate = document.getElementById("From").value;
+        var todate = document.getElementById("To").value;
+        var batch = igm;
+        console.log(batch, "batch")
+        GetSealsByNo(fromdate, todate, batch);
+    }
+
+    function GetSealsByNo(fromdate, todate,batch) {
+
+        $.get('/Import/Setup/GetSealPurchasesByNo?from=' + fromdate + '&to=' + todate + '&batch=' + batch, function (result) {
+            console.log("result", result)
+            var seals = result;
+
+            $("#sealdetails").dxDataGrid({
+                dataSource: seals,
+                keyExpr: "sealPurchaseId",
+                showBorders: true,
+                hoverStateEnabled: true,
+                columnsAutoWidth: true,
+                paging: {
+                    pageSize: 15
+                },
+                scrolling: {
+                    columnRenderingMode: "virtual"
+                },
+                filterRow: {
+                    visible: true,
+                    applyFilter: "auto"
+                },
+                searchPanel: {
+                    visible: true,
+                    width: 240,
+                    placeholder: "Search..."
+                },
+                editing: {
+                    mode: "cell",
+                    allowAdding: false,
+                    allowUpdating: false,
+                    useIcons: true
+                },
+                headerFilter: {
+                    visible: true
+                },
+                columns: [
+                    {
+                        dataField: "sealPurchaseNo",
+                        caption: "Seal Code",
+                    },
+                    {
+                        dataField: "sealFrom",
+                        caption: "Seal",
+                    },
+                    {
+                        dataField: "rate",
+                        dataType: "number",
+                    },
+                    {
+                        dataField: "purchaseDate",
+                        dataType: "date",
+                        format: "dd/MMM/yyyy",
+                    },
+                    {
+                        dataField: "status",
+                        dataType: "boolean"
+                    },
+                ],
+                summary: {
+                    totalItems: [{
+                        column: "sealFrom",
+                        summaryType: "count"
+                    }, {
+                        column: "rate",
+                        summaryType: "sum"
+                    }]
+                },
+
+                onEditorPreparing: function (e) {
+                    // hideMenifestedColumns(e);
+                },
+                onRowUpdated: function (e) {
+                    console.log(e);
+                    //var data = e.data;
+                    //$.post('/Import/Setup/UpdateSealIssuance', { data, data }, function (data) {
+
+
+                    //    showToast(data.message, "success");
+                    //});
+                },
+
+
+            });
+
+        });
+
+
+    }
+
+    function checkColumn(e, field) {
+
+        if (e.parentType === "dataRow" && e.dataField !== field) {
+            return;
+        }
+
+        e.editorOptions.disabled = true;
+    }
+
+
+    function hideMenifestedColumns(e) {
+
+        checkColumn(e, "shippingLineName");
+        checkColumn(e, "containerNumber");
+        checkColumn(e, "size");
+        checkColumn(e, "cargoType");
+        checkColumn(e, "type");
+        checkColumn(e, "soccoc");
+        checkColumn(e, "totalTHCCharges");
+        checkColumn(e, "totalCharges");
+    }
+
+    function checkValidations() {
+
+        //if (!$('#accNo').val()) {
+
+        //    $('#accNoerror').html('This is a required field');
+        //}
+        //else {
+        //    $('#accNoerror').html('');
+        //}
+
+    }
+
+    function perAlertNumber_changed(data) {
+        console.log("data", data)
+
+        var perAlertNumber = data.selectedItem;
+
+        getprealterDetailbyperAlertNumber(perAlertNumber)
+
+    }
+
+
+
+    function showToast(message, icon) {
+
+        $.toast({
+            heading: message,
+            showHideTransition: 'slide',
+            position: 'bottom-right',
+            icon: icon
+        });
+    }
+</script>
+
+<style>
+
+
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Seal Issuance</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="sealPurchaseForm">
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                       Batch
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @(Html.DevExtreme()
+                                .Autocomplete()
+                                .ID("SealPurchaseId")
+                                .DataSource(d => d.Mvc()
+                                .Controller("APICalls")
+                                .Area("")
+                                .LoadAction("GetSealsCode"))
+                                .Placeholder("Type Batch Code...")
+                                .OnValueChanged("getsealCode"))-->
+@*<input type="text" class="form-control col-md-7 col-xs-12" id="Code" name="Code">*@
+<!--</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Seal.No From
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="From" name="From">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Seal.No To
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="To" name="To">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button type="button" id="btnCancel" class="btn btn-primary" onClick="restform()" style="float:right;">Cancel</button>
+                                <button id="btnSubmit" type="button" onclick="ShowDetail()" class="btn btn-primary" style="float:right;">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div id="sealdetails"></div>
+                                    <div class="ln_solid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button type="button" id="btnCancel" class="btn btn-primary" onClick="restform()" style="float:right;">Cancel</button>
+                            <button id="butonSubmit" type="button" class="btn btn-success" onclick="saveIssueDetail()" style="float:right;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->

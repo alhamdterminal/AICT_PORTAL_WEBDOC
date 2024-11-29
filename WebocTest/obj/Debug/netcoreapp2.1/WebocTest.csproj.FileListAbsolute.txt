@@ -1,0 +1,72 @@
+C:\Users\User01\source\New folder\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.csproj.AssemblyReference.cache
+C:\Users\User01\source\New folder\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.AssemblyInfoInputs.cache
+C:\Users\User01\source\New folder\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.AssemblyInfo.cs
+C:\Users\User01\source\New folder\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.csproj.CoreCompileInputs.cache
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.Views.dll
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.Views.pdb
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.deps.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.runtimeconfig.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.runtimeconfig.dev.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\web.config
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\appsettings.Development.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\appsettings.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\aws-beanstalk-tools-defaults.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\bower.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\bundleconfig.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\libman.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\package-lock.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\package.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.deps.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.runtimeconfig.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.runtimeconfig.dev.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.dll
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.pdb
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.dll
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.pdb
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.csproj.AssemblyReference.cache
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.AssemblyInfoInputs.cache
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.AssemblyInfo.cs
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.csproj.CoreCompileInputs.cache
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.sourcelink.json
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.csproj.Up2Date
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.dll
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.pdb
+D:\AICT PROD\AICT-Source\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.genruntimeconfig.cache
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.Views.dll
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.Views.pdb
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.deps.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.runtimeconfig.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.runtimeconfig.dev.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\web.config
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\appsettings.Development.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\appsettings.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\aws-beanstalk-tools-defaults.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\bower.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\bundleconfig.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\libman.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\package-lock.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\package.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.deps.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.runtimeconfig.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.runtimeconfig.dev.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.dll
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebocTest.pdb
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.dll
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\bin\Debug\netcoreapp2.1\WebdocTerminal.pdb
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.csproj.AssemblyReference.cache
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.AssemblyInfoInputs.cache
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.AssemblyInfo.cs
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.csproj.CoreCompileInputs.cache
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.sourcelink.json
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.csproj.Up2Date
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.dll
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.pdb
+D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebocTest\obj\Debug\netcoreapp2.1\WebocTest.genruntimeconfig.cache

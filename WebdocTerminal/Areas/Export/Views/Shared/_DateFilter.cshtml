@@ -1,0 +1,40 @@
+﻿<style>
+    @@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+        
+
+        .mobBtn {
+            margin-top: 23px;
+        }
+    }
+</style>
+
+<form class="form-horizontal form-label-left" novalidate="" id="filterForm">
+    <div class="col-md-4  col-xs-12">
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label col-md-4  col-xs-12" for="first-name">
+                    From:
+                </label>
+                <div class="col-md-8  col-xs-12">
+                    <input type="date" class="form-control" id="fromdate">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4  col-xs-12">
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label col-md-4  col-xs-12" for="first-name">
+                    To:
+                </label>
+                <div class="col-md-8  col-xs-12">
+                    <input type="date" class="form-control" id="todate">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12  col-xs-12">
+        <button type="button" class="btn btn-dark mobBtn" onclick="myFunction()" style="float:right">Submit</button>
+    </div>
+</form>

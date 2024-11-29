@@ -1,0 +1,423 @@
+﻿
+@{
+    var RandDClerks = (IEnumerable<SelectListItem>)ViewData["RandDClerks"];
+}
+
+<style>
+
+    .modal-dialog {
+        width: 50% !important;
+        margin: 30px auto;
+    }
+
+</style>
+<script src="~/js/app.js/OrderDetail.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Gate Pass</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="radio" style="display: inline-block;">
+                    <label>
+                        <input type="radio" id="Weight" name="type" value="WEIGHT" onclick="setType()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -30px;  margin-top: 1px;"> Weight
+                    </label>
+                </div>
+                <div class="radio" style="display: inline-block;">
+                    <label>
+                        <input type="radio" id="Packages" name="type" value="PACKAGES" onclick="setType()" style="position: absolute; width: 20%; height: 60%; margin-left: -25px; margin-top: 1px; "> No of Packages / Containers
+                    </label>
+                </div>
+
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="orderDetailForm">
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Vessel<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="vesl" disabled>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        IGM Year<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="igmyear" disabled>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Voyage No<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="voyageno" disabled>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Container<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="containerValue" disabled>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Bill of Lading<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="blnumb" disabled>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        D.O Date
+                                    </label>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" class="form-control has-feedback-left" id="single_cal1" aria-describedby="inputSuccess2Status" name="DODate">
+                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        D.O Year
+                                    </label>
+
+
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" class="form-control has-feedback-left" id="single_cal2" placeholder="D.O Year" aria-describedby="inputSuccess2Status" name="DOYear">
+                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        D.O No
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" placeholder="D.O No" id="donumber" name="DONumber">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Cargo Type
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="cargoType" name="CargoType" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Type
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="deliveryType" name="GatePassType" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
+                                    <div id="gridContainer"></div>
+                                    <div class="ln_solid"></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-horizontal form-label-left row">
+
+                            @*<div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Truck #
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" class="form-control" name="TruckNumber">
+                                        </div>
+                                    </div>
+                                </div>*@
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        <span class="unit-type">Total Package</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*<input type="text" class="form-control" id="totalpac" name="totalQuantitys">*@
+                                        <input type="text" class="form-control" id="totalpac" name="TotalPackages" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Balance
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="balance" name="BalancePackages" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Delivered
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="delivereditem" name="Delivered" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Total Delivered
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="totaldelivereditem" name="TotalDelivered" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="ln_solid"></div>
+                        <div class="row">
+
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        IGM<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="VirNumber" id="igm" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Container Index<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="IndexNo" id="containerIndexValue" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Container Number:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div id="contaiernsdropdown"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3 col-sm-12 col-xs-12" id="containertpe">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Shift <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+
+
+                                        <select class="item form-control" name="Shift" required>
+                                            <option value="" selected disabled>Please Select</option>
+                                            <option value="Day">Day</option>
+                                            <option value="Night">Night</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+
+                            <!--<div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Import Bill #
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="billno" name="ImportBillNumber">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="  form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Bill Date
+                                    </label>-->
+                            @* <fieldset>*@
+                            <!--<div class="control-group">
+                                <div class="controls">
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form-control has-feedback-left" id="billdate" aria-describedby="inputSuccess2Status" name="BillDate">
+                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                    </div>
+                                </div>
+                            </div>-->
+                            @*</fieldset>*@
+                            <!--</div>
+                            </div>-->
+
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        R & D Clerk *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("RandDClerkId", RandDClerks, "Select R & D Clerk", new { @class = "form-control", @id = "randDClerkId", @required = "required" })
+                                        <span class="error" id="randDClerkIderror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                        Enter Remarks
+                                    </label>
+                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                        <input type="text" class="form-control" id="remarks" name="Remarks">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+
+
+
+                        <div class="ln_solid"></div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
+                                    <div id="gridContainer2"></div>
+                                    <div class="ln_solid"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-5">
+                                <button type="submit" id="btnCancel" class="btn btn-primary">Cancel</button>
+                                <button id="btnSubmit" type="button" onclick="saveOrderDetail()" class="btn btn-success">Submit</button>
+                                @*<button id="edi" type="button" class="btn btn-warning">Send EDI</button>*@
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="HoldStatusModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Hold Status</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="x_content" id="holdGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

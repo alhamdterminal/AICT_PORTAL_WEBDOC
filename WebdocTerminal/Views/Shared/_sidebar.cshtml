@@ -1,0 +1,855 @@
+﻿ <!-- sidebar menu -->
+ 
+<script>
+    $(document).ready(function () {
+
+
+
+
+    });
+</script>
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+        <div class="menu_section">
+            <ul class="nav side-menu">
+
+
+                @*@if (User.Claims.ToList().Where(x => x.Value == "ACCOUNT(FINANCE)").Count() > 0)*@
+                @if (User.IsInRole("ACCOUNT(FINANCE)") || User.IsInRole("FinanceAdmin") || User.IsInRole("FinanceUser") || User.IsInRole("FinanceSuperAdmin"))
+                {
+
+                    <li>
+                        <a><i class="fa fa-download"></i>  Accounts <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a><i class="fa fa-external-link hide"></i> Setup <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li class="tabLink"><a href="/Setup/CountryView">Country</a></li>
+                                    <li class="tabLink"><a href="/Setup/CityView">City</a></li>
+                                    <li class="tabLink"><a href="/Setup/CustomerView">Customer</a></li>
+                                    <li class="tabLink"><a href="/Setup/DepartmentView">Department</a></li>
+                                    <li class="tabLink"><a href="/Setup/AccountNatureView">Account Nature</a></li>
+                                    <li class="tabLink"><a href="/Setup/AccountCategoryView">Account Category</a></li>
+                                    <li class="tabLink"><a href="/Setup/AccountSubCategoryView">Account Sub Category</a></li>
+                                    <li class="tabLink"><a href="/Setup/AccountTypeView">Account Type</a></li>
+                                    <li class="tabLink"><a href="/Setup/VoucherServiceTypeView">Voucher Service Type</a></li>
+                                    <li class="tabLink"><a href="/Setup/VoucherTypeView">Voucher Type</a></li>
+                                    <li class="tabLink"><a href="/Setup/AllowBackDateTransaction">Allow BackDate Transaction</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-external-link hide"></i> Chat Of Account <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li class="tabLink"><a href="/Account/ChartOfAccount/ChartOfAccountView">Chart Of Account</a></li>
+                                    <li class="tabLink"><a href="/Account/ChartOfAccount/AccountBalanceView">Account Balance</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-external-link hide"></i>Voucher<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li class="tabLink"><a href="/Account/Voucher/VoucherView">Create Voucher</a></li>
+                                    <li class="tabLink"><a href="/Account/Voucher/VoucherListView">Voucher List</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a><i class="fa fa-external-link hide"></i>Closure<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li class="tabLink"><a href="/Setup/FinancialYearView">Financial Year</a></li>
+                                    <li class="tabLink"><a href="/Account/YearClosure/YearClosureView">Year Closure</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a><i class="fa fa-external-link hide"></i>Accounts Report<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li class="tabLink"><a href="/Account/ChequePrinting/ChequePrinting">Cheque Printing</a></li>
+                                    <li class="tabLink"><a href="/Account/Reports/ChequePrintingLog">Cheque Printing Log</a></li>
+                                    <li class="tabLink"><a href="/Account/Reports/Ledger">Ledger</a></li>
+                                    <li class="tabLink"><a href="/Account/Reports/CustmerLedger">Prty Ledger</a></li>
+                                    <li class="tabLink"><a href="/Account/Reports/TransactionView">Transaction</a></li>
+                                    <li class="tabLink"><a href="/Account/Reports/TrialBalance">Trial Balance</a></li>
+                                    <li class="tabLink"><a href="/Account/Reports/TrialBalanceParties">Trial Balance Parties</a></li>
+                                    <li class="tabLink"><a href="/Account/Reports/AgingWiseBalanceReport">AgingWise Balance</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                }
+
+
+                <li>
+                    <a><i class="fa fa-download"></i>  CSD <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="tabLink"><a href="/import/IGMInfo/IGMDetailView">IGM Detail</a></li>
+                        <li class="tabLink"><a href="/import/ElectronicDeliveryOrder/ElectronicDeliveryOrderView">EDO</a></li>
+                        <li class="tabLink"><a href="/import/ElectronicDeliveryOrder/UploadEDOView">UploadEDOView</a></li>
+                        <li class="tabLink"><a href="/import/Delivery/SearchGatePass"><i class="fa fa-truck hide"></i> Gate Pass</a></li>
+                        <li class="tabLink"><a href="/import/Delivery/SearchDeliveryOrder"><i class="fa fa-truck hide"></i>Delivery Order</a></li>
+                        <li class="tabLink"><a href="/Invoice/ReprintWaiver">Waiver</a></li>
+                        <li class="tabLink"><a href="/Invoice/ExaminationRequest">Examination Request</a></li>
+                        <li class="tabLink"><a href="/Invoice/InvoiceiInquiry">Invoice Inquiriy</a></li>
+                        <li class="tabLink"><a href="/import/Hold/HoldSpecialInstruction"><i class="fa fa-hand-stop-o hide"></i>Hold</a></li>
+                        <li class="tabLink"><a href="/import/CargoInformation/CargoInformation"><i class="fa fa-bus hide"></i>Cargo Information</a></li>
+                        <li class="tabLink"><a href="/import/Reports/InquiryFormView"><i class="fa fa-bus hide"></i>Inquery Form</a></li>
+                        <li class="tabLink"> <a href="/import/Setup/WorkOrderCSDView">Work Order CSD</a></li>
+                        <li class="tabLink"> <a href="/import/Setup/GatePassSampleView">Gate Pass Sample</a></li>
+                        <li class="tabLink"><a href="/Import/Reports/DODetailView"><i class="fa fa-pencil-square-o"></i>DO Detail</a></li>
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Auction <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/import/auction/auctioninformation"><i class="fa fa-bullhorn hide"></i>Auction Info</a></li>
+                                <li class="sub_menu tabLink"><a href="/import/Auction/AuctionDetailView">Auction Hold CFS</a></li>
+                                <li class="tabLink"><a href="/import/Auction/AuctionDetailCYView">Auction Hold CY</a></li>
+                                <li class="tabLink"><a href="/import/Auction/AuctionUnMark">Auction UnMark</a></li>
+
+                                <li class="tabLink">
+                                    <a>Reports<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="tabLink"><a href="/import/Reports/ImportBalanceCfsCargo">Balance Cfs Cargo</a></li>
+                                        <li class="tabLink"><a href="/import/Reports/CargoDeliveredAuction">Cargo Delivered Auction</a></li>
+                                        <li class="tabLink"><a href="/import/Reports/FormBAuction">Form B</a></li>
+                                        <li class="tabLink"><a href="/import/Reports/AuctionReport">Auction Report</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Manual Messages <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"> <a href="/Import/Setup/VIROManual">VIRO Manual</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/IGMOManual">IGMO Manual</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/IPAOManual">IPAO Manual</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/CRLOManualView">CRLO Manual</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/CRLManualView">CRL Manual</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a><i class="fa fa-download"></i>  Operations <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Payorders <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/PreAlert/PreAlertView">Pre Alert</a></li>
+                                <li class="tabLink"><a href="/import/PreAlert/UpdatePreAlertView">Update Pre Alert </a></li>
+                                <li class="tabLink"><a href="/import/PreAlert/PaymentUpdateView">Payments</a></li>
+                                <li class="tabLink"><a href="/import/PreAlert/UpdatePaymentUpdateDetailView"> Update Payment </a></li>
+                                <li class="tabLink"><a href="/import/PreAlertPayOrder/PayOrderView">Payorder</a></li>
+                                <li class="tabLink"><a href="/import/PreAlertPayOrder/UpdatePreAlertPayorder"> Update Payorder </a></li>
+                                <li class="tabLink"><a href="/import/PreAlert/PreAlertBindingView"> Pre-Alert Binding </a></li>
+
+                                <li class="tabLink">
+                                    <a>Reports<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="tabLink"><a href="/import/Reports/OutStandingPaymentReport">OutStanding Payment</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Cross Stuffing <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/GateInOut/CSEmptyContainerReceivedView">CS Empty Container Received</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/EmptyReceivingCrossStuffView">Empty Receiving</a></li>
+                                <li class="tabLink"><a href="/import/Grounding/CrossStuffingView">Cross Stuffing</a></li>
+                                <li class="tabLink"><a href="/import/Grounding/CrossStuffPreGateOutView">Pre  GateOut</a></li>
+                                <li class="tabLink"><a href="/import/reports/CrossStuffingReportView">Cross Stuffing Report</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Empty Contianers <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/import/GateInOut/EmptyGateOutContainers">Empty Gate Out Destuffing</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/EmptyGatePass">Empty Gate Pass Re-Print</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/EmptyContainerReceivedView">Empty Container Received</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/EmptyContainerDeliveredView">Empty Received Container Delivered</a></li>
+                                <li class="tabLink"><a href="/import/Delivery/EmptyContainerGatePass">Empty Received Container Gate Out</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Shed <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/import/ContainerDestuff/ContainerDestuffCFS">Container Destuff</a></li>
+                                <li class="tabLink"><a href="/import/BRT"> BRT CFS</a></li>
+                                @*<li class="tabLink"><a href="/import/Weighment/CFSWeightment">CFS Weighment</a></li>*@
+                                <li class="tabLink"><a href="/TerminalTallySheet/TerminalTallySheetView">Terminal TallySheet</a></li>
+                                <li class="tabLink"><a href="/import/Weighment/IndexWeighmentView">Index Weighment</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Gate In <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/import/Reports/ListofUpcomingContainer"><i class="fa fa-bus hide"></i> Upcoming Container</a> </li>
+                                <li class="tabLink"> <a href="/import/Setup/DropOfTicketView">Drop Off Ticket</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/ParkingTicketView">Parking Ticket</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/TruckInOutProcessView">Truck In Out Process</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/GateInCFSContainers">Arrival Boxes</a></li>
+
+                                <li class="tabLink"><a href="/import/Weighment/CYWeightment">CY Weighment</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/PGateInOutView">P GateIn-Out</a></li>
+                                <li class="tabLink"><a href="/import/Setup/ContainerLocationView">Container Location</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/ReProcessGateIn">Re-Process GateIn</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Gate Out <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/GateInOut/GateOutCFSContainers">Index Gate Out</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/GateOutCYContainers">Gate Out</a></li>
+                                <li class="tabLink"><a href="/import/GateInOut/GateInTPContainers">TP Containers Out</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Examination <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/Setup/SealAssign">Seal Assign</a></li>
+                                <li class="tabLink"> <a href="/import/Grounding/CYGrounding"> Grounding</a></li>
+                                <li class="sub_menu tabLink"><a href="/import/Setup/NonWebocGroundingCYView">Non Weboc Grounding</a></li>
+                                <li class="sub_menu tabLink"><a href="/import/Grounding/CFSGrounding"> Grounding Shed</a></li>
+                                <li class="sub_menu tabLink"><a href="/import/Setup/NonWebocGroundingView">Non Weboc Grounding Shed</a></li>
+                                <li class="sub_menu tabLink"><a href="/import/Grounding/GroundingStatusCFS">Grounding Status Shed</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Others <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/CargoInformation/ContainerDetailView">Arrive Container Detail</a></li>
+                                <li class="tabLink"><a href="/import/BRT/BrtViewCY">BRT CY</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/LabourWorkOrderView">Labour Work Order</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/TransporterAssigningView">Transporter Assigning</a></li>
+                                <li class="tabLink"> <a href="/import/GateInOut/UpdateEmptyGateOutContainers">Update Empty GateOut</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/GatePassWeighmentView">Weighment</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a><i class="fa fa-download"></i>  Finance <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Tariffs <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+
+                                <li class="tabLink"><a href="/Tariff/TarifHead">Tariff Head</a></li>
+                                <li class="tabLink"><a href="/Tariff/TariffPersentView">Tariff Percent</a></li>
+                                <li class="tabLink"><a href="/Tariff/TariffAssigning">Tariff Assigning</a></li>
+                                <li class="tabLink"><a href="/Tariff/TransportCollectionView">Tariff Assigning Multiple</a></li>
+                                <li class="tabLink"><a href="/Tariff/UnlockGenerateBill">Unlock Generate Bill</a></li>
+                                <li class="tabLink"><a href="/Import/Setup/BillToLineView">Bill To Line</a></li>
+                                <li class="tabLink"><a href="/Tariff/AICTAndLineIndexTariffView">AICT And Line Index</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/PortChargesView">Port Charges</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/OtherChargeAssigningView">Other Charge Assiging</a></li>
+                                <li class="tabLink"> <a href="/Tariff/UpdateTariffContract">Tariff Contracts</a></li>
+                                <li class="tabLink"><a href="/SalesTax/SalesTaxView">Sales Tax</a></li>
+                                @*<li class="tabLink"><a href="/SalesTax/ImportSalesTaxForIndex">Sales Tax Index Wise </a></li>*@
+                                <li class="tabLink"> <a href="/Import/Setup/ExchangeRateView">Exchange Rate</a></li>
+                                <li class="tabLink"><a href="/Tariff/StorageHolidaysView">Storage Holidays</a></li>
+                                <li class="tabLink"><a href="/Tariff/EmptyContainerTariffView">Empty Container Tariff</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/ExaminationChargeView">Examination Charge</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/LineSealAmountView">Line Seal Amount</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/GenerealSealAmountView">Genereal Seal Amount</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/OtherChargeView">Other Charge</a></li>
+                                <li class="tabLink"><a href="/Invoice/ExaminationChargesView">Examination Charges</a></li>
+                                <li class="tabLink"> <a href="/import/Auction/AuctionAmountView">Auction Amount</a></li>
+                                <li class="tabLink"><a href="/import/PartyLedger/UpdatePartyLedgerImport">Update Party Ledger</a></li>
+                                <li class="tabLink"><a href="/import/Setup/CRSummaryHeadDetailView">CR Summary Head Detail</a></li>                               
+                                @*<li class="tabLink"><a href="/Tariff/ExtraFreeDays">Extra Free Days</a></li>*@
+                                @*<li class="tabLink"><a href="/Tariff/OtherCharges">Other Charges</a></li>*@
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Cashier <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/PartyLedger/AmountReceived">Let Pass Amount Received</a></li>
+                                <li class="tabLink"><a href="/Invoice/EmptyContainerInvoiceView">Empty Invoice</a></li>
+                                <li class="tabLink"><a href="/Invoice/ImportBill">Create Import Invoice</a></li>
+                                <li class="tabLink"><a href="/import/PartyLedger/SettledAmountBillToline">Settle Amount</a></li>
+                                <li class="tabLink"><a href="/import/Reports/InvoiceSummaryAgentWise">Invoice Summary Agent Wise</a></li>
+                                <li class="tabLink"><a href="/Import/Setup/CreditAllowedView">Credit Allowed</a></li>
+                                <li class="tabLink"><a href="/Import/Setup/CreditRefoundView">Credit Receive</a></li>
+                                <li class="tabLink"><a href="/Import/PartyLedger/ExcessRefundView">Excess Refund</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/CreditAllowApproval">CreditAllow Approval</a></li>
+                                <li class="tabLink"><a href="/import/Setup/PercentForAictBillingToLineView">Percent For AictBillingToLine</a></li>
+                                <li class="tabLink"><a href="/import/Setup/AictBillingView">Aict Billing</a></li>
+                                <li class="tabLink"><a href="/import/Setup/AictBillingSettleUnSettleInvoicesView">Settle UnSettle Invoices</a></li>
+                                 
+
+                                <li class="tabLink">
+                                    <a>Reports<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="tabLink"><a href="/Invoice/ReprintInvoice">Print /  Cancel</a></li>
+                                        <li class="tabLink"><a href="/import/Reports/InvoiceSummaryAgentWise">Invoice Summary Agent Wise</a></li>
+                                        <li class="tabLink"><a href="/import/Setup/RePrintAictBillingToLineView">RePrint Aict Billing to Line</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a><i class="fa fa-download"></i>  IT <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Setup <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+
+                                <li class="tabLink"><a href="/shippingagent/MasterLineView"><i class="fa fa-male hide"></i>Master Line</a></li>
+                                <li class="tabLink"><a href="/shippingagent"><i class="fa fa-male hide"></i>Freight Forwarder</a></li>
+                                <li class="tabLink"><a href="/clearingagent"><i class="fa fa-user hide"></i> Clearing Agent Info</a></li>
+                                <li class="tabLink"><a href="/ShippingLine/ShippingLine"><i class="fa fa-user hide"></i> Shipping Line</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/AutoExaminationChargesView">Auto Examination Charges</a></li>
+                                <li class="tabLink"><a href="/Import/Setup/ISOCodeHeadView"><i class="fa fa-user hide"></i> ISO Code Head</a></li>
+                                <li class="tabLink"><a href="/Import/ISOCode/ISOCodeView"><i class="fa fa-user hide"></i> ISO Code</a></li>
+                                <li class="tabLink"><a href="/import/Setup/PreAlertVesselView">Pre alert Vessel</a></li>
+                                <li class="tabLink"><a href="/import/Bank/Bank">Bank</a></li>
+                                <li class="tabLink"> <a href="/import/Bank/BankBranch">Branch</a></li>
+                                <li class="tabLink"> <a href="/import/Party/PartyView">Party</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/ConsigneView">Consignee</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/RandDClerkView">R & D Clerk</a></li>
+                                <li class="tabLink"><a href="/Export/PortAndTerminal/PortAndTerminalView">Port and Terminal</a></li>
+                                <li class="tabLink"><a href="/Export/Shipper/ShipperView">Shipper</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/GoodView">Goods</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/GoodHeadView">Goods Head</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/IHCOView">IHCO</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/IHCView">IHC</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/BidderView">Bidder</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/TransporterView">Transporter</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/DeliveredYardView">Delivered Yard</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/GroundingFreeDaysView">Grounding Free Days</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/BRTLocationView">BRT Locations</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/OffHireLocationView">Off Hire Location</a></li>
+                                <li class="tabLink"> <a href="/import/Setup/EmptyContainerSaleTaxAndFreedaysView">Empty container Sales Tax And Free Days</a></li>
+                                <li class="tabLink"><a href="/import/Setup/Sealpurchase">Seal Purchase</a></li>
+                                <li class="tabLink"><a href="/import/Setup/SealIssuance">Seal Issuance</a></li>
+                                <li class="tabLink"> <a href="/import/Delivery/ManualGatePassView">Manual Gate Pass</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/BoundedCarrierView">Bounded Carrier</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/PortOfLoadingView">Port Of loading</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/ShortExcessWeightView">Short Excess Weight</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/VehicleMeasurementView">Vehicle Measurement</a></li>
+                                <li class="tabLink"> <a href="/Import/Grounding/ReprocessSCRO">Reprocess SRCO (CFS)</a></li>
+                                <li class="tabLink"> <a href="/Import/Grounding/ReprocessSCR">Reprocess SRC (CY)</a></li>
+                                <li class="tabLink"> <a href="/Import/Setup/HoldPrivilegeView">Hold Privilege</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i>  System Configurations  <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"> <a href="/Roles/RolesView">Roles</a></li>
+                                <li class="sub_menu tabLink"><a href="/permissions">Permissions</a></li>
+                                <li class="tabLink"> <a href="/users/"> Users</a></li>
+                                <li class="tabLink"> <a href="/users/UsersEmailView">Users Email</a></li>
+                                <li class="tabLink"> <a href="/Company/ComapanyView"> Company</a> </li>
+                                <li class="tabLink"> <a href="/DynamicReport/DynamicReports"> Dynamic Report</a> </li>
+                                @*<li class="tabLink"> <a href="/DynamicReport/EDIMessages"> File Download</a> </li>
+                        <li class="tabLink"> <a href="/DynamicReport/EDIMessagesExport"> File Download By GD</a> </li>*@
+                                <li class="tabLink"> <a href="/DynamicReport/EDIMessagesImport">File Download</a></li>
+                                <li class="tabLink"><a href="/audit"><i class="fa fa-pencil-square-o"></i>Audit</a></li>
+
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a><i class="fa fa-download"></i>  Reports <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> CSD <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/Reports/WebocIGMDetail">Weboc IGM Detail</a></li>
+                                <li class="tabLink"><a href="/import/Reports/IgmRecContNotArrive">Igm Rec Cont Not Arrive</a></li>
+                                <li class="tabLink"><a href="/import/Reports/IgmRecNotInAtlas">Igm Rec Not In Atlas</a></li>
+                                <li class="tabLink"><a href="/import/Reports/MaerskArrival">Maersk Arrival</a></li>
+                                <li class="tabLink"><a href="/import/Reports/MaerskAfterArrival">Maersk After Arrival</a></li>
+                                <li class="tabLink"><a href="/import/Reports/PendingAtQICT">Pending At QICT</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ImportFullStockArriveMF">ImportFullStockArriveMF</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ImportFullStockMF">ImportFullStockMF</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/EIRReport">EIR</a></li>
+                                <li class="tabLink"><a href="/import/Reports/PendingContainer">Pending Container</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ImportFullContainersStock">Import Full Containers Stock</a></li>
+                                <li class="tabLink"><a href="/import/Reports/EPZCargo">EPZ Cargo</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> CFS  <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/Reports/PendingCFSContainersReport">Pending Containers</a></li>
+                                <li class="tabLink"><a href="/import/Reports/AgingReportCFS">Aging</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DeliveryOrderReportCFSContainer"> CFS Delivery</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DeliveryOrderReportCFSContainerWeightWise"> CFS Delivery Report Weight Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CFSReleasedContainers">Released Containers</a></li>
+                                <li class="tabLink"><a href="/import/Reports/TellySheetReport">Telly Sheet</a></li>
+                                <li class="tabLink"><a href="/import/Reports/EmptyOutReport">Empty Out</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ShedBrtContainerWise">Shed Brt Container Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/shedexamination">Shed Examination</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ShedExcessWeight">Shed Excess Weight</a></li>
+                                <li class="tabLink"><a href="/import/Reports/Track_Destuff_Container">Track Destuff Container</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ImportContainerDestuffinglList">Import Container Destuffing List</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CarDestuffingContainerWise">Car Destuffing Container Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/WorkOrderForLabour">Work Order For Labour</a></li>
+                                <li class="tabLink"><a href="/import/Reports/BrtRacksInformation">Brt Racks Information</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ExaminationMarkESContainerCFS">Examination Mark ES Container CFS</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ContainerDestuffingReportView">Container Destuffing</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/invoicelist">Invoice List</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Operation <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/Reports/AgingReportCY">Aging</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ContainerReceiveDuringThePeriod">Container Receive During Period</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DeliveryOrderReportCYContainer">CY Delivery Report </a></li>
+                                <li class="tabLink"><a href="/import/Reports/ExaminationMarkESCYContainer">ES Mark</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ExaminationMarkCYContainer">Examination Mark</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ExaminationCompleteContainerCY">Examination Complete</a></li>
+                                <li class="tabLink"><a href="/import/Reports/GroundingContainerCY">Grounding Container</a></li>
+                                <li class="tabLink"><a href="/import/Reports/InventoryCyContainerReport">Inventory Report</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CYReleasedContainers">Released Containers</a></li>
+                                <li class="tabLink"><a href="/import/Reports/WeighmentCyContainerReport">Weighment</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/ArrivalBoxWiseView">Arrival boxes</a></li>
+                                <li class="tabLink"><a href="/import/CargoInformation/CargoDetail"><i class="fa fa-bus hide"></i>Cargo Detail</a></li>
+                                <li class="tabLink"><a href="/import/CargoInformation/Section79ContainersCY"><i class="fa fa-sticky-note hide"></i> Section 79 Containers CY</a></li>
+                                <li class="tabLink"><a href="/import/CargoInformation/Section79ContainersCFS"><i class="fa fa-sticky-note hide"></i> Section 79 Containers CFS</a></li>
+                                <li class="tabLink"><a href="/import/reports/ListofOutGoingContainer"><i class="fa fa-sticky-note hide"></i>  Out Going Containers</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CYDeliveryReport"><i class="fa fa-sticky-note hide"></i>CY Delivery Report</a></li>
+                                <li class="tabLink"><a href="/import/Reports/EmptyContainerGateOutReport"><i class="fa fa-sticky-note hide"></i>Empty Container GateOut</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ContainerInventory"><i class="fa fa-sticky-note hide"></i>Container Inventory</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ImportBalanceCycontainer"><i class="fa fa-sticky-note hide"></i>Balance CY Container</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ImportBalanceCfsCargo">Balance Cfs Cargo</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CargoDeliveredCY">Cargo Delivered CY</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CargoDeliveredLCL">Cargo Delivered LCL</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CargoDeliveredLCLLineWise">Cargo Delivered LCL (Line)</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ReprtInvoiceBillList">Reprt Invoice List</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ContainerArrivalSummaryReportCSD">Container Arrival Summary CSD</a></li>
+                                <li class="tabLink"><a href="/import/Reports/WorkOrderLogistics">WorkOrder Logistics</a></li>
+                                <li class="tabLink"><a href="/import/Reports/IndexSummaryReport">CFS SHED Index Summary</a></li>
+                                <li class="tabLink"><a href="/import/Reports/PGateInOutReport">P-Gate In Out Report</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DailyShedDestuffing">Daily Shed Destuffing Summary</a></li>
+                                <li class="tabLink"><a href="/import/Reports/OperationalMarketingReport">Operational Marketing Report</a></li>
+
+
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Finance <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/Import/Reports/PartyLetPassAmount">Let Pass Detail</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/BillToLineReportView">Bill To Line</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/CashierDailySaleReportView">Cashier Daily Sale</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/BreakupofCashierDailySaleReportView">Breakup of Cashier Daily Sale</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/DailySalesReportView">Daily Sales</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/LineBoxIndexWiseDetailReportView">Line Box Index Wise Detail</a></li>
+                                <li class="tabLink"><a href="/import/Reports/PartyLedgerPatryWise">Party Ledger Patry Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/PartyLedgerDateWise">Party Ledger Date Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DailySalesReportDatewise">Daily Sales Date Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/MonthlyBilling">Monthly Billing</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ChequeDetailReport">Cheque Detail</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DailyCollectionReport">Daily Collection</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DailyInvoiceReport">Daily Invoice Report</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DailySalesSummaryLineWise">CR Summary Line Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ShortDailySalesSummary">CR Short Summary Line Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ChequeDetailByDate">Cheque Detail By Date</a></li>
+                                <li class="tabLink"><a href="/import/Reports/MonthlyBillToLineAccount">Monthly BillToLine Account</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DailySalesSummaryReport">Daily Sales Summary</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DailySalesSummary">Daily Sales Summary Sec</a></li>
+                                <li class="tabLink"><a href="/import/Reports/UndeliveredIndexesAgentWise">Undelivered Indexes</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CRData">CR Data</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CRDataSummary">CR Data Summary</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CRSummaryv2">CR Data SummaryV2</a></li>
+                                <li class="tabLink"><a href="/import/Reports/TuesReport">Tues Report</a></li>
+                                <li class="tabLink"><a href="/import/Reports/OutstandingSpecialHanlingCharges">Outstanding SpecialHandling Charges</a></li>
+                                <li class="tabLink"><a href="/import/Reports/IndexDetailReport">Index Detail</a></li>
+                                <li class="tabLink"><a href="/import/Reports/LetPassBalance">LetPass Balances</a></li>
+                                <li class="tabLink"><a href="/import/Reports/PODetailBank">Daily Sale For Bank</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ContianerTrackingReportForFinanceView">Contianer Tracking Finance</a></li>
+                                <li class="tabLink"><a href="/import/Reports/AssignedTariffsDetailReport">Assigned Tariffs Detail</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> CFS & CY <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/import/Reports/TariffSummaryReport">Tariff Summary</a></li>
+                                <li class="tabLink"><a href="/import/Reports/AssignStoragetariff">Storage Summary</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DesealingCheckReport">Desealing Check</a></li>
+                                <li class="tabLink"><a href="/import/Reports/FullContainerInventoryReport">Container Inventory</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CFSCRLREPORT">CFS CRL </a></li>
+                                <li class="tabLink"><a href="/import/Reports/ExaminationMarkedNotGrounded">Examination Marked Not Grounded</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CFSShedClearIndex">CFSShedClearedIndex</a></li>
+                                <li class="tabLink"><a href="/import/Reports/AlongsideReport">Along Side</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DoWithPendingGatepass">Do with pending gatepass</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DestuffingDeliveryReport">Destuffing Delivery </a></li>
+                                <li class="tabLink"><a href="/import/Reports/DailyTerminalReport">Daily Terminal Report</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ContainerArrivalDetailView">Container Arrival</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ExamitionMarkCFS">Examition Mark</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ExamitionMarkForCustom">Examition Mark For Custom</a></li>
+                                <li class="tabLink"><a href="/import/reports/BRTReport">BRT</a></li>
+                                <li class="tabLink"><a href="/import/Reports/AlongSideLocationWise">Along Side Location Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/CargoAgingReportCFSAndCY">Cargo Aging</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DeStuffingReport">De Stuffing</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DeStuffingReportWithoutCBM">De Stuffing With out cbm</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DestuffContainerShippingAgentWise">De Stuff Container Agent Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DestuffContainerClientWise">De Stuff Container Client Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DestuffingPreliminaryReport">Preliminary</a></li>
+                                <li class="tabLink"><a href="/import/Reports/DeStuffingContainerWise">De Stuffing Container Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/ContainerAvailableToYard">Empty Container Available At Yard</a></li>
+                                <li class="tabLink"><a href="/import/Reports/GateInContainerByDate">Gate In Container By Date</a></li>
+                                <li class="tabLink"><a href="/import/Reports/GateInContainerShippingAgentWise">Gate In Container Agent Wise</a></li>
+                                <li class="tabLink"><a href="/import/Reports/GateInWeighmentContainerReport">Gate In Weighment </a></li>
+                                <li class="tabLink"><a href="/import/Reports/MessageLog">Message Log</a></li>
+                                <li class="tabLink"> <a href="/import/Reports/ContainerInformationReport">Container Information </a></li>
+                                <li class="tabLink"> <a href="/import/Reports/TruckInOutSummary">Truck InOut Summary</a></li>
+                                <li class="tabLink"> <a href="/import/Reports/UpdatedVehiclesLyingAtTerminal">Updated Vehicles LyingAtTerminal</a></li>
+                                <li class="tabLink"> <a href="/import/reports/DailySummaryReport">Daily Summay</a></li>
+                                <li class="tabLink"> <a href="/Import/Reports/ContianerTrackingReportCFSAndCYView">Container Tracking</a></li>
+                                <li class="tabLink"> <a href="/Import/Reports/IGMReceivedContainerNotArriveView">IGM Rec Container Not Arrive</a></li>
+                                <li class="tabLink"> <a href="/Import/Reports/ContainerOffHireReport">Container Off Hire</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/DeliveryOrderDetailView">Delivery Order Detail</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/SealIssuanceDetailView">Seal Issuance Detail</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> LetPass <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/Import/Reports/LetPassDashboard">Let-Pass Dashboard</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/BoxesLyingAtPort">Boxes Lying At Port</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/BoxesLyingAtPortContainerWise">Boxes Lying At Port (Container-Wise)</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> TP  <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/import/Reports/TPDeliveryReport">TP Delivery</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> Account  <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+
+                                <li class="tabLink"><a href="/Import/Reports/AICTAndLineIndexReport">Last Implement</a></li>
+                                <li class="tabLink"><a href="/Import/Reports/IndexUploadErrorTracking">Error Tracking</a></li>
+                            </ul>
+                        </li>
+
+
+
+
+                    </ul>
+                </li>
+
+
+
+                <li>
+                    <a><i class="fa fa-download"></i>  Export <span class="fa fa-chevron-down "></span></a>
+                    <ul class="nav child_menu">
+                        <li class="tabLink"><a href="/Home/DashboardExport">Dashboard</a></li>
+                        @*<li>
+            <a><i class="fa fa-external-link hide"></i> Loading Program <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li class="tabLink"><a   href="/Export/LoadingProgram/LoadingProgramView">Create Loading Program</a></li>
+                <li class="tabLink"><a   href="/Export/LoadingProgram/Index">Loading Programs </a></li>
+            </ul>
+        </li>*@
+
+
+                        <li>
+                            <a><i class="fa fa-external-link hide"></i> GD Details <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/export/ConsolidateGDDetail/ConsolidateGdDetailView">Consolidate GD Detail</a></li>
+                                <li class="tabLink"><a href="/export/GateInOut/GateInGDsView">GateIn GDs</a></li>
+                                @*<li class="tabLink1"><a href="/export/ConsolidateGDDetail/CargoDropOffTicketView">Drop Off Ticket</a></li>*@
+                                <li class="tabLink"><a href="/export/ConsolidateGDDetail/ConsolidateGdView">Find Consolidate GD</a></li>
+                            </ul>
+                        </li>
+                        <li class="tabLink"><a href="/Export/ExportGroundedCargo/ExportGroundedCargoView">Grounded Cargo</a></li>
+
+                        @*<li class="tabLink"><a   href="/Export/EnteringCargo/EnteringCargoView">Entering Cargo</a></li>
+        <li class="tabLink"><a   href="/Export/CargoReceived/CargoReceivedView">Cargo Received</a></li>
+        <li class="tabLink"><a   href="/Export/Cargo/CargoView">Cargo Info</a></li>*@
+                        <li class="tabLink">
+                            <a>Association Process<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/Export/ExportContainer/CreateContainer">Empty Container Receive</a></li>
+                                <li class="tabLink"><a href="/Export/ExportContainer/GdBindingDetail">Gd Binding</a></li>
+                                @*<li class="tabLink"><a href="/Export/ExportContainer/AssociateGD">GD Association</a></li>*@
+                                <li class="tabLink"><a href="/Export/ExportContainer/GDAssociationView">GD Association</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="tabLink">
+                            <a>Role Back Process<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/Export/ExportContainer/DeletionOfContainerAssociated">GD Deletion From Stuffing</a></li>
+                                <li class="tabLink"><a href="/Export/ExportContainer/DeleteAssociatedGD">Associated Container Deletion Message</a></li>
+                                <li class="tabLink"><a href="/Export/ExportContainer/ContainerDrayOffView">Container Dray Off</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="tabLink"><a href="/Export/GateInOut/GateOut">Gate Out</a></li>
+
+                        <li class="tabLink"><a href="/Export/CustomerNOC/CustomerNOCView">Customer NOC</a></li>
+                        @*<li class="tabLink"><a href="/Export/EmptyReceiving/EmptyReceivingView">Empty Receiving</a></li>*@
+                        <li class="tabLink"><a href="/Export/GDHold/GDHoldView">GD Hold</a></li>
+                        <li class="tabLink"><a href="/Export/CargoRollOver/CargoRollOverView">Cargo Roll Over</a></li>
+                        <li class="tabLink"><a href="/Export/CargoRollOver/CargoRollOverContainerWise">Cargo Roll Over Container Wise</a></li>
+
+
+                        <li class="tabLink"><a href="/Export/GDManagement/Index">GD Management</a></li>
+                        <li class="tabLink">
+                            <a>Dray Off<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/Export/Delivery/DeliveryOrder">Delivery Order</a></li>
+                                <li class="tabLink"><a href="/Export/Delivery/GatePass">GatePass</a></li>
+
+                                <li>
+                                    <a>Dray Off Report<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="tabLink"><a href="/Export/Delivery/ReprintGatePass">Reprint Gate-Pass</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a><i class="fa fa-download hide"></i> EDI Messages<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/Export/OPIA/OPIAView">OPIA</a></li>
+                                <li class="tabLink"><a href="/Export/OGDE/OGDEView">OGDE</a></li>
+                                <li class="tabLink"><a href="/Export/OEHC/OEHCView">OEHC</a></li>
+                                <li class="tabLink"><a href="/Export/OECM/OECMView">OECM</a></li>
+                                <li class="tabLink"><a href="/Export/OCRL/OCRLView">OCRL</a></li>
+                                <li class="tabLink"><a href="/Export/OSVM/OSVMView">OSVM</a></li>
+                                <li class="tabLink"><a href="/Export/OPIA/OPIAUpdation">Update OPIA</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-download hide"></i> Export Setup<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+
+                                <li class="tabLink"><a href="/Export/VesselExport/VesselExportView">Vessel</a></li>
+                                <li class="tabLink"><a href="/Export/VoyageExport/VoyageExportView">Voyage Export</a></li>
+                                <li class="tabLink"><a href="/Export/ClearingAgentExport/ClearingAgentExportView">Clearing Agent</a></li>
+
+                                <li class="tabLink"><a href="/Export/ShippingAgentExport/ShippingAgentExportView">Shipping Agent</a></li>
+                                <li class="tabLink"><a href="/Export/PackageTypeExport/PackageTypeExportView">Package Type</a></li>
+                                <li class="tabLink"><a href="/Export/ExportLocationCodeList/ExportLocationCodeListView">Location Code List</a></li>
+                                <li class="tabLink"><a href="/Export/POLocation/POLocationView">PO Location </a></li>
+                                <li class="tabLink"><a href="/Export/ExportSetup/PortAndTerminalExportView">Port and Terminal Export </a></li>
+                                <li class="tabLink"><a href="/Export/ExportSetup/ShippingLineExportView">Shipping Line Export </a></li>
+                                <li class="tabLink"><a href="/Export/ExportSetup/ShipperExportView"> Shipper Export </a></li>
+                                <li class="tabLink"><a href="/Export/ExportSetup/ExportConsigneeView"> Consignee Export </a></li>
+                                <li class="tabLink"><a href="/Export/GoodsHeadExport/GoodsHeadExportView"> Goods Head Export </a></li>
+                                <li class="tabLink"><a href="/Export/ExportSetup/DeliveredYardExportView">Delivered Yard Export</a></li>
+                                <li class="tabLink"><a href="/Export/ExportSetup/OtherChargeExportView">Other Charge Heads</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-dollar hide"></i> Invoice <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/Export/InvoiceExport/InvoiceExportView">Create Export Invoice</a></li>
+                                <li class="tabLink"><a href="/Export/InvoiceExport/ReprintInvoice">Print /  Cancel</a></li>
+                                <li class="tabLink"><a href="/Export/InvoiceExport/DeleteInvoiceExportView">Delete Invoice </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-dollar hide"></i> Cashier <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/Export/PartyLedgerExport/ChequeReceiveExport">Cheque Receive</a></li>
+                                <li class="tabLink"><a href="/Export/PartyLedgerExport/RefundAmountExport">Refund Amount</a></li>
+                                <li class="tabLink"><a href="/Export/PartyLedgerExport/AmountReceivedExport">Amount Received </a></li>
+                                <li class="tabLink"><a href="/Export/PartyLedgerExport/UpdatePartyLedgerExport">Update Party Ledger</a></li>
+
+                                <li>
+                                    <a>Setup<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="sub_menu tabLink"><a href="/import/Bank/Bank">Bank</a></li>
+                                        <li class="tabLink"><a href="/Export/PartyExport/PartyExportView">Party</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-calculator hide"></i>Tariff<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="sub_menu tabLink"><a href="/Export/TariffExport/TarifHeadExport">Tariff Head</a></li>
+                                <li class="sub_menu tabLink"><a href="/Export/TariffExport/TariffPersentExportView">Tariff Persent</a></li>
+                                <li class="sub_menu tabLink"><a href="/Export/TariffExport/TariffAssigningExport">Tariff Assigning Export</a></li>
+                                <li class="sub_menu tabLink"><a href="/Export/ExportSetup/OtherChargeAssigningExportView">Other Charge Assigning</a></li>
+                                <li class="sub_menu tabLink"><a href="/Export/ExportSetup/PortChargesExportView">PortCharges</a></li>
+                                @*<li class="sub_menu tabLink1"><a href="/Export/TariffExport/TariffInformationExportView">Tariff Information Export</a></li>*@
+                                @*<li class="sub_menu tabLink"><a   href="/Export/TariffExport/TariffExportCharges">Tariff Charges</a></li>
+                                <li class="tabLink"><a   href="/Export/TariffExport/AgentTariffInformation">Agent Tariff</a></li>*@
+                                @*<li class="sub_menu tabLink"><a href="/Export/TariffExport/GDTariff">GDTariff</a></li>*@
+                                <li class="sub_menu tabLink"><a href="/SalesTax/SalesTaxView">Sales Tax</a></li>
+                                @*<li class="sub_menu tabLink"><a href="/Export/TariffExport/NatureOfTariffView">Nature Of Tariff</a></li>*@
+
+                                <li>
+                                    <a>Configuration<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="sub_menu tabLink"><a href="/Export/TariffExport/StorageTariffExport"> Storage Tariff</a></li>
+                                        <li class="sub_menu tabLink"><a href="/Export/TariffExport/TariffRateSlabWiseExport"> Slab Wise Tariff</a></li>
+                                        <li class="sub_menu tabLink"><a href="/Export/TariffExport/ExtraFreeDays"> Extra Free Days</a></li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a> Account Grids<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="sub_menu tabLink"><a href="/Export/Reports/PendingGdsInvoices">PendingGds Invoices</a></li>
+                                        <li class="sub_menu tabLink"><a href="/Export/Reports/UnSettledInvoicesViewModel">UnSettled Invoices</a></li>
+                                        <li class="sub_menu tabLink"><a href="/Export/Reports/GDsAccoicatedbutAmountNotreceived">GDsAccoicated And AmountNotreceived</a></li>
+                                        <li class="sub_menu tabLink"><a href="/Export/Reports/ExportAlongSideDataView">Along Side</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>  Account Reports <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="tabLink"><a href="/import/Reports/ReceivablesandReceiptsView">Receivables and Receipts</a></li>
+                                        <li class="sub_menu tabLink"><a href="/Export/Reports/ConsignmentStorageReportExportView">Consignment Storage</a></li>
+                                        <li class="sub_menu tabLink"><a href="/Export/Reports/MonthlyBillingForAddtionalAndBwtExportView">MonthlyBillingForAddtionalAndBwt</a></li>
+                                        <li class="tabLink"><a href="/Export/InvoiceExport/ExportDeletedInvoices">Deleted Invoices</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/PartyLedgerExport">Party Ledger</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/PartyLedgerExportReportWithOutCheque">Party Ledger Without Cheque </a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/DailySalesReportExport">Daily Sales Report Export</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/MonthlyBillingExport">Monthly Billing</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/ChequeDetailReportExport">Cheque Detail</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/DailyCollectionReportExport">Daily Collection</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/DailyInvoiceReportExport">Daily Invoice</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/ForwarderSOACBMWise">Forwarder SOA CBM Wise</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/ForwarderSOABoxWise">Forwarder SOA BOX Wise</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/OutstandingAmount">Outstanding Amount</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/SoaApllOtherThenPIFFAReport">APLL OTHER THEN PIFFA</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/SOADSVOtherThenPIFFA">DSV OTHER THEN PIFFA</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/SoaEflOtherThenPIFFA">EFL OTHER THEN PIFFA</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/GlobelLinkForAllPIFFASOASReport">GLOBELINK FOR ALL PIFFA</a></li>
+                                        <li class="tabLink"><a href="/Export/Reports/BreakupofCashierDailySaleReportExport">Breakup of Cashier - Daily Sale</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-download hide"></i> Reports <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="tabLink"><a href="/Export/Reports/AnfCargoCheckList">ANF Cargo Check List</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/AnfReport">ANF Report</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/CargoAlongsideReport">Cargo Along side position</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/CargoAlongsideReportBaywise">Cargo Along side position Baywest</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/CargoMEasurementCertificate">Cargo Measurement Certificate</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/ExportAdvice">Export Advice</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/KerryExport">Daily CFS Report</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/DailyDSRReport">Daily DSR</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/ExportGatePasses">Export Gate Pass</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/ExportFinalReport">Export Final Stuffing</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/ExportDailyCFSReport">Export Daily CFS</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/SummaryofStuffing">Summary of Stuffing</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/TerminalReceipt">Generate Terminal Receipt</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/ListofExportFullOrEmptyContainers">Full / Empty Container</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/ListofExportFullLCLCargoStuffedcontainer">Full / Empty Cargo Stuffed</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/StatementShowingExportPosition"> Statement Showing Export Position</a></li>
+
+                                <li class="tabLink"><a href="/Export/Reports/ExportTellySheetSec"> Export  Stuffing Tally Sheet</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/CargoReceivedStockAlongSidePosition">Cargo Received Stock Along Side Position</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/TerminalReceiptSec">Terminal Receipt</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/EmptyReceving">Empty Receving</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/EmptyContainersLyingAtYard">Empty Containers Lying At Yard</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/Exportfullout">Export Full Out</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/GateinReportExport">Gatein Report</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/GDDetailReportExport">GD Detail Report</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/GateOutReportExport">GateOut Report Export</a></li>
+                                <li class="tabLink"><a href="/Export/Reports/GDAssociationDetailedReport">GD Association Detail</a></li>
+
+                                @*<li><a   href="/Export/Reports/GlobelLinkForAllPIFFASOASReport">GLOBELINK PIFFA Report </a></li>
+        <li><a   href="/Export/Reports/SoaApllOtherThenPIFFAReport"> SOA APLL PIFFA</a></li>
+        <li><a   href="/Export/Reports/SOADSVOtherThenPIFFA"> SOA DSV PIFFA</a></li>
+        <li><a   href="/Export/Reports/SoaEflOtherThenPIFFA"> SOA EL PIFFA</a></li>
+        <li><a   href="/Export/Reports/SoaKerryLogisticsOtherThenPIFFA"> SOA Kerry Logistics PIFFA</a></li>*@
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                @*<li class="sub_menu tabLink"><a href="/Tariff/CustomerTariff">Customer Tariff</a></li>
+        <li class="sub_menu tabLink"><a href="/import/ElectronicDeliveryOrder/ElectronicDeliveryOrderView">EDO</a></li>
+        <li class="sub_menu tabLink"><a href="/import/ElectronicDeliveryOrder/UploadEDOView">UploadEDOView</a></li>
+        <li class="sub_menu tabLink"><a href="/home/DashboardImport"><i class="fa fa-dashboard hide"></i>Imptort Dashboard</a></li>*@
+
+
+            </ul>
+        </div>
+    </div>
+
+
+}
+
+
+
+<!-- /sidebar menu -->

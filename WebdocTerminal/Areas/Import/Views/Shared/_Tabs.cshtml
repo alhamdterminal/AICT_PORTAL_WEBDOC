@@ -1,0 +1,88 @@
+﻿
+<script>
+    function Logout() {
+        console.log("test");
+
+        $.post('/Users/LogoutUser', function (data) {
+            console.log(data);
+            top.location.href = '/Identity/Account/Login';
+        }); 
+    }
+</script>
+
+<div class="top_nav">
+    <div class="nav_menu">
+
+        <nav>
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            @*<ul class="nav navbar-nav">
+                <li class="active"><a href="#" class="">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departments <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
+                        </li>
+                        <li><a href="#">Add New</a></li>
+                    </ul>
+                </li>
+                <li><a href="addnew.html">Add New</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Managers <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">View Managers</a></li>
+                        <li><a href="#">Add New</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">View Staff</a></li>
+                        <li><a href="#">Add New</a></li>
+                        <li><a href="#">Bulk Upload</a></li>
+                    </ul>
+                </li>
+                <li class="down">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HR <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Change Time Entry</a></li>
+                        <li><a href="#">Report</a></li>
+                    </ul>
+                </li>
+            </ul>*@
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="~/images/image_preview.png" alt="">@User.Identity.Name
+                        <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        <li><a href="javascript:;"> Profile</a></li>
+                        <li>
+                            <a href="javascript:;">
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <button type="button" class="fa fa-sign-out pull-right" onclick="Logout()">  Logout</button>
+
+                            @*<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
+              asp-route-returnUrl="@Url.Page("/", new { area = "" })"
+              method="post">
+            <button type="submit"> <i class="fa fa-sign-out pull-right"></i> Logout</button>
+        </form>*@
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+
+       
+
+    </div>
+</div>

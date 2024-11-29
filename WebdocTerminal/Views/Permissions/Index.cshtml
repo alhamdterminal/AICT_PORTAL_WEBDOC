@@ -1,0 +1,384 @@
+﻿@model WebdocTerminal.Models.UserViewModel
+@{
+    var roles = (List<SelectListItem>)ViewData["Roles"];
+}
+
+<script>
+    const itemsList = [
+        "Select All", "Account Reports", "CFS & CY Reports", "CFS Reports", "CSD", "CSD Reports", "Account Reports", "Finance", "Finance Reports", "Forms Reports", "IT", "Operation Reports", "Operations", "TP Reports"
+    ];
+
+    var mydata = [];
+    // $(function () {
+    //    onrolechage();
+    // })
+
+    var role;
+
+    function onrolechage() {
+
+        role = $('#roles').find(":selected").text();
+
+        $.get('/Permissions/PermissionsPartial?Role=' + role, function (resp) {
+
+            selectAll(resp)
+
+            //$("#permissions-container").html(resp);
+
+        });
+
+    }
+    function selectAll(value) {
+
+        mydata = value
+ 
+
+         var dataGrid,
+            changedBySelectBox;
+        
+        console.log("mydata", mydata)
+        var dataGrid = $("#gridContainer").dxDataGrid({
+            dataSource: mydata,
+              keyExpr: "appPageId",
+            allowColumnReordering: true,
+            showBorders: true,
+          columnAutoWidth: true,
+                    allowColumnResizing: true,
+        grouping: {
+            autoExpandAll: false,
+        },
+       
+        paging: {
+            pageSize: 20
+        },  
+        groupPanel: {
+            visible: true
+            },
+            
+            headerFilter: {
+                visible: true
+            },
+
+            editing: {
+                mode: "batch",
+                allowUpdating: true 
+                
+            },
+            columns: [
+                "pageName",
+
+
+                {
+                    caption: "Create",
+                    dataField: "create",
+                    dataType: "boolean"
+                },
+                {
+                    caption: "Update",
+                    dataField: "update",
+                    dataType: "boolean"
+                },
+                {
+                    caption: "Read",
+                    dataField: "read",
+                    dataType: "boolean"
+                },
+                {
+                    dataField: "pageType",
+                    groupIndex: 0
+                }
+            ],
+
+
+            masterDetail: {
+            enabled: true,
+                template: function (container, options) { 
+                 console.log(container)
+                    console.log(options)
+                    if (options.data.pageItem) {
+                        var mydata2 = options.data.pageItem;
+                    
+                    if (mydata2) {
+                        console.log(mydata2)
+                    }
+                    }
+                    
+
+                $("<div>")
+                    .dxDataGrid({
+                         columnAutoWidth: true,
+                    showBorders: true,
+                filterRow: {
+                visible: true,
+                applyFilter: "auto"
+                },
+                headerFilter: {
+                visible: true
+                        }, 
+                 editing: {
+                mode: "batch",
+                allowUpdating: true 
+                
+            },
+                        columns: ["fieldName", {
+                            dataField: "isChecked",
+                              dataType: "boolean"
+                        } ],
+                        dataSource: new DevExpress.data.DataSource({
+                            store: new DevExpress.data.ArrayStore({
+                                key: "appPageItemId",
+                                data: mydata2
+                            }),
+                       
+                        })
+                    }).appendTo(container);
+            }
+        },
+             onEditorPreparing: function (e) {
+                        hideMenifestedColumns(e);
+                    },
+            onSelectionChanged: function (selecteditems) {
+                    console.log( selecteditems)
+ 
+                selecteditems.component._options.dataSource.filter(t => {
+                    t.create = false,
+                        t.read = false,
+                        t.update = false
+
+                });
+                 
+
+                console.log( selecteditems)
+
+                 selecteditems.selectedRowsData.filter(t => {
+                    t.create = true,
+                        t.read = true,
+                        t.update = true
+                          
+                 })
+               
+        }
+
+
+
+        }).dxDataGrid("instance");
+
+        // $("#select-prefix").dxSelectBox({
+        //     dataSource: ["Select All", "Account Reports", "CFS & CY Reports", "CFS Reports", "CSD", "CSD Reports", "Account Reports", "Finance", "Finance Reports", "Forms Reports", "IT", "Operation Reports", "Operations", "TP Reports"  ],
+        //placeholder: "Select title",
+        //onValueChanged: function (data) {
+
+        //    console.log("data.value", data)
+
+        //    if(!data.value)
+        //        return;
+        //    changedBySelectBox = true;
+        //    if (data.value == "Select All") {
+        //        dataGrid.selectAll();
+        //    }
+       
+        //    else { 
+        //        var list = $.map($.grep(dataGrid.option("dataSource"), function (item) {
+                    
+                       
+        //            return item.pageType === data.value;
+        //        }), function(item) {
+        //            return item.appPageId
+        //        });
+
+        //        console.log("list", list);
+        //      dataGrid.selectRows(list)
+                 
+            
+                
+        //    }
+        //}
+        // });
+
+
+        $('#select-prefix').dxTagBox({
+            items: itemsList,
+            onValueChanged: function (data) {
+                console.log("data.value", data)
+
+
+                if (data.value.length) {
+                    console.log("1")
+                    if (data.value.includes("Select All")) {
+                        dataGrid.selectAll();
+                        console.log("2")
+                    }
+                    else {
+                        console.log("3")
+                        var listdata = [];
+                        data.value.forEach(c => {
+
+                            var list = $.map($.grep(dataGrid.option("dataSource"), function (item) {
+
+
+                                return item.pageType === c;
+                            }), function (item) {
+                                return item.appPageId
+                            });
+
+                            console.log("list", list);
+
+                            listdata.push(...list)
+                        });
+
+                        console.log("listdata", listdata);
+
+                        dataGrid.selectRows(listdata)
+                    }
+
+                }
+                else {
+                    console.log("4")
+                    dataGrid.selectRows([])
+                }
+
+
+            //if(!data.value.length)
+            // return;
+            //changedBySelectBox = true;
+            //    if (data.value.includes("Select All")) {
+            //        dataGrid.selectAll();
+            //    }
+            //    else {
+
+
+            //    }
+
+            }
+        });
+
+      
+
+    }
+
+    
+    function checkColumn(e, field) {
+
+        if (e.parentType === "dataRow" && e.dataField !== field) {
+
+            return;
+        }
+
+        e.editorOptions.disabled = true;
+    }
+
+    function hideMenifestedColumns(e) {
+
+        checkColumn(e, "pageName"); 
+    }
+
+
+
+    function savePermissions() {
+        
+        var pms = mydata
+ 
+       
+        $.post('/permissions/AddPermissions', { pms: pms, role: role }, function (res) {
+            console.log(res)
+            if (res.error == true) {
+                    showToast(res.message, "error");
+
+
+                }
+                else {
+                    showToast(res.message, "success");
+                    $("#btnSubmit").attr("disabled", true);
+                     location.reload();
+                }
+
+        })
+    }
+
+        function showToast(message, icon) {
+
+        $.toast({
+            heading: message,
+            showHideTransition: 'slide',
+            position: 'bottom-right',
+            icon: icon
+        });
+    }
+         function formfiled() {
+
+    }
+
+
+   
+</script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Permissions</h3>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="first-name">
+                            Roles <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-xs-12">
+                            @Html.DropDownList("Name", roles, "Select Role", new { @class = "form-control", @id = "roles", @onchange = "onrolechage(this.value)" })
+                            
+                        </div>
+                    </div>   
+                     
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+
+                            <div class="form-group">
+                                
+                                <div class="col-md-12 col-xs-12">
+                                    <div id="select-prefix"></div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                   
+
+                    <div id="gridContainer">
+                    </div>
+                    <button class="btn btn-primary" id="btnSubmit" onclick="savePermissions()">save permission</button>
+                     
+
+                </div>
+                    </div>
+                </div>
+    </div>
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

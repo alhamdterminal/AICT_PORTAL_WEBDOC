@@ -1,0 +1,148 @@
+﻿
+<style>
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+
+ 
+    input[type=text]:disabled {
+        background: #dddddd;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+ 
+
+</style>
+
+<script src="~/js/app.js/ReprintInvoiceImport.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Print Invoice</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left" novalidate="" id="SearchDOForm">
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Invoice # :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12" id="invoiceNo">
+                                        @(Html.DevExtreme()
+                                                .Autocomplete()
+                                                .ID("invoice")
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("APICalls")
+                                                .Area("")
+                                                .LoadAction("ReprintGetinvoices"))
+                                                .Placeholder("Type Invoice Id...")
+                                                .OnValueChanged("invoice_changed"))
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="form-group">
+                        <button id="send" type="button" onclick="print_invoice()" class="btn btn-success">Print</button>
+                     </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="form-group">
+                         <button id="send" type="button" onclick="deleteInvoice()"  class="btn btn-primary">Delete</button>
+                    </div>
+                </div>*@
+                        </div>
+
+                        <div id="gateinContainer"></div>
+
+                    </form>
+
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    IGM: <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @(Html.DevExtreme()
+                                .Autocomplete()
+                                .ID("IGM")
+                                .DataSource(d => d.Mvc()
+                                .Controller("APICalls")
+                                .Area("")
+                                .LoadAction("GetIGMS"))
+                                .Placeholder("Type IGM...")
+                                .OnValueChanged("igm_changed"))
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                    Index # <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" id="indexdiv">
+
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div id="hidebutton">
+                                    <button id="btnSubmitindex" type="button" onclick="loadGridindexwise()" class="btn btn-success" style="float: right;">Show</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="indexinvoices"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

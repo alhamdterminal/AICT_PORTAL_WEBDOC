@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Grounding";
+    var GoodsHead = (IEnumerable<SelectListItem>)ViewData["GoodsHead"];
+}
+
+
+
+
+<style>
+    #groundedContainer {
+        max-height: 700px;
+    }
+</style>
+
+<script src="~/js/app.js/CYGrounding.js"></script>
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Ground Containers
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Commodity:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @Html.DropDownList("GoodsHeadId", GoodsHead, "Select Goods", new { @class = "form-control select2", @id = "goodsHeadId", @required = "required", @onchange = "showgroundingdetail()" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x_content">
+                    <div id="groundedContainer"></div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn btn-primary" style="float:right;" id="btnSubmit" onclick="ground()">Save & create EDI</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+
+
+</script>
+
+

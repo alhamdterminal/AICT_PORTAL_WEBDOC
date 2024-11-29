@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="RequestForWaiver" Margins="3, 6, 180, 31" PaperKind="A4" PageWidth="827" PageHeight="1169" Version="19.1" DataMember="RequestForWaiver" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" ValueInfo="134998" AllowNull="true" Name="containerId" />
+    <Item2 Ref="4" Visible="false" ValueInfo="CFS" AllowNull="true" Name="type" />
+    <Item3 Ref="5" Visible="false" ValueInfo="25/22" AllowNull="true" Name="waiverno" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="6" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="179.833344">
+      <Controls>
+        <Item1 Ref="7" ControlType="XRLabel" Name="label6" Multiline="true" Text="REQUEST FOR WAIVER" TextAlignment="MiddleCenter" SizeF="390.007,24.7083054" LocationFloat="187.368866, 134.374939" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100" Borders="None">
+          <StylePriority Ref="8" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="9" ControlType="XRLabel" Name="label9" Multiline="true" Text="To&#xD;&#xA;Waiver Committee&#xD;&#xA;Al Hamd International Container Terminal (PVT) Limited&#xD;&#xA;Plot O &amp; L , K-28 Translyari Quarters Hawkesbay Road,&#xD;&#xA;Karachi .&#xD;&#xA;&#xD;&#xA;" TextAlignment="TopLeft" SizeF="393.409729,98.4582443" LocationFloat="10.0009041, 33.1666946" Font="Times New Roman, 9.75pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="10" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="11" ControlType="XRLabel" Name="label5" Multiline="true" TextAlignment="MiddleCenter" SizeF="182.291626,51.79164" LocationFloat="625.7093, 82.5833" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="12" Expression="[Waivernumber]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="13" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="14" ControlType="XRLabel" Name="label4" Multiline="true" Text="SERIAL NO." TextAlignment="MiddleCenter" SizeF="207.715332,51.79164" LocationFloat="417.9939, 82.5833" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="15" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="16" ControlType="XRLabel" Name="label3" TextFormatString="{0:dd-MMM-yy hh:mm tt}" Multiline="true" TextAlignment="MiddleCenter" SizeF="182.291626,24.7083054" LocationFloat="625.7093, 57.8749962" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="17" Expression="[receiveingdate]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="18" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="19" ControlType="XRLabel" Name="label1" Multiline="true" Text="RECEIVING DATE" TextAlignment="MiddleCenter" SizeF="207.715332,24.7083054" LocationFloat="417.9939, 57.8749962" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="20" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="21" ControlType="XRLabel" Name="label2" Multiline="true" Text="FOR BILLING ONLY" TextAlignment="MiddleCenter" SizeF="390.007,24.7083054" LocationFloat="417.9939, 33.1666946" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="22" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item7>
+      </Controls>
+    </Item1>
+    <Item2 Ref="23" ControlType="DetailBand" Name="detailBand1" HeightF="925.7619">
+      <Controls>
+        <Item1 Ref="24" ControlType="XRLabel" Name="label40" Multiline="true" Text="FIRST COPY : EXECUTIVE DIRECTOR" TextAlignment="MiddleLeft" SizeF="227.783981,24.708313" LocationFloat="175.625839, 881.333069" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="None">
+          <StylePriority Ref="25" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="26" ControlType="XRLabel" Name="label39" Multiline="true" Text="ORIGINAL : CFO" TextAlignment="MiddleLeft" SizeF="141.325638,24.708313" LocationFloat="10.0009365, 881.3332" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="None">
+          <StylePriority Ref="27" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="28" ControlType="XRLabel" Name="label37" Multiline="true" TextAlignment="MiddleCenter" SizeF="270.492584,64.66693" LocationFloat="280.833771, 748.410461" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="29" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="30" ControlType="XRLabel" Name="label38" Multiline="true" Text="EXECUTIVE DIRECTOR" TextAlignment="MiddleLeft" SizeF="270.492584,41.37494" LocationFloat="280.833771, 813.0776" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="31" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="32" ControlType="XRLabel" Name="label35" Multiline="true" Text="CHIEF EXECUTIVE OFFICER" TextAlignment="MiddleCenter" SizeF="260.840149,41.37494" LocationFloat="551.326355, 813.077454" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="33" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="34" ControlType="XRLabel" Name="label36" Multiline="true" Text="CHIEF OPERATING OFFICER" TextAlignment="MiddleLeft" SizeF="270.492584,41.37494" LocationFloat="10.0004911, 813.077454" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="35" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="36" ControlType="XRLabel" Name="label33" Multiline="true" TextAlignment="MiddleCenter" SizeF="270.492584,64.66693" LocationFloat="10.0004911, 748.4104" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="37" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item7>
+        <Item8 Ref="38" ControlType="XRLabel" Name="label34" Multiline="true" TextAlignment="MiddleCenter" SizeF="260.8404,64.66693" LocationFloat="551.326355, 748.4104" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="39" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item8>
+        <Item9 Ref="40" ControlType="XRLabel" Name="label31" Multiline="true" TextAlignment="MiddleCenter" SizeF="260.8402,27.8332214" LocationFloat="551.326355, 720.5773" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="41" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item9>
+        <Item10 Ref="42" ControlType="XRLabel" Name="label32" Multiline="true" Text="WAIVER COMMITTEE" TextAlignment="MiddleCenter" SizeF="541.325867,27.8332214" LocationFloat="10.0004911, 720.5773" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="43" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item10>
+        <Item11 Ref="44" ControlType="XRLabel" Name="label30" Multiline="true" Text="APPROVED BY" TextAlignment="MiddleCenter" SizeF="802.1665,34.083313" LocationFloat="10.0009041, 686.493958" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="45" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item11>
+        <Item12 Ref="46" ControlType="XRLabel" Name="label28" Multiline="true" Text="APPROVAL" TextAlignment="MiddleCenter" SizeF="371.5343,58.0415649" LocationFloat="10.0007772, 614.785461" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="47" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item12>
+        <Item13 Ref="48" ControlType="XRLabel" Name="label29" Multiline="true" TextAlignment="MiddleLeft" SizeF="430.6319,58.0415649" LocationFloat="381.535034, 614.785461" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="49" Expression="[Remarks]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="50" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item13>
+        <Item14 Ref="51" ControlType="XRLabel" Name="label26" Multiline="true" TextAlignment="MiddleCenter" SizeF="430.6319,30.958313" LocationFloat="381.535034, 583.827148" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="52" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item14>
+        <Item15 Ref="53" ControlType="XRLabel" Name="label27" Multiline="true" Text="AMOUNT WAIVED" TextAlignment="MiddleCenter" SizeF="371.5343,30.958313" LocationFloat="10.0007772, 583.827148" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="54" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item15>
+        <Item16 Ref="55" ControlType="XRLabel" Name="label24" Multiline="true" Text="TYPE OF WAIVER" TextAlignment="MiddleCenter" SizeF="371.5343,30.9582214" LocationFloat="10.000761, 552.868958" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="56" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item16>
+        <Item17 Ref="57" ControlType="XRLabel" Name="label25" Multiline="true" TextAlignment="MiddleCenter" SizeF="430.6319,30.9582214" LocationFloat="381.535034, 552.868958" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="58" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item17>
+        <Item18 Ref="59" ControlType="XRLabel" Name="label23" Multiline="true" TextAlignment="MiddleCenter" SizeF="430.6319,112.208221" LocationFloat="381.535034, 440.660675" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="60" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item18>
+        <Item19 Ref="61" ControlType="XRLabel" Name="label22" Multiline="true" Text="COMMENTS FROM MANAGER" TextAlignment="MiddleCenter" SizeF="371.5343,112.208282" LocationFloat="10.000761, 440.660675" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="62" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item19>
+        <Item20 Ref="63" ControlType="XRLabel" Name="label21" Multiline="true" Text="FOR OFFICE USE ONLY" TextAlignment="MiddleCenter" SizeF="802.1666,24.708313" LocationFloat="10.0004435, 399.410645" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="64" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item20>
+        <Item21 Ref="65" ControlType="XRLabel" Name="label20" Multiline="true" Text="DATE &amp; PLACE" TextAlignment="MiddleCenter" SizeF="123.617981,24.7082977" LocationFloat="684.3823, 358.160645" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="Top">
+          <StylePriority Ref="66" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item21>
+        <Item22 Ref="67" ControlType="XRLabel" Name="label19" Multiline="true" Text="APPLICANT'S SIGNATURE" TextAlignment="MiddleCenter" SizeF="371.5346,24.708313" LocationFloat="10.0004435, 358.160645" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="Top">
+          <StylePriority Ref="68" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item22>
+        <Item23 Ref="69" ControlType="XRLabel" Name="label18" Multiline="true" TextAlignment="MiddleLeft" SizeF="798,38.24997" LocationFloat="9.999998, 190.744019" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="70" Expression="[Remarks]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="71" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item23>
+        <Item24 Ref="72" ControlType="XRLabel" Name="label16" Multiline="true" Text="NOTE: PLEASE ATTACH DOCUMENTS IN SUPPORT OF YOUR CLAIM" TextAlignment="MiddleLeft" SizeF="570.216,24.708313" LocationFloat="237.784424, 153.624847" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="73" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item24>
+        <Item25 Ref="74" ControlType="XRLabel" Name="label17" Multiline="true" Text="REASONS FOR REQUEST" TextAlignment="MiddleLeft" SizeF="227.783981,24.708313" LocationFloat="10.0004435, 153.624847" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="75" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item25>
+        <Item26 Ref="76" ControlType="XRLabel" Name="label14" Multiline="true" Text="IMPORT / EXPORTER NAME" TextAlignment="MiddleLeft" SizeF="227.784439,24.7082977" LocationFloat="10.0004272, 116.41655" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="77" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item26>
+        <Item27 Ref="78" ControlType="XRLabel" Name="label15" Multiline="true" TextAlignment="MiddleLeft" SizeF="570.2155,24.7082977" LocationFloat="237.784836, 116.41655" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="79" Expression="[ff]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="80" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item27>
+        <Item28 Ref="81" ControlType="XRLabel" Name="label12" Multiline="true" TextAlignment="MiddleLeft" SizeF="570.2154,24.7083054" LocationFloat="237.784836, 81.29158" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="82" Expression="[ConsigneName]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="83" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item28>
+        <Item29 Ref="84" ControlType="XRLabel" Name="label13" Multiline="true" Text="AGENT / FORWARDER NAME" TextAlignment="MiddleLeft" SizeF="227.784439,24.7083054" LocationFloat="10.0004272, 81.29158" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="85" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item29>
+        <Item30 Ref="86" ControlType="XRLabel" Name="label10" Multiline="true" Text="INDEX / SHIPPING BILL NUMBER" TextAlignment="MiddleLeft" SizeF="227.784424,24.7083015" LocationFloat="9.999998, 47.20828" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="87" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item30>
+        <Item31 Ref="88" ControlType="XRLabel" Name="label11" Multiline="true" TextAlignment="MiddleLeft" SizeF="570.2157,24.7083015" LocationFloat="237.7844, 47.20828" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="89" Expression="[IndexNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="90" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item31>
+        <Item32 Ref="91" ControlType="XRLabel" Name="label8" Multiline="true" TextAlignment="MiddleLeft" SizeF="570.215637,24.708313" LocationFloat="237.784424, 9.999974" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="92" Expression="[VIRNo]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="93" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item32>
+        <Item33 Ref="94" ControlType="XRLabel" Name="label7" Multiline="true" Text="I.G.M / E.G.M NUMBER" TextAlignment="MiddleLeft" SizeF="227.784424,24.70831" LocationFloat="9.999998, 9.999974" Font="Calibri, 11.2pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="95" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item33>
+      </Controls>
+    </Item2>
+    <Item3 Ref="96" ControlType="BottomMarginBand" Name="bottomMarginBand1" HeightF="31" />
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IlJlcXVlc3RGb3JXYWl2ZXIiPjxQYXJhbWV0ZXIgTmFtZT0iQGNvbnRhaW5lcklkIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP2NvbnRhaW5lcklkKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQHR5cGUiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/dHlwZSk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkB3YWl2ZXJubyIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD93YWl2ZXJubyk8L1BhcmFtZXRlcj48UHJvY05hbWU+UmVxdWVzdEZvcldhaXZlcjwvUHJvY05hbWU+PC9RdWVyeT48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9InNxbERhdGFTb3VyY2UxIj48VmlldyBOYW1lPSJSZXF1ZXN0Rm9yV2FpdmVyIj48RmllbGQgTmFtZT0iUmVtYXJrcyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJXYWl2ZXJudW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icmVjZWl2ZWluZ2RhdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJWSVJObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJJbmRleE5vIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iZmYiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ29uc2lnbmVOYW1lIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD48L1Jlc3VsdFNjaGVtYT48Q29ubmVjdGlvbk9wdGlvbnMgQ2xvc2VDb25uZWN0aW9uPSJ0cnVlIiAvPjwvU3FsRGF0YVNvdXJjZT4=" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

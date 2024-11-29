@@ -1,0 +1,90 @@
+﻿<script>
+    var vesselExportId = "";
+    var voyageExportId = "";
+
+    $(function () {
+        getVessel();
+    });
+
+    function getVessel() {
+
+        $.get('/Export/VesselExport/GetVesselExport', function (data) {
+            if (data) {
+
+
+                $("#vesselExports").dxSelectBox({
+                    dataSource: data,
+                    displayExpr: "vesselName",
+                    valueExpr: 'vesselExportId',
+                    searchEnabled: true,
+                    acceptCustomValue: true,
+                    onValueChanged: function (data) {
+
+                        vesselExportId = data.value;
+
+                        callChangefunc(vesselExportId)
+                    },
+                })
+
+
+            }
+        });
+
+
+    }
+
+    function callChangefunc(vesselExportId) {
+
+
+        $.get('/APICalls/GetVoyagesFormvesselExportId?vesselExportId=' + vesselExportId, function (data) {
+
+            if (data) {
+
+                var VoyageExports = data
+                $("#voyageExports").dxSelectBox({
+                    dataSource: VoyageExports,
+                    displayExpr: "voyageNumber",
+                    valueExpr: 'voyageExportId',
+                    searchEnabled: true,
+                    acceptCustomValue: true,
+                    onValueChanged: function (data) {
+
+                        voyageExportId = data.value;
+
+                    },
+                })
+
+                if (PermissionInputs.find(x => x.fieldName == "Voyage" && x.isChecked == false)) {
+
+                    document.getElementById('voyageExports').style.display = "none";
+                }
+            }
+
+        });
+
+    }
+</script>
+<div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="control-group">
+        <div class="controls">
+            <label class="control-label col-md-4" for="first-name">
+                Vessel
+            </label>
+            <div class="col-md-8" id="vesselExports">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="control-group">
+        <div class="controls">
+            <label class="control-label col-md-4" for="first-name">
+                Voyage:
+            </label>
+            <div class="col-md-8" id="voyageExports">
+
+            </div>
+        </div>
+    </div>
+</div>  

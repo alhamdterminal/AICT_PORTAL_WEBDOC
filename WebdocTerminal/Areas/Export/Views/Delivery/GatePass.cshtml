@@ -1,0 +1,314 @@
+﻿
+@{
+    ViewData["Title"] = "Gate Pass";
+
+    var GDNumbers = (IEnumerable<SelectListItem>)ViewData["GDNumbers"];
+
+    var PackageTypes = (IEnumerable<SelectListItem>)ViewData["PackageTypes"];
+}
+<style>
+    .form-horizontal .control-label {
+        padding-top: 0;
+        text-align: left;
+    }
+</style>
+
+<script src="~/js/app.js/GatePass.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Gate Pass</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <div class="form-horizontal form-label-left" id="DelivryorderForm">
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("GDNumber", GDNumbers, "Select GD Number", new { @class = "form-control select2", @id = "gdnumbers", @onchange = "gdNumber_changed(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="ln_solid"></div>
+
+                        <div class="form-horizontal form-label-left row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Dray-Off Status:
+                                    </label>
+
+                                    <div class="col-md-8">
+                                        <input type="text" id="status" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        GD Date:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="gd-date" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Invoice No:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="invoice-no" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Clearing Agent:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="clearing-agent" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Challan Number:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="challan-number" class="form-control" readonly>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Shipper:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="shipper" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        No of Packages:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="packages" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Total Delivered Packages:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="total-delivered" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Remaining Packages:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="remaining" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Agent Representative:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="agent-representative" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Agent Representative CNIC:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="representative-cnic" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Cargo Code:
+                                    </label>
+
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input name="EnteringCargoId" type="text" id="enteringCargoId" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        DO Code:
+                                    </label>
+
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input name="ExportDeliveryOrderId" type="text" id="exportDeliveryOrderId" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Truck No:
+                                    </label>
+
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input name="TruckNumber" type="text" id="truckNumber" class="form-control">
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Quantity:
+                                    </label>
+
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input name="NumberOfPackage" type="number" id="numberOfPackage" class="form-control">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Package Type:
+                                    </label>
+
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("PackageType", PackageTypes, "Select Packge Type", new { @class = "form-control select2", @id = "packageType" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                    <label for="name" style="display:block">
+                                        Remarks:
+                                    </label>
+                                    <textarea id="remarks" name="remarks" rows="12" cols="40" style="width:auto;"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+
+                        <div id="gridContainer">
+
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button id="btnSubmit" type="button" onclick="createGatePass()" class="btn btn-success" style="float:right;">Submit</button>
+                                @*<a id="reportBtn" class="btn btn-success" onclick="routeToReport()" style="display:none">Print</a>
+                                    <a id="reportBtnCYcontainer" class="btn btn-success" onclick="routeTodeliveryOrderReportCY()" style="display:none">Print</a>*@
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

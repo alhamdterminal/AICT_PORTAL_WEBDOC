@@ -1,0 +1,139 @@
+﻿
+
+@{
+    ViewData["Title"] = "Year Closure";
+
+    var VoucherType = (IEnumerable<SelectListItem>)ViewData["VoucherType"];
+
+    var FinancialYear = (IEnumerable<SelectListItem>)ViewData["FinancialYear"];
+
+    var Department = (IEnumerable<SelectListItem>)ViewData["Department"];
+}
+
+<style>
+     
+
+    #progressBarStatus {
+        display: inline-block;
+    }
+
+    .complete .dx-progressbar-range {
+        background-color: green;
+    } 
+</style>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+<script src="~/js/app.js/YearClosureView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Year Closure
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                Year:
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                @Html.DropDownList("FinancialYearId", FinancialYear, "Select Financial Year", new { @class = "form-control select2", @id = "financialYearId", @required = "required", @onchange = "showdetail()" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                Voucher Type:
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                @Html.DropDownList("VoucherTypeId", VoucherType, "Select Voucher Type", new { @class = "form-control select2", @id = "voucherTypeId", @required = "required", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                Department:
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                @Html.DropDownList("DepartmentId", Department, "Select Department", new { @class = "form-control select2", @id = "departmentId", @required = "required", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn btn-success" style="float:right;" id="btnSubmit" onclick="PostClosureEntry()">Post</button>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div id="large-indicator"></div>
+                    <div class="x_content" id="gridContainer" style="height:500px">
+
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="ErroeStatusModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error List</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="x_content" id="errorGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

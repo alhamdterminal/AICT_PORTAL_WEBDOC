@@ -1,0 +1,226 @@
+﻿
+<script>
+
+    $('#containerIndex').on('change', function (val) {
+
+    });
+    $(function () {
+
+        $('#containerIndex').on('change', function (val) {
+
+            //populateContainerDropbox();
+
+        });
+
+        $('#containerCYdb').on('change', function (val) {
+
+            containerCallback();
+        });
+
+    });
+
+    var igm;
+
+    var cyContainers = [];
+
+    var vesselName;
+
+    var igmYear;
+
+    var indexNo;
+
+    var containerNo;
+
+    var size;
+
+    function igm_changed(data) {
+
+        if (igm) {
+
+            igm = data.igm;
+        }
+
+        if (data.value) {
+            igm = data.value;
+        }
+
+        $.get('/APICalls/GetAuctionCYContainersByIGM?IGM=' + igm, function (containers) {
+
+            cyContainers = containers;
+
+            if (cyContainers.length > 0) {
+
+                vesselName = cyContainers[0].vesselName;
+
+                igmYear = cyContainers[0].igmYear;
+
+                $('#vesel').val(vesselName);
+
+                $('#cyigmyear').val(igmYear);
+
+                loadVoyageDropbox([{ voyageNo: cyContainers[0].voyageNo }]);
+
+                populateContainerIndexDropbox();
+
+            }
+        });
+
+    }
+
+    function loadVoyageDropbox(voyages) {
+
+        $("#voyageBox").dxSelectBox({
+            dataSource: voyages,
+            displayExpr: "voyageNo",
+            value: voyages[0].voyageNo,
+            acceptCustomValue: true,
+            onValueChanged: function (data) {
+
+            },
+
+        });
+    }
+
+    function populateContainerIndexDropbox() {
+
+        $.post('/APICalls/GetAuctionContainerIndexDropdownCY', { containers: cyContainers }, function (data) {
+
+            $('#containerIndex').html(data);
+
+            populateContainerDropbox();
+
+
+        });
+
+    }
+
+
+    function populateContainerDropbox() {
+
+        var indexNo = $("#containerIndexCYdb option:selected").val();
+
+        $.post('/APICalls/GetAuctionContainerDropdownCY?IndexNo=' + indexNo, { containers: cyContainers }, function (data) {
+
+            size = data.size;
+
+            $('#containerdata').html(data);
+
+            containerCallback();
+
+        });
+
+    }
+
+
+
+    $(function () {
+
+        $('#containerIndex').on('change', function (val) {
+
+            populateContainerDropbox();
+
+        });
+
+        $('#containerdata').on('change', function (val) {
+
+            containerCallback();
+
+        });
+
+    });
+
+
+
+</script>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="">
+
+            <div class="">
+
+
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                IGM: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @(Html.DevExtreme()
+                                                .Autocomplete()
+                                                .ID("IGM")
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("APICalls")
+                                                .Area("")
+                                                .LoadAction("GetIGMS"))
+                                                .Placeholder("Type IGM...")
+                                                .OnValueChanged("igm_changed"))
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cyigmyear">
+                                Year:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="cyigmyear">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Vessel:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="vesel">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Voyage:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="voyageBox">
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Index #
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="containerIndex">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Container # <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="containerdata">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,347 @@
+﻿@{
+  //  var invoices = (IEnumerable<SelectListItem>)ViewData["invoices"];
+
+ //   var partys = (IEnumerable<SelectListItem>)ViewData["partys"];
+
+    var banks = (IEnumerable<SelectListItem>)ViewData["banks"];
+
+    var shippingagent = (IEnumerable<SelectListItem>)ViewData["shippingagent"];
+
+}
+
+<style>
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+ 
+</style>
+
+<script src="~/js/app.js/AmountReceived.js"></script>
+
+<div class="right_col" role="main">
+    
+    @*<div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Amount Received</h3>
+                    </div>
+
+                    <div class="title_right">
+
+                    </div>
+                </div>
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="AmountReceivedForm">
+                         
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                                        Invoice <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-xs-12">
+                                        @Html.DropDownList("InvoiceId", invoices, "Select Invoice", new { @class = "form-control select2", @id = "invoice" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Date
+                                    </label> 
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="datetime" class="form-control has-feedback-left" id="single_cal1" name="AmountReceivedDate" aria-describedby="inputSuccess2Status">
+                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 col-sm-4 col-xs-12" id="consigneecolm">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Party:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div id="searchBoxForConsigne"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Balance Invoice Amount
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" id="balance" name="BalanceAmount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Sales Tax
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" id="salestax" name="SalesTax">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Bill Amount
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" id="bill" name="BillAmount">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                             
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Amount
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" id="cheque" name="ChequeAmount">
+                                    </div>
+                                </div>
+                            </div>
+                             
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Consignee
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="consignee" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Available Balance
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" id="balanceLedgerAmt" name="BalanceLedgerAmount" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button type="submit" id="btnCancel" class="btn btn-primary" style="float:right;">Cancel</button>
+                                <button type="button" id="btnSubmit" onclick="submitAmountReceived()" class="btn btn-success" style="float:right;">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    
+     
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Let Pass Amount Received</h3>
+                    </div>
+
+                    <div class="title_right">
+
+                    </div>
+                </div>
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" id="ChequeReceivedForm">
+                        <div class="form-horizontal form-label-left row">
+
+                            @*<div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="form-group">
+                <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                    Party <span class="required">*</span>
+                </label>
+                <div class="col-md-8 col-xs-12">
+                    @Html.DropDownList("PartyId", partys, "Select Party", new { @class = "form-control select2", @id = "paymnetparty", @required = "required" })
+                    <span class="error" id="paymentpartyerror"></span>
+                </div>
+            </div>
+        </div>*@
+
+                            <div class="col-md-4 col-sm-4 col-xs-12" id="consigneecolm">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Party:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div id="searchBoxForcheckreceived"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                                        Bank <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-xs-12">
+                                        @Html.DropDownList("BankId", banks, "Select Bank", new { @class = "form-control select2", @id = "paymnetbank"  })
+                                        <span class="error" id="bankerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Type
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form-control" id="paymenttype" name="Type"  >
+                                            <option selected disabled value="">--Select Type--</option>
+                                            <option value="Cheque">Cheque</option>
+                                            <option value="PayOrder">PayOrder</option>
+                                            <option value="FundTransferOnline">Online / Fund Transfer</option>
+                                            <option value="Cash">Cash</option>
+                                        </select>
+                                        <span class="error" id="paymenttypeerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Amount
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control mask" id="paymentamount" name="Amount"  >
+                                        <span class="error" id="paymentamounterror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class=" form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Instrument Date
+                                    </label>
+                                    @*<fieldset>*@
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="datetime" class="form-control has-feedback-left" id="single_cal3" name="ChequeDate" aria-describedby="inputSuccess2Status">
+                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*</fieldset>*@
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Instrument Number
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="paymentnumber" name="Number"  >
+                                        <span class="error" id="paymentchequeNumbererror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                                        FF <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentId", shippingagent, "Select FF", new { @class = "form-control select2", @disabled = true, @id = "shippingagentId" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button type="submit" id="btnCancel" class="btn btn-primary" style="float:right;">Cancel</button>
+                                <button type="button" id="btnSubmit" onclick="submitChequeReceived()" class="btn btn-success" style="float:right;">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+ 
+    
+
+
+<script>
+    $('.select2').select2();
+</script>

@@ -1,0 +1,168 @@
+﻿@{
+
+    var EgmNumber = (IEnumerable<SelectListItem>)ViewData["EgmNumber"];
+
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var ClearingAgent = (IEnumerable<SelectListItem>)ViewData["ClearingAgent"];
+
+    var Shipper = (IEnumerable<SelectListItem>)ViewData["Shipper"];
+
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+<script src="~/js/app.js/CargoAlongsideReport.js"></script>
+
+<div class="right_col" role="main">
+    <div class="x_panel">
+        <div class="page-title ">
+            <div class="title_left">
+                <h3>
+                    Cargo Alongside Report
+                </h3>
+            </div>
+            <div class=" ">
+                <div class="col-md-6  col-xs-12" style="float: right;">
+                    <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                            Report Type
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <select class="form-control" id="type">
+                                <option value="Vessel" selected>Vessel Wise</option>
+                                <option value="Agent">Agent Wise</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6  col-xs-12" style="float: right;">
+                    <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                            CBM Type
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <select class="form-control" id="cbm">
+                                <option value="0">Decimal Value</option>
+                                <option value="1" selected>Round Up</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+                    <div class="form-horizontal form-label-left row">
+                    </div>
+
+                    <div class="form-horizontal form-label-left row">
+
+                        @{ Html.RenderPartial("_VesselVoyageSelection"); }
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    EGM
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("EgmNumber", EgmNumber, "Select EGM", new { @class = "form-control select2", @id = "egmNumber" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="form-horizontal form-label-left row">
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Shipping Agnet
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("ShippingAgent", ShippingAgent, "Select Shipping Agent", new { @class = "form-control select2", @id = "shippingAgent" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Shipper
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("Shipper", Shipper, "Select Shipper", new { @class = "form-control select2", @id = "shipper" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Clearing Agent
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("ClearingAgent", ClearingAgent, "Select Clearing Agent", new { @class = "form-control select2", @id = "clearingAgent" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    @{ Html.RenderPartial("_DateFilter"); }
+
+                    <div class="form-horizontal form-label-left row">
+                        <div class="col-md-4">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 " for="name">
+                                    Atteched File:
+                                </label>
+                                <div class="col-md-8">
+                                    <input type="file" class="form-control" id="filePath" name="FilePath" onchange="uploadFiles(event)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="item form-group">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button type="button" class="btn btn-danger mobBtn" onclick="mailReport()" style="float:right">Mail</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

@@ -1,0 +1,185 @@
+﻿@{
+    var patry = (IEnumerable<SelectListItem>)ViewData["patry"];
+    var bank = (IEnumerable<SelectListItem>)ViewData["bank"];
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+
+<script src="~/js/app.js/PartyLedgerExport.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Party Ledger
+            </h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="x_panel">
+        <div class="row">
+            <div class="col-md-5 col-xs-12">
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label col-md-3 col-xs-12" for="first-name">
+                            Invoice No
+                        </label>
+                        <div class="col-md-9 col-xs-12">
+                            <input type="text" class="form-control" id="invoiceNumber">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-xs-12">
+
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Chq No
+                            </label>
+                            <div class="col-md-9 col-xs-12">
+                                @(Html.DevExtreme()
+                                    .Autocomplete()
+                                    .ID("IGM")
+                                    .DataSource(d => d.Mvc()
+                                    .Controller("APICalls")
+                                    .Area("")
+                                    .LoadAction("GetchqeueNoExport"))
+                                    .Placeholder("Type IGM...")
+                                    .OnValueChanged("chqeueNo_changed"))
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-5 col-xs-6" for="first-name">
+                                Negative Bal
+                            </label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="checkbox" style="    float: right;  height: 18px;  width: 15px;" class="form-control" id="isnegative" onclick='handleClick(this);'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-xs-12">
+                <div class="form-group">
+                    <label class="control-label  col-md-3 col-xs-12" for="first-name">
+                        Bank :<span class="required">*</span>
+                    </label>
+                    <div class="col-md-9 col-xs-12">
+                        @Html.DropDownList("BankId", bank, "Select Bank", new { @class = "form-control select2", @id = "bnk", required = "required" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                From
+                            </label>
+                            <div class="col-md-9 col-xs-12">
+                                <input type="text" placeholder="Invoice Amount Range" class="form-control" id="fromRange">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                To
+                            </label>
+                            <div class="col-md-9 col-xs-12">
+                                <input type="text" placeholder="Invoice Amount Range" class="form-control" id="toRange">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-md-5 col-xs-12">
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label col-md-3 col-xs-12">
+                            Party:
+                        </label>
+                        <div class="col-md-9 col-xs-12">
+                            @Html.DropDownList("PatryId", patry, "Select Party", new { @class = "form-control select2", @id = "party", required = "required" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-xs-12">
+
+                <div class="col-md-5 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-3 col-xs-12" for="first-name">
+                                From:
+                            </label>
+                            <div class="col-md-9 col-xs-12">
+                                <input type="date" class="form-control" id="fromdate">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-2 col-xs-12" for="first-name">
+                                To:
+                            </label>
+                            <div class="col-md-9 col-xs-12">
+                                <input type="date" class="form-control" id="todate">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <button type="button" class="btn btn-dark mobBtn" onclick="myFunction()" style="float:right">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

@@ -1,0 +1,101 @@
+﻿
+<script>
+     
+    var igm;
+    var igmnumber;
+
+    function igm_changed(data) {
+        igm = data.value;
+        igmnumber = data.value;
+        console.log(igm)
+        console.log("igmnumber", igmnumber)
+
+
+          igmnumber = igmnumber.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '_').length;
+
+        console.log("igmnumber", igmnumber)
+
+
+        if (igmnumber == 16) {
+            if (igm) {
+                $.get('/APICalls/GetIGMContainersDropdownList?IGM=' + igm, function (containerdb) {
+
+                    console.log("containerdb", containerdb)
+
+                    $('#containerdiv').html(containerdb);
+
+                    containerChangeCallback("container");
+
+                });
+            }
+
+        }
+        else{
+            $('#containerdiv').html([]);
+
+            containerChangeCallback("container");
+        }
+
+            
+             
+    }
+
+    $(function () {
+
+        $('#containerdiv').on('change', function (val) {
+
+            containerChangeCallback("container");
+
+        });
+
+
+
+
+    });
+
+</script>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="">
+
+            <div class="">
+
+
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                IGM: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @(Html.DevExtreme()
+                                .Autocomplete()
+                                .ID("IGM")
+                                .DataSource(d => d.Mvc()
+                                .Controller("APICalls")
+                                .Area("")
+                                .LoadAction("GetIGMOIGMS"))
+                                .Placeholder("Type IGM...")
+                                .OnValueChanged("igm_changed"))
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Container # <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div id="containerdiv"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+        </div>
+    </div>
+</div>

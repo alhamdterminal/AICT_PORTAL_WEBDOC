@@ -1,0 +1,456 @@
+﻿ 
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+    .dx-header-row > td > .dx-datagrid-text-content {
+        white-space: normal;
+        vertical-align: top;
+        text-align: center;
+    }
+
+
+    #PortchargesGrid {
+        max-height: 500px;
+    }
+</style>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+<script src="~/js/app.js/PortChargesPerBoxView.js"></script>
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3> Port Charges </h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Vir No: <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @(Html.DevExtreme()
+                                                .Autocomplete()
+                                                .ID("virnolist")
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("APICalls")
+                                                .Area("")
+                                                .LoadAction("Getvirno"))
+                                                .Placeholder("Type GDNumber..."))
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Container No: <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @(Html.DevExtreme()
+                                                .Autocomplete()
+                                                .ID("containerlist")
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("APICalls")
+                                                .Area("")
+                                                .LoadAction("Getigmocontainers"))
+                                                .Placeholder("Type Container No..."))
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Index No: <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @(Html.DevExtreme()
+                                                .Autocomplete()
+                                                .ID("containerIndexlist")
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("APICalls")
+                                                .Area("")
+                                                .LoadAction("Getigmoindexes"))
+                                                .Placeholder("Type Index..."))
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12" id="containertpe">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                    Container Type# <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="item form-control" name="ContainerType" id="ContainerType">
+
+                                        <option value="CFS">CFS</option>
+                                        <option value="CY">CY</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-dark" onclick="showcargoDetaildesc()" style="float:right"> View Detail</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    File Select: <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="file" class="form form-control" id="fileUpload" accept=".xls,.xlsx" style=" background-color: beige; color: black;" /><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <button type="button" class="btn btn-success" id="uploadExcel">Upload File</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ln_solid"></div>
+
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="large-indicator"></div>
+                            <div id="PortchargesGrid">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button type="button" class="btn btn-default" onclick="SaveInfo()" style="float:right">Save</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.select2').select2();
+
+
+
+    var selectedFile;
+    document
+        .getElementById("fileUpload")
+        .addEventListener("change", function (event) {
+            selectedFile = event.target.files[0];
+        });
+
+    document
+        .getElementById("uploadExcel")
+        .addEventListener("click", function () {
+            var resultvalue = true;
+            console.log("selectedFile", selectedFile)
+
+            if (selectedFile) {
+
+                var fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                    var data = event.target.result;
+
+                    var workbook = XLSX.read(data, {
+                        type: "binary"
+                    });
+
+                    workbook.SheetNames.forEach(sheet => {
+                        let rowObject = XLSX.utils.sheet_to_row_object_array(
+                            workbook.Sheets[sheet]
+                        );
+
+                        console.log("rowObject", rowObject)
+
+                        if (rowObject) {
+
+                            var newresult = rowObject.filter(c => c.Is_Delivered == 'false');
+                            var deliverdresultdata = rowObject.filter(c => c.Is_Delivered == 'true');
+
+                            if (newresult.length) {
+
+
+                                console.log("newresult", newresult)
+
+                                newresult.forEach(c => {
+
+
+                                    if ($.isNumeric(c.Demurrage_Charges) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add Demurrage Charges in numbers ", "error")
+                                        return alert("please add Demurrage Charges in numbers ");
+
+                                    }
+                                    if ($.isNumeric(c.Weighment_Charges) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add  Weighment Charges in numbers ", "error")
+                                        return alert("please add  Weighment Charges in numbers ");
+                                    }
+                                    if ($.isNumeric(c.OverWeight_Penalty) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add  Over Weight Penalty in numbers ", "error")
+                                        return alert("please add  Over Weight Penalty in numbers ");
+                                    }
+                                    if ($.isNumeric(c.DetentionCharges_Or_BulletSeal) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add detentionChargesOrBulletSeal in numbers ", "error")
+                                        return alert("please add detentionChargesOrBulletSeal in numbers ");
+                                    }
+                                    if ($.isNumeric(c.THC_PHC_KDLP_Charges) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add thcPhcKdlpCharges in numbers ", "error")
+                                        return alert("please add thcPhcKdlpCharges in numbers ");
+                                    }
+                                    if ($.isNumeric(c.Lolo_Charges) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add loloCharges in numbers ", "error")
+                                        return alert("please add loloCharges in numbers");
+                                    }
+                                    if ($.isNumeric(c.Qict_Charges) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add qictCharges in numbers ", "error")
+                                        return alert("please add qictCharges in numbers ");
+                                    }
+                                    if ($.isNumeric(c.Other_Charges) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add otherCharges in numbers ", "error")
+                                        return alert("please add otherCharges in numbers ");
+                                    }
+                                    if ($.isNumeric(c.Wash_And_Clean_Charges) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add washAndCleanCharges in numbers ", "error")
+                                        return alert("please add washAndCleanCharges in numbers ");
+                                    }
+                                    if ($.isNumeric(c.ANF) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add anf in numbers ", "error")
+                                        return alert("please add anf in numbers ");
+                                    }
+                                    if ($.isNumeric(c.Pallet) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add pallet in numbers ", "error")
+                                        return alert("please add pallet in numbers ");
+                                    }
+                                    if ($.isNumeric(c.Recover) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add recover in numbers ", "error")
+                                        return alert("please add recover in numbers ");
+                                    }
+                                    if ($.isNumeric(c.Transport_Charges) == false) {
+                                        resultvalue = false;
+                                        //return showToast("please add transportCharges in numbers ", "error")
+                                        return alert("please add transportCharges in numbers ");
+                                    }
+
+
+                                    if (c.Demurrage_Charges < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add Demurrage Charges > 0 ", "error")
+                                        return alert("please add Demurrage Charges > 0 ");
+                                    }
+                                    if (c.Weighment_Charges < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add  Weighment Charges  > 0 ", "error")
+                                        return alert("please add  Weighment Charges  > 0 ");
+                                    }
+                                    if (c.OverWeight_Penalty < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add  Over Weight Penalty  > 0  ", "error")
+                                        return alert("please add  Over Weight Penalty  > 0  ");
+                                    }
+                                    if (c.DetentionCharges_Or_BulletSeal < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add detentionChargesOrBulletSeal  > 0 ", "error")
+                                        return alert("please add detentionChargesOrBulletSeal  > 0 ");
+                                    }
+                                    if (c.Lolo_Charges < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add thcPhcKdlpCharges  > 0 ", "error")
+                                        return alert("please add thcPhcKdlpCharges  > 0 ");
+                                    }
+                                    if (c.Lolo_Charges < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add loloCharges > 0", "error")
+                                        return alert("please add loloCharges > 0");
+                                    }
+                                    if (c.Qict_Charges < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add qictCharges  > 0", "error")
+                                        return alert("please add qictCharges  > 0");
+                                    }
+                                    if (c.Other_Charges < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add otherCharges  > 0 ", "error")
+                                        return alert("please add otherCharges  > 0 ");
+                                    }
+                                    if (c.Wash_And_Clean_Charges < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add washAndCleanCharges  > 0 ", "error")
+                                        return alert("please add washAndCleanCharges  > 0  ");
+                                    }
+                                    if (c.ANF < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add anf  > 0", "error")
+                                        return alert("please add anf  > 0");
+                                    }
+                                    if (c.Pallet < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add pallet > 0", "error")
+                                        return alert("please add pallet > 0");
+                                    }
+                                    if (c.Recover < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add recover  > 0", "error")
+                                        return alert("please add recover  > 0");
+                                    }
+                                    if (c.Transport_Charges < 0) {
+                                        resultvalue = false;
+                                        //return showToast("please add transportCharges > 0", "error")
+                                        return alert("please add transportCharges > 0");
+                                    }
+
+
+                                });
+
+                                if (resultvalue == true) {
+                                    console.log("ok newresult", newresult)
+
+                                    var result = [];
+                                    newresult.forEach(c => {
+
+                                        let x = {
+                                            virNumber: c.IGM,
+                                            containerNumber: c.Container_No,
+                                            type: c.Type,
+                                            demurrageCharges: c.Demurrage_Charges,
+                                            weighmentCharges: c.Weighment_Charges,
+                                            overWeightPenalty: c.OverWeight_Penalty,
+                                            detentionChargesOrBulletSeal: c.DetentionCharges_Or_BulletSeal,
+                                            thcPhcKdlpCharges: c.THC_PHC_KDLP_Charges,
+                                            loloCharges: c.Lolo_Charges,
+                                            qictCharges: c.Qict_Charges,
+                                            otherCharges: c.Other_Charges,
+                                            washAndCleanCharges: c.Wash_And_Clean_Charges,
+                                            anf: c.ANF,
+                                            pallet: c.Pallet,
+                                            recover: c.Recover,
+                                            transportCharges: c.Transport_Charges,
+                                            totalCharges: c.Demurrage_Charges + c.Weighment_Charges + c.OverWeight_Penalty + c.DetentionCharges_Or_BulletSeal + c.THC_PHC_KDLP_Charges + c.Lolo_Charges + c.Qict_Charges + c.Other_Charges +
+                                                c.Wash_And_Clean_Charges + c.ANF + c.Pallet + c.Recover + c.Transport_Charges
+                                        };
+
+                                        result.push(x);
+
+                                    })
+
+                                    console.log("result", result)
+                                    console.log("deliverdresultdata ", deliverdresultdata)
+                                    console.log("deliverdresultdata ", deliverdresultdata.length)
+
+                                    $.post('/Tariff/UpdatePortChargesAmountFromExcelSheet', { model: result }, function (data) {
+
+                                        if (data.error == true) {
+                                            //showToast(data.message, "error")
+                                            alert(data.message);
+
+                                        } else {
+                                            //showToast(data.message + "and total " + deliverdresultdata.deliverdresultdata + "are Delivered", "success");
+
+                                            alert(data.message + "and total " + deliverdresultdata.deliverdresultdata + "are Delivered");
+                                        }
+
+                                    });
+                                }
+
+
+
+                                }
+
+                            }
+
+
+                        });
+                };
+                fileReader.readAsBinaryString(selectedFile);
+            }
+        });
+
+</script>
+
+

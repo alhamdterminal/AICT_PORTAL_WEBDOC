@@ -1,0 +1,142 @@
+﻿
+@{
+
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var RequestNumber = (IEnumerable<SelectListItem>)ViewData["RequestNumber"];
+
+    var VesselName = (IEnumerable<SelectListItem>)ViewData["VesselName"];
+
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/OutStandingPaymentReport.js"></script>
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                OutStanding Payment Report
+            </h3>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+                    <div class="row">
+                        <div class="col-md-5 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                    Request No
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("RequestNumberId", RequestNumber, "Select Request No", new { @class = "form-control select2", @id = "requestNumber" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                    Line
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("shippingLineId", ShippingAgent, "Select Line", new { @class = "form-control select2", @id = "shippingLine" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            Container #
+                                        </label>
+                                        <div class="col-md-9 col-xs-12">
+                                            <input type="text" placeholder="Number Of containers" class="form-control" id="numberOfcontainers">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                            Vessel
+                                        </label>
+                                        <div class="col-md-9 col-xs-12">
+                                            @Html.DropDownList("VesselName", VesselName, "Select Vessel", new { @class = "form-control select2", @id = "vesselName" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-5 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                    Principle
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("ShippingAgentId", ShippingAgent, "Select Principle", new { @class = "form-control select2", @id = "shippingAgent" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            @{Html.RenderPartial("_DateFilter"); }
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+<script>
+    $('.select2').select2();
+</script>

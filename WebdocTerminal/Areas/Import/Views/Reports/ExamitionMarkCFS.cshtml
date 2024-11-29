@@ -1,0 +1,102 @@
+﻿@{
+    var shippingAgent = (IEnumerable<SelectListItem>)ViewData["shippingAgent"];
+    var clearingagent = (IEnumerable<SelectListItem>)ViewData["clearingagent"];
+    var GoodsHeadItems = (IEnumerable<SelectListItem>)ViewData["GoodsHeadItems"];
+}
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/ExamitionMarkCFS.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                CFS Examination Mark
+            </h3>
+        </div>
+        <div class="title_right">
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="row">
+
+                    <div class="col-md-4  col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                                Shipping Agent
+                            </label>
+                            <div class="col-md-8 col-xs-12">
+                                @Html.DropDownList("ShippingAgentId", shippingAgent, "Select Shipping Agent", new { @class = "form-control select2", @id = "agentId", required = "required" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4  col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label  col-md-3 col-xs-12" for="first-name">
+                                Clearing Agent
+                            </label>
+                            <div class="col-md-9 col-xs-12">
+                                @Html.DropDownList("ClearingAgentId", clearingagent, "Select Clearing Agent", new { @class = "form-control select2", @id = "clearingagentId", required = "required" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12" id="containertpe">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-4 col-xs-12" for="first-name">
+                                Type# <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-8 col-xs-12">
+                                <select class="item form-control" id="type" required>
+                                    <option value="ihco">Examition Mark</option>
+                                    <option value="srco">Examition Ground</option>
+                                    <option value="ecmo">Examition Complete</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-4 col-xs-12" id="containertpe">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                Commodity:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @Html.DropDownList("GoodsHeadName", GoodsHeadItems, "Select GoodsHead", new { @class = "form-control select2", @id = "commodity", required = "required" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8" id="">
+
+                    @{Html.RenderPartial("_DateFilter"); }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,253 @@
+﻿@{
+    var Agents = (IEnumerable<SelectListItem>)ViewData["Agents"];
+
+    var clearagent = (IEnumerable<SelectListItem>)ViewData["CAgents"];
+
+    var consignee = (IEnumerable<SelectListItem>)ViewData["consignee"];
+
+}
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+<script src="~/js/app.js/CRDataSummary.js"></script>
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+
+
+<style>
+    .WrappedColumnClass tariffbrakup {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    .ffsharecolor {
+        background-color: #eeeda4;
+    }
+
+    .otherchargebrakup {
+        background-color: #857a7a;
+    }
+
+    .tariffbrakup {
+        background-color: #c3704c;
+    }
+
+    .maintariffbrakup {
+        background-color: #686d33;
+    }
+
+    .sumofbrakup {
+        background-color: #4e908c;
+    }
+
+
+    .aictsharecolor {
+        background-color: #a9caec;
+    }
+
+    .dx-datagrid-nowrap.dx-datagrid-headers .dx-header-row > td > .dx-datagrid-text-content {
+        white-space: normal;
+    }
+
+    #gridContainer {
+        height: 1000px;
+    }
+</style>
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                CR Data Summary
+            </h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+
+                    <div class="form-horizontal form-label-left row">
+
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Type
+                                    </label>
+                                    <div class="col-md-9">
+                                        <select class="item form-control" name="ContainerType" id="type">
+                                            <option value="">Please Select</option>
+                                            <option value="CFS">CFS</option>
+                                            <option value="CY">CY</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Cargo Type
+                                    </label>
+                                    <div class="col-md-9">
+                                        <select class="item form-control" name="ContainerType" id="cargoType">
+                                            <option value="">Please Select</option>
+                                            <option value="FCL">FCL</option>
+                                            <option value="LCL">LCL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            From:
+                                        </label>
+                                        <div class="col-md-9 col-xs-12">
+                                            <input type="text" class="form-control has-feedback-left" id="single_cal2" name="fromdate" aria-describedby="inputSuccess2Status2">
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                            <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                            To:
+                                        </label>
+                                        <div class="col-md-9 col-xs-12">
+                                            <input type="text" class="form-control has-feedback-left" id="single_cal3" name="todate" aria-describedby="inputSuccess2Status2">
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                            <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+
+
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        ShippingAgent
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("ShippingAgentId", Agents, "Select Shipping Agent", new { @class = "form-control select2", @id = "shippingAgent", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Clearing Agnet
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("ClearingAgentId", clearagent, "Select Clearing Agent", new { @class = "form-control select2", @id = "clearingagent", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Consignee:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div id="consigneeselectbox"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="row">
+
+                            <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 pad">
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pad">
+                                <button type="button" id="btnSubmitReport" class="btn btn-dark" onclick="myFunction()" style="float: right;">Print</button>
+                                <button type="button" class="btn btn-dark" onclick="exporttoexcel()" style="float: right;">export</button>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="clearfix"></div>
+
+        @*<div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div id="large-indicator"></div>
+                        <div class="x_content" id="repotdata">
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div id="large-indicator"></div>
+                    <div class="x_content" id="gridContainer">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $('.select2').select2();
+</script>

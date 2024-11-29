@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Off-Dock Terminal</title>
+  
+    <environment include="Development">
+        @* do exclude instead of include when publish to server *@
+
+        <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Multi-Select -->
+        <link href="~/vendors/bootstrap-multiselect-master/dist/css/bootstrap-multiselect.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet">
+        <!-- iCheck -->
+        <link href="~/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+        <!-- bootstrap-progressbar -->
+        <link href="~/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+        <!-- JQVMap -->
+        <link href="~/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+        <!-- bootstrap-daterangepicker -->
+        <link href="~/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+        <link href="~/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+        <!-- Toast Style -->
+        <link href="~/lib/jquery-toast-plugin-master/dist/jquery.toast.min.css" rel="stylesheet">
+        <!-- Custom Theme Style -->
+        <link href="~/css/custom.min.css" rel="stylesheet">
+        <link href="~/css/site.css" rel="stylesheet">
+        <link href="~/css/dx.material.custom-scheme.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.korzh.com/eq/6.0.9/eq.core.min.css">
+        <link rel="stylesheet" href="https://cdn.korzh.com/eq/6.0.9/eq.view.min.css">
+
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+
+
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />*@
+    </environment>
+    <environment exclude="Development">
+        @* do include instead of exclude when publish to server *@
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+    <environment include ="Development">
+        @* do exclude instead of include when publish to server *@
+        @* do exclude instead of include when publish to server *@
+        <script src="~/vendors/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/select2.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+    </environment>
+
+
+    <script src="~/lib/knockout/dist/knockout.js"></script>
+  
+    <link href="~/css/select2.min.css" rel="stylesheet">
+    <link href="~/css/vendor.css" rel="stylesheet" />
+    <script src="~/js/vendor.js" asp-append-version="true"></script>
+    <link href="~/lib/devextreme/css/dx.material.teal.light.css" rel="stylesheet" />
+    <link href="~/lib/devextreme/css/dx.light.css" rel="stylesheet" />
+    @*<script src="~/lib/xtrareportsjs/js/dx-analytics-core.min.js"></script>*@
+        @*<script src="~/lib/xtrareportsjs/js/dx-webdocumentviewer.min.js"></script>*@
+        <link href="~/lib/xtrareportsjs/css/dx-analytics.common.min.css" rel="stylesheet" />
+        <link href="~/lib/xtrareportsjs/css/dx-analytics.light.min.css" rel="stylesheet" />
+        <link href="~/lib/xtrareportsjs/css/dx-webdocumentviewer.css" rel="stylesheet" />
+    @*<script src="https://cdn.korzh.com/eq/6.0.9/eq.enterprise.min.js"></script>*@
+
+
+</head>
+<style>
+    @@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        .page-title .title_left {
+            width: 100%;
+            float: left;
+            display: block;
+        }
+
+
+        .dx-texteditor.dx-editor-underlined {
+            background-color: transparent;
+            width: 100% !important;
+        }
+
+        .mobBtn {
+            margin-top: 23px;
+        }
+    }
+
+    .dxrd-preview.dxrd-designer-wrapper .dxrdp-toolbar-scrollable.dxrd-toolbar-wrapper .dxrd-toolbar {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .top_nav .navbar-right {
+        margin: 0;
+        width: 75% !important;
+        float: right;
+    }
+
+        .top_nav .navbar-right li {
+            display: block;
+            float: right;
+            position: relative;
+        }
+
+    .dxrd-preview .dxrd-right-panel-collapse, .dxrd-preview .dxrd-right-panel, .dxrd-preview .dxrd-right-tabs {
+        display: none;
+    }
+
+    .dx-datagrid  { 
+        color: black;
+        font-weight: bold;
+    }
+
+        .dx-datagrid .dx-row-lines > td {
+            border: 1px solid #51b5ab;
+        }
+
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    .form-horizontal .control-label {
+        padding-top: 8px;
+        color: black;
+    }
+
+    .select2-results__option[aria-selected] {
+        cursor: pointer;
+        color: black;
+        font-weight: bold;
+    }
+
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        background-color: #eee;
+        opacity: 1;
+        color: black;
+        font-weight: bold;
+    }
+
+    .item input, .item textarea {
+        transition: .42s;
+        color: black;
+        font-weight: bold;
+    }
+
+    .dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+        border: 1px solid #020202;
+        color: black;
+        font-weight: bold;
+    }
+    .select2-selection__rendered {
+        color: black;
+        font-weight: bold;
+    }
+
+
+
+</style>
+<body class="nav-md" oncontextmenu="return false">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="/home/DashboardImport" class="site_title"><i class="fa fa-ship"></i> <span>Off-Dock Terminal</span></a>
+                    </div>
+                    <div class="clearfix"></div>                  
+                    <br />
+                    <partial name="~/Views/Shared/_sidebar.cshtml" />
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">                    
+                    </div> 
+                </div>
+            </div>
+         
+
+            <div>
+                <partial name="_CookieConsentPartial" />
+                @RenderBody()
+            </div>
+
+            <footer>
+                <div class="pull-right" style="COLOR: #172d44;">
+                    &copy; 2019 - Off-Dock Terminal
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+
+        </div>
+    </div>
+
+
+    <environment include="Development">
+        @* do exclude instead of include when publish to server *@
+        <!--Multi-Select-->
+        <script src="~/vendors/bootstrap-multiselect-master/dist/js/bootstrap-multiselect.js"></script>
+        <!-- FastClick -->
+        <script src="~/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="~/vendors/nprogress/nprogress.js"></script>
+        <!-- Chart.js -->
+        <script src="~/vendors/Chart.js/dist/Chart.min.js"></script>
+        <!-- gauge.js -->
+        <script src="~/vendors/gauge.js/dist/gauge.min.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="~/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+        <!-- iCheck -->
+        <script src="~/vendors/iCheck/icheck.min.js"></script>
+        <!-- Skycons -->
+        <script src="~/vendors/skycons/skycons.js"></script>
+        <!-- Flot -->
+        <script src="~/vendors/Flot/jquery.flot.js"></script>
+        <script src="~/vendors/Flot/jquery.flot.pie.js"></script>
+        <script src="~/vendors/Flot/jquery.flot.time.js"></script>
+        <script src="~/vendors/Flot/jquery.flot.stack.js"></script>
+        <script src="~/vendors/Flot/jquery.flot.resize.js"></script>
+        <!-- Flot plugins -->
+        <script src="~/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+        <script src="~/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+        <script src="~/vendors/flot.curvedlines/curvedLines.js"></script>
+        <!-- DateJS -->
+        <script src="~/vendors/DateJS/build/date.js"></script>
+        <!-- JQVMap -->
+        <script src="~/vendors/jqvmap/dist/jquery.vmap.js"></script>
+        <script src="~/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script src="~/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="~/vendors/moment/min/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="~/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="~/js/custom.min.js"></script>
+        <!-- Toast -->
+        <script src="~/lib/jquery-toast-plugin-master/dist/jquery.toast.min.js"></script>
+    </environment>
+
+    <script>
+         
+
+        var menu = [];
+        var href = [];
+        var divsToHide;
+        var PermissionInputs = [];
+        $(document).ready(function () {
+             
+            //$('#single_cal1').daterangepicker({
+
+            //    singleDatePicker: !0,
+            //    singleClasses: "picker_1",
+            //    startDate: moment(),
+            //    locale: {
+            //        format: 'DD/MM/YYYY'
+            //    }
+            //});
+            //$('#single_cal1').on('apply.daterangepicker', function (ev, picker) {
+            //    console.log("picker", picker)
+            //    $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            //});       
+            //$('#single_cal2').daterangepicker(  {             
+            //    singleDatePicker: !0,
+            //    singleClasses: "picker_2",
+            //    startDate: moment(),
+            //    locale: { 
+            //        format: 'DD/MM/YYYY'
+            //    }
+            //});
+            //$('#single_cal2').on('apply.daterangepicker', function (ev, picker) {
+            //    console.log("picker", picker)
+            //    $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            //});
+            //$('#single_cal3').daterangepicker({
+
+            //    singleDatePicker: !0,
+            //    singleClasses: "picker_3",
+            //    startDate: moment(),
+            //    locale: {
+            //        format: 'DD/MM/YYYY'
+            //    }
+            //});
+            //$('#single_cal3').on('apply.daterangepicker', function (ev, picker) {
+            //    console.log("picker", picker)
+            //    $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            //});
+            //$('#single_cal4').daterangepicker({
+            //    singleDatePicker: !0,
+            //    singleClasses: "picker_4",
+            //    startDate: moment(),
+            //    locale: {
+            //        format: 'DD/MM/YYYY'
+            //    }
+            //});
+            //$('#single_cal4').on('apply.daterangepicker', function (ev, picker) {
+            //    console.log("picker", picker)
+            //    $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            //});
+
+
+
+
+
+
+  
+
+            $('.dropdown-toggle').dropdown()
+
+            //  //$.get('/APICalls/GetPermissions', function (res) {
+            $.get('/APICalls/GetPermissionsmultiple', function (res) {
+
+                menu = res;
+
+
+                menuList();
+            });
+
+
+             checkInputPermissions();
+        });
+
+
+        function menuList() {
+             
+            var url_string = window.location.href;
+
+            console.log("url_string", url_string);
+
+            var url = new URL(url_string);
+
+            console.log("url", url);
+
+            var urlpathname = url.pathname;
+
+
+            var menures = menu.find(y => y.url === url.pathname && y.read === true);
+
+            console.log("menures", menures);
+            console.log("urlpathname", urlpathname);
+             
+
+            if (urlpathname === "/" || urlpathname === "Home/Index" || urlpathname === "home/Index" || urlpathname === "home") {
+
+            }
+
+            else {
+                if (menures === undefined || menures === null || menures === "") {
+
+                    if (urlpathname !== "/Home/UnAuthorizedView") {
+                        window.location.replace("/Home/UnAuthorizedView");
+
+                    }
+
+
+
+                }
+            }
+           
+             
+             
+            divsToHide = document.getElementsByClassName("tabLink");
+             
+            for (var i = 0; i < divsToHide.length; i++) {
+                var x = divsToHide[i].innerHTML;
+                let data = {
+                    url: x.match(/href="([^"]*)/)[1]
+                }
+
+              //  console.log("data",data)
+
+                let result = menu.find(y => y.url === data.url && y.read === true)
+
+
+                if (result) {
+
+                    divsToHide[i].style.display = "block";
+                }
+                else {
+
+                    divsToHide[i].style.display = "none";
+                }
+
+            }
+
+            btnShowHide();
+
+
+        }
+
+        function btnShowHide() {
+            var url_string = window.location.href
+            var url = new URL(url_string)
+
+            let result = menu.find(y => y.url === url.pathname)
+            var btn = document.getElementById("btnSubmit");
+            var btnCancel = document.getElementById("btnCancel");
+
+            if (btn) {
+                if (result) {
+                    if (result.create == true) {
+                        btn.style.display = 'inline-grid';
+
+                    }
+                    else {
+                        btn.style.display = 'none';
+
+
+                    }
+                }
+            }
+
+            if (btnCancel) {
+                if (result) {
+                    if (result.create == true) {
+
+                        btnCancel.style.display = 'inline-grid';
+                    }
+                    else {
+
+                        btnCancel.style.display = 'none';
+
+                    }
+                }
+            }
+        }
+
+
+
+        $(document).on('keyup', 'input', function (e) {
+            if (e.target.id == 'pass1' || e.target.id == 'pass2') {
+
+            }
+            else {
+                makeUpperCase(e);
+            }
+
+        });
+
+        function setOrientation(destuff) {
+
+            var e = document.getElementById("orientation_db");
+            var orientation = e.options[e.selectedIndex].value;
+
+            $.get('/APICalls/GetPartialViewIndexContainer?orientation=' + orientation + "&destuff=" + destuff, function (view) {
+
+                $('.container-index').html(view);
+            })
+
+        }
+
+        function makeUpperCase(e) {
+            const cursorStart = e.target.selectionStart;
+            const cursorEnd = e.target.selectionEnd;
+            e.target.value = e.target.value.toUpperCase();
+            if (cursorStart && cursorEnd)
+                e.target.setSelectionRange(cursorStart, cursorEnd);
+        }
+
+
+
+        function checkInputPermissions() {
+
+            var url_string = window.location.href
+
+            var url = new URL(url_string)
+
+            console.log(" url", url);
+            console.log(" url.pathname", url.pathname);
+
+            var pagtitle = /[^/]*$/.exec(url.pathname)[0];
+            document.title = pagtitle;
+
+            //$.get('/APICalls/GetPermissionItems?url=' + url.pathname, function (data) {
+
+            //    PermissionInputs = data;
+            //    console.log(PermissionInputs)
+                //formfiled();
+             
+          //  })
+
+
+
+            //$.get('/APICalls/GetPermissionItemsList', function (data) {
+
+            //    PermissionInputs = data;
+            //    console.log(PermissionInputs)
+                     formfiled();
+
+            //})
+
+
+
+        }
+
+
+
+        $('input[type=number]').on('wheel', function (e) {
+            return false;
+        });
+
+        $('input[type=number]').on('scroll', function (e) {
+            return false;
+        });
+
+        
+
+          
+        $('input[type=number]').on('keydown', function (e , t) {
+              
+            if (e.keyCode == 38 ) {
+                return false;
+            }
+            if (e.keyCode == 40) {
+                return false;
+            }
+            if (e.keyCode == 190) {
+                return false;
+            }
+          
+        });
+
+        //for comma seperate value
+          
+        $("input.mask").each((i, ele) => {
+            let clone = $(ele).clone(false)
+            clone.attr("type", "text")
+            let ele1 = $(ele)
+            clone.val(Number(ele1.val()).toLocaleString("en"))
+             
+            $(ele).after(clone)
+            $(ele).hide()
+             
+
+            clone.mouseenter(() => {
+
+                ele1.show()
+                clone.hide()
+            })
+
+            setInterval(() => {
+                let newv = Number(ele1.val()).toLocaleString("en")
+                if (clone.val() != newv) {
+                    clone.val(newv)
+                }
+            }, 10)
+
+            $(ele).mouseleave(() => {
+                $(clone).show()
+                $(ele1).hide()
+            });
+
+        });  
+
+        document.onkeydown = (e) => {
+
+            if (e.keyCode == Number(123)) {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'I') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'C') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'J') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.key == 'U') {
+                e.preventDefault();
+            }
+
+            if (e.ctrlKey && e.shiftKey && e.keyCode == Number(75)) {
+                window.addEventListener("contextmenu",
+                    function (e) {
+                        e.stopPropagation()
+                    }, true);
+            } 
+        };
+
+
+        //(function () {
+        //    (function a() {
+        //        try {
+        //            (function b(i) {
+        //                if (('' + (i / i)).length !== 1 || i % 20 === 0) {
+        //                    (function () { }).constructor('debugger')()
+        //                } else {
+        //                    window.close();
+        //                }
+        //                b(++i)
+        //            }
+        //            )(0)
+        //        } catch (e) {
+        //            setTimeout(a, 5000)
+        //        }
+        //    }
+        //    )()
+        //}
+
+        //)();
+        //var resof = 0
+        //resof = window.innerHeight;
+        //window.onresize = function () {
+        //    console.log(Number(resof))
+        //    console.log(Number(window.innerHeight))
+            
+        //    if (Number(resof) != Number(window.innerHeight)){
+        //        window.close();
+        //    }
+        //}
+
+
+
+    </script>
+
+
+    <environment exclude="Development">
+        @* do exclude instead of include when publish to server *@
+        @*
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>*@
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

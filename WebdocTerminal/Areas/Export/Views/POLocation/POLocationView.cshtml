@@ -1,0 +1,122 @@
+﻿
+<style>
+
+
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+<script src="~/js/app.js/POLocationView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>PO Location</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left" id="POLocationForm">
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        LP Number: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @(Html.DevExtreme()
+                                            .SelectBox()
+                                            .ID("LPNumber")
+                                            .ValueExpr("value")
+                                            .DisplayExpr("text")
+                                            .AcceptCustomValue(true)
+                                            .SearchEnabled(true)
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .Area("")
+                                            .LoadAction("GetLoadingProgramNumbers"))
+                                            .Placeholder("Type Loading Program ...")
+
+                                            .OnValueChanged("loadingProgramNumber_changed"))
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        PO Number:
+                                    </label>
+
+                                    <div class="col-md-8 col-sm-8 col-xs-12" id="searchBox">
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                             </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Location
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="location" name="Location" required>
+                                        <span class="error" id="locationerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button type="button" id="btnCancel" class="btn btn-primary" onclick="restform()" style="float:right;">Cancel</button>
+                            <button id="btnSubmit" type="button" style="float:right;" onclick="AddpoLocation()" class="btn btn-success" disabled>Submit</button>
+                            <a id="btnSubmitUpdate" class="btn btn-success" onclick="updatePOLocation()" style="display:none ; float: right;">Update</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

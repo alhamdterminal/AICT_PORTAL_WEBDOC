@@ -1,0 +1,1118 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-WebdocTerminal-3AF7A3CA-0FD2-4601-9D67-1A4129294E63</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;NU1603</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Reports\AgingReportCFS.repx" />
+    <None Remove="Reports\AgingReportCY.repx" />
+    <None Remove="Reports\AlongsideReport.repx" />
+    <None Remove="Reports\AlongsideReportLocationWise.repx" />
+    <None Remove="Reports\ANFCargoChecklist.repx" />
+    <None Remove="Reports\ANFReport.repx" />
+    <None Remove="Reports\APLDailyCFSReport.repx" />
+    <None Remove="Reports\AuctionReport.repx" />
+    <None Remove="Reports\CargoAgingReport.repx" />
+    <None Remove="Reports\CargoAlongsideReport.repx" />
+    <None Remove="Reports\CargoAlongsideReportAgentWise.repx" />
+    <None Remove="Reports\CargoAlongsideReportBaywise.repx" />
+    <None Remove="Reports\CargoAlongsideReportBaywiseForAgentWise.repx" />
+    <None Remove="Reports\CargoDropoffTicket.repx" />
+    <None Remove="Reports\CargoInterchangeReceipt.repx" />
+    <None Remove="Reports\CargoMeasurementCertificate.repx" />
+    <None Remove="Reports\CargoReceivedStockAlongSidePosition.repx" />
+    <None Remove="Reports\CargoReceivedStockAlongSidePositionAgentWise.repx" />
+    <None Remove="Reports\CFSReleasedContainersReport.repx" />
+    <None Remove="Reports\ChequeDetailByDate.repx" />
+    <None Remove="Reports\ChequeDetailReport.repx" />
+    <None Remove="Reports\ChequeDetailReportExport.repx" />
+    <None Remove="Reports\ContainerLoadPlainForAeomix.repx" />
+    <None Remove="Reports\ContainerReceivedDuringthePeriod.repx" />
+    <None Remove="Reports\ContainerTrackingReport.repx" />
+    <None Remove="Reports\CYDeliveryReport.repx" />
+    <None Remove="Reports\CYReleasedContainers.repx" />
+    <None Remove="Reports\DailyCollectionReport.repx" />
+    <None Remove="Reports\DailyCollectionReportExport.repx" />
+    <None Remove="Reports\DailyDSR.repx" />
+    <None Remove="Reports\DailyExaminationComplete.repx" />
+    <None Remove="Reports\DailyInvoices.repx" />
+    <None Remove="Reports\DailySalesReportExport.repx" />
+    <None Remove="Reports\DailySalesReportTypewise.repx" />
+    <None Remove="Reports\DailySummaryReport.repx" />
+    <None Remove="Reports\DeletedInvoiceExport.repx" />
+    <None Remove="Reports\DeliveryOrder.repx" />
+    <None Remove="Reports\DeliveryOrderExport.repx" />
+    <None Remove="Reports\DeliveryOrderReportCFSContainerSecond.repx" />
+    <None Remove="Reports\DeliveryOrderReportCycontainer.repx" />
+    <None Remove="Reports\DeliveryReport.repx" />
+    <None Remove="Reports\DeliveryReportCFSContainer.repx" />
+    <None Remove="Reports\DeliveryReportCyContainer.repx" />
+    <None Remove="Reports\DestuffContainerDateWise.repx" />
+    <None Remove="Reports\DestuffContainerShippingAgentWise.repx" />
+    <None Remove="Reports\DeStuffingContainerWiseReport.repx" />
+    <None Remove="Reports\DeStuffingReport.repx" />
+    <None Remove="Reports\EmptyContainerGatePass.repx" />
+    <None Remove="Reports\EmptyContainersAtYardReport.repx" />
+    <None Remove="Reports\EmptyDeliveryReport.repx" />
+    <None Remove="Reports\EmptyOutReport.repx" />
+    <None Remove="Reports\ExaminationCompleteContainerCY.repx" />
+    <None Remove="Reports\ExaminationMark.repx" />
+    <None Remove="Reports\ExaminationMarkCYContainer.repx" />
+    <None Remove="Reports\ExaminationMarkESContainerCFS.repx" />
+    <None Remove="Reports\ExaminationMarkESContainerCY.repx" />
+    <None Remove="Reports\ExportAdvice.repx" />
+    <None Remove="Reports\ExportDailyCFSReport.repx" />
+    <None Remove="Reports\ExportDailyCFSReportForAgentWise.repx" />
+    <None Remove="Reports\ExportFinalReport.repx" />
+    <None Remove="Reports\ExportGatepass.repx" />
+    <None Remove="Reports\ExportGatePasses.repx" />
+    <None Remove="Reports\ExportInvoice.repx" />
+    <None Remove="Reports\ExportTellySheet.repx" />
+    <None Remove="Reports\ExportTellySheetSEC.repx" />
+    <None Remove="Reports\ExprotGatePassDrayOff.repx" />
+    <None Remove="Reports\ForwarderSOABoxWise.repx" />
+    <None Remove="Reports\GateInandOut.repx" />
+    <None Remove="Reports\GateInContainersByDate.repx" />
+    <None Remove="Reports\GateInContainerShippingAgentWise.repx" />
+    <None Remove="Reports\GateInWeighmentContainer.repx" />
+    <None Remove="Reports\GatePass.repx" />
+    <None Remove="Reports\GlobelLinkForAllPIFFASOASReport.repx" />
+    <None Remove="Reports\GroundingContainerCYReport.repx" />
+    <None Remove="Reports\ImportAgingReportCFS.repx" />
+    <None Remove="Reports\InventoryCyContainerReport.repx" />
+    <None Remove="Reports\invoice.repx" />
+    <None Remove="Reports\InvoiceCyContainer.repx" />
+    <None Remove="Reports\KerryExportReport.repx" />
+    <None Remove="Reports\KerryExportReportForAgentWise.repx" />
+    <None Remove="Reports\ListContainerLyingInYard.repx" />
+    <None Remove="Reports\ListofExportFullLCLCargoStuffedcontainer.repx" />
+    <None Remove="Reports\ListofExportFullLCLCargoStuffedcontainerAgentWise.repx" />
+    <None Remove="Reports\ListofexportFullOrEmptycontainers.repx" />
+    <None Remove="Reports\ListofexportFullOrEmptycontainersVesselWise.repx" />
+    <None Remove="Reports\ListofUpcomingContainer.repx" />
+    <None Remove="Reports\MessageLog.repx" />
+    <None Remove="Reports\MonthlyBillingExport.repx" />
+    <None Remove="Reports\MonthlyBillingReport.repx" />
+    <None Remove="Reports\OutGoingContainers.repx" />
+    <None Remove="Reports\OutstandingAmount.repx" />
+    <None Remove="Reports\PartyLedgerDateWise.repx" />
+    <None Remove="Reports\PartyLedgerExportReport.repx" />
+    <None Remove="Reports\PartyLedgerPatryWise.repx" />
+    <None Remove="Reports\PendingContainerReportCFS.repx" />
+    <None Remove="Reports\PreliminaryReport.repx" />
+    <None Remove="Reports\ReceiptForPackagesDelivered.repx" />
+    <None Remove="Reports\SoaApllOtherThenPIFFAReport.repx" />
+    <None Remove="Reports\SOADSVOtherThenPIFFA.repx" />
+    <None Remove="Reports\SoaEflOtherThenPIFFA.repx" />
+    <None Remove="Reports\SoaKerryLogisticsOtherThenPIFFA.repx" />
+    <None Remove="Reports\StatementShowingExportPosition.repx" />
+    <None Remove="Reports\StatementShowingExportPositionAgentWise.repx" />
+    <None Remove="Reports\SummaryofStuffing.repx" />
+    <None Remove="Reports\TallySheet.repx" />
+    <None Remove="Reports\TallySheet_IndexWise.repx" />
+    <None Remove="Reports\TeminalReceipt2.repx" />
+    <None Remove="Reports\TerminalReceipt.repx" />
+    <None Remove="Reports\WeighmentCYContainer.repx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\bower.json" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\jquery\bower.json" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\jquery\MIT-LICENSE.txt" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\mocha\bower.json" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\mocha\mocha.css" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\sinonjs\bower.json" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\uwidget\bower.json" />
+    <Content Include="wwwroot\vendors\parsleyjs\bower_components\uwidget\uwidget.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\AgingReportCFS.repx" />
+    <EmbeddedResource Include="Reports\AgingReportCY.repx" />
+    <EmbeddedResource Include="Reports\AlongsideReport.repx" />
+    <EmbeddedResource Include="Reports\AlongsideReportLocationWise.repx" />
+    <EmbeddedResource Include="Reports\ANFCargoChecklist.repx" />
+    <EmbeddedResource Include="Reports\ANFReport.repx" />
+    <EmbeddedResource Include="Reports\APLDailyCFSReport.repx" />
+    <EmbeddedResource Include="Reports\AuctionReport.repx" />
+    <EmbeddedResource Include="Reports\CargoAgingReport.repx" />
+    <EmbeddedResource Include="Reports\CargoAlongsideReport.repx" />
+    <EmbeddedResource Include="Reports\CargoAlongsideReportAgentWise.repx" />
+    <EmbeddedResource Include="Reports\CargoAlongsideReportBaywise.repx" />
+    <EmbeddedResource Include="Reports\CargoAlongsideReportBaywiseForAgentWise.repx" />
+    <EmbeddedResource Include="Reports\CargoDropoffTicket.repx" />
+    <EmbeddedResource Include="Reports\CargoInterchangeReceipt.repx" />
+    <EmbeddedResource Include="Reports\CargoMeasurementCertificate.repx" />
+    <EmbeddedResource Include="Reports\CargoReceivedStockAlongSidePosition.repx" />
+    <EmbeddedResource Include="Reports\CFSReleasedContainersReport.repx" />
+    <EmbeddedResource Include="Reports\ChequeDetailByDate.repx" />
+    <EmbeddedResource Include="Reports\ChequeDetailReport.repx" />
+    <EmbeddedResource Include="Reports\ChequeDetailReportExport.repx" />
+    <EmbeddedResource Include="Reports\ContainerLoadPlainForAeomix.repx" />
+    <EmbeddedResource Include="Reports\ContainerReceivedDuringthePeriod.repx" />
+    <EmbeddedResource Include="Reports\ContainerTrackingReport.repx" />
+    <EmbeddedResource Include="Reports\CYDeliveryReport.repx" />
+    <EmbeddedResource Include="Reports\CYReleasedContainers.repx" />
+    <EmbeddedResource Include="Reports\DailyCollectionReport.repx" />
+    <EmbeddedResource Include="Reports\DailyCollectionReportExport.repx" />
+    <EmbeddedResource Include="Reports\DailyDSR.repx" />
+    <EmbeddedResource Include="Reports\DailyExaminationComplete.repx" />
+    <EmbeddedResource Include="Reports\DailyInvoices.repx" />
+    <EmbeddedResource Include="Reports\DailySalesReportExport.repx" />
+    <EmbeddedResource Include="Reports\DailySalesReportTypewise.repx" />
+    <EmbeddedResource Include="Reports\DailySummaryReport.repx" />
+    <EmbeddedResource Include="Reports\DeletedInvoiceExport.repx" />
+    <EmbeddedResource Include="Reports\DeliveryOrder.repx" />
+    <EmbeddedResource Include="Reports\DeliveryOrderExport.repx" />
+    <EmbeddedResource Include="Reports\DeliveryOrderReportCFSContainerSecond.repx" />
+    <EmbeddedResource Include="Reports\DeliveryOrderReportCycontainer.repx" />
+    <EmbeddedResource Include="Reports\DeliveryReport.repx" />
+    <EmbeddedResource Include="Reports\DeliveryReportCFSContainer.repx" />
+    <EmbeddedResource Include="Reports\DeliveryReportCyContainer.repx" />
+    <EmbeddedResource Include="Reports\DestuffContainerDateWise.repx" />
+    <EmbeddedResource Include="Reports\DestuffContainerShippingAgentWise.repx" />
+    <EmbeddedResource Include="Reports\DeStuffingContainerWiseReport.repx" />
+    <EmbeddedResource Include="Reports\DeStuffingReport.repx" />
+    <EmbeddedResource Include="Reports\EmptyContainerGatePass.repx" />
+    <EmbeddedResource Include="Reports\EmptyContainersAtYardReport.repx" />
+    <EmbeddedResource Include="Reports\EmptyDeliveryReport.repx" />
+    <EmbeddedResource Include="Reports\EmptyOutReport.repx" />
+    <EmbeddedResource Include="Reports\ExaminationCompleteContainerCY.repx" />
+    <EmbeddedResource Include="Reports\ExaminationMark.repx" />
+    <EmbeddedResource Include="Reports\ExaminationMarkCYContainer.repx" />
+    <EmbeddedResource Include="Reports\ExaminationMarkESContainerCFS.repx" />
+    <EmbeddedResource Include="Reports\ExaminationMarkESContainerCY.repx" />
+    <EmbeddedResource Include="Reports\ExportAdvice.repx" />
+    <EmbeddedResource Include="Reports\ExportDailyCFSReport.repx" />
+    <EmbeddedResource Include="Reports\ExportDailyCFSReportForAgentWise.repx" />
+    <EmbeddedResource Include="Reports\ExportFinalReport.repx" />
+    <EmbeddedResource Include="Reports\ExportGatepass.repx" />
+    <EmbeddedResource Include="Reports\ExportGatePasses.repx" />
+    <EmbeddedResource Include="Reports\ExportInvoice.repx" />
+    <EmbeddedResource Include="Reports\ExportTellySheet.repx" />
+    <EmbeddedResource Include="Reports\ExportTellySheetSEC.repx" />
+    <EmbeddedResource Include="Reports\ExprotGatePassDrayOff.repx" />
+    <EmbeddedResource Include="Reports\ForwarderSOABoxWise.repx" />
+    <EmbeddedResource Include="Reports\GateInandOut.repx" />
+    <EmbeddedResource Include="Reports\GateInContainersByDate.repx" />
+    <EmbeddedResource Include="Reports\GateInContainerShippingAgentWise.repx" />
+    <EmbeddedResource Include="Reports\GateInWeighmentContainer.repx" />
+    <EmbeddedResource Include="Reports\GatePass.repx" />
+    <EmbeddedResource Include="Reports\GlobelLinkForAllPIFFASOASReport.repx" />
+    <EmbeddedResource Include="Reports\GroundingContainerCYReport.repx" />
+    <EmbeddedResource Include="Reports\ImportAgingReportCFS.repx" />
+    <EmbeddedResource Include="Reports\InventoryCyContainerReport.repx" />
+    <EmbeddedResource Include="Reports\invoice.repx" />
+    <EmbeddedResource Include="Reports\InvoiceCyContainer.repx" />
+    <EmbeddedResource Include="Reports\KerryExportReport.repx" />
+    <EmbeddedResource Include="Reports\KerryExportReportForAgentWise.repx" />
+    <EmbeddedResource Include="Reports\ListContainerLyingInYard.repx" />
+    <EmbeddedResource Include="Reports\ListofExportFullLCLCargoStuffedcontainer.repx" />
+    <EmbeddedResource Include="Reports\ListofExportFullLCLCargoStuffedcontainerAgentWise.repx" />
+    <EmbeddedResource Include="Reports\ListofexportFullOrEmptycontainers.repx" />
+    <EmbeddedResource Include="Reports\ListofexportFullOrEmptycontainersVesselWise.repx" />
+    <EmbeddedResource Include="Reports\ListofUpcomingContainer.repx" />
+    <EmbeddedResource Include="Reports\MessageLog.repx" />
+    <EmbeddedResource Include="Reports\MonthlyBillingExport.repx" />
+    <EmbeddedResource Include="Reports\MonthlyBillingReport.repx" />
+    <EmbeddedResource Include="Reports\OutGoingContainers.repx" />
+    <EmbeddedResource Include="Reports\OutstandingAmount.repx" />
+    <EmbeddedResource Include="Reports\PartyLedgerDateWise.repx" />
+    <EmbeddedResource Include="Reports\PartyLedgerExportReport.repx" />
+    <EmbeddedResource Include="Reports\PartyLedgerPatryWise.repx" />
+    <EmbeddedResource Include="Reports\PendingContainerReportCFS.repx" />
+    <EmbeddedResource Include="Reports\PreliminaryReport.repx" />
+    <EmbeddedResource Include="Reports\ReceiptForPackagesDelivered.repx" />
+    <EmbeddedResource Include="Reports\SoaApllOtherThenPIFFAReport.repx" />
+    <EmbeddedResource Include="Reports\SOADSVOtherThenPIFFA.repx" />
+    <EmbeddedResource Include="Reports\SoaEflOtherThenPIFFA.repx" />
+    <EmbeddedResource Include="Reports\SoaKerryLogisticsOtherThenPIFFA.repx" />
+    <EmbeddedResource Include="Reports\StatementShowingExportPosition.repx" />
+    <EmbeddedResource Include="Reports\StatementShowingExportPositionAgentWise.repx" />
+    <EmbeddedResource Include="Reports\SummaryofStuffing.repx" />
+    <EmbeddedResource Include="Reports\TallySheet.repx" />
+    <EmbeddedResource Include="Reports\TallySheet_IndexWise.repx" />
+    <EmbeddedResource Include="Reports\TeminalReceipt2.repx" />
+    <EmbeddedResource Include="Reports\TerminalReceipt.repx" />
+    <EmbeddedResource Include="Reports\WeighmentCYContainer.repx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
+    <PackageReference Include="CommonMark.NET" Version="0.15.1" />
+    <PackageReference Include="DevExpress.AspNetCore.Reporting" Version="20.2.4" />
+    <PackageReference Include="DevExpress.Data" Version="20.2.4" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.2.4" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="18.2.4" />
+    <PackageReference Include="FluentFTP" Version="25.0.1" />
+    <PackageReference Include="Hangfire" Version="1.7.5" />
+    <PackageReference Include="Korzh.EasyQuery.AspNetCore" Version="5.4.1" />
+    <PackageReference Include="Korzh.EasyQuery.EntityFrameworkCore.Relational" Version="5.4.1" />
+    <PackageReference Include="Korzh.EasyQuery.RazorUI" Version="5.4.1" />
+    <PackageReference Include="MailKit" Version="2.3.2" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Export\Data\" />
+    <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="Areas\Import\Data\" />
+    <Folder Include="EDIFiles\" />
+    <Folder Include="CameraPhotos\" />
+    <Folder Include="wwwroot\InvoiceDouments\" />
+    <Folder Include="wwwroot\webcamjs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\vendors\Chart.js\.github\ISSUE_TEMPLATE.md" />
+    <None Include="wwwroot\vendors\Chart.js\.github\PULL_REQUEST_TEMPLATE.md" />
+    <None Include="wwwroot\vendors\echarts\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\vendors\echarts\.github\ISSUE_TEMPLATE.md" />
+    <None Include="wwwroot\vendors\Flot\.circleci\config.yml" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\DOCS-LICENSE" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\affix.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\alert.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\button.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\carousel.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\collapse.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\dropdown.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\modal.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\popover.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\scrollspy.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\tab.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\tooltip.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\js\transition.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\alerts.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\badges.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\bootstrap.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\breadcrumbs.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\button-groups.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\buttons.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\carousel.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\close.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\code.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\component-animations.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\dropdowns.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\forms.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\glyphicons.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\grid.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\input-groups.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\jumbotron.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\labels.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\list-group.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\media.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\mixins.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\modals.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\navbar.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\navs.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\normalize.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\pager.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\pagination.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\panels.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\popovers.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\print.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\progress-bars.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\responsive-utilities.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\scaffolding.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\tables.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\theme.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\thumbnails.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\tooltip.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\type.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\utilities.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\variables.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\less\wells.less" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\LICENSE" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\bootstrap\LICENSE-MIT" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\expect.js\index.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\expect.js\Makefile" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\expect.js\support\jquery.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\dist\jquery.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax\jsonp.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax\load.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax\parseJSON.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax\parseXML.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax\script.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax\var\nonce.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax\var\rquery.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\ajax\xhr.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\attributes.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\attributes\attr.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\attributes\classes.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\attributes\prop.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\attributes\support.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\attributes\val.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\callbacks.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\core.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\core\access.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\core\init.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\core\parseHTML.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\core\ready.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\core\var\rsingleTag.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\addGetHookIf.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\curCSS.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\defaultDisplay.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\support.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\swap.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\var\cssExpand.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\var\getStyles.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\var\isHidden.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\var\rmargin.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\css\var\rnumnonpx.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\data.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\data\accepts.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\data\Data.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\data\var\data_priv.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\data\var\data_user.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\deferred.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\deprecated.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\dimensions.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\effects.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\effects\animatedSelector.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\effects\Tween.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\event.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\event\ajax.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\event\alias.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\event\support.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\exports\amd.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\exports\global.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\intro.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\jquery.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\manipulation.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\manipulation\support.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\manipulation\var\rcheckableType.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\manipulation\_evalUrl.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\offset.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\outro.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\queue.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\queue\delay.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\selector-native.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\selector-sizzle.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\selector.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\serialize.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\sizzle\dist\sizzle.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\sizzle\dist\sizzle.min.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\traversing.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\traversing\findFilter.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\traversing\var\rneedsContext.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\arr.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\class2type.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\concat.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\hasOwn.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\indexOf.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\pnum.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\push.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\rnotwhite.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\slice.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\strundefined.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\support.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\var\toString.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\jquery\src\wrap.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\mocha\LICENSE" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\mocha\media\logo.svg" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\mocha\mocha.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\mocha\scripts\ensure-compatible-npm.sh" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\sinonjs\sinon.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\uwidget\LICENSE" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\uwidget\uwidget.js" />
+    <None Include="wwwroot\vendors\parsleyjs\bower_components\uwidget\uwidget.less" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\CargoReceivedStockAlongSidePositionAgentWise.repx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Reports\AgingReport.cs">
+      <DependentUpon>AgingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AgingReportCFS.cs">
+      <DependentUpon>AgingReportCFS.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AgingReportCFS.Designer.cs">
+      <DependentUpon>AgingReportCFS.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AgingReportCY.cs">
+      <DependentUpon>AgingReportCY.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AgingReportCY.Designer.cs">
+      <DependentUpon>AgingReportCY.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AlongsideReport.cs">
+      <DependentUpon>AlongsideReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AlongsideReport.Designer.cs">
+      <DependentUpon>AlongsideReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AlongsideReportLocationWise.cs">
+      <DependentUpon>AlongsideReportLocationWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AlongsideReportLocationWise.Designer.cs">
+      <DependentUpon>AlongsideReportLocationWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ANFCargoChecklist.cs">
+      <DependentUpon>ANFCargoChecklist.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ANFCargoChecklist.Designer.cs">
+      <DependentUpon>ANFCargoChecklist.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ANFReport.cs">
+      <DependentUpon>ANFReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ANFReport.Designer.cs">
+      <DependentUpon>ANFReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\APLDailyCFSReport.cs">
+      <DependentUpon>APLDailyCFSReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\APLDailyCFSReport.Designer.cs">
+      <DependentUpon>APLDailyCFSReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AuctionReport.cs">
+      <DependentUpon>AuctionReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\AuctionReport.Designer.cs">
+      <DependentUpon>AuctionReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAgingReport.cs">
+      <DependentUpon>CargoAgingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAgingReport.Designer.cs">
+      <DependentUpon>CargoAgingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReport.cs">
+      <DependentUpon>CargoAlongsideReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReport.Designer.cs">
+      <DependentUpon>CargoAlongsideReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportAgentWise.cs">
+      <DependentUpon>CargoAlongsideReportAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportAgentWise.Designer.cs">
+      <DependentUpon>CargoAlongsideReportAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportBaywise.cs">
+      <DependentUpon>CargoAlongsideReportBaywise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportBaywise.Designer.cs">
+      <DependentUpon>CargoAlongsideReportBaywise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportBaywiseForAgentWise.cs">
+      <DependentUpon>CargoAlongsideReportBaywiseForAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportBaywiseForAgentWise.Designer.cs">
+      <DependentUpon>CargoAlongsideReportBaywiseForAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoDropoffTicket.cs">
+      <DependentUpon>CargoDropoffTicket.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoDropoffTicket.Designer.cs">
+      <DependentUpon>CargoDropoffTicket.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoInterchangeReceipt.cs">
+      <DependentUpon>CargoInterchangeReceipt.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoInterchangeReceipt.Designer.cs">
+      <DependentUpon>CargoInterchangeReceipt.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoMeasurementCertificate.cs">
+      <DependentUpon>CargoMeasurementCertificate.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoMeasurementCertificate.Designer.cs">
+      <DependentUpon>CargoMeasurementCertificate.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoReceivedStockAlongSidePosition.cs">
+      <DependentUpon>CargoReceivedStockAlongSidePosition.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CargoReceivedStockAlongSidePosition.Designer.cs">
+      <DependentUpon>CargoReceivedStockAlongSidePosition.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CFSReleasedContainersReport.cs">
+      <DependentUpon>CFSReleasedContainersReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CFSReleasedContainersReport.Designer.cs">
+      <DependentUpon>CFSReleasedContainersReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailByDate.cs">
+      <DependentUpon>ChequeDetailByDate.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailByDate.Designer.cs">
+      <DependentUpon>ChequeDetailByDate.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailReport.cs">
+      <DependentUpon>ChequeDetailReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailReport.Designer.cs">
+      <DependentUpon>ChequeDetailReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailReportExport.cs">
+      <DependentUpon>ChequeDetailReportExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailReportExport.Designer.cs">
+      <DependentUpon>ChequeDetailReportExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ContainerLoadPlainForAeomix.cs">
+      <DependentUpon>ContainerLoadPlainForAeomix.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ContainerLoadPlainForAeomix.Designer.cs">
+      <DependentUpon>ContainerLoadPlainForAeomix.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ContainerReceivedDuringthePeriod.cs">
+      <DependentUpon>ContainerReceivedDuringthePeriod.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ContainerReceivedDuringthePeriod.Designer.cs">
+      <DependentUpon>ContainerReceivedDuringthePeriod.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ContainerTrackingReport.cs">
+      <DependentUpon>ContainerTrackingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ContainerTrackingReport.Designer.cs">
+      <DependentUpon>ContainerTrackingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CYDeliveryReport.cs">
+      <DependentUpon>CYDeliveryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CYDeliveryReport.Designer.cs">
+      <DependentUpon>CYDeliveryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CYReleasedContainers.cs">
+      <DependentUpon>CYReleasedContainers.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\CYReleasedContainers.Designer.cs">
+      <DependentUpon>CYReleasedContainers.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyCollectionReport.cs">
+      <DependentUpon>DailyCollectionReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyCollectionReport.Designer.cs">
+      <DependentUpon>DailyCollectionReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyCollectionReportExport.cs">
+      <DependentUpon>DailyCollectionReportExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyCollectionReportExport.Designer.cs">
+      <DependentUpon>DailyCollectionReportExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyDSR.cs">
+      <DependentUpon>DailyDSR.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyDSR.Designer.cs">
+      <DependentUpon>DailyDSR.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyExaminationComplete.cs">
+      <DependentUpon>DailyExaminationComplete.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyExaminationComplete.Designer.cs">
+      <DependentUpon>DailyExaminationComplete.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyInvoices.cs">
+      <DependentUpon>DailyInvoices.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailyInvoices.Designer.cs">
+      <DependentUpon>DailyInvoices.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailySalesReportExport.cs">
+      <DependentUpon>DailySalesReportExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailySalesReportExport.Designer.cs">
+      <DependentUpon>DailySalesReportExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailySalesReportTypewise.cs">
+      <DependentUpon>DailySalesReportTypewise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailySalesReportTypewise.Designer.cs">
+      <DependentUpon>DailySalesReportTypewise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailySummaryReport.cs">
+      <DependentUpon>DailySummaryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DailySummaryReport.Designer.cs">
+      <DependentUpon>DailySummaryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeletedInvoiceExport.cs">
+      <DependentUpon>DeletedInvoiceExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeletedInvoiceExport.Designer.cs">
+      <DependentUpon>DeletedInvoiceExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrder.cs">
+      <DependentUpon>DeliveryOrder.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrder.Designer.cs">
+      <DependentUpon>DeliveryOrder.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderExport.cs">
+      <DependentUpon>DeliveryOrderExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderExport.Designer.cs">
+      <DependentUpon>DeliveryOrderExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderReportCFSContainerSecond.cs">
+      <DependentUpon>DeliveryOrderReportCFSContainerSecond.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderReportCFSContainerSecond.Designer.cs">
+      <DependentUpon>DeliveryOrderReportCFSContainerSecond.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderReportCycontainer.cs">
+      <DependentUpon>DeliveryOrderReportCycontainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderReportCycontainer.Designer.cs">
+      <DependentUpon>DeliveryOrderReportCycontainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryReport.cs">
+      <DependentUpon>DeliveryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryReport.Designer.cs">
+      <DependentUpon>DeliveryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryReportCFSContainer.cs">
+      <DependentUpon>DeliveryReportCFSContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryReportCFSContainer.Designer.cs">
+      <DependentUpon>DeliveryReportCFSContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryReportCyContainer.cs">
+      <DependentUpon>DeliveryReportCyContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeliveryReportCyContainer.Designer.cs">
+      <DependentUpon>DeliveryReportCyContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DestuffContainerDateWise.cs">
+      <DependentUpon>DestuffContainerDateWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DestuffContainerDateWise.Designer.cs">
+      <DependentUpon>DestuffContainerDateWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DestuffContainerShippingAgentWise.cs">
+      <DependentUpon>DestuffContainerShippingAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DestuffContainerShippingAgentWise.Designer.cs">
+      <DependentUpon>DestuffContainerShippingAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeStuffingContainerWiseReport.cs">
+      <DependentUpon>DeStuffingContainerWiseReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeStuffingContainerWiseReport.Designer.cs">
+      <DependentUpon>DeStuffingContainerWiseReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeStuffingReport.cs">
+      <DependentUpon>DeStuffingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DeStuffingReport.Designer.cs">
+      <DependentUpon>DeStuffingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\EmptyContainerGatePass.cs">
+      <DependentUpon>EmptyContainerGatePass.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\EmptyContainerGatePass.Designer.cs">
+      <DependentUpon>EmptyContainerGatePass.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\EmptyContainersAtYardReport.cs">
+      <DependentUpon>EmptyContainersAtYardReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\EmptyContainersAtYardReport.Designer.cs">
+      <DependentUpon>EmptyContainersAtYardReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\EmptyDeliveryReport.cs">
+      <DependentUpon>EmptyDeliveryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\EmptyDeliveryReport.Designer.cs">
+      <DependentUpon>EmptyDeliveryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\EmptyOutReport.cs">
+      <DependentUpon>EmptyOutReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\EmptyOutReport.Designer.cs">
+      <DependentUpon>EmptyOutReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationCompleteContainerCY.cs">
+      <DependentUpon>ExaminationCompleteContainerCY.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationCompleteContainerCY.Designer.cs">
+      <DependentUpon>ExaminationCompleteContainerCY.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationMark.cs">
+      <DependentUpon>ExaminationMark.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationMark.Designer.cs">
+      <DependentUpon>ExaminationMark.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkCYContainer.cs">
+      <DependentUpon>ExaminationMarkCYContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkCYContainer.Designer.cs">
+      <DependentUpon>ExaminationMarkCYContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkESContainerCFS.cs">
+      <DependentUpon>ExaminationMarkESContainerCFS.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkESContainerCFS.Designer.cs">
+      <DependentUpon>ExaminationMarkESContainerCFS.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkESContainerCY.cs">
+      <DependentUpon>ExaminationMarkESContainerCY.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkESContainerCY.Designer.cs">
+      <DependentUpon>ExaminationMarkESContainerCY.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportAdvice.cs">
+      <DependentUpon>ExportAdvice.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportAdvice.Designer.cs">
+      <DependentUpon>ExportAdvice.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportDailyCFSReport.cs">
+      <DependentUpon>ExportDailyCFSReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportDailyCFSReport.Designer.cs">
+      <DependentUpon>ExportDailyCFSReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportFinalReport.cs">
+      <DependentUpon>ExportFinalReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportFinalReport.Designer.cs">
+      <DependentUpon>ExportFinalReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportGatepass.cs">
+      <DependentUpon>ExportGatepass.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportGatepass.Designer.cs">
+      <DependentUpon>ExportGatepass.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportGatePasses.cs">
+      <DependentUpon>ExportGatePasses.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportGatePasses.Designer.cs">
+      <DependentUpon>ExportGatePasses.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportInvoice.cs">
+      <DependentUpon>ExportInvoice.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportInvoice.Designer.cs">
+      <DependentUpon>ExportInvoice.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportTellySheet.cs">
+      <DependentUpon>ExportTellySheet.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportTellySheet.Designer.cs">
+      <DependentUpon>ExportTellySheet.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportTellySheetSEC.cs">
+      <DependentUpon>ExportTellySheetSEC.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExportTellySheetSEC.Designer.cs">
+      <DependentUpon>ExportTellySheetSEC.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExprotGatePassDrayOff.cs">
+      <DependentUpon>ExprotGatePassDrayOff.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ExprotGatePassDrayOff.Designer.cs">
+      <DependentUpon>ExprotGatePassDrayOff.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ForwarderSOABoxWise.cs">
+      <DependentUpon>ForwarderSOABoxWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ForwarderSOABoxWise.Designer.cs">
+      <DependentUpon>ForwarderSOABoxWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GateInandOut.cs">
+      <DependentUpon>GateInandOut.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GateInandOut.Designer.cs">
+      <DependentUpon>GateInandOut.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GateInContainersByDate.cs">
+      <DependentUpon>GateInContainersByDate.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GateInContainersByDate.Designer.cs">
+      <DependentUpon>GateInContainersByDate.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GateInContainerShippingAgentWise.cs">
+      <DependentUpon>GateInContainerShippingAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GateInContainerShippingAgentWise.Designer.cs">
+      <DependentUpon>GateInContainerShippingAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GateInWeighmentContainer.cs">
+      <DependentUpon>GateInWeighmentContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GateInWeighmentContainer.Designer.cs">
+      <DependentUpon>GateInWeighmentContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GatePass.cs">
+      <DependentUpon>GatePass.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GatePass.Designer.cs">
+      <DependentUpon>GatePass.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GlobelLinkForAllPIFFASOASReport.cs">
+      <DependentUpon>GlobelLinkForAllPIFFASOASReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GlobelLinkForAllPIFFASOASReport.Designer.cs">
+      <DependentUpon>GlobelLinkForAllPIFFASOASReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GroundingContainerCYReport.cs">
+      <DependentUpon>GroundingContainerCYReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\GroundingContainerCYReport.Designer.cs">
+      <DependentUpon>GroundingContainerCYReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ImportAgingReportCFS.cs">
+      <DependentUpon>ImportAgingReportCFS.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ImportAgingReportCFS.Designer.cs">
+      <DependentUpon>ImportAgingReportCFS.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\InventoryCyContainerReport.cs">
+      <DependentUpon>InventoryCyContainerReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\InventoryCyContainerReport.Designer.cs">
+      <DependentUpon>InventoryCyContainerReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\invoice.cs">
+      <DependentUpon>invoice.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\invoice.Designer.cs">
+      <DependentUpon>invoice.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\InvoiceCyContainer.cs">
+      <DependentUpon>InvoiceCyContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\InvoiceCyContainer.Designer.cs">
+      <DependentUpon>InvoiceCyContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\KerryExportReport.cs">
+      <DependentUpon>KerryExportReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\KerryExportReport.Designer.cs">
+      <DependentUpon>KerryExportReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListContainerLyingInYard.cs">
+      <DependentUpon>ListContainerLyingInYard.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListContainerLyingInYard.Designer.cs">
+      <DependentUpon>ListContainerLyingInYard.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofExportFullLCLCargoStuffedcontainer.cs">
+      <DependentUpon>ListofExportFullLCLCargoStuffedcontainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofExportFullLCLCargoStuffedcontainer.Designer.cs">
+      <DependentUpon>ListofExportFullLCLCargoStuffedcontainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofExportFullLCLCargoStuffedcontainerAgentWise.cs">
+      <DependentUpon>ListofExportFullLCLCargoStuffedcontainerAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofExportFullLCLCargoStuffedcontainerAgentWise.Designer.cs">
+      <DependentUpon>ListofExportFullLCLCargoStuffedcontainerAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofexportFullOrEmptycontainers.cs">
+      <DependentUpon>ListofexportFullOrEmptycontainers.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofexportFullOrEmptycontainers.Designer.cs">
+      <DependentUpon>ListofexportFullOrEmptycontainers.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofexportFullOrEmptycontainersVesselWise.cs">
+      <DependentUpon>ListofexportFullOrEmptycontainersVesselWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofexportFullOrEmptycontainersVesselWise.Designer.cs">
+      <DependentUpon>ListofexportFullOrEmptycontainersVesselWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofUpcomingContainer.cs">
+      <DependentUpon>ListofUpcomingContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ListofUpcomingContainer.Designer.cs">
+      <DependentUpon>ListofUpcomingContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\MessageLog.cs">
+      <DependentUpon>MessageLog.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\MessageLog.Designer.cs">
+      <DependentUpon>MessageLog.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\MonthlyBillingExport.cs">
+      <DependentUpon>MonthlyBillingExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\MonthlyBillingExport.Designer.cs">
+      <DependentUpon>MonthlyBillingExport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\MonthlyBillingReport.cs">
+      <DependentUpon>MonthlyBillingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\MonthlyBillingReport.Designer.cs">
+      <DependentUpon>MonthlyBillingReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\OutGoingContainers.cs">
+      <DependentUpon>OutGoingContainers.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\OutGoingContainers.Designer.cs">
+      <DependentUpon>OutGoingContainers.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\OutstandingAmount.cs">
+      <DependentUpon>OutstandingAmount.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\OutstandingAmount.Designer.cs">
+      <DependentUpon>OutstandingAmount.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerDateWise.cs">
+      <DependentUpon>PartyLedgerDateWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerDateWise.Designer.cs">
+      <DependentUpon>PartyLedgerDateWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerExportReport.cs">
+      <DependentUpon>PartyLedgerExportReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerExportReport.Designer.cs">
+      <DependentUpon>PartyLedgerExportReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerPatryWise.cs">
+      <DependentUpon>PartyLedgerPatryWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerPatryWise.Designer.cs">
+      <DependentUpon>PartyLedgerPatryWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PendingContainerReportCFS.cs">
+      <DependentUpon>PendingContainerReportCFS.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PendingContainerReportCFS.Designer.cs">
+      <DependentUpon>PendingContainerReportCFS.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PreliminaryReport.cs">
+      <DependentUpon>PreliminaryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\PreliminaryReport.Designer.cs">
+      <DependentUpon>PreliminaryReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ReceiptForPackagesDelivered.cs">
+      <DependentUpon>ReceiptForPackagesDelivered.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\ReceiptForPackagesDelivered.Designer.cs">
+      <DependentUpon>ReceiptForPackagesDelivered.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SoaApllOtherThenPIFFAReport.cs">
+      <DependentUpon>SoaApllOtherThenPIFFAReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SoaApllOtherThenPIFFAReport.Designer.cs">
+      <DependentUpon>SoaApllOtherThenPIFFAReport.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SOADSVOtherThenPIFFA.cs">
+      <DependentUpon>SOADSVOtherThenPIFFA.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SOADSVOtherThenPIFFA.Designer.cs">
+      <DependentUpon>SOADSVOtherThenPIFFA.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SoaEflOtherThenPIFFA.cs">
+      <DependentUpon>SoaEflOtherThenPIFFA.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SoaEflOtherThenPIFFA.Designer.cs">
+      <DependentUpon>SoaEflOtherThenPIFFA.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SoaKerryLogisticsOtherThenPIFFA.cs">
+      <DependentUpon>SoaKerryLogisticsOtherThenPIFFA.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SoaKerryLogisticsOtherThenPIFFA.Designer.cs">
+      <DependentUpon>SoaKerryLogisticsOtherThenPIFFA.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\StatementShowingExportPosition.cs">
+      <DependentUpon>StatementShowingExportPosition.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\StatementShowingExportPosition.Designer.cs">
+      <DependentUpon>StatementShowingExportPosition.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\StatementShowingExportPositionAgentWise.cs">
+      <DependentUpon>StatementShowingExportPositionAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\StatementShowingExportPositionAgentWise.Designer.cs">
+      <DependentUpon>StatementShowingExportPositionAgentWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SummaryofStuffing.cs">
+      <DependentUpon>SummaryofStuffing.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\SummaryofStuffing.Designer.cs">
+      <DependentUpon>SummaryofStuffing.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\TallySheet.cs">
+      <DependentUpon>TallySheet.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\TallySheet.Designer.cs">
+      <DependentUpon>TallySheet.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\TallySheet_IndexWise.cs">
+      <DependentUpon>TallySheet_IndexWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\TallySheet_IndexWise.Designer.cs">
+      <DependentUpon>TallySheet_IndexWise.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\TeminalReceipt2.cs">
+      <DependentUpon>TeminalReceipt2.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\TeminalReceipt2.Designer.cs">
+      <DependentUpon>TeminalReceipt2.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\TerminalReceipt.cs">
+      <DependentUpon>TerminalReceipt.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\TerminalReceipt.Designer.cs">
+      <DependentUpon>TerminalReceipt.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\WeighmentCYContainer.cs">
+      <DependentUpon>WeighmentCYContainer.repx</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\WeighmentCYContainer.Designer.cs">
+      <DependentUpon>WeighmentCYContainer.repx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\_Tabs.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties DismissedDevExtremeVersion="" /></VisualStudio></ProjectExtensions>
+
+</Project>

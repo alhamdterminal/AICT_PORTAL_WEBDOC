@@ -1,0 +1,204 @@
+﻿@model IEnumerable<string>
+
+@{
+
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var ShippingLine = (IEnumerable<SelectListItem>)ViewData["ShippingLine"];
+
+    var PortAndTerminal = (IEnumerable<SelectListItem>)ViewData["PortAndTerminal"];
+
+}
+
+<style>
+
+    .myClass {
+        background-color: #73cbad4f;
+        color: black;
+    }
+
+</style>
+
+<script src="~/js/app.js/PaymentUpdateView.js"></script>
+<style>
+    .dx-header-row > td > .dx-datagrid-text-content {
+        white-space: normal;
+        vertical-align: top;
+        text-align: center;
+    }
+
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+     
+ 
+
+    .dx-datagrid-headers.dx-header-multi-row .dx-row.dx-header-row > td {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        vertical-align: bottom;
+        border-right: 3px solid #333;
+    }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Payment Update</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="PaymentUpdateForm">
+
+
+                        <div class="form-horizontal form-label-left row">
+
+
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        PreAlert-Number: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*@(Html.DevExtreme()
+                                            .SelectBox()
+                                            .ID("PerAlertNumber")
+                                            .Name("PreAlertNumber")
+                                            .AcceptCustomValue(true)
+                                            .SearchEnabled(true)
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .Area("")
+                                            .LoadAction("GetPerAlertNumbers"))
+                                            .Placeholder("Type PerAlert Number ...")
+                                            .OnSelectionChanged("perAlertNumber_changed"))*@
+
+                                        <select class="form-control fav_clr" name="PreAlertNumber" id="perAlertNumber" multiple required="required" >
+                                            @foreach (var item in Model)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <button id="btnSubmit" type="button" onclick="showdetail()" class="btn btn-success" style="float:right;">Find</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Request No
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="requestNumber" name="RequestNumber" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Request Date
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                         
+                                        @(Html.DevExtreme().DateBox()
+                                        .Type(DateBoxType.DateTime)
+                                        .Value(DateTime.Now)
+
+                                       .Name("RequestDate")
+                                       .ID("requestDate")
+                                        )
+                                        <span class="error" id="RequestDateerror"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Acc No
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" class="form-control col-md-7 col-xs-12" id="accNo" name="AccNo" required>
+                                            <span class="error" id="accNoerror"></span>
+                                        </div>
+                                    </div>
+                                </div>*@
+
+                        </div>
+
+
+                    </form>
+
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div id="paymentupdatedetails"></div>
+                                    <div class="ln_solid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button type="button" id="btnCancel" class="btn btn-primary" onClick="restform()" style="float:right;">Cancel</button>
+                            <button id="btnSubmit" type="button" onclick="submitPaymentUpdate()" class="btn btn-success" style="float:right;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

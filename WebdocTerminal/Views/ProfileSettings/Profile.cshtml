@@ -1,0 +1,194 @@
+﻿@model UsersViewModel
+@{ 
+    var appUser = ViewData["appUser"] as User;
+    var identityUser = ViewData["identityUser"];
+    var role = ViewData["role"];
+}
+@*<script>
+    var date = @{ 
+      @Model.DateOfBirth;
+    };
+    console.log(date);
+        console.log( formatDate(new Date(date)))
+    function formatDate(date) {
+
+        return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    }
+
+    
+</script>*@
+<script>
+    function edit()
+    {
+        window.open('/ProfileSettings/Edit','_self')
+    }
+
+</script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Profile Setting</h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                        <div class="profile_img">
+                            <div id="crop-avatar">
+                                <img class="img-responsive avatar-view" src="~/images/image_preview.png" alt="Avatar" title="Change the avatar">
+                            </div>
+                        </div>
+                        <h3 style="text-align: center; background: #2a3f54; padding: 10px; border-radius: 100px; color: white; ">  @Model.FirstName   @Model.LastName   </h3>
+
+
+
+
+
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2><i class="fa fa-bars"></i> Update Profile</h2>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+
+                                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                        <li role="presentation" class="active">
+                                            <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Personal Info</a>
+                                        </li>
+                                        @*<li role="presentation" class="" >
+                                            <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Change Password</a>
+                                        </li>*@
+
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                            <form class="form-horizontal form-label-left input_mask">
+
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" class="form-control has-feedback-left" id="inputSuccess2" disabled="disabled" value="@Model.FirstName">
+                                                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" class="form-control" id="inputSuccess3" disabled="disabled" value="@Model.LastName">
+                                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" class="form-control has-feedback-left" id="inputSuccess4" disabled="disabled" value="@Model.Email">
+                                                    <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" class="form-control" id="inputSuccess5" disabled="disabled" value="@Model.ContactNo">
+                                                    <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                                                </div>
+
+                                                
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Role</label>
+                                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                                            <input type="text" class="form-control" disabled="disabled" value="@Model.Role">
+                                                        </div>
+                                                    </div>
+                                                
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">CNIC</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="text" class="form-control" placeholder="" disabled="disabled" value="@Model.CNIC">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                        Date Of Birth <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        @{
+                                                            var date = Model.DateOfBirth;
+                                                        }
+                                                        <input class="date-picker form-control col-md-7 col-xs-12" required="required" disabled="disabled" type="text" value="@date">
+                                                    </div>
+                                                </div>
+                                                <div class="ln_solid"></div>
+                                                <div class="form-group">
+                                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                        <button type="button" class="btn btn-primary">Cancel</button>
+
+                                                        <button type="button" onclick="edit()" class="btn btn-success">Edit
+                                                            @*@Html.ActionLink("Edit", "Edit", "ProfileSettings")*@
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                            <form class="form-horizontal form-label-left input_mask">
+
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Current Password</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="password" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">New Password</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="password" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Re-type New Password</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="password" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="ln_solid"></div>
+                                                <div class="form-group">
+                                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                        <button type="button" id="btnCancel" class="btn btn-primary">Cancel</button>
+
+                                                        <button type="submit" id="btnSubmit" class="btn btn-success">Change Password</button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

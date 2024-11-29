@@ -1,0 +1,122 @@
+﻿@{
+    var VesselExport = (IEnumerable<SelectListItem>)ViewData["VesselExport"];
+
+    var ContainerNumber = (IEnumerable<SelectListItem>)ViewData["ContainerNumber"];
+}
+
+<script src="~/js/app.js/CargoRollOverContainerWise.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Cargo Roll Over Container Wise</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="">
+
+                    <form class="form-horizontal form-label-left" id="CargoRollOverForm">
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Container-No: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ContainerNumber", ContainerNumber, "Select Container Number", new { @class = "form-control select2", @id = "containerNumber", @onchange = "container_changed(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+
+
+                        <div class="form-horizontal form-label-left row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Vessel Export
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("VesselExportId", VesselExport, "Select Vessel", new { @class = "form-control select2", @id = "vesselExport", @required = "required", @onchange = "changed_VesselExport(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Voyage Export
+                                    </label>
+                                    @*<div class="col-md-8 col-sm-8 col-xs-12" id="voyageSelectBox"></div>*@
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+
+                                        <select class="form-control " name="VoyageExportId" id="voyageExportidres">
+                                            <option value="">Select Voyage</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </form>
+
+                    <div class="form-horizontal form-label-left row">
+
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <button id="btnSubmit" type="button" style="float:right;" onclick="addCargoRollOverContainerwise()" class="btn btn-primary">Save  Container-Wise  </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div class="form-group" id="gridContainer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>
+

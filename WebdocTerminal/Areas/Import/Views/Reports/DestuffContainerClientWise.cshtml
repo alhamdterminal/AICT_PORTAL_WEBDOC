@@ -1,0 +1,61 @@
+﻿<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/DestuffContainerClientWise.js"></script>
+
+
+
+<div class="right_col" role="main">
+    <div class="x_panel">
+        <div class="page-title ">
+            <div class="title_left">
+                <h3>
+                    Destuff  Client Wise
+                </h3>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+                    <div class="row">
+                        @{ Html.RenderPartial("_Filters_AllContainers"); }
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="btnSubmitReport" class="btn btn-dark" style="float: right;" onclick="myFunction()">Submit</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

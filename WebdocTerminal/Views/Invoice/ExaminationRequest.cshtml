@@ -1,0 +1,554 @@
+﻿
+@{
+    var clearingAgentsAgents = (IEnumerable<SelectListItem>
+    )ViewData["ClearingAgentsAgents"];
+
+
+}
+
+
+<style>
+    input[type=text]:disabled {
+        background: #dddddd;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+
+<script src="~/lib/devextreme-aspnet-data/js/dx.aspnet.data.js"></script>
+<script src="~/lib/devextreme/js/dx.aspnet.mvc.js"></script>
+<script src="~/js/app.js/ExaminationRequest.js"></script>
+
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        /* color: white; */
+        background: #e9e9e9;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Examination Request</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <div class="form-horizontal form-label-left row">
+                        <div class="x_panel">
+
+                            <div class="row">
+                            </div>
+                            <hr />
+                            <div class="form-horizontal form-label-left row">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                    <div class="item form-group  x_panel">
+                                        <div class="newbox">
+                                            Container Type
+                                        </div>
+
+                                        <div class="radio" style="display: inline-block;">
+                                            <label>
+                                                <input type="radio" id="CFS" name="type" value="CFS" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CFS
+                                            </label>
+                                        </div>
+                                        <div class="radio" style="display: inline-block;">
+                                            <label>
+                                                <input type="radio" id="CY" value="CY" name="type" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CY
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" id="ContainerType" style="display:none">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                    <div class="item form-group  x_panel">
+                                        <div class="newbox">
+                                            Container Type
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="item form-group">
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <select class="form-control selectpicker" id="orientation_db">
+                                                            <option value="ContainerWise">ContainerWise</option>
+                                                            <option value="IndexWise" disabled>IndexWise</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="filters">
+
+                            </div>
+                        </div>
+                        <form class="form-horizontal form-label-left" novalidate="" id="ExaminationRequestForm">
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Commodity:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="commodity" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Consignee:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="consignee" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Line:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="line" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Principal:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="principal" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Consigne Code:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="consigneId" type="text" readonly >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Consigne NTN:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="consigneNTN" type="text" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            ST Registration No:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="stRegistrationNo" type="text" >
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <button id="btnSubmit" type="button" onclick="updatentnandstn()" class="btn btn-primary" style="float: right; display: inline-grid;">Update NTN & STN</button>
+                                </div>
+
+                                
+
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            BL CBM:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="examinationRequestCBM" type="text" name="ExaminationRequestCBM" onkeypress="return isNumberKey(this, event);" required>
+                                            <span class="error" id="examinationRequestCBMerror"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Manifested CBM:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="igmDetilCBM" type="text" onkeypress="return isNumberKey(this, event);" required>
+                                            <span class="error" id="igmDetilCBMerror"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Actual CBM:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="destuffCBM" type="text" onkeypress="return isNumberKey(this, event);" required>
+                                            <span class="error" id="destuffCBMerror"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            BL No:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="blnumber" type="text" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Clearing Agent *:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            @Html.DropDownList("ClearingAgentId", clearingAgentsAgents, "Select Clearing Agent", new { @class = "form-control select2", @id = "agents", @required = "required" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                            CNIC *:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" class="form-control" name="CNIC" id="cnic" onkeyup="enterCNICNumebr( )" required />
+                                            <span class="error" id="cnicerror"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Agent Rep Name *:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" class="form-control" id="repname" name="ClearingAgentRep" required>
+                                            <span class="error" id="repnameerror"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            PhoneNumber *:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="number" class="form-control" id="phonenumber" name="PhoneNumber" required>
+                                            <span class="error" id="phoneerror"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                            B/E Cash No:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" class="form-control" name="BECashNo" id="becashNo" required />
+                                            <span class="error" id="becashNoerror"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                                Presentation Date :
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input type="date" class="form-control has-feedback-left" id="ppresentationDate" name="PresentationDate" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                            Custom Reg No:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" class="form-control" name="CustomRegNo" id="customRegNo" required />
+                                            <span class="error" id="customRegNoerror"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Custom Reg Date:
+                                        </label>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    @*<input type="text" class="form-control has-feedback-left" id="single_cal2" name="CustomRegDate" aria-describedby="inputSuccess2Status" required>
+                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                <span class="error" id="single_cal2error"></span>*@
+                                                    <input type="date" class="form-control has-feedback-left" id="ccustomRegDate" name="CustomRegDate" required>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Line D.O No:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="lineDoNumber" type="number" name="LineDoNumber" required>
+                                            <span class="error" id="lineDoNumbererror"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Custom Out Date:
+                                        </label>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    <input type="date" class="form-control has-feedback-left" id="ccustomOutDate" name="CustomOutChargeDate" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                                Examination Date:
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input type="date" class="form-control has-feedback-left" id="examinationDate" name="ExaminationDate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                                Grounding Date:
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input type="date" class="form-control has-feedback-left" id="groundingDate" name="GroundingDate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Email:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="email" type="text" name="Email" >                                             
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 col-sm-4 col-xs-12" style="background-color: #ecf3f9; border-radius: 20px; padding: 4px;">
+                                    <div class="item form-group">
+                                        <div class="checkbox" style="display: inline-block; float: right;">
+                                            <label>
+                                                <input type="checkbox" id="isTPCargo" name="IsTPCargo" value="true"> Is TP Cargo
+                                                <input type="hidden" value="false" name="IsTPCargo" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-2 col-sm-4 col-xs-12" style="background-color: #c7edda; border-radius: 20px; padding: 4px; ">
+                                    <div class="item form-group">
+                                        <div class="checkbox" style="display: inline-block; float: right;">
+                                            <label>
+                                                <input type="checkbox" id="isEPZCargo" name="IsEPZCargo" value="true"> EPZ Cargo
+                                                <input type="hidden" value="false" name="IsEPZCargo" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Container No:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <div id="searchBoxForContainerList"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Delivery Status  
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">                                             
+                                            <select class="item form-control" name="DeliveryStatus" id="deliveryStatus">
+                                                <option value="" selected  >Please Select</option>
+                                                <option value="Auction">Auction</option>
+                                                <option value="ReExport">ReExport</option>
+                                                <option value="ApprovalWithCustom">Approval With Custom</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <button id="btnSubmit" type="button" onclick="submitExaminationRequest()" class="btn btn-success" style="float: right; display: inline-grid;">Submit</button>
+                                </div>
+
+                            </div>
+
+
+</form>
+                    </div>
+
+
+                    <div class="row">
+                        <div id="examinationchargeAsiging"></div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

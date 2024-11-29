@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="18.2.4.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="ImportAgingReportCFS" Margins="15, 205, 100, 100" PaperKind="A3Extra" PageWidth="1268" PageHeight="1752" Version="18.2">
+  <Parameters>
+    <Item1 Ref="2" Visible="false" Description="fromdate" AllowNull="true" Name="fromdate" />
+    <Item2 Ref="3" Visible="false" Description="todate" AllowNull="true" Name="todate" />
+    <Item3 Ref="5" Visible="false" AllowNull="true" Name="CompanyId" Type="#Ref-4" />
+    <Item4 Ref="6" Name="path" />
+    <Item5 Ref="7" Name="shippingAgent" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="8" ControlType="TopMarginBand" Name="topMarginBand1">
+      <Controls>
+        <Item1 Ref="9" ControlType="XRLabel" Name="label6" Multiline="true" Text="From :" TextAlignment="MiddleRight" SizeF="50.49991,22.9999981" LocationFloat="746.4171, 67.99997" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="10" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="11" ControlType="XRLabel" Name="label7" TextFormatString="{0:dd-MMM-yy}" Multiline="true" AutoWidth="true" Text="01-Oct-2018" TextAlignment="MiddleLeft" SizeF="94.6665649,22.9999981" LocationFloat="796.917, 67.99997" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="12" Expression="?fromdate" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="13" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="14" ControlType="XRLabel" Name="label9" TextFormatString="{0:dd-MMM-yy}" Multiline="true" AutoWidth="true" Text="06-Mar-2019" TextAlignment="MiddleLeft" SizeF="94.6665649,22.9999981" LocationFloat="951.250061, 67.99997" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="15" Expression="?todate" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="16" UseFont="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="17" ControlType="XRLabel" Name="label8" Multiline="true" Text="To :" TextAlignment="MiddleRight" SizeF="33.833252,22.9999981" LocationFloat="917.4168, 67.99997" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="18" UseFont="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="19" ControlType="XRLabel" Name="label3" Multiline="true" TextAlignment="TopRight" SizeF="338.416748,23.0000038" LocationFloat="709.583252, 38.3333359" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="20" Expression="[Company].[CompanyEmail]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="21" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="22" ControlType="XRLabel" Name="label4" Multiline="true" Text="CARGO AGING REPORT (CFS)" TextAlignment="TopCenter" SizeF="350.6249,30.5" LocationFloat="327.208771, 10.0000067" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="23" UseFont="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="24" ControlType="XRPictureBox" Name="pictureBox1" ImageAlignment="TopCenter" SizeF="239.583328,80.99998" LocationFloat="10, 10.0000067">
+          <EditOptions Ref="25" Enabled="true" />
+          <ExpressionBindings>
+            <Item1 Ref="26" Expression="?path+'/'+[Company].[FilePath]" PropertyName="ImageUrl" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item7>
+      </Controls>
+    </Item1>
+    <Item2 Ref="27" ControlType="DetailBand" Name="detailBand1" HeightF="0" />
+    <Item3 Ref="28" ControlType="BottomMarginBand" Name="bottomMarginBand1">
+      <Controls>
+        <Item1 Ref="29" ControlType="XRLabel" Name="label10" Multiline="true" TextAlignment="TopCenter" SizeF="1048.00012,23" LocationFloat="0, 10.0000067" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="30" Expression="[Company].[Address]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="31" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item3>
+    <Item4 Ref="32" ControlType="DetailReportBand" Name="DetailReport" Level="0">
+      <Bands>
+        <Item1 Ref="33" ControlType="DetailBand" Name="Detail" HeightF="25">
+          <Controls>
+            <Item1 Ref="34" ControlType="XRTable" Name="table1" TextAlignment="MiddleLeft" SizeF="1048,25" LocationFloat="0, 0" Font="Calibri, 10pt" Borders="All">
+              <Rows>
+                <Item1 Ref="35" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+                  <Cells>
+                    <Item1 Ref="36" ControlType="XRTableCell" Name="tableCell1" Weight="0.42500000000000004" TextFormatString="{0:#)}" Multiline="true" Text="SNO" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="37" Expression="[SerialNo]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item1>
+                    <Item2 Ref="38" ControlType="XRTableCell" Name="tableCell2" Weight="1.575" Multiline="true" Text="VIR #" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="39" Expression="[VIRNumber]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item2>
+                    <Item3 Ref="40" ControlType="XRTableCell" Name="tableCell3" Weight="1" Multiline="true" Text="Index #" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="41" Expression="[IndexNumber]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item3>
+                    <Item4 Ref="42" ControlType="XRTableCell" Name="tableCell4" Weight="1.1836834463454384" Multiline="true" Text="Vessel / Voyage" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="43" Expression="[VesselVoyage]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="44" UsePadding="false" />
+                    </Item4>
+                    <Item5 Ref="45" ControlType="XRTableCell" Name="tableCell5" Weight="0.81631655365456157" TextFormatString="{0:dd-MMM-yy}" Multiline="true" Text="Arival Date" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="46" Expression="[ArivalDate]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="47" UsePadding="false" />
+                    </Item5>
+                    <Item6 Ref="48" ControlType="XRTableCell" Name="tableCell6" Weight="1" TextFormatString="{0:dd-MMM-yy}" Multiline="true" Text="Gate IN Dt" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="49" Expression="[GateInDateTime]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="50" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="51" ControlType="XRTableCell" Name="tableCell7" Weight="1" Multiline="true" Text="Description" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="52" Expression="[Description]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="53" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="54" ControlType="XRTableCell" Name="tableCell8" Weight="1" Multiline="true" Padding="2,2,0,0,100">
+                      <StylePriority Ref="55" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="56" ControlType="XRTableCell" Name="tableCell9" Weight="1" Multiline="true" Padding="2,2,0,0,100">
+                      <StylePriority Ref="57" UsePadding="false" />
+                    </Item9>
+                    <Item10 Ref="58" ControlType="XRTableCell" Name="tableCell10" Weight="1" Multiline="true" Text="Aging Days" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="59" Expression="[AgingDays]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="60" UsePadding="false" />
+                    </Item10>
+                    <Item11 Ref="61" ControlType="XRTableCell" Name="tableCell11" Weight="1" Multiline="true" Padding="2,2,0,0,100">
+                      <StylePriority Ref="62" UsePadding="false" />
+                    </Item11>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="63" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item1>
+        <Item2 Ref="64" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="34.72222">
+          <Controls>
+            <Item1 Ref="65" ControlType="XRTable" Name="table2" TextAlignment="MiddleLeft" SizeF="1048,25" LocationFloat="0, 0" Font="Calibri, 10pt, style=Bold" Borders="All">
+              <Rows>
+                <Item1 Ref="66" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+                  <Cells>
+                    <Item1 Ref="67" ControlType="XRTableCell" Name="tableCell12" Weight="0.42500000000000004" Multiline="true" Text="SNO" Padding="2,2,0,0,100" />
+                    <Item2 Ref="68" ControlType="XRTableCell" Name="tableCell13" Weight="1.575" Multiline="true" Text="VIR #" Padding="2,2,0,0,100" />
+                    <Item3 Ref="69" ControlType="XRTableCell" Name="tableCell14" Weight="1" Multiline="true" Text="Index #" Padding="2,2,0,0,100" />
+                    <Item4 Ref="70" ControlType="XRTableCell" Name="tableCell15" Weight="1.1836834463454384" Multiline="true" Text="Vessel / Voyage" Padding="2,2,0,0,100">
+                      <StylePriority Ref="71" UsePadding="false" />
+                    </Item4>
+                    <Item5 Ref="72" ControlType="XRTableCell" Name="tableCell16" Weight="0.81631655365456157" Multiline="true" Text="Arival Date" Padding="2,2,0,0,100">
+                      <StylePriority Ref="73" UsePadding="false" />
+                    </Item5>
+                    <Item6 Ref="74" ControlType="XRTableCell" Name="tableCell17" Weight="1" Multiline="true" Text="Gate IN Dt" Padding="2,2,0,0,100">
+                      <StylePriority Ref="75" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="76" ControlType="XRTableCell" Name="tableCell18" Weight="1" Multiline="true" Text="Description" Padding="2,2,0,0,100">
+                      <StylePriority Ref="77" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="78" ControlType="XRTableCell" Name="tableCell19" Weight="1" Multiline="true" Text="Dat Consignee" Padding="2,2,0,0,100">
+                      <StylePriority Ref="79" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="80" ControlType="XRTableCell" Name="tableCell20" Weight="1" Multiline="true" Text="Dat Address" Padding="2,2,0,0,100">
+                      <StylePriority Ref="81" UsePadding="false" />
+                    </Item9>
+                    <Item10 Ref="82" ControlType="XRTableCell" Name="tableCell21" Weight="1" Multiline="true" Text="Aging Days" Padding="2,2,0,0,100">
+                      <StylePriority Ref="83" UsePadding="false" />
+                    </Item10>
+                    <Item11 Ref="84" ControlType="XRTableCell" Name="tableCell22" Weight="1" Multiline="true" Text="Auction#" Padding="2,2,0,0,100">
+                      <StylePriority Ref="85" UsePadding="false" />
+                    </Item11>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="86" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item2>
+        <Item3 Ref="87" ControlType="GroupHeaderBand" Name="GroupHeader2" Level="1" HeightF="40.97222">
+          <Controls>
+            <Item1 Ref="88" ControlType="XRLabel" Name="label1" Multiline="true" Text="Line/Agent :" TextAlignment="MiddleLeft" SizeF="98.3333359,22.9999981" LocationFloat="10.0000067, 5.87501526" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="89" UseFont="false" UseTextAlignment="false" />
+            </Item1>
+            <Item2 Ref="90" ControlType="XRLabel" Name="label2" Multiline="true" AutoWidth="true" Text="CIRRUS INTERNATIONAL VEHICLE" TextAlignment="MiddleLeft" SizeF="248.833191,22.9999981" LocationFloat="108.333336, 5.87501526" Font="Calibri, 12pt, style=Underline" Padding="2,2,0,0,100">
+              <ExpressionBindings>
+                <Item1 Ref="91" Expression="[ShippingAgentName]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="92" UseFont="false" UseTextAlignment="false" />
+            </Item2>
+          </Controls>
+        </Item3>
+      </Bands>
+    </Item4>
+  </Bands>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v18.2" Ref="4" Content="System.Int64" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

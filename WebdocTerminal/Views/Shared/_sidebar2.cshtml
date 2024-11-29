@@ -1,0 +1,414 @@
+﻿
+<script>
+	$(document).ready(function () {
+
+
+    });
+  
+</script>
+
+
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+ 
+
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu side-bar-body ">
+
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <!-- menu -->
+                                <div id="MainMenu">
+                                    <a class="list-group-item side-bar-head">Menu</a>
+
+                                    <div class="list-group panel list-scroll" id="list-tab" role="tablist">
+
+                                        <a href="#demo83" class="list-group-item sidebar-menu current-page" data-toggle="collapse" data-parent="#MainMenu">Import <i class="fa fa-caret-down"></i></a>
+                                        <div class="collapse in" id="demo83">
+                                            <a href="/home" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu">Dashboard</a>
+                                            <a href="/Tariff/CustomerTariff" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu">Customer Tariff</a>
+                                            <a href="/import/Reports/ListofUpcomingContainer" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu">Upcoming Container</a>
+
+                                            <a href="#demo4" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu7">CFS Import  <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo4">
+                                                <a href="/import/GateInOut/GateInCFSContainers" class="list-group-item child_sidebar tabLink">Gate In</a>
+                                                <a href="/import/ContainerDestuff/ContainerDestuffCFS" class="list-group-item child_sidebar tabLink">Container Destuff</a>
+                                                <a href="/import/BRT" class="list-group-item child_sidebar tabLink"> BRT</a>
+                                                <a href="/import/Grounding/CFSGrounding" class="list-group-item child_sidebar tabLink"> Grounding</a>
+                                                <a href="/import/Weighment/CFSWeightment" class="list-group-item child_sidebar tabLink"> Weighment</a>
+                                                <a href="/import/reports/ReceiptForPackagesDelivered" class="list-group-item child_sidebar tabLink">Receipt</a>
+                                                <a href="/import/GateInOut/GateOutCFSContainers" class="list-group-item child_sidebar tabLink">Index Gate Out</a>
+                                                <a href="/import/GateInOut/EmptyGateOutContainers" class="list-group-item child_sidebar tabLink">Empty Gate Out</a>
+                                                <a href="/import/Delivery/EmptyContainerGatePass" class="list-group-item child_sidebar tabLink">Empty Container Gate Pass</a>
+                                                <a href="/import/Grounding/GroundingStatusCFS" class="list-group-item child_sidebar tabLink">Grounding Status</a>
+                                            </div>
+                                            <a href="#demo5" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu8">CY Import  <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo5">
+                                                <a href="/import/GateInOut/GateInCYContainers" class="list-group-item child_sidebar tabLink">Gate In</a>
+                                                <a href="/import/BRT/BrtViewCY" class="list-group-item child_sidebar tabLink"> BRT</a>
+                                                <a href="/import/Grounding/CYGrounding" class="list-group-item child_sidebar tabLink"> Grounding</a>
+                                                <a href="/import/Weighment/CYWeightment" class="list-group-item child_sidebar tabLink"> Weighment</a>
+                                                <a href="/import/GateInOut/GateOutCYContainers" class="list-group-item child_sidebar tabLink">Gate Out</a>
+                                            </div>
+
+                                            <a href="#demo6" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu88">TP Import <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo6">
+                                                <a href="/StuffingConfirmation/StuffingConfirmationMessage" class="list-group-item child_sidebar tabLink">Stuffing Confirmation</a>
+                                                <a href="/import/GateInOut/PreGateout" class="list-group-item child_sidebar tabLink">Pre Gateout</a>
+                                                <a href="/import/GateInOut/GateInTPContainers" class="list-group-item child_sidebar tabLink">TP Containers Out</a>
+                                            </div>
+
+                                            <a href="/import/Delivery/DeliveryOrder" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Delivery Order & Gate Pass</a>
+                                            <a href="/import/Delivery/SearchGatePass" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Gate Pass</a>
+                                            <a href="/import/Delivery/SearchDeliveryOrder" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu">Delivery Order</a>
+
+
+                                            <a href="#demo7" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu99">Invoice <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo7">
+                                                <a href="/Invoice/ImportBill" class="list-group-item child_sidebar tabLink">Create Import Invoice</a>
+                                                <a href="/Invoice/ReprintInvoice" class="list-group-item child_sidebar tabLink">Print/Cancel</a>
+                                            </div>
+
+                                            <a href="#demo3" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu33">Cashier <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo3">
+
+                                                <a href="/import/PartyLedger/ChequeReceive" class="list-group-item child_sidebar tabLink">Cheque Receive</a>
+                                                <a href="/import/PartyLedger/RefundAmount" class="list-group-item child_sidebar tabLink">Refund Amount</a>
+                                                <a href="/import/PartyLedger/AmountReceived" class="list-group-item child_sidebar tabLink">Amount Received Import</a>
+                                                <a href="/import/PartyLedger/UpdatePartyLedgerImport" class="list-group-item child_sidebar tabLink">Update Party Ledger</a>
+
+                                                <a href="#SubMenu1" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu1">Setup <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse list-group-submenu" id="SubMenu1">
+                                                    <a href="/import/Bank/Bank" class="list-group-item child_sidebar tabLink">Bank</a>
+                                                    <a href="/import/Party/PartyView" class="list-group-item child_sidebar tabLink">Party</a>
+                                                </div>
+
+                                            </div>
+                                            <a href="/import/Hold/HoldSpecialInstruction" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu">Hold</a>
+                                            @*<a href="/import/auction/auctioninformation" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu">Auction Info</a>*@
+
+                                            <a href="#demo99" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu91">Auction <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo99">
+
+                                                <a href="/import/auction/auctioninformation" class="list-group-item child_sidebar tabLink">Auction Info</a>
+                                                <a href="/import/auction/SubmitedAuctions" class="list-group-item child_sidebar tabLink">Auction Delivery</a>
+
+                                                <a href="#SubMenu92" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu92">Reports <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse list-group-submenu" id="SubMenu92">
+                                                    <a href="/import/Reports/AuctionReport" class="list-group-item child_sidebar tabLink"> Auction Report</a>
+                                                    <a href="/import/Reports/AuctionReportForCustom" class="list-group-item child_sidebar tabLink">Auction Report For Custom</a>
+                                                    <a href="/import/Reports/UpdatedVehiclesLyingAtTerminal" class="list-group-item child_sidebar tabLink">Lying At Terminal</a>
+                                                </div>
+                                            </div>
+
+
+                                            <a href="#demo85" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu213">Setup <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo85">
+                                                <a href="/shippingagent" class="list-group-item child_sidebar tabLink">Shipping Agent Info</a>
+                                                <a href="/clearingagent" class="list-group-item child_sidebar tabLink">Clearing Agent Info</a>
+                                                <a href="/ShippingLine/ShippingLine" class="list-group-item child_sidebar tabLink">Shipping Line</a>
+                                            </div>
+
+
+                                            <a href="#demo9" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu67">Tarrif <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo9">
+
+                                                <a href="/Tariff/TarifHead" class="list-group-item child_sidebar tabLink">Tariff Head</a>
+                                                <a href="/Tariff/TariffCharges" class="list-group-item child_sidebar tabLink">Tariff Charges</a>
+                                                <a href="/Tariff/AgentTariffInformation" class="list-group-item child_sidebar tabLink">Agent Tariff</a>
+                                                <a href="/Tariff/IGMTariffInformation" class="list-group-item child_sidebar tabLink">IGM Tariff</a>
+                                                <a href="/SalesTax/SalesTaxView" class="list-group-item child_sidebar tabLink">Sales Tax</a>
+
+                                                <a href="#SubMenu2" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu2">Configuration <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse list-group-submenu" id="SubMenu2">
+                                                    <a href="/Tariff/StorageTariff" class="list-group-item child_sidebar tabLink"> Storage Tariff</a>
+                                                    <a href="/Tariff/UnlockGenerateBill" class="list-group-item child_sidebar tabLink">Unlock Generate Bill</a>
+                                                    <a href="/Tariff/ExtraFreeDays" class="list-group-item child_sidebar tabLink">Extra Free Days</a>
+                                                    <a href="/Tariff/OtherCharges" class="list-group-item child_sidebar tabLink">Other Charges</a>
+                                                </div>
+
+                                                <a href="#SubMenu3" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu3"> Account Reports <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse list-group-submenu" id="SubMenu3">
+                                                    <a href="/import/Reports/PartyLedgerPatryWise" class="list-group-item child_sidebar tabLink">Party Ledger Patry Wise</a>
+                                                    <a href="/import/Reports/PartyLedgerDateWise" class="list-group-item child_sidebar tabLink">Party Ledger Date Wise</a>
+                                                    <a href="/import/Reports/DailySalesReportDatewise" class="list-group-item child_sidebar tabLink">Daily Sales Date Wise</a>
+                                                    <a href="/import/Reports/MonthlyBilling" class="list-group-item child_sidebar tabLink">Monthly Billing</a>
+                                                    <a href="/import/Reports/ChequeDetailReport" class="list-group-item child_sidebar tabLink">Cheque Detail</a>
+                                                    <a href="/import/Reports/DailyCollectionReport" class="list-group-item child_sidebar tabLink">Daily Collection</a>
+                                                    <a href="/import/Reports/DailyInvoiceReport" class="list-group-item child_sidebar tabLink">Daily Invoice Report</a>
+                                                </div>
+                                            </div>
+                                            <a href="/import/reports/DailySummaryReport" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Daily Report</a>
+                                            <a href="/import/CargoInformation/CargoInformation" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Cargo Information</a>
+                                            <a href="/import/CargoInformation/Section79ContainersCY" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Section 79 Containers CY</a>
+
+                                            @*<a href="#demo10" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu">Reports <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse child-item" id="demo10">
+                                                    <a href="#SubMenu4" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu4">CFS Reports <i class="fa fa-caret-down"></i></a>
+                                                    <div class="collapse list-group-submenu" id="SubMenu4">
+                                                        <a href="/import/Reports/PendingCFSContainersReport" class="list-group-item child_sidebar tabLink">Pending Containers</a>
+                                                        <a href="/import/Reports/AgingReportCFS" class="list-group-item child_sidebar tabLink">Aging Report</a>
+                                                        <a href="/import/Reports/DeliveryOrderReportCFSContainer" class="list-group-item child_sidebar tabLink"> CFS Delivery Report</a>
+                                                        <a href="/import/Reports/DeliveryOrderReportCFSContainerWeightWise" class="list-group-item child_sidebar tabLink"> CFS Delivery Report Weight Wise</a>
+                                                        <a href="/import/Reports/CFSReleasedContainers" class="list-group-item child_sidebar tabLink">Released Containers</a>
+                                                        <a href="/import/Reports/TellySheetReport" class="list-group-item child_sidebar tabLink">Telly Sheet</a>
+                                                        <a href="/import/Reports/EmptyContainerGateOutReport" class="list-group-item child_sidebar tabLink">Empty Delivery Container</a>
+                                                        <a href="/import/Reports/ExaminationMarkESContainerCFS" class="list-group-item child_sidebar tabLink">Examination Mark ES Container CFS</a>
+                                                    </div>
+
+                                                    <a href="#SubMenu5" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu5"> CY Reports <i class="fa fa-caret-down"></i></a>
+                                                    <div class="collapse list-group-submenu" id="SubMenu5">
+                                                        <a href="/import/Reports/AgingReportCY" class="list-group-item child_sidebar tabLink">Aging</a>
+                                                        <a href="/import/Reports/CYDeliveryReport" class="list-group-item child_sidebar tabLink">CY Delivery Report</a>
+                                                        <a href="/import/Reports/DeliveryOrderReportCYContainer" class="list-group-item child_sidebar tabLink">CY Delivery Report  With Qty</a>
+                                                        <a href="/import/Reports/ExaminationMarkESCYContainer" class="list-group-item child_sidebar tabLink">ES Mark</a>
+                                                        <a href="/import/Reports/ExaminationMarkCYContainer" class="list-group-item child_sidebar tabLink">Examination Mark</a>
+                                                        <a href="/import/Reports/ExaminationCompleteContainerCY" class="list-group-item child_sidebar tabLink">Examination Complete</a>
+                                                        <a href="/import/Reports/GroundingContainerCY" class="list-group-item child_sidebar tabLink">Grounding Container</a>
+                                                        <a href="/import/Reports/InventoryCyContainerReport" class="list-group-item child_sidebar tabLink">Inventory Report</a>
+                                                        <a href="/import/Reports/CYReleasedContainers" class="list-group-item child_sidebar tabLink">Released Containers</a>
+                                                        <a href="/import/Reports/WeighmentCyContainerReport" class="list-group-item child_sidebar tabLink">Weighment</a>
+                                                    </div>
+
+                                                    <a href="#SubMenu6" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu6"> CFS/CY Reports <i class="fa fa-caret-down"></i></a>
+                                                    <div class="collapse list-group-submenu" id="SubMenu6">
+                                                        <a href="/import/Reports/AlongsideReport" class="list-group-item child_sidebar tabLink">Along Side</a>
+                                                        <a href="/import/Reports/AlongSideLocationWise" class="list-group-item child_sidebar tabLink">Along Side Location Wise</a>
+                                                        <a href="/import/Reports/AuctionReport" class="list-group-item child_sidebar tabLink">Auction Report</a>
+                                                        <a href="/import/Reports/CargoAgingReportCFSAndCY" class="list-group-item child_sidebar tabLink">Cargo Aging</a>
+                                                        <a href="/import/Reports/ContainerReceiveDuringThePeriod" class="list-group-item child_sidebar tabLink">Container Receive During Period</a>
+                                                        <a href="/import/Reports/DeStuffingReport" class="list-group-item child_sidebar tabLink">De Stuffing</a>
+                                                        <a href="/import/Reports/DeStuffingContainerWise" class="list-group-item child_sidebar tabLink">De Stuffing Date Wise</a>
+                                                        <a href="/import/Reports/DestuffContainerShippingAgentWise" class="list-group-item child_sidebar tabLink">De Stuff Container Agent Wise</a>
+                                                        <a href="/import/Reports/EmptyOutReport" class="list-group-item child_sidebar tabLink">Empty Out</a>
+                                                        <a href="/import/Reports/ContainerAvailableToYard" class="list-group-item child_sidebar tabLink">Empty Container Available At Yard</a>
+                                                        <a href="/import/Reports/GateInContainerByDate" class="list-group-item child_sidebar tabLink">Gate In Container By Date</a>
+                                                        <a href="/import/Reports/GateInContainerShippingAgentWise" class="list-group-item child_sidebar tabLink">Gate In Container Agent Wise</a>
+                                                        <a href="/import/Reports/GateInWeighmentContainerReport" class="list-group-item child_sidebar tabLink">Gate In Weighment Report</a>
+                                                        <a href="/import/Reports/MessageLog" class="list-group-item child_sidebar tabLink">Message Log</a>
+                                                        <a href="/import/Reports/ContainerInformationReport" class="list-group-item child_sidebar tabLink">Container Activity</a>
+                                                    </div>
+
+                                                    <a href="/import/reports/DailySummaryReport" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Daily Report</a>
+                                                    <a href="/import/CargoInformation/CargoInformation" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Cargo Information</a>
+                                                    <a href="/import/CargoInformation/Section79ContainersCY" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Section 79 Containers CY</a>
+                                                    <a href="/import/CargoInformation/Section79ContainersCFS" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu"> Section 79 Containers CFS</a>
+                                                    <a href="/import/reports/ListofOutGoingContainer" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu">  Out Going Containers</a>
+
+
+                                                </div>*@
+
+
+
+
+                                        </div>
+
+
+                                        <a href="#demo84" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu1">Export <i class="fa fa-caret-down"></i></a>
+                                        <div class="collapse child-item" id="demo84">
+                                            <a href="/Home/DashboardExport" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Dashboard</a>
+
+                                            <a href="#demo14" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu131">Loading Program <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo14">
+                                                <a href="/Export/LoadingProgram/LoadingProgramView" class="list-group-item child_sidebar tabLink">Create Loading Program</a>
+                                                <a href="/Export/LoadingProgram/Index" class="list-group-item child_sidebar tabLink">Loading Programs</a>
+
+                                            </div>
+
+                                            <a href="/Export/EnteringCargo/EnteringCargoView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Entering Cargo</a>
+                                            <a href="/Export/CargoReceived/CargoReceivedView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Cargo Received</a>
+                                            <a href="/Export/Cargo/CargoView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Cargo Info</a>
+                                            <a href="/Export/ExportGroundedCargo/ExportGroundedCargoView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Grounded Cargo</a>
+                                            <a href="/Export/ExportContainer/CreateContainer" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Create Container</a>
+                                            <a href="/Export/ExportContainer/AssociateGD" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">GD Association</a>
+                                            <a href="/Export/ExportContainer/DeletionOfContainerAssociated" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Delete Container / GD</a>
+                                            <a href="/Export/GateInOut/GateOut" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Gate Out</a>
+                                            <a href="/Export/POLocation/POLocationView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">PO Location</a>
+                                            <a href="/Export/CustomerNOC/CustomerNOCView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Customer NOC</a>
+                                            <a href="/Export/EmptyReceiving/EmptyReceivingView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Empty Receiving</a>
+                                            <a href="/Export/GDHold/GDHoldView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">GD Hold</a>
+                                            <a href="/Export/CargoRollOver/CargoRollOverView" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Cargo Roll Over</a>
+                                            <a href="/Export/CustomerCredit/Index" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Customer Credit</a>
+                                            <a href="/Export/Transshipment" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">Transshipment</a>
+                                            <a href="/Export/GDManagement/Index" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu1">GD Management</a>
+
+
+                                            <a href="#demo15" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu321">Dray Off <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo15">
+
+                                                <a href="/Export/Delivery/DeliveryOrder" class="list-group-item child_sidebar tabLink">Delivery Order</a>
+                                                <a href="/Export/Delivery/GatePass" class="list-group-item child_sidebar tabLink">GatePass</a>
+                                                <a href="/Export/GateInOut/GateOutGD" class="list-group-item child_sidebar tabLink">Gate-Out</a>
+
+                                                <a href="#SubMenu11" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu11">Dray Off Report <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse list-group-submenu" id="SubMenu11">
+                                                    <a href="/Export/Reports/DeliveryOrderExport" class="list-group-item child_sidebar tabLink">Delivery Order</a>
+                                                </div>
+                                            </div>
+
+
+                                            <a href="#demo63" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu1">EDI Messages <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo63">
+                                                <a href="/Export/OPIA/OPIAView" class="list-group-item child_sidebar tabLink">OPIA</a>
+                                                <a href="/Export/OGDE/OGDEView" class="list-group-item child_sidebar tabLink">OGDE</a>
+                                                <a href="/Export/OEHC/OEHCView" class="list-group-item child_sidebar tabLink">OEHC</a>
+                                                <a href="/Export/OECM/OECMView" class="list-group-item child_sidebar tabLink">OECM</a>
+                                                <a href="/Export/OCRL/OCRLView" class="list-group-item child_sidebar tabLink">OCRL</a>
+                                                <a href="/Export/OSVM/OSVMView" class="list-group-item child_sidebar tabLink">OSVM</a>
+                                            </div>
+
+                                            <a href="#demo17" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu1">Export Setup <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo17">
+                                                <a href="/Export/Commodity/CommodityView" class="list-group-item child_sidebar tabLink">Commodity</a>
+                                                <a href="/ShippingLine/ShippingLine" class="list-group-item child_sidebar tabLink">Shipping Line</a>
+                                                <a href="/Export/PortAndTerminal/PortAndTerminalView" class="list-group-item child_sidebar tabLink">Port And Terminal</a>
+                                                <a href="/Export/VesselExport/VesselExportView" class="list-group-item child_sidebar tabLink">Vessel</a>
+                                                <a href="/Export/VoyageExport/VoyageExportView" class="list-group-item child_sidebar tabLink">Voyage Export</a>
+                                                <a href="/Export/ClearingAgentExport/ClearingAgentExportView" class="list-group-item child_sidebar tabLink">Clearing Agent</a>
+                                                <a href="/Export/Shipper/ShipperView" class="list-group-item child_sidebar tabLink">Shipper</a>
+                                                <a href="/Export/ShippingAgentExport/ShippingAgentExportView" class="list-group-item child_sidebar tabLink">Shipping Agent</a>
+                                                <a href="/Export/PackageTypeExport/PackageTypeExportView" class="list-group-item child_sidebar tabLink">Package Type</a>
+                                                <a href="/Export/ExportLocationCodeList/ExportLocationCodeListView" class="list-group-item child_sidebar tabLink">Location Code List</a>
+                                                <a href="/Export/POLocation/POLocationView" class="list-group-item child_sidebar tabLink">PO Location </a>
+                                            </div>
+
+
+                                            <a href="#demo8" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu1">Invoice <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo8">
+                                                <a href="/Export/InvoiceExport/InvoiceExportView" class="list-group-item child_sidebar tabLink">Create Export Invoice</a>
+                                                <a href="/Export/InvoiceExport/ReprintInvoice" class="list-group-item child_sidebar tabLink">Print/Cancel</a>
+                                            </div>
+
+
+                                            <a href="#demo19" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu1">Cashier <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo19">
+                                                <a href="/Export/PartyLedgerExport/ChequeReceiveExport" class="list-group-item child_sidebar tabLink">Cheque Receive</a>
+                                                <a href="/Export/PartyLedgerExport/RefundAmountExport" class="list-group-item child_sidebar tabLink">Refund Amount</a>
+                                                <a href="/Export/PartyLedgerExport/AmountReceivedExport" class="list-group-item child_sidebar tabLink">Amount Received </a>
+                                                <a href="/Export/PartyLedgerExport/UpdatePartyLedgerExport" class="list-group-item child_sidebar tabLink">Update Party Ledger</a>
+
+                                                <a href="#SubMenu12" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu12">Setup <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse list-group-submenu" id="SubMenu12">
+                                                    <a href="/import/Bank/Bank" class="list-group-item child_sidebar tabLink">Bank</a>
+                                                    <a href="/Export/PartyExport/PartyExportView" class="list-group-item child_sidebar tabLink">Party</a>
+                                                </div>
+                                            </div>
+
+
+                                            <a href="#demo20" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu1">Tarrif <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse child-item" id="demo20">
+
+                                                <a href="/Export/TariffExport/TarifHeadExport" class="list-group-item child_sidebar tabLink">Tariff Head</a>
+                                                <a href="/Export/TariffExport/TariffExportCharges" class="list-group-item child_sidebar tabLink">Tariff Charges</a>
+                                                <a href="/Export/TariffExport/AgentTariffInformation" class="list-group-item child_sidebar tabLink">Agent Tariff</a>
+                                                <a href="/Export/TariffExport/GDTariff" class="list-group-item child_sidebar tabLink">GDTariff</a>
+                                                <a href="/SalesTax/SalesTaxView" class="list-group-item child_sidebar tabLink">Sales Tax</a>
+
+                                                <a href="#SubMenu14" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu14">Configuration <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse list-group-submenu" id="SubMenu14">
+                                                    <a href="/Export/TariffExport/StorageTariffExport" class="list-group-item child_sidebar tabLink">Storage Tariff</a>
+                                                </div>
+
+                                                <a href="#SubMenu15" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu15"> Account Reports <i class="fa fa-caret-down"></i></a>
+                                                <div class="collapse list-group-submenu" id="SubMenu15">
+                                                    @*<a href="/Export/InvoiceExport/ExportDeletedInvoices" class="list-group-item child_sidebar tabLink">Deleted Invoices</a>*@
+                                                    <a href="/Export/Reports/PartyLedgerExport" class="list-group-item child_sidebar tabLink">Party Ledger</a>
+                                                    <a href="/Export/Reports/DailySalesReportExport" class="list-group-item child_sidebar tabLink">Daily Sales </a>
+                                                    <a href="/Export/Reports/MonthlyBillingExport" class="list-group-item child_sidebar tabLink">Monthly Billing</a>
+                                                    <a href="/Export/Reports/ChequeDetailReportExport" class="list-group-item child_sidebar tabLink">Cheque Detail</a>
+                                                    <a href="/Export/Reports/DailyCollectionReportExport" class="list-group-item child_sidebar tabLink">Daily Collection</a>
+                                                    <a href="/Export/Reports/DailyInvoiceReportExport" class="list-group-item child_sidebar tabLink">Daily Invoice</a>
+                                                    <a href="/Export/Reports/ForwarderSOACBMWise" class="list-group-item child_sidebar tabLink">Forwarder SOA CBM Wise</a>
+                                                    <a href="/Export/Reports/ForwarderSOABoxWise" class="list-group-item child_sidebar tabLink">Forwarder SOA BOX Wise</a>
+                                                    <a href="/Export/Reports/OutstandingAmount" class="list-group-item child_sidebar tabLink">Outstanding Amount</a>
+                                                    <a href="/Export/Reports/SoaApllOtherThenPIFFAReport" class="list-group-item child_sidebar tabLink">APLL OTHER THEN PIFFA</a>
+                                                    <a href="/Export/Reports/SOADSVOtherThenPIFFA" class="list-group-item child_sidebar tabLink">DSV OTHER THEN PIFFA</a>
+                                                    <a href="/Export/Reports/SoaEflOtherThenPIFFA" class="list-group-item child_sidebar tabLink">EFL OTHER THEN PIFFA</a>
+                                                    <a href="/Export/Reports/GlobelLinkForAllPIFFASOASReport" class="list-group-item child_sidebar tabLink">GLOBELINK FOR ALL PIFFA</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <a href="#demo310" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu2">Import Reports <i class="fa fa-caret-down"></i></a>
+                                        <div class="collapse child-item" id="demo310">
+                                            <a href="#SubMenu4" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu4">CFS Reports <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse list-group-submenu" id="SubMenu4">
+                                                <a href="/import/Reports/PendingCFSContainersReport" class="list-group-item child_sidebar tabLink">Pending Containers</a>
+                                                <a href="/import/Reports/AgingReportCFS" class="list-group-item child_sidebar tabLink">Aging Report</a>
+                                                <a href="/import/Reports/DeliveryOrderReportCFSContainer" class="list-group-item child_sidebar tabLink"> CFS Delivery Report</a>
+                                                <a href="/import/Reports/DeliveryOrderReportCFSContainerWeightWise" class="list-group-item child_sidebar tabLink"> CFS Delivery Report Weight Wise</a>
+                                                <a href="/import/Reports/CFSReleasedContainers" class="list-group-item child_sidebar tabLink">Released Containers</a>
+                                                <a href="/import/Reports/TellySheetReport" class="list-group-item child_sidebar tabLink">Telly Sheet</a>
+                                                <a href="/import/Reports/EmptyContainerGateOutReport" class="list-group-item child_sidebar tabLink">Empty Delivery Container</a>
+                                                <a href="/import/Reports/ExaminationMarkESContainerCFS" class="list-group-item child_sidebar tabLink">Examination Mark ES Container CFS</a>
+                                            </div>
+
+                                            <a href="#SubMenu5" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu5"> CY Reports <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse list-group-submenu" id="SubMenu5">
+                                                <a href="/import/Reports/AgingReportCY" class="list-group-item child_sidebar tabLink">Aging</a>
+                                                <a href="/import/Reports/CYDeliveryReport" class="list-group-item child_sidebar tabLink">CY Delivery Report</a>
+                                                <a href="/import/Reports/DeliveryOrderReportCYContainer" class="list-group-item child_sidebar tabLink">CY Delivery Report  With Qty</a>
+                                                <a href="/import/Reports/ExaminationMarkESCYContainer" class="list-group-item child_sidebar tabLink">ES Mark</a>
+                                                <a href="/import/Reports/ExaminationMarkCYContainer" class="list-group-item child_sidebar tabLink">Examination Mark</a>
+                                                <a href="/import/Reports/ExaminationCompleteContainerCY" class="list-group-item child_sidebar tabLink">Examination Complete</a>
+                                                <a href="/import/Reports/GroundingContainerCY" class="list-group-item child_sidebar tabLink">Grounding Container</a>
+                                                <a href="/import/Reports/InventoryCyContainerReport" class="list-group-item child_sidebar tabLink">Inventory Report</a>
+                                                <a href="/import/Reports/CYReleasedContainers" class="list-group-item child_sidebar tabLink">Released Containers</a>
+                                                <a href="/import/Reports/WeighmentCyContainerReport" class="list-group-item child_sidebar tabLink">Weighment</a>
+                                            </div>
+
+                                            <a href="#SubMenu6" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#SubMenu6"> CFS/CY Reports <i class="fa fa-caret-down"></i></a>
+                                            <div class="collapse list-group-submenu" id="SubMenu6">
+                                                <a href="/import/Reports/AlongsideReport" class="list-group-item child_sidebar tabLink">Along Side</a>
+                                                <a href="/import/Reports/AlongSideLocationWise" class="list-group-item child_sidebar tabLink">Along Side Location Wise</a>
+                                                <a href="/import/Reports/AuctionReport" class="list-group-item child_sidebar tabLink">Auction Report</a>
+                                                <a href="/import/Reports/CargoAgingReportCFSAndCY" class="list-group-item child_sidebar tabLink">Cargo Aging</a>
+                                                <a href="/import/Reports/ContainerReceiveDuringThePeriod" class="list-group-item child_sidebar tabLink">Container Receive During Period</a>
+                                                <a href="/import/Reports/DeStuffingReport" class="list-group-item child_sidebar tabLink">De Stuffing</a>
+                                                <a href="/import/Reports/DeStuffingContainerWise" class="list-group-item child_sidebar tabLink">De Stuffing Date Wise</a>
+                                                <a href="/import/Reports/DestuffContainerShippingAgentWise" class="list-group-item child_sidebar tabLink">De Stuff Container Agent Wise</a>
+                                                <a href="/import/Reports/EmptyOutReport" class="list-group-item child_sidebar tabLink">Empty Out</a>
+                                                <a href="/import/Reports/ContainerAvailableToYard" class="list-group-item child_sidebar tabLink">Empty Container Available At Yard</a>
+                                                <a href="/import/Reports/GateInContainerByDate" class="list-group-item child_sidebar tabLink">Gate In Container By Date</a>
+                                                <a href="/import/Reports/GateInContainerShippingAgentWise" class="list-group-item child_sidebar tabLink">Gate In Container Agent Wise</a>
+                                                <a href="/import/Reports/GateInWeighmentContainerReport" class="list-group-item child_sidebar tabLink">Gate In Weighment Report</a>
+                                                <a href="/import/Reports/MessageLog" class="list-group-item child_sidebar tabLink">Message Log</a>
+                                                <a href="/import/Reports/ContainerInformationReport" class="list-group-item child_sidebar tabLink">Container Activity</a>
+                                            </div>
+                                            @*<a href="/import/CargoInformation/Section79ContainersCFS" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu2"> Section 79 Containers CFS</a>
+                                                <a href="/import/reports/ListofOutGoingContainer" class="list-group-item sidebar-menu tabLink" data-parent="#MainMenu2">  Out Going Containers</a>*@
+
+
+                                        </div>
+
+
+                                        <a href="#demo211" class="list-group-item sidebar-menu" data-toggle="collapse" data-parent="#MainMenu3">Exort Reports <i class="fa fa-caret-down"></i></a>
+                                        <div class="collapse child-item" id="demo211">
+                                            <a href="/Export/Reports/AnfCargoCheckList" class="list-group-item child_sidebar tabLink">ANF Cargo Check List</a>
+                                            <a href="/Export/Reports/AnfReport" class="list-group-item child_sidebar tabLink">ANF Report</a>
+                                            <a href="/Export/Reports/CargoAlongsideReport" class="list-group-item child_sidebar tabLink">Cargo Along side position</a>
+                                            <a href="/Export/Reports/CargoAlongsideReportBaywise" class="list-group-item child_sidebar tabLink">Cargo Along side position Baywest</a>
+                                            <a href="/Export/Reports/CargoMEasurementCertificate" class="list-group-item child_sidebar tabLink">Cargo Measurement Certificate</a>
+                                            <a href="/Export/Reports/ExportAdvice" class="list-group-item child_sidebar tabLink">Export Advice</a>
+                                            <a href="/Export/Reports/KerryExport" class="list-group-item child_sidebar tabLink">Daily CFS Report</a>
+                                            <a href="/Export/Reports/DailyDSRReport" class="list-group-item child_sidebar tabLink">Daily DSR</a>
+                                            <a href="/Export/Reports/ExportGatePasses" class="list-group-item child_sidebar tabLink">Export Gate Pass</a>
+                                            <a href="/Export/Reports/ExportFinalReport" class="list-group-item child_sidebar tabLink">Export Final Stuffing</a>
+                                            <a href="/Export/Reports/ExportDailyCFSReport" class="list-group-item child_sidebar tabLink">Export Daily CFS</a>
+                                            <a href="/Export/Reports/SummaryofStuffing" class="list-group-item child_sidebar tabLink">Summary of Stuffing</a>
+                                            <a href="/Export/Reports/TerminalReceipt" class="list-group-item child_sidebar tabLink">Generate Terminal Receipt</a>
+                                            <a href="/Export/Reports/ListofExportFullOrEmptyContainers" class="list-group-item child_sidebar tabLink">Full/Empty Container</a>
+                                            <a href="/Export/Reports/ListofExportFullLCLCargoStuffedcontainer" class="list-group-item child_sidebar tabLink">Full/Empty Cargo Stuffed</a>
+                                            <a href="/Export/Reports/StatementShowingExportPosition" class="list-group-item child_sidebar tabLink"> Statement Showing Export Position</a>
+                                            <a href="/Export/Reports/ExportTellySheetSec" class="list-group-item child_sidebar tabLink"> Export  Stuffing Tally Sheet</a>
+                                            <a href="/Export/Reports/CargoReceivedStockAlongSidePosition" class="list-group-item child_sidebar tabLink">Cargo Received Stock Along Side Position</a>
+                                            <a href="/Export/Reports/TerminalReceiptSec" class="list-group-item child_sidebar tabLink">Terminal Receipt</a>
+                                            <a href="/Export/Reports/EmptyReceving" class="list-group-item child_sidebar tabLink">Empty Receving</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </div>

@@ -1,0 +1,135 @@
+﻿
+@{
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+}
+<style>
+    #gridlist {
+        max-height: 750px;
+    }
+</style>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+<script src="~/js/app.js/AictBillingSettleUnSettleInvoicesView.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Aict Billing To Line</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="PercentForAictBillingToLineForm">
+
+                        <div class="row">
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Line:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentId", ShippingAgent, "Select Shipping Agent ", new { @class = "form-control select2", @id = "shippingAgentId" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            From:
+                                        </label>
+                                        <div class="col-md-9 col-xs-12">
+                                            <input type="text" class="form-control has-feedback-left" id="single_cal2" name="todate" aria-describedby="inputSuccess2Status2">
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                            <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            To:
+                                        </label>
+                                        <div class="col-md-9 col-xs-12">
+                                            <input type="text" class="form-control has-feedback-left" id="single_cal3" name="fromdate" aria-describedby="inputSuccess2Status2">
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                            <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        For
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form form-control" id="nature">
+                                            <option value="Settle">Settle</option>
+                                            <option value="UnSettle">Un Settle</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button class="btn btn-primary" style="float:right;" onclick="Finddetail()" type="button" id="btnSubmit">Find</button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </form>
+
+                    <br />
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+
+
+                                    <div class="row">
+                                        <div id="gridlist"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>
+

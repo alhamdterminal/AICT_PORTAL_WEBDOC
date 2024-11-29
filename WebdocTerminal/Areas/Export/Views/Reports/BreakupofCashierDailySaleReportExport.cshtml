@@ -1,0 +1,98 @@
+﻿@{
+
+    var party = (IEnumerable<SelectListItem>)ViewData["party"];
+
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+<script src="~/js/app.js/BreakupofCashierDailySaleReportExport.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Export Breakup of Cashier Daily Sale Report
+            </h3>
+        </div>
+        <div class="title_right">
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content" id="">
+
+
+                                <div class="row">
+
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+
+                                        <label class="control-label  col-md-2 col-xs-12" for="party">
+                                            FF <span class="required">*</span>
+                                        </label>
+
+                                        <div class="col-md-10 col-xs-12">
+                                            @Html.DropDownList("party", party, "Select Party", new { @class = "form-control select2", @disabled = true, @id = "party" })
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-9">
+
+                                        @{Html.RenderPartial("_DateFilter"); }
+
+                                    </div>
+                                    
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>
+
+

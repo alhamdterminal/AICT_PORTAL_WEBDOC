@@ -1,0 +1,63 @@
+﻿
+
+<script src="~/js/app.js/WaiverView.js"></script>
+
+
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Waiver Info</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <button type="button" class="btn btn-warning" onclick="BalancetoZero()" style="float: right;">100 % Zero</button>
+
+                    <div id="WaiverTariffgrid">
+
+
+                    </div>
+
+                    <div class="row">
+                        @*<div class="col-md-12 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-6 col-sm-4 col-xs-12" for="cnic">
+                                    Storage Total:
+                                </label>
+                                <div class="col-md-6 col-sm-8 col-xs-12">
+                                    <input type="number" class="form-control" name="StorageAmount" id="storageAmount" style="text-align: right;">
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="col-md-12 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-6 col-sm-4 col-xs-12" for="cnic">
+                                    Remarks:
+                                </label>
+                                <div class="col-md-6 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control"  id="remarks" style="text-align: right;">
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="saveWaiverInfo()">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 

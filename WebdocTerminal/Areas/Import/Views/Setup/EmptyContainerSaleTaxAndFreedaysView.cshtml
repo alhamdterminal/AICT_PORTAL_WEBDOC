@@ -1,0 +1,81 @@
+﻿@{
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+}
+<script src="~/js/app.js/EmptyContainerSaleTaxAndFreedaysView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Empty container Sales Tax And Free Days</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left" novalidate="">
+                        <div class="row">
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Shipping Agent
+                                    </label>
+                                    <div class="col-md-8">
+                                        @Html.DropDownList("ShippingAgentId", ShippingAgent, "Select Shipping Agent ", new { @class = "form-control select2", @id = "shippingAgentid" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Sales Tax
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" id="salesTax" name="SalesTax">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Free Days
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" id="freeDays" name="FreeDays">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class=" form-group">
+                                    <button type="button" onclick="UpdateRate()" class="btn btn-success" style="float:right">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

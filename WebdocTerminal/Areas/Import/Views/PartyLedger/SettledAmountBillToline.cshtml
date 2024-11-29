@@ -1,0 +1,104 @@
+﻿@*@{ 
+    var partys = (IEnumerable<SelectListItem>)ViewData["partys"];
+     
+
+}*@
+
+<style>
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+<script src="~/js/app.js/SettledAmountBillToline.js"></script>
+
+<div class="right_col" role="main">
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Settel Amount</h3>
+                    </div>
+
+                    <div class="title_right">
+
+                    </div>
+                </div>
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left">
+
+                        <div class="form-horizontal form-label-left row">
+
+                            @*<div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="form-group">
+                <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                    Party <span class="required">*</span>
+                </label>
+                <div class="col-md-8 col-xs-12">
+                    @Html.DropDownList("PartyId", partys, "Select Party", new { @class = "form-control select2", @id = "party", @required = "required", @onchange = "onChangeParty()" })
+
+                </div>
+            </div>
+        </div>*@
+
+                            <div class="col-md-4 col-sm-4 col-xs-12" id="consigneecolm">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Party:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div id="searchBoxForConsigne"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="unsettledparty"></div>
+                        <div class="ln_solid"></div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button type="submit" id="btnCancel" class="btn btn-primary" style="float:right;">Cancel</button>
+                                <button type="button" id="btnSubmit" onclick="submitAmountReceived()" class="btn btn-success" style="float:right;">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+</div>
+
+
+
+
+<script>
+    $('.select2').select2();
+</script>

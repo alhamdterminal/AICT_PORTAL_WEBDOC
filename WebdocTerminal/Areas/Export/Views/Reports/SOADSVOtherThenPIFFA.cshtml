@@ -1,0 +1,180 @@
+﻿
+@{
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+<script src="~/js/app.js/SOADSVOtherThenPIFFA.js"></script>
+
+<div class="right_col" role="main">
+    <div class="x_panel">
+
+        <h3>
+            SOA DSV  OTHER THEN PIFFA
+        </h3>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="x_panel">
+        <div class="row">
+            @{Html.RenderPartial("_VesselVoyageSelection");}
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                            Agent:
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            @Html.DropDownList("ShippingAgent", ShippingAgent, "Select Agent", new { @class = "form-control select2", @id = "shippingAgent", required = "required" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Year:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="year" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Month:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" id="month">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Share of Bay West 20’
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="number" class="form-control" id="share20">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Share of Bay West 40’
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="number" class="form-control" id="share40">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                From:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="date" class="form-control" id="fromdate">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                To:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="date" class="form-control" id="todate">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                            Tax
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="number" class="form-control" id="tax" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-xs-12">
+                    <button type="button" class="btn btn-dark mobBtn" onclick="myFunction()" style="float:right">Submit</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+    $('.select2').select2();
+</script>

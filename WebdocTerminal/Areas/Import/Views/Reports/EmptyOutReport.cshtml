@@ -1,0 +1,71 @@
+﻿
+@{
+    var agents = (IEnumerable<SelectListItem>)ViewData["Agents"];
+    //var Transporter = (IEnumerable<SelectListItem>)ViewData["Transporter"];
+}
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/EmptyOutReport.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Empty Out Report
+            </h3>
+        </div>
+
+
+
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                                    Transporter
+                                </label>
+                                <div class="col-md-8 col-xs-12">
+                                    @Html.DropDownList("TransporterName", agents, "Select Transporter", new { @class = "form-control select2", @id = "TransporterId", required = "required" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+
+                            @{Html.RenderPartial("_DateFilter"); }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

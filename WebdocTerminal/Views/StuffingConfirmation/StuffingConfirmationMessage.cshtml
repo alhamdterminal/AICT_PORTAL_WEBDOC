@@ -1,0 +1,69 @@
+﻿<script src="~/js/app.js/StuffingConfirmationMessage.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Stuffing Confirmation Message
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <div class="form-horizontal form-label-left row">
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Container-Number: <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @*@(Html.DevExtreme()
+                                    .Autocomplete()
+                                    .ID("ContainerNumber")
+                                    .DataSource(d => d.Mvc()
+                                    .Controller("APICalls")
+                                    .Area("")
+                                    .LoadAction("GetTPContainers"))
+                                    .Placeholder("Type Container Number...")
+                                    .OnValueChanged("containerNumber_changed"))*@
+                                    @(Html.DevExtreme()
+                                            .SelectBox()
+                                            .ID("ContainerNumber") 
+                                            .AcceptCustomValue(true)
+                                            .SearchEnabled(true)
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .Area("")
+                                            .LoadAction("GetTPContainers"))
+                                            .Placeholder("Type Container Number ...")
+                                            .OnSelectionChanged("containerNumber_changed"))
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                 
+
+                    <div id="gateinContainer"></div>
+                    <div class="ln_solid"></div>
+                    <div class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn btn-primary" style="float:right;" type="button" id="btnSubmit" onclick="saveSCMO()" disabled>Save & create EDI</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

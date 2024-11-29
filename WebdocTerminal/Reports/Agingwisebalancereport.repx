@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Agingwisebalancereport" Landscape="true" Margins="5, 4, 0, 54" PaperKind="A4" PageWidth="1169" PageHeight="827" Version="19.1" DataMember="Sp_GetAgaingReportFinal" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" ValueInfo="1/1/2023" Name="date" />
+    <Item2 Ref="5" Visible="false" ValueInfo="49" Name="companyid" Type="#Ref-4" />
+    <Item3 Ref="6" Visible="false" ValueInfo="946" AllowNull="true" Name="customerid" Type="#Ref-4" />
+    <Item4 Ref="7" Visible="false" AllowNull="true" Name="path" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="8" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="0" />
+    <Item2 Ref="9" ControlType="DetailBand" Name="detailBand1" HeightF="0" />
+    <Item3 Ref="10" ControlType="BottomMarginBand" Name="bottomMarginBand1" HeightF="54.4860268" />
+    <Item4 Ref="11" ControlType="PageHeaderBand" Name="PageHeader" HeightF="108.457947">
+      <Controls>
+        <Item1 Ref="12" ControlType="XRLabel" Name="label3" Multiline="true" Text="Print date" SizeF="128.141113,15.5000076" LocationFloat="1026.52576, 24.9999962" Font="Arial, 7.8pt, charSet=0" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="13" Expression="LocalDateTimeNow()" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="14" UseFont="false" />
+        </Item1>
+        <Item2 Ref="15" ControlType="XRPageInfo" Name="pageInfo1" SizeF="46.6665649,13.83334" LocationFloat="1103.3335, 3" Font="Arial, 7.8pt, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="16" UseFont="false" />
+        </Item2>
+        <Item3 Ref="17" ControlType="XRLabel" Name="label4" Multiline="true" Text="Page:" SizeF="39.166626,15.5000038" LocationFloat="1064.16687, 3" Font="Arial, 7.8pt, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="18" UseFont="false" />
+        </Item3>
+        <Item4 Ref="19" ControlType="XRLabel" Name="label1" Multiline="true" Text="Cheque Printing Logs:" TextAlignment="TopLeft" SizeF="222.083282,24.1249847" LocationFloat="0, 46.48754" Font="Arial, 10.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="20" Expression="?date" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="21" UseFont="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="22" ControlType="XRLabel" Name="label2" Multiline="true" Text="OUTSTANDING DEBITORS:" TextAlignment="TopLeft" SizeF="222.083282,24.1249847" LocationFloat="0, 22.3625546" Font="Arial, 12pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="23" UseFont="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="24" ControlType="XRTable" Name="table1" TextAlignment="MiddleCenter" SizeF="1160,34.3457947" LocationFloat="0, 74.11215" Font="Arial, 7.8pt, style=Bold, charSet=0" Borders="All">
+          <Rows>
+            <Item1 Ref="25" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+              <Cells>
+                <Item1 Ref="26" ControlType="XRTableCell" Name="tableCell1" Weight="0.78378668688192554" Multiline="true" Text="Code" Padding="2,2,0,0,100" />
+                <Item2 Ref="27" ControlType="XRTableCell" Name="tableCell3" Weight="2.9026093335286691" Multiline="true" Text="PartyName" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                  <StylePriority Ref="28" UseTextAlignment="false" />
+                </Item2>
+                <Item3 Ref="29" ControlType="XRTableCell" Name="tableCell5" Weight="2.9300726636626013" Multiline="true" Text="Balance" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                  <StylePriority Ref="30" UsePadding="false" UseTextAlignment="false" />
+                </Item3>
+                <Item4 Ref="31" ControlType="XRTableCell" Name="tableCell25" Weight="1.5441488097634144" Multiline="true" Text="1 - 30 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                  <StylePriority Ref="32" UsePadding="false" UseTextAlignment="false" />
+                </Item4>
+                <Item5 Ref="33" ControlType="XRTableCell" Name="tableCell2" Weight="1.40256633651434" Multiline="true" Text="31 - 60 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                  <StylePriority Ref="34" UsePadding="false" UseTextAlignment="false" />
+                </Item5>
+                <Item6 Ref="35" ControlType="XRTableCell" Name="tableCell4" Weight="1.3332428030489238" Multiline="true" Text="61 - 90 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                  <StylePriority Ref="36" UsePadding="false" UseTextAlignment="false" />
+                </Item6>
+                <Item7 Ref="37" ControlType="XRTableCell" Name="tableCell6" Weight="1.1623392865037974" Multiline="true" Text="91 - 120 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                  <StylePriority Ref="38" UsePadding="false" UseTextAlignment="false" />
+                </Item7>
+                <Item8 Ref="39" ControlType="XRTableCell" Name="tableCell7" Weight="1.1623392865037974" Multiline="true" Text="121 - 150 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                  <StylePriority Ref="40" UsePadding="false" UseTextAlignment="false" />
+                </Item8>
+                <Item9 Ref="41" ControlType="XRTableCell" Name="tableCell8" Weight="1.321586684382704" Multiline="true" Text="151 and above" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                  <StylePriority Ref="42" UsePadding="false" UseTextAlignment="false" />
+                </Item9>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="43" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item6>
+      </Controls>
+    </Item4>
+    <Item5 Ref="44" ControlType="DetailReportBand" Name="DetailReport" Level="0" DataMember="Sp_GetAgaingReportFinal" DataSource="#Ref-0">
+      <Bands>
+        <Item1 Ref="45" ControlType="DetailBand" Name="Detail" HeightF="34.3457947">
+          <Controls>
+            <Item1 Ref="46" ControlType="XRTable" Name="table2" TextAlignment="MiddleCenter" SizeF="1160,34.3457947" LocationFloat="0, 0" Font="Arial Narrow, 7.8pt, charSet=0" Borders="All">
+              <Rows>
+                <Item1 Ref="47" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+                  <Cells>
+                    <Item1 Ref="48" ControlType="XRTableCell" Name="tableCell9" Weight="0.78378668688192554" Multiline="true" Text="Code" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="49" Expression="[acc_code]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item1>
+                    <Item2 Ref="50" ControlType="XRTableCell" Name="tableCell10" Weight="2.9026093335286691" Multiline="true" Text="PartyName" TextAlignment="MiddleCenter" Font="Arial, 7.8pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="51" Expression="[acc_name]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="52" UseFont="false" UseTextAlignment="false" />
+                    </Item2>
+                    <Item3 Ref="53" ControlType="XRTableCell" Name="tableCell11" Weight="2.9300726636626013" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="Balance" TextAlignment="MiddleCenter" Font="Arial Narrow, 7.8pt, style=Underline, charSet=0" ForeColor="Blue" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="54" Expression="[balance]" PropertyName="Text" EventName="BeforePrint" />
+                        <Item2 Ref="55" Expression="?path+'/Account/Reports/BalanceDetail?customerid='+?customerid+ '&amp;' + 'date=' + ?date" PropertyName="NavigateUrl" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="56" UseFont="false" UseForeColor="false" UsePadding="false" UseTextAlignment="false" />
+                    </Item3>
+                    <Item4 Ref="57" ControlType="XRTableCell" Name="tableCell12" Weight="1.5441488097634144" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="1 - 30 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="58" Expression="[amt_age1]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="59" UsePadding="false" UseTextAlignment="false" />
+                    </Item4>
+                    <Item5 Ref="60" ControlType="XRTableCell" Name="tableCell13" Weight="1.40256633651434" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="31 - 60 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="61" Expression="[amt_age2]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="62" UsePadding="false" UseTextAlignment="false" />
+                    </Item5>
+                    <Item6 Ref="63" ControlType="XRTableCell" Name="tableCell14" Weight="1.3332428030489238" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="61 - 90 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="64" Expression="[amt_age3]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="65" UsePadding="false" UseTextAlignment="false" />
+                    </Item6>
+                    <Item7 Ref="66" ControlType="XRTableCell" Name="tableCell15" Weight="1.1623392865037974" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="91 - 120 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="67" Expression="[amt_age4]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="68" UsePadding="false" UseTextAlignment="false" />
+                    </Item7>
+                    <Item8 Ref="69" ControlType="XRTableCell" Name="tableCell16" Weight="1.1623392865037974" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="121 - 150 Days" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="70" Expression="[amt_age5]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="71" UsePadding="false" UseTextAlignment="false" />
+                    </Item8>
+                    <Item9 Ref="72" ControlType="XRTableCell" Name="tableCell17" Weight="1.321586684382704" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="151 and above" TextAlignment="MiddleCenter" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="73" Expression="[amt_age6]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="74" UsePadding="false" UseTextAlignment="false" />
+                    </Item9>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="75" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item1>
+        <Item2 Ref="76" ControlType="ReportFooterBand" Name="ReportFooter" HeightF="43.0373726">
+          <Controls>
+            <Item1 Ref="77" ControlType="XRTable" Name="table3" TextAlignment="MiddleCenter" SizeF="1160,43.0373726" LocationFloat="0, 0" Font="Arial Narrow, 7.8pt, charSet=0" Borders="All">
+              <Rows>
+                <Item1 Ref="78" ControlType="XRTableRow" Name="tableRow3" Weight="1">
+                  <Cells>
+                    <Item1 Ref="79" ControlType="XRTableCell" Name="tableCell18" Weight="0.78378668688192554" Multiline="true" Padding="2,2,0,0,100" />
+                    <Item2 Ref="80" ControlType="XRTableCell" Name="tableCell19" Weight="2.9026093335286691" Multiline="true" TextAlignment="MiddleCenter" Font="Arial, 7.8pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <StylePriority Ref="81" UseFont="false" UseTextAlignment="false" />
+                    </Item2>
+                    <Item3 Ref="82" ControlType="XRTableCell" Name="tableCell20" Weight="2.9300726636626013" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" TextAlignment="MiddleCenter" Font="Arial, 10.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="83" Expression="Sum([balance])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="84" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+                    </Item3>
+                    <Item4 Ref="85" ControlType="XRTableCell" Name="tableCell21" Weight="1.5441488097634144" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="1 - 30 Days" TextAlignment="MiddleCenter" Font="Arial, 10.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="86" Expression="Sum([amt_age1])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="87" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+                    </Item4>
+                    <Item5 Ref="88" ControlType="XRTableCell" Name="tableCell22" Weight="1.40256633651434" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="31 - 60 Days" TextAlignment="MiddleCenter" Font="Arial, 10.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="89" Expression="Sum([amt_age2])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="90" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+                    </Item5>
+                    <Item6 Ref="91" ControlType="XRTableCell" Name="tableCell23" Weight="1.3332428030489238" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="61 - 90 Days" TextAlignment="MiddleCenter" Font="Arial, 10.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="92" Expression="Sum([amt_age3])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="93" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+                    </Item6>
+                    <Item7 Ref="94" ControlType="XRTableCell" Name="tableCell24" Weight="1.1623392865037974" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="91 - 120 Days" TextAlignment="MiddleCenter" Font="Arial, 10.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="95" Expression="sum([amt_age4])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="96" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+                    </Item7>
+                    <Item8 Ref="97" ControlType="XRTableCell" Name="tableCell26" Weight="1.1623392865037974" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="121 - 150 Days" TextAlignment="MiddleCenter" Font="Arial, 10.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="98" Expression="Sum([amt_age5])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="99" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+                    </Item8>
+                    <Item9 Ref="100" ControlType="XRTableCell" Name="tableCell27" Weight="1.321586684382704" TextFormatString="{0:#,#}" Multiline="true" NullValueText="0" Text="151 and above" TextAlignment="MiddleCenter" Font="Arial, 10.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="101" Expression="Sum([amt_age6])" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="102" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+                    </Item9>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="103" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item2>
+      </Bands>
+    </Item5>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IlNwX0dldEFnYWluZ1JlcG9ydEZpbmFsIj48UGFyYW1ldGVyIE5hbWU9IkBkYXRlIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP2RhdGUpPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAQ29tcGFueUlEIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5JbnQzMiwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/Y29tcGFueWlkKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQEN1c3RvbWVySWQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDMyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9jdXN0b21lcmlkKTwvUGFyYW1ldGVyPjxQcm9jTmFtZT5TcF9HZXRBZ2FpbmdSZXBvcnRGaW5hbDwvUHJvY05hbWU+PC9RdWVyeT48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9InNxbERhdGFTb3VyY2UxIj48VmlldyBOYW1lPSJTcF9HZXRBZ2FpbmdSZXBvcnRGaW5hbCI+PEZpZWxkIE5hbWU9ImFjY19jb2RlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImFjY19uYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImdycF9uYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImJhbGFuY2UiIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IkNvbXBhbnkiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iYW10X2FnZTEiIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9ImFtdF9hZ2UyIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJhbXRfYWdlMyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iYW10X2FnZTQiIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9ImFtdF9hZ2U1IiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJhbXRfYWdlNiIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iZGlmZiIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0ibG93ZXJfbGltaXQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJyYV9lbmRfZGF0ZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9Im5hbWUxIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Im5hbWUyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Im5hbWUzIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Im5hbWU0IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Im5hbWU1IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Im5hbWU2IiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD48L1Jlc3VsdFNjaGVtYT48Q29ubmVjdGlvbk9wdGlvbnMgQ2xvc2VDb25uZWN0aW9uPSJ0cnVlIiAvPjwvU3FsRGF0YVNvdXJjZT4=" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v19.1" Ref="4" Content="System.Int64" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

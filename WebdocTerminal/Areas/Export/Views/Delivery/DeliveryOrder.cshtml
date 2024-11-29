@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewData["Title"] = "Delivery Order";
+
+    var GDNumbers = (IEnumerable<SelectListItem>)ViewData["GDNumbers"];
+}
+
+<style>
+    .form-horizontal .control-label {
+        padding-top: 0;
+        text-align: left;
+    }
+</style>
+
+<script src="~/js/app.js/DeliveryOrder.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Delivery Order</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <div class="form-horizontal form-label-left" id="DelivryorderForm">
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*@(Html.DevExtreme()
+                                            .Autocomplete()
+                                            .ID("GDNumber")
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .Area("")
+                                            .LoadAction("GetUnAssignGDNumbersForDO"))
+                                            .Placeholder("Type GDNumber...")
+                                            .OnValueChanged("GetDeliveryOrderDisplayInfo"))*@
+
+                                        @Html.DropDownList("GDNumber", GDNumbers, "Select GD Number", new { @class = "form-control select2", @id = "gdnumbers", @onchange = "GetDeliveryOrderDisplayInfo(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="ln_solid"></div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Dray-Off Status:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="status"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        GD Date:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="gd-date"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Invoice No:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="invoice-no"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Clearing Agent:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="clearing-agent"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Challan Number:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="challan-number"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Shipper:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="shipper"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        No of Packages:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="packages"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Commodity:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="commodity" style="display: table-caption"></span>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Agent Representative:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="agent-representative"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Agent Representative CNIC:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <span id="representative-cnic"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Cargo Code:
+                                    </label>
+
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input name="EnteringCargoId" type="text" id="cargocode" class="form-control" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="ln_solid"></div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Remarks:
+                                    </label>
+
+                                    <textarea id="remarks" name="remarks" rows="5" cols="100" style="width: 100%;"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <a href="/Export/Delivery/GatePass" id="gatepassBtn" class="btn btn-primary" style="display:none;float:right;">Gate Pass</a>
+                                <button id="btnSubmit" type="button" onclick="submit()" class="btn btn-success" style="float:right;">Submit</button>
+                                <a id="reportBtn" class="btn btn-success" onclick="routeTodeliveryOrderReport()" style="display:none;float:right;">Print</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>
+

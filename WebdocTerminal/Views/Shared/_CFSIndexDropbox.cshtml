@@ -1,0 +1,54 @@
+﻿@model IEnumerable<IndexDropdownViewModel>
+
+    <script>
+        $(document).ready(function () {
+            $('.fav_clr').select2({
+                placeholder: ' please select indexs ',
+                width: '100%',
+                border: '1px solid #e4e5e7',
+            });
+        });
+
+
+
+        $("#select_all").change(function () {
+
+
+            var status = this.checked;
+
+            console.log("status", status)
+
+            //$('#containerIndexCYdb option').prop('selected', status);
+            if (status == true) {
+                $(".fav_clr > option").prop("selected", "selected");
+                $(".fav_clr").trigger("change");
+            } else {
+                $(".fav_clr > option").prop("selected", false);
+                $(".fav_clr").trigger("change");
+            }
+
+
+        });
+
+    </script>
+
+    @*<select class="form-control select2" multiple required="required" name="ContainerIndexId" id="indexdb">*@
+    <select class="form-control fav_clr" multiple required="required" id="indexdb">
+        @foreach (var item in Model)
+        {
+            <option value="@item.ContainerIndexId">@item.IndexNo</option>
+        }
+    </select>
+
+    <input type="checkbox" id="select_all"> select all
+
+
+
+    @*<script>
+
+        $(function () {
+            $('#indexdb').multiselect();
+
+        });
+        </script>
+    *@

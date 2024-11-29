@@ -1,0 +1,532 @@
+﻿
+<style>
+    input[type=text]:disabled {
+        background: #dddddd;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+<script type="text/javascript" src="~/webcamjs/webcam.min.js"></script>
+
+<script src="~/js/app.js/InvoiceExportView.js"></script>
+
+<style>
+    .custom[role="columnheader"] {
+        font-size: 17px;
+    }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Export Bill</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="invoiceForm">
+                        <div class="row">
+                        </div>
+                        <hr />
+
+                        @*<div class="form-horizontal form-label-left row">
+                                <partial name="_Export_Cargo_Filter" />
+                            </div>*@
+
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        GD#: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @(Html.DevExtreme()
+                                          .Autocomplete()
+                                          .ID("GDNumber")
+                                          .Name("gdnum")
+                                          .DataSource(d => d.Mvc()
+                                          .Controller("APICalls")
+                                          .Area("")
+                                          .LoadAction("GetGDNumbers"))
+                                          .Placeholder("Type GDNumber...")
+                                          .OnValueChanged("gdNumber_changed")
+                                          )
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Clearing Agent *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="clearingAgent" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Weight:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="Weight" name="Weight" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        CBM:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="CBM" name="CBM" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Vessel:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="vessel" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Voyage:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="voyage" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            ETD Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" name="DestuffDate" id="etd" required readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Shipper:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="consignee" name="Consignee" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Gate-In Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" id="gateindate" name="GateInDate" required readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <div class="control-label col-md-5 col-sm-5 col-xs-12" for="name">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="ischeckAdvanceBill" name="IsAdvanceBill" value="true">
+                                                Advance Bill
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input type="date" class="form-control" id="advanceBillDate" name="AdvanceDate" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Shipping Agent
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="shipping_agent" name="ShippingAgent" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Storage Days:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="StorageDays" id="storageDays" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Additional Free Days
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="additionalFreeDays" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Package Type
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control has-feedback-left" id="packageType" readonly required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Number Of Packages
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="numberOfPackages" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Discharge Port
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="dischargePort" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        CNIC *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="CNIC" id="cnic" onkeyup="enterCNICNumebr($(this).val())" required />
+                                        <span class="error" id="cnicerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Agent Rep Name *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="repname" name="ClearingAgentRep" required>
+                                        <span class="error" id="repnameerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        PhoneNumber *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" id="phonenumber" name="PhoneNumber" required>
+                                        <span class="error" id="phoneerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Consignee NTN:
+                                    </label>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <input type="text" class="form-control" id="consigneeNTN" name="ConsigneeNTN" required>
+                                        <span class="error" id="consigneentnerror"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <a class="btn btn-info" onclick="generateBill()" style="float: right;"> Generate Bill</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_content">
+                                        <div id="invoiceNositemsGrid"></div>
+                                        <div class="ln_solid"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div id="tariffGrid">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item form-group">
+
+                                    <label class="control-label col-md-6 col-sm-12 col-xs-12" for="cnic" style="text-align: left;">
+                                        Storage :
+                                    </label>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="StorageTotal" id="storageTotal" required="" style="text-align: right;background-color: #ffffff00;border: #f0f8ff00;box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_content">
+                                        <div class="form-group" id="gridContainer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Waiver Amount:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="WaiverAmount" id="waiverAmount" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Total Charges:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="TotalCharges" id="totalCharges" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Previous Accumulated Amount:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="PreviousBillAmount" id="previousBillAmount" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Balance Amount:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="BalanceAmountTotal" id="balanceAmountTotal" required="">
+                                    </div>
+                                </div>
+
+
+                                <div class="item form-group" style="display:none">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Tariff Amount:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="TariffAmountTotal" id="tariffAmountTotal" required="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="item form-group" style="display:none">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Sales Tax:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="SalesTax" id="salesTax" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Sales Tax:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="AfterSalesTax" id="afterSalesTax" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Grand Total :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" readonly="readonly" name="GrandTotal" id="grandTotal" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="form-group">
+                                    <div id="hidebutton" class="col-md-6 col-md-offset-3" style="display:none">
+                                        <button type="reset" id="btnCancel" class="btn btn-primary" onclick="cancelInvoice()">Cancel</button>
+                                        <button id="btnSubmit" type="button" onclick="submitInvoice()" class="btn btn-success">Submit</button>
+                                        <a id="gtbtn" class="btn btn-success" onclick="routetoBillInvoiceReport()" style="display:none">Print Report</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

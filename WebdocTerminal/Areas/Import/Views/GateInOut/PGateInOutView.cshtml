@@ -1,0 +1,238 @@
+﻿
+<script type="text/javascript" src="~/webcamjs/webcam.min.js"></script>
+
+<script src="~/js/app.js/PGateInOutView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>P Gate In Out</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="PGateInOutForm">
+
+                        <div class="row">
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Visitor CNIC *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="CNIC" id="cnic"  onkeyup="enterCNICNumebr( )" required />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Visitor Phone No *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" id="phonenumber" name="PhoneNumber" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Visitor Name *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="repname" name="Name" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 col-xs-12" id="containertpe">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Visit Reason <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="item form-control" id="visitReason" name="VisitReason" required>
+                                            <option value="" selected disabled>Please Select</option>
+                                            <option value="CSD">CSD</option>
+                                            <option value="OPERATIONS">OPERATIONS</option>
+                                            <option value="TECHNICAL">TECHNICAL</option>
+                                            <option value="HR">HR</option>
+                                            <option value="ADMIN">ADMIN</option>
+                                            <option value="IT">IT</option>
+                                            <option value="FINANCE">FINANCE</option>
+                                            <option value="ED FLOOR">ED FLOOR</option>
+                                            <option value="CFS SHED">CFS SHED</option>
+                                            <option value="CAR YARD">CAR YARD</option>
+                                            <option value="BAGGAGE">BAGGAGE</option>
+                                            <option value="CANTEEN">CANTEEN</option>
+                                            <option value="CCTV & SECURITY">CCTV & SECURITY</option>
+                                            <option value="LABOUR">LABOUR</option>
+                                            <option value="WEBOC">WEBOC</option>
+                                            <option value="SECTION-79">SECTION-79</option>
+                                            <option value="PAKISTAN CUSTOM">PAKISTAN CUSTOM</option>
+                                            <option value="AUCTION">AUCTION</option>
+                                            <option value="OTHERS">OTHERS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-12 col-xs-12" id="containertpe">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Document Retain <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="item form-control" id="documentRetain" name="DocumentRetain" required>
+                                            <option value="" selected disabled>Please Select</option>
+                                            <option value="CNIC">CNIC</option>
+                                            <option value="KCAA">KCAA</option>
+                                            <option value="DRIVING LICENSE">DRIVING LICENSE</option>
+                                            <option value="OTHERS">OTHERS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Visitor Company *:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="VisitorCompany" id="visitorCompany" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            @*<div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Pass Number:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="PassNumber" id="passNumber" />
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Remarks:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="Remarks" id="remarks" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div>
+                                <div class="col-sm-6">
+                                    <div id="captured">
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+
+                                    <button type="button" class="btn btn-sq-lg btn-danger" style="float: right;" onclick="camera()">
+                                        <i class="fa fa-camera fa-5x"></i>
+                                    </button><br>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div id="hidebutton" class="col-md-12">
+
+                                    <button id="btnSubmit" type="button" style="float:right" onclick="SavePGateIn()" class="btn btn-success">Submit</button>
+                                    <button id="btnSubmitold" type="button" style="float:right;" onclick="OldInfoSavePGateIn()" class="btn btn-primary">Old Info Replace</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="Users"></div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <div id="hidebutton" class="col-md-12">
+
+                                <button id="btnSubmitUpdate" type="button" style="float:right" onclick="updatedata()" class="btn btn-success">Mark Out</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--Camera Modal-->
+<div class="modal fade" id="cameraModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Camera</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div id="my_camera">
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="take_snapshot()">Snap</button>
+            </div>
+        </div>
+    </div>
+</div>

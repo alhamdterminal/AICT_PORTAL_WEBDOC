@@ -1,0 +1,155 @@
+﻿@{
+
+    var ServicesSection = (IEnumerable<SelectListItem>)ViewData["ServicesSection"];
+
+    var ServicesType = (IEnumerable<SelectListItem>)ViewData["ServicesType"];
+
+    var NatureOfPayment = (IEnumerable<SelectListItem>)ViewData["NatureOfPayment"];
+
+}
+
+
+<script src="~/js/app.js/ServiceInfo.js"></script>
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Services Info Setup</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="ServicesInfoForm">
+
+
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Natur eOf Payment
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("NatureOfPaymentId", NatureOfPayment, "Select Nature Of Payment", new { @class = "form-control select2", @id = "natureOfPayment", @required = "required" })
+                                        <span class="error" id="natureOfPaymenterror"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Section
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ServicesSectionId", ServicesSection, "Select Services Section", new { @class = "form-control select2", @id = "servicesSection", @required = "required" })
+                                        <span class="error" id="servicesSectionerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Type
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ServicesTypeId", ServicesType, "Select Services Type", new { @class = "form-control select2", @id = "servicesType", @required = "required" })
+                                        <span class="error" id="servicesTypeerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Code
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="servicesInfoCode" name="ServicesInfoCode">
+                                        <span class="error" id="servicesInfoCodeerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Name
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="servicesInfoName" name="ServicesInfoName">
+                                        <span class="error" id="servicesInfoNameerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Rate
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control col-md-7 col-xs-12" id="rate" name="Rate">
+                                        <span class="error" id="rateerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+
+                    </form>
+
+
+
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button type="button" id="btnCancel" class="btn btn-primary" onClick="restform()"   style="float: right" >Cancel</button>
+                            <button id="btnSubmit" type="button" onclick="submitServiceInfo()" class="btn btn-success" style=" float: right;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="form-group" id="gridContainer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

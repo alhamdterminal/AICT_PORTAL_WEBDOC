@@ -1,0 +1,102 @@
+﻿@model List<PermissionsViewModel>
+@{
+    var rights = new List<string> { "Read", "Create", "Update" };
+    var count = 0;
+}
+
+<script>
+
+        $(function () {
+            var count = @Model.Count;
+            for (var i = 0; i < count; i++) {
+                $('#permissions_'+i).multiselect();
+            }
+        })
+
+    function onSubmit() {
+
+        var pms = [];
+        var pages = [];
+        var count = @Model.Count;
+
+        @foreach (var d in Model)
+        {
+            @:page = "@d.PageName".replace("&#xD;&#xA;","");
+            @:pages.push(page);
+    }
+
+        for (var i = 0; i < count; i++) {
+            pms.push({ page: pages[i], permissions: $('#permissions_' + i).find(":selected").text().split(/(?=[A-Z])/) });
+        }
+
+        console.log("role", role)
+        console.log("pms", pms)
+
+        $.post('/Permissions/AddPermissions' , { pms: pms  , role : role  }, function (data) {
+           showToast(data.message, "success");
+        })
+
+    }
+
+    
+        function showToast(message, icon) {
+
+        $.toast({
+            heading: message,
+            showHideTransition: 'slide',
+            position: 'bottom-right',
+            icon: icon
+        });
+    }
+
+     function permissions() {
+
+    }
+</script>
+
+<div class="form-group">
+  @*  <h1>Hello</h1>*@
+    @foreach (var permission in Model)
+    {
+
+        //if (@permission.PageName.ToString().Contains("CFS")   )
+        //{
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @permission.PageName
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <select id="permissions_@count" multiple="multiple" name="Permission">
+                    @foreach (var right in rights)
+                    {
+                        if (permission.Permissions != null && permission.Permissions.Contains(right))
+                        {
+                            <option value="@right" selected>@right</option>
+
+                        }
+                        else
+                        {
+                            <option value="@right">@right</option>
+                        }
+                    }
+
+                </select>
+
+            </div>
+
+            count = count + 1;
+
+        @*  *@}
+
+
+    }
+
+
+</div>
+
+<div class="form-group">
+    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+        <button type="button" id="btnCancel" class="btn btn-primary">Cancel</button>
+
+        <button type="submit" id="btnSubmit" onclick="onSubmit()" class="btn btn-success">Submit</button>
+    </div>
+</div>

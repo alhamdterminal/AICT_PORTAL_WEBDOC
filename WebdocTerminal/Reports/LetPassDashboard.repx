@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="LetPassDashboard" Margins="12, 12, 100, 100" PageWidth="850" PageHeight="1100" Version="19.1" DataSource="#Ref-0">
+  <Bands>
+    <Item1 Ref="2" ControlType="TopMarginBand" Name="topMarginBand1">
+      <Controls>
+        <Item1 Ref="3" ControlType="XRLabel" Name="label18" Multiline="true" Text="Print Date:" TextAlignment="MiddleRight" SizeF="78.80536,17.047617" LocationFloat="658.194946, 7.49998474" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="4" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="5" ControlType="XRLabel" Name="label19" TextFormatString="{0:dd-MMM-yy}" Multiline="true" Text="23-Jan-2019" TextAlignment="MiddleLeft" SizeF="85.61871,17.047617" LocationFloat="739.3813, 7.49998474" Font="Calibri, 12pt" Padding="2,2,0,0,100" Borders="Bottom">
+          <ExpressionBindings>
+            <Item1 Ref="6" Expression="Today()" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="7" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="8" ControlType="XRPictureBox" Name="pictureBox1" ImageAlignment="TopCenter" SizeF="239.583328,80.99998" LocationFloat="0, 10.0000219">
+          <EditOptions Ref="9" Enabled="true" />
+          <ExpressionBindings>
+            <Item1 Ref="10" Expression="?path+'/'+ [Query].[FilePath]" PropertyName="ImageUrl" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item3>
+        <Item4 Ref="11" ControlType="XRLabel" Name="label1" Multiline="true" Text="AICT Let-Pass Dashboard" TextAlignment="TopCenter" SizeF="234.999878,30.4999962" LocationFloat="297.66684, 27.5000248" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="12" UseFont="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="13" ControlType="XRLabel" Name="label3" Multiline="true" TextAlignment="TopRight" SizeF="145.764771,22.9999962" LocationFloat="680.2353, 77" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="14" Expression="[Query].[CompanyEmail]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="15" UseTextAlignment="false" />
+        </Item5>
+      </Controls>
+    </Item1>
+    <Item2 Ref="16" ControlType="DetailBand" Name="detailBand1" HeightF="0" />
+    <Item3 Ref="17" ControlType="BottomMarginBand" Name="bottomMarginBand1" />
+    <Item4 Ref="18" ControlType="DetailReportBand" Name="DetailReport" Level="0" DataMember="LetPassDashboard" DataSource="#Ref-0">
+      <Bands>
+        <Item1 Ref="19" ControlType="DetailBand" Name="Detail" HeightF="25.0000038">
+          <Controls>
+            <Item1 Ref="20" ControlType="XRTable" Name="table1" TextAlignment="MiddleCenter" SizeF="825.999939,25.0000038" LocationFloat="0, 0" Padding="2,2,0,0,96" Borders="All">
+              <Rows>
+                <Item1 Ref="21" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+                  <Cells>
+                    <Item1 Ref="22" ControlType="XRTableCell" Name="tableCell1" Weight="1.7917677207374112" Multiline="true" Text="&#x9;">
+                      <ExpressionBindings>
+                        <Item1 Ref="23" Expression="[LetPassDashboard].[vesselname]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item1>
+                    <Item2 Ref="24" ControlType="XRTableCell" Name="tableCell2" Weight="0.99878873663433532">
+                      <ExpressionBindings>
+                        <Item1 Ref="25" Expression="[LetPassDashboard].[voyage]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item2>
+                    <Item3 Ref="26" ControlType="XRTableCell" Name="tableCell3" Weight="0.97760418945016936" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="27" Expression="[LetPassDashboard].[berthat]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item3>
+                    <Item4 Ref="28" ControlType="XRTableCell" Name="tableCell21" Weight="1.3760413361519359" TextFormatString="{0:dd-MMM-yy}" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="29" Expression="[LetPassDashboard].[berthon]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item4>
+                    <Item5 Ref="30" ControlType="XRTableCell" Name="tableCell22" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="31" Expression="[LetPassDashboard].[Planned_20]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item5>
+                    <Item6 Ref="32" ControlType="XRTableCell" Name="tableCell23" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="33" Expression="[LetPassDashboard].[Planned_40]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item6>
+                    <Item7 Ref="34" ControlType="XRTableCell" Name="tableCell24" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="35" Expression="[LetPassDashboard].[Planned_45]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item7>
+                    <Item8 Ref="36" ControlType="XRTableCell" Name="tableCell25" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="37" Expression="[LetPassDashboard].[Shifted_20]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item8>
+                    <Item9 Ref="38" ControlType="XRTableCell" Name="tableCell26" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="39" Expression="[LetPassDashboard].[Shifted_40]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item9>
+                    <Item10 Ref="40" ControlType="XRTableCell" Name="tableCell27" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="41" Expression="[LetPassDashboard].[Shifted_45]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item10>
+                    <Item11 Ref="42" ControlType="XRTableCell" Name="tableCell28" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="43" Expression="[LetPassDashboard].[Transit_20]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item11>
+                    <Item12 Ref="44" ControlType="XRTableCell" Name="tableCell29" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="45" Expression="[LetPassDashboard].[Transit_40]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item12>
+                    <Item13 Ref="46" ControlType="XRTableCell" Name="tableCell30" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="47" Expression="[LetPassDashboard].[Transit_45]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item13>
+                    <Item14 Ref="48" ControlType="XRTableCell" Name="tableCell31" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="49" Expression="[LetPassDashboard].[Balance_20]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item14>
+                    <Item15 Ref="50" ControlType="XRTableCell" Name="tableCell32" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="51" Expression="[LetPassDashboard].[Balance_40]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item15>
+                    <Item16 Ref="52" ControlType="XRTableCell" Name="tableCell33" Weight="0.86081949889034493" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="53" Expression="[LetPassDashboard].[Balance_45]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item16>
+                    <Item17 Ref="54" ControlType="XRTableCell" Name="tableCell34" Weight="1.5259627741705129" Multiline="true">
+                      <ExpressionBindings>
+                        <Item1 Ref="55" Expression="[LetPassDashboard].[RemainingFreeDays]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item17>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="56" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item1>
+        <Item2 Ref="57" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="50">
+          <Controls>
+            <Item1 Ref="58" ControlType="XRTable" Name="table2" TextAlignment="MiddleCenter" SizeF="826,50" LocationFloat="0, 0" Font="Times New Roman, 9.75pt, style=Bold" BackColor="DeepSkyBlue" Padding="2,2,0,0,96" Borders="All">
+              <Rows>
+                <Item1 Ref="59" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+                  <Cells>
+                    <Item1 Ref="60" ControlType="XRTableCell" Name="tableCell4" Weight="1.7939395419034092" RowSpan="2" Multiline="true" Text="Vessel Name" Borders="All">
+                      <StylePriority Ref="61" UseBorders="false" />
+                    </Item1>
+                    <Item2 Ref="62" ControlType="XRTableCell" Name="tableCell7" Weight="0.99999937115293558" RowSpan="2" Text="Voyage No" />
+                    <Item3 Ref="63" ControlType="XRTableCell" Name="tableCell8" Weight="0.97878851688269408" RowSpan="2" Multiline="true" Text="Port" />
+                    <Item4 Ref="64" ControlType="XRTableCell" Name="tableCell5" Weight="1.3777102291222774" RowSpan="2" Multiline="true" Text="Vessel Date" />
+                    <Item5 Ref="65" ControlType="XRTableCell" Name="tableCell6" Weight="2.58558994177616" Multiline="true" Text="Planned Shifting" />
+                    <Item6 Ref="66" ControlType="XRTableCell" Name="tableCell11" Weight="2.5855896273526273" Multiline="true" Text="Shifted to AICT" />
+                    <Item7 Ref="67" ControlType="XRTableCell" Name="tableCell14" Weight="2.5855869547526042" Multiline="true" Text="In Transit to AICT" />
+                    <Item8 Ref="68" ControlType="XRTableCell" Name="tableCell17" Weight="2.5855900989879261" Multiline="true" Text="Balance Shifting" />
+                    <Item9 Ref="69" ControlType="XRTableCell" Name="tableCell20" Weight="1.527811778675426" RowSpan="2" Multiline="true" Text="Remaining Free Days" />
+                  </Cells>
+                </Item1>
+                <Item2 Ref="70" ControlType="XRTableRow" Name="tableRow4" Weight="1">
+                  <Cells>
+                    <Item1 Ref="71" ControlType="XRTableCell" Name="tableCell9" Weight="1.793939541903409" Multiline="true" Borders="All">
+                      <StylePriority Ref="72" UseBorders="false" />
+                    </Item1>
+                    <Item2 Ref="73" ControlType="XRTableCell" Name="tableCell10" Weight="0.99999937115293547" Multiline="true" Text="No" />
+                    <Item3 Ref="74" ControlType="XRTableCell" Name="tableCell12" Weight="0.9787885168826943" Multiline="true" />
+                    <Item4 Ref="75" ControlType="XRTableCell" Name="tableCell13" Weight="1.3777102291222776" Multiline="true" />
+                    <Item5 Ref="76" ControlType="XRTableCell" Name="tableCell15" Weight="0.86186302570381546" Multiline="true" Text="20'" />
+                    <Item6 Ref="77" ControlType="XRTableCell" Name="tableCell53" Weight="0.86186302570381546" Multiline="true" Text="40'" />
+                    <Item7 Ref="78" ControlType="XRTableCell" Name="tableCell54" Weight="0.86186302570381546" Multiline="true" Text="45'" />
+                    <Item8 Ref="79" ControlType="XRTableCell" Name="tableCell16" Weight="0.86186302570381546" Multiline="true" Text="20'" />
+                    <Item9 Ref="80" ControlType="XRTableCell" Name="tableCell55" Weight="0.86186302570381546" Multiline="true" Text="40'" />
+                    <Item10 Ref="81" ControlType="XRTableCell" Name="tableCell56" Weight="0.86186302570381546" Multiline="true" Text="45'" />
+                    <Item11 Ref="82" ControlType="XRTableCell" Name="tableCell18" Weight="0.86186302570381546" Multiline="true" Text="20'" />
+                    <Item12 Ref="83" ControlType="XRTableCell" Name="tableCell57" Weight="0.86186302570381546" Multiline="true" Text="40'" />
+                    <Item13 Ref="84" ControlType="XRTableCell" Name="tableCell58" Weight="0.86186302570381546" Multiline="true" Text="45'" />
+                    <Item14 Ref="85" ControlType="XRTableCell" Name="tableCell19" Weight="0.86186302570381546" Multiline="true" Text="20'" />
+                    <Item15 Ref="86" ControlType="XRTableCell" Name="tableCell59" Weight="0.86186302570381546" Multiline="true" Text="40'" />
+                    <Item16 Ref="87" ControlType="XRTableCell" Name="tableCell60" Weight="0.86186302570381546" Multiline="true" Text="45'" />
+                    <Item17 Ref="88" ControlType="XRTableCell" Name="tableCell52" Weight="1.5278120930989583" Multiline="true" Text="Free Days" />
+                  </Cells>
+                </Item2>
+              </Rows>
+              <StylePriority Ref="89" UseFont="false" UseBackColor="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item2>
+      </Bands>
+    </Item4>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IkxldFBhc3NEYXNoYm9hcmQiPjxQcm9jTmFtZT5MZXRQYXNzRGFzaGJvYXJkPC9Qcm9jTmFtZT48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkxldFBhc3NEYXNoYm9hcmQiPjxGaWVsZCBOYW1lPSJ2ZXNzZWxuYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InZveWFnZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJiZXJ0aGF0IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImJlcnRob24iIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJUb3RhbF9Cb3hlcyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlBsYW5uZWRfMjAiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJQbGFubmVkXzQwIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iUGxhbm5lZF80NSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlNoaWZ0ZWRfMjAiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJTaGlmdGVkXzQwIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iU2hpZnRlZF80NSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlRyYW5zaXRfMjAiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJUcmFuc2l0XzQwIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iVHJhbnNpdF80NSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkJhbGFuY2VfMjAiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJCYWxhbmNlXzQwIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQmFsYW5jZV80NSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlJlbWFpbmluZ0ZyZWVEYXlzIiBUeXBlPSJJbnQzMiIgLz48L1ZpZXc+PC9EYXRhU2V0PjwvUmVzdWx0U2NoZW1hPjxDb25uZWN0aW9uT3B0aW9ucyBDbG9zZUNvbm5lY3Rpb249InRydWUiIC8+PC9TcWxEYXRhU291cmNlPg==" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

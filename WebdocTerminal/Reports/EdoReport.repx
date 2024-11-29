@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="EdoReport" Margins="8, 6, 125, 100" PageWidth="850" PageHeight="1100" Version="19.1" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" ValueInfo="49" AllowNull="true" Name="CompanyId" Type="#Ref-2" />
+    <Item2 Ref="5" Visible="false" AllowNull="true" Name="path" />
+    <Item3 Ref="7" Visible="false" ValueInfo="6" AllowNull="true" Name="edoid" Type="#Ref-6" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="8" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="125">
+      <Controls>
+        <Item1 Ref="9" ControlType="XRLabel" Name="label1" Multiline="true" Text="Suite # 1201-1202, 12th Floor, Emerald Tower, Plot # G-19, Block-5, Main Clifton Road, Opposite 2&#xD;&#xA;Talwar, Karachi-74000, Pakistan.&#xD;&#xA;Tel: 021-111-372-111,   Fax: 92 213 515 7913, Email: inquiry@dynamicshipping.com" TextAlignment="TopCenter" SizeF="836,53.3750076" LocationFloat="0, 46.6249924" Font="Calibri, 9pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="10" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="11" ControlType="XRLabel" Name="label4" Multiline="true" Text="Dynamic Shipping Agencies (Pvt.) Limited&#xD;&#xA;" TextAlignment="TopCenter" SizeF="836,25.083334" LocationFloat="0, 5.99997854" Font="Calibri, 12pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="12" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+      </Controls>
+    </Item1>
+    <Item2 Ref="13" ControlType="DetailBand" Name="detailBand1" HeightF="539.583435">
+      <Controls>
+        <Item1 Ref="14" ControlType="XRLabel" Name="label50" Multiline="true" Text="for  Dynamic Shipping Agencies (Pvt.) Limited&#xD;&#xA;Note :&#xD;&#xA;- Delivery Order granted subject to remarks on the Bill of Lading. &#xD;&#xA;- This Delivery Order is issued without alteration or erasure.&#xD;&#xA;- Any alteration or erasure will render this Delivery Order null and void. " SizeF="835.5833,96.1252441" LocationFloat="0, 443.4582" />
+        <Item2 Ref="15" ControlType="XRLabel" Name="label48" SizeF="194.791656,40.7082825" LocationFloat="0, 402.749939">
+          <ExpressionBindings>
+            <Item1 Ref="16" Expression="[EdoReport].[containers]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item2>
+        <Item3 Ref="17" ControlType="XRLabel" Name="label49" Text="Container(s)" SizeF="194.791672,24.0416565" LocationFloat="0, 378.708252" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="18" UseFont="false" />
+        </Item3>
+        <Item4 Ref="19" ControlType="XRLabel" Name="label46" Text="Description" TextAlignment="MiddleCenter" SizeF="256.791138,24.0416565" LocationFloat="569.208862, 299.374969" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="20" UseFont="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="21" ControlType="XRLabel" Name="label47" TextAlignment="TopCenter" SizeF="256.791138,40.7082825" LocationFloat="569.208862, 323.416656">
+          <ExpressionBindings>
+            <Item1 Ref="22" Expression="[EdoReport].[PKg_Description]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="23" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="24" ControlType="XRLabel" Name="label44" TextAlignment="TopCenter" SizeF="194.791656,40.7082825" LocationFloat="317.207825, 323.416656">
+          <ExpressionBindings>
+            <Item1 Ref="25" Expression="[EdoReport].[No_Of_Pkgs]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="26" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="27" ControlType="XRLabel" Name="label45" Text="No. of Pkgs." TextAlignment="MiddleCenter" SizeF="194.791672,24.0416565" LocationFloat="317.207825, 299.374969" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="28" UseFont="false" UseTextAlignment="false" />
+        </Item7>
+        <Item8 Ref="29" ControlType="XRLabel" Name="label42" Text="Marks &amp; Nos" TextAlignment="MiddleCenter" SizeF="194.791672,24.0416565" LocationFloat="0, 299.374969" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="30" UseFont="false" UseTextAlignment="false" />
+        </Item8>
+        <Item9 Ref="31" ControlType="XRLabel" Name="label43" TextAlignment="TopCenter" SizeF="194.791656,40.7082825" LocationFloat="0, 323.416656">
+          <ExpressionBindings>
+            <Item1 Ref="32" Expression="[EdoReport].[Marks_No]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="33" UseTextAlignment="false" />
+        </Item9>
+        <Item10 Ref="34" ControlType="XRLabel" Name="label36" SizeF="184.375,24.041626" LocationFloat="72.41617, 260.749939">
+          <ExpressionBindings>
+            <Item1 Ref="35" Expression="[EdoReport].[NetWeight]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item10>
+        <Item11 Ref="36" ControlType="XRLabel" Name="label37" Text="Net Weight" SizeF="61.9994965,24.0416718" LocationFloat="0, 260.749939" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="37" UseFont="false" />
+        </Item11>
+        <Item12 Ref="38" ControlType="XRLabel" Name="label38" Text="Gross Weight" SizeF="75.5412,24.041687" LocationFloat="288.5416, 260.75" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="39" UseFont="false" />
+        </Item12>
+        <Item13 Ref="40" ControlType="XRLabel" Name="label39" SizeF="181.249969,24.041626" LocationFloat="379.707825, 260.750061">
+          <ExpressionBindings>
+            <Item1 Ref="41" Expression="[EdoReport].[Gross_Weight]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item13>
+        <Item14 Ref="42" ControlType="XRLabel" Name="label40" SizeF="168.583862,24.041626" LocationFloat="657.416138, 260.75" />
+        <Item15 Ref="43" ControlType="XRLabel" Name="label41" Text="Unit Of" SizeF="51.5828247,24.041687" LocationFloat="605.8333, 260.75" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="44" UseFont="false" />
+        </Item15>
+        <Item16 Ref="45" ControlType="XRLabel" Name="label30" Text="Date" SizeF="51.5828247,24.0416718" LocationFloat="605.8333, 226.291718" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="46" UseFont="false" />
+        </Item16>
+        <Item17 Ref="47" ControlType="XRLabel" Name="label31" SizeF="168.583862,24.0416412" LocationFloat="657.416138, 226.291718" />
+        <Item18 Ref="48" ControlType="XRLabel" Name="label32" SizeF="181.249969,24.0416412" LocationFloat="379.7078, 226.291748">
+          <ExpressionBindings>
+            <Item1 Ref="49" Expression="[EdoReport].[IGM_No]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item18>
+        <Item19 Ref="50" ControlType="XRLabel" Name="label33" Text="IGM" SizeF="75.5412,24.0416718" LocationFloat="288.5416, 226.291718" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="51" UseFont="false" />
+        </Item19>
+        <Item20 Ref="52" ControlType="XRLabel" Name="label34" Text="From" SizeF="61.9994965,24.0416718" LocationFloat="0, 226.291656" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="53" UseFont="false" />
+        </Item20>
+        <Item21 Ref="54" ControlType="XRLabel" Name="label35" SizeF="184.375,24.0416412" LocationFloat="72.41617, 226.291656">
+          <ExpressionBindings>
+            <Item1 Ref="55" Expression="[EdoReport].[Port_of_Arrival]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item21>
+        <Item22 Ref="56" ControlType="XRLabel" Name="label24" SizeF="184.375,24.0416412" LocationFloat="72.41617, 189.750031">
+          <ExpressionBindings>
+            <Item1 Ref="57" Expression="[EdoReport].[Index_No]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item22>
+        <Item23 Ref="58" ControlType="XRLabel" Name="label25" Text="Index" SizeF="61.9994965,24.0416718" LocationFloat="0, 189.750031" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="59" UseFont="false" />
+        </Item23>
+        <Item24 Ref="60" ControlType="XRLabel" Name="label26" Text="BL No" SizeF="75.5412,24.0416718" LocationFloat="288.5416, 189.750092" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="61" UseFont="false" />
+        </Item24>
+        <Item25 Ref="62" ControlType="XRLabel" Name="label27" SizeF="181.249969,24.0416412" LocationFloat="379.7078, 189.750137">
+          <ExpressionBindings>
+            <Item1 Ref="63" Expression="[EdoReport].[BL_No]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item25>
+        <Item26 Ref="64" ControlType="XRLabel" Name="label28" SizeF="168.583862,24.0416412" LocationFloat="657.416138, 189.750092" />
+        <Item27 Ref="65" ControlType="XRLabel" Name="label29" Text="Date" SizeF="51.5828247,24.0416718" LocationFloat="605.8333, 189.750092" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="66" UseFont="false" />
+        </Item27>
+        <Item28 Ref="67" ControlType="XRLabel" Name="label22" Text="Arrived" SizeF="51.5828247,24.0416718" LocationFloat="605.8333, 154.2501" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="68" UseFont="false" />
+        </Item28>
+        <Item29 Ref="69" ControlType="XRLabel" Name="label23" TextFormatString="{0:MM/dd/yyyy}" SizeF="168.583862,24.0416412" LocationFloat="657.416138, 154.2501">
+          <ExpressionBindings>
+            <Item1 Ref="70" Expression="[EdoReport].[arrived]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item29>
+        <Item30 Ref="71" ControlType="XRLabel" Name="label20" SizeF="181.249969,24.0416412" LocationFloat="379.7078, 154.250153">
+          <ExpressionBindings>
+            <Item1 Ref="72" Expression="[EdoReport].[Voyage]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item30>
+        <Item31 Ref="73" ControlType="XRLabel" Name="label21" Text="Voyage" SizeF="75.5412,24.0416718" LocationFloat="288.5416, 154.2501" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="74" UseFont="false" />
+        </Item31>
+        <Item32 Ref="75" ControlType="XRLabel" Name="label18" Text="Vessel :" SizeF="61.9994965,24.0416718" LocationFloat="0, 154.250076" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="76" UseFont="false" />
+        </Item32>
+        <Item33 Ref="77" ControlType="XRLabel" Name="label19" SizeF="184.375,24.0416412" LocationFloat="72.41617, 154.250076">
+          <ExpressionBindings>
+            <Item1 Ref="78" Expression="[EdoReport].[Vessel_Name]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item33>
+        <Item34 Ref="79" ControlType="XRLabel" Name="label17" SizeF="272.416138,24.0416412" LocationFloat="288.541565, 130.208435">
+          <ExpressionBindings>
+            <Item1 Ref="80" Expression="[EdoReport].[Agent_Name]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item34>
+        <Item35 Ref="81" ControlType="XRLabel" Name="label16" Text="Please deliver the undermentioned cargo to :" SizeF="267.207855,24.0416718" LocationFloat="0, 130.208435" Font="Times New Roman, 9.75pt, style=Bold">
+          <StylePriority Ref="82" UseFont="false" />
+        </Item35>
+        <Item36 Ref="83" ControlType="XRLabel" Name="label11" TextAlignment="MiddleLeft" SizeF="178.167175,20.9166832" LocationFloat="657.416138, 13.1250076">
+          <StylePriority Ref="84" UseTextAlignment="false" />
+        </Item36>
+        <Item37 Ref="85" ControlType="XRLabel" Name="label12" TextAlignment="MiddleLeft" SizeF="178.167175,20.9166832" LocationFloat="657.416138, 34.04169">
+          <ExpressionBindings>
+            <Item1 Ref="86" Expression="[EdoReport].[Doc_Tran_No]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="87" UseTextAlignment="false" />
+        </Item37>
+        <Item38 Ref="88" ControlType="XRLabel" Name="label13" TextAlignment="MiddleLeft" SizeF="178.167175,20.916687" LocationFloat="657.416138, 54.958374">
+          <ExpressionBindings>
+            <Item1 Ref="89" Expression="[EdoReport].[Ref_No]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="90" UseTextAlignment="false" />
+        </Item38>
+        <Item39 Ref="91" ControlType="XRLabel" Name="label14" TextFormatString="{0:MMMM d, yyyy}" TextAlignment="MiddleLeft" SizeF="178.167175,20.916687" LocationFloat="657.416138, 75.87506">
+          <ExpressionBindings>
+            <Item1 Ref="92" Expression="[EdoReport].[Do_Date]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="93" UseTextAlignment="false" />
+        </Item39>
+        <Item40 Ref="94" ControlType="XRLabel" Name="label15" TextFormatString="{0:MMMM d, yyyy}" TextAlignment="MiddleLeft" SizeF="178.167175,20.916687" LocationFloat="657.416138, 96.79175">
+          <ExpressionBindings>
+            <Item1 Ref="95" Expression="[EdoReport].[Valid_Date]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="96" UseTextAlignment="false" />
+        </Item40>
+        <Item41 Ref="97" ControlType="XRLabel" Name="label10" Text="Valid Dated :" TextAlignment="MiddleLeft" SizeF="88.2072754,20.916687" LocationFloat="569.208862, 96.79175">
+          <StylePriority Ref="98" UseTextAlignment="false" />
+        </Item41>
+        <Item42 Ref="99" ControlType="XRLabel" Name="label9" Text="Dated" TextAlignment="MiddleLeft" SizeF="88.2072754,20.916687" LocationFloat="569.208862, 75.87506">
+          <StylePriority Ref="100" UseTextAlignment="false" />
+        </Item42>
+        <Item43 Ref="101" ControlType="XRLabel" Name="label8" Text="Ref #" TextAlignment="MiddleLeft" SizeF="88.2072754,20.916687" LocationFloat="569.208862, 54.958374">
+          <StylePriority Ref="102" UseTextAlignment="false" />
+        </Item43>
+        <Item44 Ref="103" ControlType="XRLabel" Name="label7" Text="Doc Tran.# :" TextAlignment="MiddleLeft" SizeF="88.2072754,20.9166832" LocationFloat="569.208862, 34.04169">
+          <StylePriority Ref="104" UseTextAlignment="false" />
+        </Item44>
+        <Item45 Ref="105" ControlType="XRLabel" Name="label6" Text="Job #" TextAlignment="MiddleLeft" SizeF="88.2072754,20.9166832" LocationFloat="569.208862, 13.1250076">
+          <StylePriority Ref="106" UseTextAlignment="false" />
+        </Item45>
+        <Item46 Ref="107" ControlType="XRLabel" Name="label5" Multiline="true" Text="AL-HAMD INTERNATIONAL&#xD;&#xA;Plot No 28 O &amp; L Trans Liyari Quarters, Hawks bay Road, Opp. New&#xD;&#xA;Truck Stand. Karachi-Pakistan&#xD;&#xA;UAN :111-000-176" TextAlignment="TopLeft" SizeF="545.3327,73.25007" LocationFloat="6.35782853E-05, 13.1250067" Padding="2,2,0,0,100">
+          <StylePriority Ref="108" UseTextAlignment="false" />
+        </Item46>
+      </Controls>
+    </Item2>
+    <Item3 Ref="109" ControlType="BottomMarginBand" Name="bottomMarginBand1" />
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9IkVkb1JlcG9ydCI+PFBhcmFtZXRlciBOYW1lPSJAZWRvaWQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDY0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9lZG9pZCk8L1BhcmFtZXRlcj48UHJvY05hbWU+RWRvUmVwb3J0PC9Qcm9jTmFtZT48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJDdXN0b21TcWxRdWVyeSIgTmFtZT0iUXVlcnkiPjxQYXJhbWV0ZXIgTmFtZT0iQ29tcGFueUlkIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5JbnQzMiwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/Q29tcGFueUlkKTwvUGFyYW1ldGVyPjxTcWw+c2VsZWN0ICJDb21wYW55Ii4iQ29tcGFueUlkIiwNCiAgICAgICAiQ29tcGFueSIuIkNvbXBhbnlOYW1lIiwNCiAgICAgICAiQ29tcGFueSIuIkNvbXBhbnlFbWFpbCIsDQogICAgICAgIkNvbXBhbnkiLiJBZGRyZXNzIiwgIkNvbXBhbnkiLiJGaWxlUGF0aCINCiAgZnJvbSAiZGJvIi4iQ29tcGFueSIgIkNvbXBhbnkiDQoNCndoZXJlICJDb21wYW55Ii4iQ29tcGFueUlkIiA9IEBDb21wYW55SWQ8L1NxbD48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkVkb1JlcG9ydCI+PEZpZWxkIE5hbWU9IkRvY19UcmFuX05vIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlJlZl9ObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEb19EYXRlIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iVmFsaWRfRGF0ZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IkFnZW50X05hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVmVzc2VsX05hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVm95YWdlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImFycml2ZWQiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJJbmRleF9ObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCTF9ObyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJQb3J0X29mX0Fycml2YWwiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSUdNX05vIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5ldFdlaWdodCIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJHcm9zc19XZWlnaHQiIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iTWFya3NfTm8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iTm9fT2ZfUGtncyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJQS2dfRGVzY3JpcHRpb24iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iY29udGFpbmVycyIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48VmlldyBOYW1lPSJRdWVyeSI+PEZpZWxkIE5hbWU9IkNvbXBhbnlJZCIgVHlwZT0iSW50NjQiIC8+PEZpZWxkIE5hbWU9IkNvbXBhbnlOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkNvbXBhbnlFbWFpbCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJBZGRyZXNzIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkZpbGVQYXRoIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD48L1Jlc3VsdFNjaGVtYT48Q29ubmVjdGlvbk9wdGlvbnMgQ2xvc2VDb25uZWN0aW9uPSJ0cnVlIiAvPjwvU3FsRGF0YVNvdXJjZT4=" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v19.1" Ref="2" Content="System.Int32" Type="System.Type" />
+    <Item2 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v19.1" Ref="6" Content="System.Int64" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

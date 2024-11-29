@@ -1,0 +1,186 @@
+﻿@{
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+    var ClearingAgent = (IEnumerable<SelectListItem>)ViewData["ClearingAgent"];
+    var GoodSHead = (IEnumerable<SelectListItem>)ViewData["GoodSHead"];
+}
+
+
+<script src="~/js/app.js/GroundingFreeDaysView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Grounding Free Days</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate="" id="GroundingFreeDaysForm">
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Line:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentId", ShippingAgent, "Select Shipping Agent ", new { @class = "form-control select2", @id = "shippingAgents" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12" id="consigneecolm">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Consignee:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div id="searchBoxForConsigne"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Clearing Agent:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ClearingAgentId", ClearingAgent, "Select Clearing Agent ", new { @class = "form-control select2", @id = "clearingAgent" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Good:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("GoodsHeadId", GoodSHead, "Select Good", new { @class = "form-control select2", @id = "goodsHeadId" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Cargo Type:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form form-control" name="IndexCargoType" id="indexCargoType">
+                                            <option value="LCL">CFS / LCL</option>
+                                            <option value="FCL">CFS / FCL</option>
+                                            <option value="CY">CY</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Free Days Code :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control"  id="groundingFreeDayId" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Storage Free Days :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" name="StorageFreeFreeDays" id="storageFreeFreeDays">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnic">
+                                        Free Days:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" name="GroundingFreeDays" id="groundingFreeDays">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button class="btn btn-primary" style="float:right;" onclick="updateInfo()" type="button" id="btnSubmit">Add Info</button>
+                                        <button class="btn btn-primary" style="float:right; display:none" onclick="updnfo()" type="button" id="btnSubmitupdate">Update Info</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </form>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+ 
+                                    <div class="row">
+                                         <div id="gridlist"></div>
+                                    </div>
+  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+ 
+ 
+
+<script>
+    $('.select2').select2();
+</script>
+

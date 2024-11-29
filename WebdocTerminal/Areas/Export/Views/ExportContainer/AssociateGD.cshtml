@@ -1,0 +1,160 @@
+﻿@{
+
+    var VesselExport = (IEnumerable<SelectListItem>)ViewData["VesselExport"];
+
+    var ExportContainer = (IEnumerable<SelectListItem>)ViewData["ExportContainer"];
+
+
+}
+<script src="~/js/app.js/AssociateGD.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>GD Association</h3>
+                </div>
+
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content" id="">
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Container
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ExportContainerId", ExportContainer, "Select Container", new { @class = "form-control select2", @id = "exportContainer" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Vessel
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("VesselExport", VesselExport, "Select Vessel", new { @class = "form-control select2", @id = "vesselExport" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Voyage
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12" id="voayges">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="item form-group">
+                                    <button type="button" class="btn btn-primary" style="float:right;" onclick="findExportContainerItems()">Find</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="large-indicator"></div>
+                    <div id="ExportContainerItem"></div>
+                    <div class="ln_solid"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <button id="btnSave2" type="button" class="btn btn-warning" onclick="createExportStuffingTallySheet()" style="float:right;">Stuffing Tallysheet</button>
+
+                        <button type="button" id="btnCancel" class="btn btn-danger" onclick="restform()" style="float:right;">Cancel</button>
+                        <button id="btnSubmit" type="button" style="float:right;" onclick="AddExportContainerItems('true', 'true')" class="btn btn-success">Submit</button>
+
+                        <button id="btnSave" type="button" style="float:right;" onclick="AddExportContainerItems('false', 'false')" class="btn btn-primary savebtn">Save</button>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+@*<div class="modal fade" id="cameraModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Camera</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="my_camera">
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        GD-Number
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" name="GDNumber" id="gdNumber" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Remark
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control"  name="remarks" id="remarks" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                <div class="modal-footer">
+                     <button type="button" class="btn btn-primary" onclick="savedata()">save</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+<script>
+    $('.select2').select2();
+</script>

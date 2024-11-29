@@ -1,0 +1,112 @@
+﻿<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+<script src="~/js/app.js/DailyInvoiceReportExport.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Daily Invoice Report
+            </h3>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="x_panel">
+        <div class="row">
+            <div class="col-sm-3  col-xs-12">
+                <div class="form-group">
+                    <label class="control-label  col-md-3  col-xs-12" for="first-name">
+                        Clearing Agent
+                    </label>
+                    <div class="col-md-9  col-xs-12">
+                        <div id="clearingAgentSource"></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-3 col-sm-3  col-xs-12">
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label col-md-3  col-xs-12 " for="first-name">
+                            Invoice No
+                        </label>
+                        <div class="col-md-9  col-xs-12">
+                            <input type="text" class="form-control" id="invoiceNo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3  col-xs-12">
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            From
+                        </label>
+                        <div class="col-md-9  col-xs-12">
+                            <input type="text" placeholder="Invoice Amount Range" class="form-control" id="fromRang">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3  col-xs-12">
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                            To
+                        </label>
+                        <div class="col-md-9  col-xs-12">
+                            <input type="text" placeholder="Invoice Amount Range" class="form-control" id="toRang">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3 col-xs-12">
+                <div class="item form-group">
+                    <label class="control-label col-md-3  col-xs-12" for="name">
+                        VIR: <span class="required">*</span>
+                    </label>
+                    <div class="col-md-9  col-xs-12">
+
+                        <div id="VIRNO"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9  col-xs-12">
+                @{Html.RenderPartial("_DateFilter"); }
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

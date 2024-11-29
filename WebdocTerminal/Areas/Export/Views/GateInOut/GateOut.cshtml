@@ -1,0 +1,159 @@
+﻿<!-- CSS -->
+<!--<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.min.css">-->
+<!-- JS -->
+<!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>-->
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/GateOut.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>GateOut Container</h3>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <div id="gateOutContainers"></div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn btn-primary" style="float:right;" id="btnSubmit" onclick="save()" disabled>GateOut & create EDI</button>
+
+                            @*<button type="button" id="buttn" style="float:right; display:none" onclick="createGatePass()" class="btn btn-success">Gate Pass</button>*@
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Export Gate Pass
+            </h3>
+        </div>
+        <div class="title_right">
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="">
+
+                    <div class="form-horizontal form-label-left row">
+                        @{ Html.RenderPartial("_VesselVoyageSelection"); }
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Container : <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @(Html.DevExtreme()
+                                            .Autocomplete()
+                                            .ID("ContainerNumber")
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .Area("")
+                                            .LoadAction("GetExpotrContainers"))
+                                            .Placeholder("Type Container...")
+                                            .OnValueChanged("container_changed"))
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-horizontal form-label-left row">
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    GD Number : <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @(Html.DevExtreme()
+                                            .Autocomplete()
+                                            .ID("GDNumber")
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .Area("")
+                                            .LoadAction("GetGDNumbers"))
+                                            .Placeholder("Type GD...")
+                                            .OnValueChanged("gd_changed"))
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    From
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="date" class="form-control" id="fromdate" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    To
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="date" class="form-control" id="todate" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn btn-success" style="float:right" onclick="myFunction()">Print</button>
+                        </div>
+                    </div>
+                    @*@{ Html.RenderPartial("_DateFilter"); }*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+<script>
+    $('.select2').select2();
+</script>

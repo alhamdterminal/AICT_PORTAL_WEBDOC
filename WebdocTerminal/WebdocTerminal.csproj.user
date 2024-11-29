@@ -1,0 +1,778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <DismissedDevExtremeVersion>22.1.3</DismissedDevExtremeVersion>
+    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <ToolsVersionPromptShown>3.7</ToolsVersionPromptShown>
+    <NameOfLastUsedPublishProfile>D:\AICTMAIN_WEBDOCTERMINAL\AICT_DECRYPTED\AICT-Source\WebdocTerminal\Properties\PublishProfiles\FolderProfile2.pubxml</NameOfLastUsedPublishProfile>
+    <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
+    <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Reports\AgingReportCFS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AgingReportCY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Agingwisebalancereport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AICTAndLineIndexReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AICTInvoiceToLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ALLCRData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AlongsideReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AlongsideReportLocationWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ANFCargoChecklist.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ANFReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\APLDailyCFSReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ArrivalBoxWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AssignedTariffsDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AssignStoragetariff.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AssignTariffDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AuctionInvoiceBill.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AuctionInvoiceBillForLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AuctionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\AuctionReportForCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Balancedetails.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\BillToLineReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\BoxesLyingAtPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\BoxesLyingAtPortContainerWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\BreakupofCashierDailySaleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\BreakupofCashierDailySaleReportExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\BrtRacksInformation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\BRTReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CarDestuffingContainerWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoAgingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportBaywise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoAlongsideReportBaywiseForAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoDeliveredAuction.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoDeliveredCY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoDeliveredLCL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoDeliveredLCLLineWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoDropoffTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoInterchangeReceipt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoMeasurementCertificate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoReceivedStockAlongSidePosition.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CargoReceivedStockAlongSidePositionAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CashierDailySaleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CashierDailySaleReportSec.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CFSCRLREPORT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CFSReleasedContainersReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CfsShedClearedIndexes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailByDate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ChequeDetailReportExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ChequePrinting.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ChequePrintingLog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerArrival.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerArrivalReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerArrivalSummaryReportCSD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerDestuffingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerDestuffingReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerInventory.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerLoadPlainForAeomix.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerOffHireReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerReceivedDuringthePeriod.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContainerTrackingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContianerTrackingReportCFSAndCY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ContianerTrackingReportForFinance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CRDataFCL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CRDataLCL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CRDataReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CRDataSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CrossStuffing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CustomerWiseLedger.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CYDeliveryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\CYReleasedContainers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailyCollectionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailyCollectionReportExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailyDSR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailyExaminationComplete.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailyInvoices.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailySalesReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailySalesReportExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailySalesReportTypewise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailySalesSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailySalesSummaryLineWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailySalesSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailyShedDestuffing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailySummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DailyTerminalReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeletedInvoiceExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderReportCFSContainerSecond.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeliveryOrderReportCycontainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeliveryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeliveryReportCFSContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeliveryReportCyContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DesealingCheck.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DestuffContainerClientWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DestuffContainerDateWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DestuffContainerShippingAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeStuffingContainerWiseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DestuffingDeliveryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DestuffingPreliminaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DeStuffingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DestuffingReportWithoutCBM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DODetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Dowithpendinggatepass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\DropOfTicketImport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EdoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyContainerGatePass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyContainerReceivedDeliveryOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyContainerReceivedInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyContainersAtYardReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyContainersLyingAtYard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyDeliveryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyGatePass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyOutReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyOutReportold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EmptyRecevingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EPZCargoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\EquipmentInterchangeAndInspectionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExaminationCompleteContainerCY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExaminationMark.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkCYContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkedNotGrounded.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkESContainerCFS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExaminationMarkESContainerCY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExaminationReportForCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExamitionMarkCFS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportAdvice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportDailyCFSReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportDailyCFSReportForAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportFinalReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Exportfullout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportGatepass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportGatePasses.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportTellySheet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExportTellySheetSEC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ExprotGatePassDrayOff.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\FormBAuction.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ForwarderSOABoxWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\FullContainerInventory.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GateInandOut.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GateInContainersByDate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GateInContainerShippingAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GateinReportExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GateInWeighmentContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GateOutReportExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GatePass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GatePassAuctionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GatepassReportForDotMatrix.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GatePassSampleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GDAssociationDetailedReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GDDetailReportExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GlobelLinkForAllPIFFASOASReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\GroundingContainerCYReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\IGMReceivedContainerNotArrive.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\IGMRECNOTINATLAS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ImportAgingReportCFS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ImportBalanceCfsCargo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ImportBalanceCycontainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ImportContainerDestuffinglList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ImportFullContainersStock.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ImportFullStockArriveMF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ImportFullStockMF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\IndexDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\IndexSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\IndexUploadErrorTracking.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\InventoryCyContainerReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\invoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\InvoiceCyContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\InvoiceForLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\invoicelist.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\InvoiceSummaryAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\KerryExportReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\KerryExportReportForAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Ledger.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\LetPassBalance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\LetPassDashboard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ListContainerLyingInYard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ListofExportFullLCLCargoStuffedcontainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ListofExportFullLCLCargoStuffedcontainerAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ListofexportFullOrEmptycontainers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ListofexportFullOrEmptycontainersVesselWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ListofUpcomingContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\MaerskAfterArrival.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\MaerskArrival.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ManualGatepassReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\MessageLog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\MonthlyBillingExport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\MonthlyBillingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\MonthlyBillToLineAccount.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\OperationalMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\OutGoingContainers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\OutstandingAmount.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\OutStandingPaymentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\OutstandingSpecialHanlingCharges.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ParkingTicketReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerDateWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerExportReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PartyLedgerPatryWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PartyLetPassAmount.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PartyTrialBalanceDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PayOrderReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PendingAtQICT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PendingContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PendingContainerReportCFS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PGateInOutReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Pickupticket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PickUpTicketImport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PODetailBankReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\PreliminaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ReceiptForPackagesDelivered.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ReprtInvoiceBillList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\RequestForWaiver.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ScheduleOfCharges.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SealIssuanceDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SealIssuanceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SealPurchaseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\shedbrtcontainerwise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\shedexamination.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ShedExcessWeight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\ShortDailySalesSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SingleVoucher.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SoaApllOtherThenPIFFAReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SOADSVOtherThenPIFFA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SoaEflOtherThenPIFFA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SoaKerryLogisticsOtherThenPIFFA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SOCOfEmptyContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\StatementShowingExportPosition.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\StatementShowingExportPositionAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\SummaryofStuffing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TallySheet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TallySheet_IndexWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TariffAssignReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TeminalReceipt2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TerminalReceipt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\test.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TPDeliveryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Track_Destuff_Container.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TrialBalance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TrialBalanceParties.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TruckInDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TruckInOutSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\TuesReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\UndeliveredIndexesAgentWise.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\UpdatedVehiclesLyingAtTerminal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Vouchers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\Vouchersubreport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\WebocIGMDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\WeighmentCYContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\WeightSlip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\WorkOrderForLabour.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Reports\WorkOrderLogistics.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

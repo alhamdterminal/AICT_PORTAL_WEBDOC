@@ -1,0 +1,239 @@
+﻿@{
+
+    var TariffCode = (IEnumerable<SelectListItem>)ViewData["TariffCode"];
+    var FF = (IEnumerable<SelectListItem>)ViewData["FF"];
+    var ClearingAgent = (IEnumerable<SelectListItem>)ViewData["ClearingAgent"];
+    var Commodity = (IEnumerable<SelectListItem>)ViewData["Commodity"];
+    var Shipper = (IEnumerable<SelectListItem>)ViewData["Shipper"];
+    var ContainerType = (IEnumerable<SelectListItem>)ViewData["ContainerType"];
+    var Port = (IEnumerable<SelectListItem>)ViewData["Port"];
+
+
+    }
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/AssignedTariffsDetailReport.js"></script>
+
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+
+
+<div class="right_col" role="main">
+
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Assigned Tariffs Detail
+
+            </h3>
+        </div>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+
+                    <div class="form-horizontal form-label-left row">
+
+
+                        <div class="row">
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Tariff Code:
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("TariffCode", TariffCode, "Select Tariff Code", new { @class = "form-control select2", @id = "TariffCode", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Clearing Agent:
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("ClearingAgent", ClearingAgent, "Select Clearing Agent", new { @class = "form-control select2", @id = "ClearingAgent", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        FF:
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("FF", FF, "Select Shipping Agent", new { @class = "form-control select2", @id = "FF", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row">
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Commodity:
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("Commodity", Commodity, "Select Commodity", new { @class = "form-control select2", @id = "Commodity", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Shipper:
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("Shipper", Shipper, "Select Shipper", new { @class = "form-control select2", @id = "Shipper", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Container Type:
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("ContainerType", ContainerType, "Select Container Type", new { @class = "form-control select2", @id = "ContainerType", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-3" for="first-name">
+                                        Cargo Type:
+                                    </label>
+                                    <div class="col-md-9">
+                                        <select class="item form-control" name="CargoType" id="CargoType">
+                                            <option value="">All</option>
+                                            <option value="LCL">CFS / LCL</option>
+                                            <option value="FCL">CFS / FCL</option>
+                                            <option value="CY">CY</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-3" for="first-name">
+                                            Consignee:
+                                        </label>
+                                        <div class="col-md-9" id="searchBoxForConsigne">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4">
+                                <div class="control-group">
+                                    <label class="control-label col-md-3" for="first-name">
+                                        Port:
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("Port", Port, "Select Port", new { @class = "form-control select2", @id = "Port", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        </div>
+
+
+
+                            <div class="row">
+
+                                <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 pad">
+
+                                </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pad">
+                                    <button type="button" id="btnSubmitReport" class="btn btn-dark" onclick="myFunction()" style="float: right;">Print</button>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div id="large-indicator"></div>
+                    <div class="x_content" id="repotdata">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

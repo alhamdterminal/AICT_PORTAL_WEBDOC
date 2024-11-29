@@ -1,0 +1,105 @@
+﻿@{
+
+    var VesselExport = (IEnumerable<SelectListItem>)ViewData["VesselExport"];
+
+}
+
+<script src="~/js/app.js/GDAssociationView.js"></script>
+
+<div class="right_col" role="main">
+     
+    <div class="row" id="tabsdiv">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content"> 
+                            <div class="row">
+                                <div class="page-title">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <div class="title_left">
+                                                <h3>Gd Association</h3>
+                                            </div>
+
+                                            <div class="col-md-1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="x_panel">
+                                                <div class="x_content" id="">
+
+                                                    <div class="form-horizontal form-label-left row">
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    GD Number:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <div id="searchBoxForGdnumber"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    Container No:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <div id="searchBoxForcontainernumber"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        
+
+
+                                                    </div>
+                                                     
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_content">
+                                                <div id="large-indicator"></div>
+                                                <div class="row">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                        <div id="ExportContainerItem"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="ln_solid"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <button id="btnSave" type="button" style="float:right;" onclick="AddExportContainerItems()" class="btn btn-danger">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       
+
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

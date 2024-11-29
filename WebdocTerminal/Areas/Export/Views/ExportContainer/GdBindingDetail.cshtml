@@ -1,0 +1,259 @@
+﻿@{
+
+    var VesselExport = (IEnumerable<SelectListItem>)ViewData["VesselExport"];
+     
+}
+
+<script src="~/js/app.js/GdBindingDetail.js"></script>
+
+<div class="right_col" role="main">
+
+
+    <div class="row" id="tabsdiv">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+                        <li class="nav-item active">
+                            <a class="nav-link active" id="anf-tab" data-toggle="tab" href="#anf" role="tab" aria-controls="anf" aria-selected="true" onclick="renderContent('GDBinding')">GD Binding</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="paperready-tab" data-toggle="tab" href="#paperready" role="tab" aria-controls="paperready" aria-selected="false" onclick="renderContent('ContainerBinding')">Container Binding</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active in" id="anf" role="tabpanel" aria-labelledby="anf-tab">
+
+                            <div class="row">
+                                <div class="page-title">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <div class="title_left">
+                                                <h3>Gd Binding Detail</h3>
+                                            </div>
+
+                                            <div class="col-md-1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="x_panel">
+                                                <div class="x_content" id="">
+
+                                                    <div class="form-horizontal form-label-left row">
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    GD Number:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <div id="searchBoxForGdnumber"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    Container No:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <div id="searchBoxForcontainernumber"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    Number Of Packages:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <input type="number" class="form-control" id="numberOfPackages" name="NumberOfPackages" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                                            <button id="btnSave" type="button" style="float:right;" onclick="addDetail()" class="btn btn-primary savebtn">Add</button>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_content">
+                                                <div id="large-indicator"></div>
+                                                <div class="row">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                        <div id="ExportContainerItem"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="ln_solid"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <button id="btnSave" type="button" style="float:right;" onclick="AddExportContainerItems()" class="btn btn-danger">Save</button>
+                                                </div>                                                 
+                                            </div>                                             
+                                        </div>
+                                    </div>                                     
+                                </div>
+                            </div>                             
+                        </div>
+
+                        <div class="tab-pane fade" id="paperready" role="tabpanel" aria-labelledby="paperready-tab">
+
+                            <div class="row">
+                                <div class="page-title">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <div class="title_left">
+                                                <h3>Gd Binding Detail</h3>
+                                            </div>
+
+                                            <div class="col-md-1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="x_panel">
+                                                <div class="x_content" id="">
+
+                                                    <div class="form-horizontal form-label-left row">
+
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    Nature:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <select class="form-control selectpicker" id="typeassociation" onchange="showFilters()">
+                                                                        <option value="Single">Single</option>
+                                                                        <option value="Multiple">Multiple</option>
+                                                                    </select>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    Container No:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <div id="ContainerWisesearchBoxForcontainernumber"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row" id="singleInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    GD Number:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <div id="ContainerWisesearchBoxForGdnumber"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="item form-group">
+                                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                                    Number Of Packages:
+                                                                </label>
+                                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                    <input type="number" class="form-control" id="containerwisenumberOfPackages" name="NumberOfPackages" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-4 col-xs-4">
+
+                                                            <button id="btnSave" type="button" style="float:right;" onclick="addDetailcontainerwise()" class="btn btn-primary savebtn">Add</button>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row" id="MultipleInfo" style="display:none">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <div id="alongsidedatacontainerwise"></div>
+                                                        </div>
+
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <div class="row">
+                                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                <button id="btnSave" type="button" style="float:right;" onclick="addalongsidedataDetail()" class="btn btn-danger">Add Detail</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_content">
+                                                <div id="large-indicator"></div>
+                                                <div class="row">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                        <div id="ExportContainerItemcontainerwise"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="ln_solid"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <button id="btnSave" type="button" style="float:right;" onclick="AddExportContainerItemscontainerwise()" class="btn btn-danger">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+ 
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+
+<script>
+    $('.select2').select2();
+</script>

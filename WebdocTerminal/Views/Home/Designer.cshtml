@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Designer";
+}
+
+@using DevExpress.DataAccess.Sql;
+@using SqlDataSource = DevExpress.DataAccess.Sql.SqlDataSource;
+
+
+
+
+@(Html.DevExpress().ReportDesigner("reportDesigner")
+            .Height("1000px")
+             .Bind("XtraReport"))

@@ -1,0 +1,109 @@
+﻿<script src="~/js/app.js/ComapanyView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Company</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <form class="form-horizontal form-label-left" novalidate="" id="CompanyForm">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Name :
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="companyName" name="CompanyName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Email :
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="companyEmail" name="CompanyEmail">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Logo:
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="file" class="form-control" id="filePath" name="FilePath" onchange="uploadFiles(event)">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="control-label col-md-1 ">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 " for="name">
+                                            Address
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="control-label col-md-11 ">
+
+                                    <div class="item form-group">
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control" id="address" name="Address">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-10">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="item form-group">
+                                     <button id="btnSubmit" type="button" style="float:right;" onclick="AddCompany()" class="btn btn-success">Submit</button>
+                                    <a id="btnSubmitUpdate" class="btn btn-success" onclick="UpdateCompany()" style="display:none ; float: right;">Update</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="company"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

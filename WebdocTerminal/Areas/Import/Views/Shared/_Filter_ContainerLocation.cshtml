@@ -1,0 +1,119 @@
+﻿
+<script>
+
+
+    var containernumber;
+     
+    function conatiner_changed(data) {
+
+        containernumber = data.value;
+
+        if (containernumber) {
+            if (containernumber.length == 11) {
+                if (containernumber) {
+
+                    $.get('/APICalls/GetVIRNumberList?containernumber=' + containernumber, function (indexdb) {
+
+                        $('#indexdiv').html(indexdb);
+
+                        containerChangeCallback("index");
+
+                    });
+                }
+            }
+            else {
+                $('#indexdiv').html([]);
+
+                containerChangeCallback("index");
+            }
+        }
+        else {
+            $('#indexdiv').html([]);
+
+            containerChangeCallback("index");
+        }
+      
+
+
+    }
+
+    $(function () {
+
+        $('#indexdiv').on('change', function (val) {
+
+            containerChangeCallback("index");
+
+        });
+
+
+
+
+    });
+
+
+
+
+</script>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="">
+
+            <div class="">
+
+
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        @*<div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                IGM: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @(Html.DevExtreme()
+                                .Autocomplete()
+                                .ID("IGM")
+                                .DataSource(d => d.Mvc()
+                                .Controller("APICalls")
+                                .Area("")
+                                .LoadAction("GetIGMS"))
+                                .Placeholder("Type IGM...")
+                                .OnValueChanged("igm_changed"))
+                            </div>
+                        </div>*@
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Container No: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8">
+                                @(Html.DevExtreme()
+                                                .Autocomplete()
+                                                .ID("containerlist")
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("APICalls")
+                                                .Area("")
+                                                .LoadAction("Getigmocontainers"))
+                                                .Placeholder("Type Container No...")
+                                                .OnValueChanged("conatiner_changed"))
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                IGM # <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="indexdiv">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

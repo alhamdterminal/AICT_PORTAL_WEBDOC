@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="CargoAlongsideReportBaywise" Landscape="true" Margins="14, 34, 104, 100" PageWidth="1100" PageHeight="850" Version="19.1" DataMember="VesselExport" DataSource="#Ref-0" Font="Arial, 9.75pt">
+  <FormattingRuleSheet>
+    <Item1 Ref="2" Name="formattingRule1" DataMember="VesselExport" Condition="[VesselExportCargoAlongsideReportBaywise] &lt; 1">
+      <Formatting Ref="3" Visible="False" BorderStyle="Inset" StringFormat="Near;Near;0;None;Character;Default" />
+    </Item1>
+  </FormattingRuleSheet>
+  <Parameters>
+    <Item1 Ref="5" Visible="false" ValueInfo="05/1/2023" AllowNull="true" Name="fromDate" />
+    <Item2 Ref="6" Visible="false" ValueInfo="05/01/2024" AllowNull="true" Name="toDate" />
+    <Item3 Ref="8" Visible="false" AllowNull="true" Name="vessel" Type="#Ref-7" />
+    <Item4 Ref="9" Visible="false" AllowNull="true" Name="voyage" Type="#Ref-7" />
+    <Item5 Ref="10" Visible="false" AllowNull="true" Name="egm" Type="#Ref-7" />
+    <Item6 Ref="11" Visible="false" AllowNull="true" Name="shippingAgent" Type="#Ref-7" />
+    <Item7 Ref="12" Visible="false" AllowNull="true" Name="clearingAgent" Type="#Ref-7" />
+    <Item8 Ref="13" Visible="false" AllowNull="true" Name="shipper" Type="#Ref-7" />
+    <Item9 Ref="14" Visible="false" Description="CompanyId" ValueInfo="33" AllowNull="true" Name="CompanyId" Type="#Ref-7" />
+    <Item10 Ref="15" Visible="false" Description="path" AllowNull="true" Name="path" />
+    <Item11 Ref="16" Visible="false" ValueInfo="1" Name="cbm" Type="#Ref-7" />
+  </Parameters>
+  <CalculatedFields>
+    <Item1 Ref="17" Name="CBMSubtotal" Expression="Sum([CBM])" DataMember="Locations.LocationsCargoAlongsideReportBaywise" />
+    <Item2 Ref="18" Name="WeightSubTotal" Expression="Sum([Weight])" DataMember="Locations.LocationsCargoAlongsideReportBaywise" />
+    <Item3 Ref="19" Name="PackagesSubtotal" Expression="Sum([NumberOfPackagesReceived])" DataMember="Locations.LocationsCargoAlongsideReportBaywise" />
+    <Item4 Ref="20" Name="calculatedField1" Expression="Sum([NumberOfPackages])" DataMember="CargoAlongsideReportBaywise" />
+    <Item5 Ref="21" Name="calculatedField2" Expression="Sum([CBM])" DataMember="CargoAlongsideReportBaywise" />
+    <Item6 Ref="22" Name="calculatedField3" Expression="Sum([Weight])" DataMember="CargoAlongsideReportBaywise" />
+  </CalculatedFields>
+  <Bands>
+    <Item1 Ref="23" ControlType="TopMarginBand" Name="TopMargin" HeightF="103.833328">
+      <Controls>
+        <Item1 Ref="24" ControlType="XRPictureBox" Name="pictureBox1" ImageAlignment="TopCenter" SizeF="249.583328,80.99998" LocationFloat="0, 10.0000076">
+          <EditOptions Ref="25" Enabled="true" />
+          <ExpressionBindings>
+            <Item1 Ref="26" Expression="?path+'/'+[Company].[FilePath]" PropertyName="ImageUrl" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="27" ControlType="XRLabel" Name="label3" Multiline="true" TextAlignment="TopRight" SizeF="285.310364,23" LocationFloat="756.689636, 69.33327" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="28" Expression="[Company].[CompanyEmail]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="29" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="30" ControlType="XRLabel" Name="label2" Multiline="true" Text="CARGO ALONG SIDE REPORT BAYWEST" TextAlignment="TopCenter" SizeF="416.249939,30.4999962" LocationFloat="273.897644, 26.9583073" Font="Calibri, 16.2pt, style=Bold, charSet=0" Padding="2,2,0,0,100">
+          <StylePriority Ref="31" UseFont="false" UseTextAlignment="false" />
+        </Item3>
+      </Controls>
+    </Item1>
+    <Item2 Ref="32" ControlType="BottomMarginBand" Name="BottomMargin">
+      <Controls>
+        <Item1 Ref="33" ControlType="XRLabel" Name="label10" Multiline="true" TextAlignment="TopCenter" SizeF="1048.00012,23" LocationFloat="0, 10.0000067" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="34" Expression="[Company].[Address]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="35" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="36" ControlType="DetailBand" Name="Detail" HeightF="2.41667438" />
+    <Item4 Ref="37" ControlType="PageHeaderBand" Name="PageHeader" HeightF="0" />
+    <Item5 Ref="38" ControlType="DetailReportBand" Name="DetailReport1" Level="0" DataMember="VesselExport.VesselExportCargoAlongsideReportBaywise" DataSource="#Ref-0">
+      <Bands>
+        <Item1 Ref="39" ControlType="DetailBand" Name="Detail2" HeightF="25.0832233">
+          <Controls>
+            <Item1 Ref="40" ControlType="XRTable" Name="table2" TextAlignment="MiddleLeft" SizeF="1052,25" LocationFloat="0, 0" Font="Calibri, 10pt" Borders="All">
+              <Rows>
+                <Item1 Ref="41" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+                  <Cells>
+                    <Item1 Ref="42" ControlType="XRTableCell" Name="tableCell22" Weight="0.97411796900296166" TextFormatString="{0:dd-MMM-yy}" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="43" Expression="[GateInDateTime]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item1>
+                    <Item2 Ref="44" ControlType="XRTableCell" Name="tableCell26" Weight="0.97411796900296166" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="45" Expression="[LoadingProgramNumber]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item2>
+                    <Item3 Ref="46" ControlType="XRTableCell" Name="tableCell10" Weight="1.1079228879143686" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="47" Expression="[GDNumber]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item3>
+                    <Item4 Ref="48" ControlType="XRTableCell" Name="tableCell11" Weight="0.55201751815229638" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="49" Expression="[PONumber]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item4>
+                    <Item5 Ref="50" ControlType="XRTableCell" Name="tableCell12" Weight="1.5912636208687685" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="51" Expression="[ClearingAgentName]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                    </Item5>
+                    <Item6 Ref="52" ControlType="XRTableCell" Name="tableCell13" Weight="1.5912638473220107" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="53" Expression="[ShipperName]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="54" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="55" ControlType="XRTableCell" Name="tableCell14" Weight="0.710020369461709" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="56" Expression="[NumberOfPackages]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="57" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="58" ControlType="XRTableCell" Name="tableCell28" Weight="0.710020369461709" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="59" Expression="[PackageType]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="60" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="61" ControlType="XRTableCell" Name="tableCell15" Weight="0.71001891457686639" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="62" Expression="[cbm]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="63" UsePadding="false" />
+                    </Item9>
+                    <Item10 Ref="64" ControlType="XRTableCell" Name="tableCell21" Weight="0.71001891457686639" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="65" Expression="[Weight]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="66" UsePadding="false" />
+                    </Item10>
+                    <Item11 Ref="67" ControlType="XRTableCell" Name="tableCell24" Weight="1.9468867674698669" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="68" Expression="[DishargePort]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="69" UsePadding="false" />
+                    </Item11>
+                    <Item12 Ref="70" ControlType="XRTableCell" Name="tableCell30" Weight="1.9468867674698669" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="71" Expression="[CustomerNocLast]+'&#x9;&#x9;'+[CustomerNoc]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="72" UsePadding="false" />
+                    </Item12>
+                    <Item13 Ref="73" ControlType="XRTableCell" Name="tableCell16" Weight="1.9468867674698669" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="74" Expression="[Status]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="75" UsePadding="false" />
+                    </Item13>
+                    <Item14 Ref="76" ControlType="XRTableCell" Name="tableCell17" Weight="1.4899444165817672" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="77" Expression="[Location]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="78" UsePadding="false" />
+                    </Item14>
+                    <Item15 Ref="79" ControlType="XRTableCell" Name="tableCell18" Weight="1.7361270904101374" Multiline="true" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="80" Expression="[damage]" PropertyName="Text" EventName="BeforePrint" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="81" UsePadding="false" />
+                    </Item15>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="82" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item1>
+        <Item2 Ref="83" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="137.916626">
+          <Controls>
+            <Item1 Ref="84" ControlType="XRTable" Name="table1" TextAlignment="MiddleLeft" SizeF="1052,25" LocationFloat="0, 112.916626" Font="Calibri, 10pt, style=Bold" Borders="All">
+              <Rows>
+                <Item1 Ref="85" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+                  <Cells>
+                    <Item1 Ref="86" ControlType="XRTableCell" Name="tableCell19" Weight="0.97895028527086914" Multiline="true" Text="Received  Date" Padding="2,2,0,0,100" />
+                    <Item2 Ref="87" ControlType="XRTableCell" Name="tableCell25" Weight="0.97895028527086914" Multiline="true" Text="LP No" Padding="2,2,0,0,100" />
+                    <Item3 Ref="88" ControlType="XRTableCell" Name="tableCell2" Weight="1.1434544418356967" Multiline="true" Text="GD No" Padding="2,2,0,0,100" />
+                    <Item4 Ref="89" ControlType="XRTableCell" Name="tableCell3" Weight="0.52472057652549875" Multiline="true" Text="Po No" Padding="2,2,0,0,100" />
+                    <Item5 Ref="90" ControlType="XRTableCell" Name="tableCell4" Weight="1.5991574290386046" Multiline="true" Text="Clearing Agent" Padding="2,2,0,0,100">
+                      <StylePriority Ref="91" UsePadding="false" />
+                    </Item5>
+                    <Item6 Ref="92" ControlType="XRTableCell" Name="tableCell20" Weight="1.5991574290386046" Multiline="true" Text="Shipper" Padding="2,2,0,0,100">
+                      <StylePriority Ref="93" UsePadding="false" />
+                    </Item6>
+                    <Item7 Ref="94" ControlType="XRTableCell" Name="tableCell5" Weight="0.7135420227384125" Multiline="true" Text="No of Pkg" Padding="2,2,0,0,100">
+                      <StylePriority Ref="95" UsePadding="false" />
+                    </Item7>
+                    <Item8 Ref="96" ControlType="XRTableCell" Name="tableCell27" Weight="0.7135420227384125" Multiline="true" Text="Pkg Type" Padding="2,2,0,0,100">
+                      <StylePriority Ref="97" UsePadding="false" />
+                    </Item8>
+                    <Item9 Ref="98" ControlType="XRTableCell" Name="tableCell6" Weight="0.7135420227384125" Multiline="true" Text="CBM" Padding="2,2,0,0,100">
+                      <StylePriority Ref="99" UsePadding="false" />
+                    </Item9>
+                    <Item10 Ref="100" ControlType="XRTableCell" Name="tableCell1" Weight="0.7135420227384125" Multiline="true" Text="Weight" Padding="2,2,0,0,100">
+                      <StylePriority Ref="101" UsePadding="false" />
+                    </Item10>
+                    <Item11 Ref="102" ControlType="XRTableCell" Name="tableCell23" Weight="1.9565449006478628" Multiline="true" Text="Discharge Port" Padding="2,2,0,0,100">
+                      <StylePriority Ref="103" UsePadding="false" />
+                    </Item11>
+                    <Item12 Ref="104" ControlType="XRTableCell" Name="tableCell29" Weight="1.9565449006478628" Multiline="true" Text="Customer NOC" Padding="2,2,0,0,100">
+                      <StylePriority Ref="105" UsePadding="false" />
+                    </Item12>
+                    <Item13 Ref="106" ControlType="XRTableCell" Name="tableCell7" Weight="1.9565449006478628" Multiline="true" Text="Allow Loading" Padding="2,2,0,0,100">
+                      <StylePriority Ref="107" UsePadding="false" />
+                    </Item13>
+                    <Item14 Ref="108" ControlType="XRTableCell" Name="tableCell8" Weight="1.4973350213589378" Multiline="true" Text="Location" Padding="2,2,0,0,100">
+                      <StylePriority Ref="109" UsePadding="false" />
+                    </Item14>
+                    <Item15 Ref="110" ControlType="XRTableCell" Name="tableCell9" Weight="1.7447398937449543" Multiline="true" Text="Damage" Padding="2,2,0,0,100">
+                      <StylePriority Ref="111" UsePadding="false" />
+                    </Item15>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="112" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item1>
+            <Item2 Ref="113" ControlType="XRLabel" Name="label1" Multiline="true" Text="Vessel" TextAlignment="TopLeft" SizeF="87.2269,23" LocationFloat="9.999998, 10.0000067" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+              <StylePriority Ref="114" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item2>
+            <Item3 Ref="115" ControlType="XRLabel" Name="label4" Multiline="true" TextAlignment="TopLeft" SizeF="157.166641,23" LocationFloat="107.375084, 10.0000067" Padding="2,2,0,0,100" Borders="Bottom">
+              <ExpressionBindings>
+                <Item1 Ref="116" Expression="[VesselExport].[VesselName]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="117" UseBorders="false" UseTextAlignment="false" />
+            </Item3>
+            <Item4 Ref="118" ControlType="XRLabel" Name="label5" Multiline="true" Text="Line" TextAlignment="TopLeft" SizeF="87.22684,23.0000038" LocationFloat="9.999998, 50.7083244" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+              <StylePriority Ref="119" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item4>
+            <Item5 Ref="120" ControlType="XRLabel" Name="label6" Multiline="true" TextAlignment="TopLeft" SizeF="157.166641,23" LocationFloat="372.583435, 10.0000067" Padding="2,2,0,0,100" Borders="Bottom">
+              <ExpressionBindings>
+                <Item1 Ref="121" Expression="[VoyageNumber]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="122" UseBorders="false" UseTextAlignment="false" />
+            </Item5>
+            <Item6 Ref="123" ControlType="XRLabel" Name="label7" Multiline="true" Text="Voyage" TextAlignment="TopLeft" SizeF="87.2269,23" LocationFloat="275.2083, 10.0000067" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+              <StylePriority Ref="124" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item6>
+            <Item7 Ref="125" ControlType="XRLabel" Name="label16" Multiline="true" Text="EGM #" TextAlignment="TopLeft" SizeF="87.2269,23" LocationFloat="540.416565, 10.0000067" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+              <StylePriority Ref="126" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item7>
+            <Item8 Ref="127" ControlType="XRLabel" Name="label17" Multiline="true" TextAlignment="TopLeft" SizeF="142.583252,23" LocationFloat="637.7916, 10.00007" Padding="2,2,0,0,100" Borders="Bottom">
+              <ExpressionBindings>
+                <Item1 Ref="128" Expression="[EgmNumber]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="129" UseBorders="false" UseTextAlignment="false" />
+            </Item8>
+            <Item9 Ref="130" ControlType="XRLabel" Name="label18" TextFormatString="{0:dd-MMM-yy hh:mm tt}" Multiline="true" TextAlignment="TopLeft" SizeF="157.166641,23" LocationFloat="893.833435, 10.00007" Padding="2,2,0,0,100" Borders="Bottom">
+              <ExpressionBindings>
+                <Item1 Ref="131" Expression="LocalDateTimeNow()" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="132" UseBorders="false" UseTextAlignment="false" />
+            </Item9>
+            <Item10 Ref="133" ControlType="XRLabel" Name="label19" Multiline="true" Text="Dated" TextAlignment="TopLeft" SizeF="87.2269,23" LocationFloat="796.4584, 10.0000067" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+              <StylePriority Ref="134" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item10>
+            <Item11 Ref="135" ControlType="XRLabel" Name="label22" Multiline="true" TextAlignment="TopLeft" SizeF="413.208374,23" LocationFloat="637.7916, 50.7083244" Padding="2,2,0,0,100" Borders="Bottom">
+              <ExpressionBindings>
+                <Item1 Ref="136" Expression="[ShippingAgentName]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="137" UseBorders="false" UseTextAlignment="false" />
+            </Item11>
+            <Item12 Ref="138" ControlType="XRLabel" Name="label20" Multiline="true" Text="Agent " TextAlignment="TopLeft" SizeF="87.2269,23" LocationFloat="540.416565, 50.7083244" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+              <StylePriority Ref="139" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+            </Item12>
+            <Item13 Ref="140" ControlType="XRLabel" Name="label21" Multiline="true" TextAlignment="TopLeft" SizeF="422.374939,23" LocationFloat="107.375084, 50.7083244" Padding="2,2,0,0,100" Borders="Bottom">
+              <ExpressionBindings>
+                <Item1 Ref="141" Expression="[ShippingLineName]" PropertyName="Text" EventName="BeforePrint" />
+              </ExpressionBindings>
+              <StylePriority Ref="142" UseBorders="false" UseTextAlignment="false" />
+            </Item13>
+          </Controls>
+        </Item2>
+        <Item3 Ref="143" ControlType="GroupFooterBand" Name="GroupFooter2">
+          <Controls>
+            <Item1 Ref="144" ControlType="XRPageBreak" Name="pageBreak1" LocationFloat="0, 45.0418167" />
+          </Controls>
+        </Item3>
+      </Bands>
+      <ReportPrintOptions Ref="145" PrintOnEmptyDataSource="false" />
+      <FormattingRuleLinks>
+        <Item1 Ref="146" Value="#Ref-2" />
+      </FormattingRuleLinks>
+    </Item5>
+    <Item6 Ref="147" ControlType="ReportHeaderBand" Name="ReportHeader" HeightF="113.875008">
+      <Controls>
+        <Item1 Ref="148" ControlType="XRLabel" Name="label9" Multiline="true" Text="Packages" TextAlignment="TopCenter" SizeF="142.655151,23.0000019" LocationFloat="756.689636, 32.9999924" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="149" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="150" ControlType="XRLabel" Name="label14" Multiline="true" TextAlignment="TopCenter" SizeF="142.655151,23.0000019" LocationFloat="899.3448, 79.00003" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="151" Expression="[CargoAlongsideReportBaywise].[calculatedField3]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="152" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="153" ControlType="XRLabel" Name="label13" Multiline="true" Text="Weight" TextAlignment="TopCenter" SizeF="142.655151,23.0000019" LocationFloat="756.689636, 79.00003" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="154" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="155" ControlType="XRLabel" Name="label12" Multiline="true" Text="CBM " TextAlignment="TopCenter" SizeF="142.655151,23.0000019" LocationFloat="756.689636, 56.00001" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="156" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="157" ControlType="XRLabel" Name="label11" Multiline="true" TextAlignment="TopCenter" SizeF="142.655151,23.0000019" LocationFloat="899.3448, 32.9999924" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="158" Expression="[CargoAlongsideReportBaywise].[calculatedField1]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="159" UseBorders="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="160" ControlType="XRLabel" Name="label15" Multiline="true" TextAlignment="TopCenter" SizeF="142.655151,23.0000019" LocationFloat="899.3448, 56.00001" Padding="2,2,0,0,100" Borders="All">
+          <ExpressionBindings>
+            <Item1 Ref="161" Expression="[CargoAlongsideReportBaywise].[calculatedField2]" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+          <StylePriority Ref="162" UseBorders="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="163" ControlType="XRLabel" Name="label8" Multiline="true" Text="Total : " TextAlignment="TopCenter" SizeF="285.3103,23.0000019" LocationFloat="756.689636, 10.0000067" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="164" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item7>
+      </Controls>
+    </Item6>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9IkRlZmF1bHRDb25uZWN0aW9uIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iVmVzc2VsRXhwb3J0Ij48VGFibGVzPjxUYWJsZSBOYW1lPSJWZXNzZWxFeHBvcnQiIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iVmVzc2VsRXhwb3J0IiBOYW1lPSJWZXNzZWxFeHBvcnRJZCIgLz48Q29sdW1uIFRhYmxlPSJWZXNzZWxFeHBvcnQiIE5hbWU9IlZlc3NlbE5hbWUiIC8+PENvbHVtbiBUYWJsZT0iVmVzc2VsRXhwb3J0IiBOYW1lPSJEZWxldGVEYXRlIiAvPjxDb2x1bW4gVGFibGU9IlZlc3NlbEV4cG9ydCIgTmFtZT0iSXNEZWxldGVkIiAvPjwvQ29sdW1ucz48TWV0YSBYPSIyMCIgWT0iMjAiIFdpZHRoPSIxMzYiIEhlaWdodD0iMTMxIiAvPjwvUXVlcnk+PFF1ZXJ5IFR5cGU9IlN0b3JlZFByb2NRdWVyeSIgTmFtZT0iQ2FyZ29BbG9uZ3NpZGVSZXBvcnRCYXl3aXNlIj48UGFyYW1ldGVyIE5hbWU9IkBmcm9tRGF0ZSIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9mcm9tRGF0ZSk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkB0b0RhdGUiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/dG9EYXRlKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQHZlc3NlbCIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uSW50NjQsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP3Zlc3NlbCk8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkB2b3lhZ2UiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDY0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD92b3lhZ2UpPC9QYXJhbWV0ZXI+PFBhcmFtZXRlciBOYW1lPSJAZWdtIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5JbnQ2NCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KSg/ZWdtKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQHNoaXBwaW5nQWdlbnQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDY0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9zaGlwcGluZ0FnZW50KTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQGNsZWFyaW5nQWdlbnQiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDY0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9jbGVhcmluZ0FnZW50KTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQHNoaXBwZXIiIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDY0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKD9zaGlwcGVyKTwvUGFyYW1ldGVyPjxQYXJhbWV0ZXIgTmFtZT0iQGNibSIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uSW50NjQsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoP2NibSk8L1BhcmFtZXRlcj48UHJvY05hbWU+Q2FyZ29BbG9uZ3NpZGVSZXBvcnRCYXl3aXNlPC9Qcm9jTmFtZT48TWV0YSBYPSIxNzYiIFk9IjIwIiBXaWR0aD0iMjQzIiBIZWlnaHQ9IjU1MSIgLz48L1F1ZXJ5PjxSZWxhdGlvbiBNYXN0ZXI9IlZlc3NlbEV4cG9ydCIgRGV0YWlsPSJDYXJnb0Fsb25nc2lkZVJlcG9ydEJheXdpc2UiPjxLZXlDb2x1bW4gTWFzdGVyPSJWZXNzZWxFeHBvcnRJZCIgRGV0YWlsPSJWZXNzZWxFeHBvcnRJZCIgLz48L1JlbGF0aW9uPjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlZlc3NlbEV4cG9ydCI+PEZpZWxkIE5hbWU9IlZlc3NlbEV4cG9ydElkIiBUeXBlPSJJbnQ2NCIgLz48RmllbGQgTmFtZT0iVmVzc2VsTmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEZWxldGVEYXRlIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iSXNEZWxldGVkIiBUeXBlPSJCb29sZWFuIiAvPjwvVmlldz48VmlldyBOYW1lPSJDYXJnb0Fsb25nc2lkZVJlcG9ydEJheXdpc2UiPjxGaWVsZCBOYW1lPSJHYXRlSW5EYXRlVGltZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9ImRhbWFnZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJWZXNzZWxOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlZveWFnZU51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJFZ21OdW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iZGF0ZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IlNoaXBwaW5nQWdlbnROYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlNoaXBwaW5nTGluZU5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iR0ROdW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ3VzdG9tZXJOb2MiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ3VzdG9tZXJOb2NMYXN0IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlBPTnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkNsZWFyaW5nQWdlbnROYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlNoaXBwZXJOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik51bWJlck9mUGFja2FnZXNSZWNlaXZlZCIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJQYWNrYWdlVHlwZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJjYm0iIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iV2VpZ2h0IiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9IkxvY2F0aW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlBhcGVyUmVhZHlEYXRlIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iQU5GRGF0ZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IlN0YXR1cyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEaXNoYXJnZVBvcnQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVmVzc2VsRXhwb3J0SWQiIFR5cGU9IkludDY0IiAvPjwvVmlldz48UmVsYXRpb24gTWFzdGVyPSJWZXNzZWxFeHBvcnQiIERldGFpbD0iQ2FyZ29BbG9uZ3NpZGVSZXBvcnRCYXl3aXNlIj48S2V5Q29sdW1uIE1hc3Rlcj0iVmVzc2VsRXhwb3J0SWQiIERldGFpbD0iVmVzc2VsRXhwb3J0SWQiIC8+PC9SZWxhdGlvbj48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v19.1" Ref="7" Content="System.Int64" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

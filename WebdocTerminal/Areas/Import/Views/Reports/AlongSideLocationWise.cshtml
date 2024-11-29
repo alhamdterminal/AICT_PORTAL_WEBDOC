@@ -1,0 +1,155 @@
+﻿@{
+    var shippingAgents = (IEnumerable<SelectListItem>)ViewData["shippingAgents"];
+    var clearingAgents = (IEnumerable<SelectListItem>)ViewData["clearingAgents"];
+
+}
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/AlongSideLocationWise.js"></script>
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Along Side Location Wise
+            </h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+
+                    <div class="form-horizontal form-label-left row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="item form-group  x_panel">
+                                <div class="newbox">
+                                    Select Type
+                                </div>
+
+                                <div class="radio" style="display: inline-block;">
+                                    <label>
+                                        <input type="radio" id="CFS" name="type" value="CFS" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CFS
+                                    </label>
+                                </div>
+                                <div class="radio" style="display: inline-block;">
+                                    <label>
+                                        <input type="radio" id="CY" value="CY" name="type" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CY
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="filters">
+
+                    </div>
+                    <div class="ln_solid" style="border-top: 1px solid #ffffff !important">
+
+                    </div>
+
+                    <div class="row">
+
+
+
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <label class="control-label col-md-3" for="first-name">
+                                        Consignee
+                                    </label>
+                                    <div class="col-md-8" id="consignee" style="    margin-left: 8px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label  col-md-3" for="first-name">
+                                    ShippingAgent
+                                </label>
+                                <div class="col-md-9">
+                                    @Html.DropDownList("ShippingAgentId", shippingAgents, "Select Shipping Agent", new { @class = "form-control select2", @id = "shippingAgent", required = "required" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="ln_solid" style="border-top: 1px solid #ffffff !important">
+
+                    </div>
+                    <div class="row">
+
+
+                        <div class="col-md-5">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <label class="control-label col-md-3">
+                                        ClearingAgent:
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("ClearingAgentId", clearingAgents, "Select ClearingAgent", new { @class = "form-control select2", @id = "clearingAgent", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-7">
+                            @{Html.RenderPartial("_DateFilter"); }
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

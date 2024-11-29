@@ -1,0 +1,947 @@
+﻿<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+<script src="~/js/app.js/BillToLineView.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Bill To Line</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="BillToLineForm">
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                <div class="item form-group  x_panel">
+                                    <div class="newbox">
+                                        Container Type
+                                    </div>
+
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="CFS" name="type" value="CFS" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CFS
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="CY" value="CY" name="type" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CY
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="filters">
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Line
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="shippinggnet"  readonly="readonly" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Goods
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text"  readonly="readonly" id="Goods" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                            </div>
+                          
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Maunual Amount
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" id="maunualAmount" required="required" class="form-control mask col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Remarks
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" required="required" id="remarks" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+
+                                <button type="button" class="btn btn-primary" onclick="saveManualAmount()" style="float: right;">Manual Amount</button>
+                                <button type="button" class="btn btn-success" onclick="AssignOnlyTariff()" style="float: right;">Only Tariff</button>
+                                <button type="button" class="btn btn-primary" onclick="AssignExStorage()" style="float: right;">Ex Storage</button>
+                                <button type="button" class="btn btn-warning" onclick="BalancetoZero()" style="float: right;">100 % Zero</button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <div class="row">
+                        <div id="resdataGrid"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--<script>
+
+
+
+    document.onload = $(function () {
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var billtolinenumber = url.searchParams.get("billtolinenumber");
+
+
+        console.log("billtolinenumber", billtolinenumber);
+
+
+        $.get('/Invoice/GetBillToLineByNumber?billtolineno=' + billtolinenumber, function (data) {
+
+            var tariffdata = data;
+
+            console.log("tariffdata", tariffdata);
+
+
+            if (tariffdata.length) {
+
+                $("#BillToLineTariffgrid").dxDataGrid({
+                    dataSource: tariffdata,
+                    keyExpr: "billToLineId",
+                    showBorders: false,
+                    showBorders: false,
+                    showColumnLines: false,
+                    dateSerializationFormat: "yyyy/MM/dd HH:mm:ss",
+
+
+                    sorting: {
+                        mode: "none"
+                    },
+                    paging: {
+                        enabled: false
+                    },
+                    editing: {
+                        mode: "row",
+                        allowUpdating: true,
+                        allowDeleting: true,
+                        selectTextOnEditStart: false,
+                        startEditAction: "click"
+                    },
+                    columns: [
+
+                        {
+                            dataField: "type",
+                            caption: "Type",
+                            width: 200,
+                            allowEditing: false,
+
+                        },
+                        {
+                            dataField: "description",
+                            caption: "Name",
+                            width: 200,
+                            allowEditing: false,
+
+                        },
+
+                        {
+                            dataField: "tariffAmount",
+                            caption: "CR Amount #",
+                            allowEditing: false,
+
+                        },
+                        {
+                            dataField: "percent",
+                            caption: "Percent",
+                            width: 100,
+                            //calculateCellValue: function (rowData) {
+                            //    var calculatedvalue = (rowData.discount / rowData.tariffAmount) * 100;
+                            //    return rowData.percent = calculatedvalue;
+                            //},
+
+                            //calculateCellValue: function (rowData) {
+                            //    var calculatedvalue = (rowData.tariffAmount * rowData.discount ) / 100 ;
+                            //    return rowData.percent = calculatedvalue;
+                            //},
+                        },
+                        {
+                            dataField: "discount",
+                            validationRules: [{ type: "required" }],
+                            //allowEditing: false,
+                            caption: "Discount",
+
+                            //calculateCellValue: function (rowData) {
+                            //    var calculatedvalue = (rowData.tariffAmount / 100) * rowData.percent;
+                            //    return rowData.percent = calculatedvalue;
+                            //},
+
+                        },
+                        //{
+                        //    dataField: "tariffHeadAmount",
+                        //    validationRules: [{ type: "required" }],
+                        //    allowEditing: false,
+                        //    caption: "Tariff Head Amount",
+                        //    calculateCellValue: function (rowData) {
+                        //        console.log("rowData.totalCharges", rowData.tariffAmount);
+                        //        console.log("rowData.discount", rowData.discount);
+                        //        var calculatedvalue = rowData.tariffAmount - rowData.discount;
+
+                        //        console.log("calculatedvalue", calculatedvalue)
+
+                        //        return rowData.tariffHeadAmount = calculatedvalue;
+                        //    },
+
+                        //},
+
+
+
+                    ],
+
+                    onRowUpdated: function (e) {
+                        console.log(e);
+                        if (e.data.description == "HUNDREDPERCENT" || e.data.description == "EXSTORAGE" || e.data.description == "ONLYTARIFF" || e.data.description == "manualamount") {
+
+                             showToast("not allow", "warning");
+                             window.setInterval('refresh()', 3000);
+
+                        } else {
+
+                            var data = e.data;
+
+                            console.log("data",data)
+
+                            $.post('/Invoice/UpdateBillTolline', {data : data } ,function (data) {
+
+                                if (data.error == true) {
+                                    showToast(data.message, "error")
+
+                                } else {
+                                    showToast(data.message, "success")
+
+                                }
+
+                                window.setInterval('refresh()', 3000);
+
+
+                            });
+
+
+                        }
+                    },
+
+                    onRowRemoved: function (e) {
+                        console.log(e)
+
+                        if (e.data.description == "HUNDREDPERCENT" || e.data.description == "EXSTORAGE" || e.data.description == "ONLYTARIFF" || e.data.description == "manualamount" ) {
+
+
+                            $.post('/Invoice/DeleteBillToLineById?key=' + e.data.billToLineId, function (data) {
+
+                                if (data.error == true) {
+                                    showToast(data.message, "error")
+
+                                } else {
+                                    showToast(data.message, "success")
+
+                                }
+
+                                window.setInterval('refresh()', 3000);
+
+
+                            });
+
+
+                        } else {
+
+                            showToast("not allow", "warning");
+                            window.setInterval('refresh()', 3000);
+                        }
+
+                    }
+
+
+
+
+
+                }).dxDataGrid("instance");
+
+
+
+                ////var storageAmount = tariffdata[0].storageAmount;
+                //var remarks = tariffdata[0].remarks;
+
+                ////console.log("storageAmount", storageAmount)
+                //console.log("remarks", remarks)
+
+                ////$("#storageAmount").val(storageAmount);
+                //$("#remarks").val(remarks);
+
+
+
+            }
+
+
+
+
+        })
+
+    });
+
+
+    function formfiled() {
+
+    }
+
+
+    function saveBillToLineInfo() {
+
+
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var billtolinenumber = url.searchParams.get("billtolinenumber");
+
+
+        var tariffdata = $("#BillToLineTariffgrid").dxDataGrid("option", "dataSource");
+
+        //var storageAmount = $("#storageAmount").val();
+
+        console.log("tariffdata", tariffdata);
+        //console.log("storageAmount", storageAmount)
+        console.log("billtolinenumber", billtolinenumber)
+
+        $.post('/Invoice/UpdateBillTollineInfo?billtolineno=' + billtolinenumber, { tariffdata: tariffdata }, function (data) {
+
+            console.log("data", data);
+
+            showToast(data.message, "warning");
+
+
+            window.location.href = window.location.href;
+
+        });
+
+
+    }
+
+
+
+    function refresh() {
+        window.location.reload();
+    }
+
+    function BalancetoZero() {
+
+
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var billtolinenumber = url.searchParams.get("billtolinenumber");
+
+        $.post('/Invoice/AssignHundredPercent?billtolinenumber=' + billtolinenumber, function (data) {
+
+            if (data.error == true) {
+                showToast(data.message, "error")
+
+            } else {
+                showToast(data.message, "success")
+
+            }
+
+            window.setInterval('refresh()', 3000);
+
+
+
+        });
+
+        //console.log("BalancetoZero")
+
+
+        //var tariffdata = $("#BillToLineTariffgrid").dxDataGrid("option", "dataSource");
+
+        //console.log("tariffdata", tariffdata);
+
+        //if (tariffdata.length) {
+        //    tariffdata.forEach(e => e.percent = 100);
+
+        //    console.log("after percent age tariffdata", tariffdata);
+
+
+        //    $("#BillToLineTariffgrid").dxDataGrid({
+        //        dataSource: tariffdata,
+        //        keyExpr: "billToLineId",
+        //        showBorders: false,
+        //        showBorders: false,
+        //        showColumnLines: false,
+        //        dateSerializationFormat: "yyyy/MM/dd HH:mm:ss",
+
+
+        //        sorting: {
+        //            mode: "none"
+        //        },
+        //        paging: {
+        //            enabled: false
+        //        },
+        //        editing: {
+        //            mode: "row",
+        //            allowUpdating: true,
+        //            selectTextOnEditStart: false,
+        //            startEditAction: "click"
+        //        },
+        //        columns: [
+
+        //            {
+        //                dataField: "description",
+        //                caption: "Name",
+        //                width: 200
+
+        //            },
+        //            {
+        //                dataField: "tariffAmount",
+        //                caption: "CR Amount #"
+
+        //            },
+        //            {
+        //                dataField: "percent",
+        //                caption: "Percent",
+        //                width: 100
+        //            },
+        //            {
+        //                dataField: "discount",
+        //                validationRules: [{ type: "required" }],
+        //                allowEditing: false,
+        //                caption: "Discount",
+        //                calculateCellValue: function (rowData) {
+        //                    var calculatedvalue = (rowData.tariffAmount * 100) / rowData.percent;
+        //                    return rowData.discount = calculatedvalue;
+        //                },
+
+        //            },
+        //            {
+        //                dataField: "tariffHeadAmount",
+        //                validationRules: [{ type: "required" }],
+        //                allowEditing: false,
+        //                caption: "Tariff Head Amount",
+        //                calculateCellValue: function (rowData) {
+        //                    console.log("rowData.totalCharges", rowData.tariffAmount);
+        //                    console.log("rowData.discount", rowData.discount);
+        //                    var calculatedvalue = rowData.tariffAmount - rowData.discount;
+
+        //                    console.log("calculatedvalue", calculatedvalue)
+
+        //                    return rowData.tariffHeadAmount = calculatedvalue;
+        //                },
+
+        //            },
+
+
+
+
+        //        ]
+
+
+        //    }).dxDataGrid("instance");
+
+
+        //    // $("#storageAmount").val(0)
+        //}
+
+
+
+    }
+
+
+
+
+    function AssignExStorage() {
+
+
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var billtolinenumber = url.searchParams.get("billtolinenumber");
+
+        $.post('/Invoice/AssignExStorage?billtolinenumber=' + billtolinenumber, function (data) {
+
+            if (data.error == true) {
+                showToast(data.message, "error")
+
+            } else {
+                showToast(data.message, "success")
+
+            }
+
+            window.setInterval('refresh()', 3000);
+
+
+
+        });
+    }
+
+    function AssignOnlyTariff() {
+
+
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var billtolinenumber = url.searchParams.get("billtolinenumber");
+
+        $.post('/Invoice/AssignOnlyTariff?billtolinenumber=' + billtolinenumber, function (data) {
+
+            if (data.error == true) {
+                showToast(data.message, "error")
+
+            } else {
+                showToast(data.message, "success")
+
+            }
+
+            window.setInterval('refresh()', 3000);
+
+
+
+        });
+    }
+
+    function saveManualAmount() {
+
+
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var billtolinenumber = url.searchParams.get("billtolinenumber");
+
+        var manualamt = $('#manualAmount').val();
+
+        if (manualamt) {
+
+            $.post('/Invoice/SaveManualAmount?billtolinenumber=' + billtolinenumber + '&manualamt=' + manualamt, function (data) {
+
+                if (data.error == true) {
+                    showToast(data.message, "error")
+
+                } else {
+                    showToast(data.message, "success")
+
+                }
+
+                window.setInterval('refresh()', 3000);
+
+
+
+            });
+
+        } else {
+            showToast("please enter amount", "error")
+        }
+
+
+    }
+
+    function showToast(message, icon) {
+
+        $.toast({
+            heading: message,
+            showHideTransition: 'slide',
+            position: 'bottom-right',
+            icon: icon
+        });
+    }
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Bill To Line</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+
+                    <div id="BillToLineTariffgrid">
+
+
+                    </div>
+
+                    <div class="row">-->
+@*<div class="col-md-12 col-sm-4 col-xs-12">
+        <div class="item form-group">
+            <label class="control-label col-md-6 col-sm-4 col-xs-12" for="cnic">
+                Storage Total:
+            </label>
+            <div class="col-md-6 col-sm-8 col-xs-12">
+                <input type="number" class="form-control" name="StorageAmount" id="storageAmount" style="text-align: right;">
+            </div>
+        </div>
+    </div>*@
+<!--<d  iv class="col-md-12 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-6 col-sm-4 col-xs-12" for="cnic">
+                                    Manual Amount :
+                                </label>
+                                <div class="col-md-6 col-sm-8 col-xs-12">
+                                    <input type="number" class="form-control" id="manualAmount" style="text-align: right;">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" onclick="BalancetoZero()" style="float: right;">100 % Zero</button>
+                    <button type="button" class="btn btn-primary" onclick="AssignExStorage()" style="float: right;">Ex Storage</button>
+                    <button type="button" class="btn btn-success" onclick="AssignOnlyTariff()" style="float: right;">Only Tariff</button>
+                    <button type="button" class="btn btn-primary" onclick="saveManualAmount()">Manual Amount</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>-->
+@*<style>
+        .newbox {
+            text-align: center;
+            padding: 3px 0px 3px 0px;
+            font-size: 14px;
+            font-weight: 600;
+            margin: -3px -10px 10px -10px;
+            color: white;
+            background: #2a3f54;
+            border-bottom: 1px solid #d1d1d1;
+        }
+
+        #error {
+            visibility: hidden;
+            width: 200px;
+            background-color: #d25656;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            z-index: 1;
+            font-size: 17px;
+        }
+
+            #error.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            }
+    </style>
+
+    <script>
+
+        var type;
+
+        function showFilters() {
+
+            type = $("input[name='type']:checked").val();
+
+            $.get('/APICalls/GetFilterIndexWise?Type=' + type, function (partial) {
+
+                $('#filters').html(partial);
+
+                console.log(" typetype ", type);
+
+                $('#amount').val('');
+                $('#remarks').val('');
+
+
+            })
+        }
+
+        function showToast(message, icon) {
+
+            $.toast({
+                heading: message,
+                showHideTransition: 'slide',
+                position: 'bottom-right',
+                icon: icon
+            });
+        }
+
+        function containerCallback() {
+
+               var containerNumber = $("#containerIndexCYdb option:selected").val();
+                console.log('test cy container', containerNumber)
+
+        }
+
+        function containerChangeCallback() {
+            var containerIndexId = $("#indexdb option:selected").val();
+
+            console.log("containerIndexId",containerIndexId)
+
+
+        }
+
+
+
+        function formfiled() {
+
+
+        }
+
+        function saveInfo() {
+
+
+            console.log("type", type)
+
+
+            if (type == "CFS") {
+
+                var containerId = $("#indexdb option:selected").val();
+                var amount = $("#amount").val();
+                var remarks = $("#remarks").val();
+
+                console.log("containerId", containerId)
+                console.log("amount", amount)
+                console.log("remarks", remarks)
+
+                if (containerId && amount) {
+                    console.log("ok")
+
+
+                    $.post('/Import/Setup/AddBillToLineCFS?containerId=' + containerId + '&amount=' + amount + '&remarks=' + remarks, function (result) {
+
+                        console.log("result", result)
+
+                        if (result.error == true) {
+
+                            showToast(result.message, "error");
+
+                        }
+                        else {
+                            showToast(result.message, "success");
+                        }
+
+
+                        window.location.href = window.location.href;
+
+
+                    });
+
+                }
+                else {
+                    showToast("please select index and insert amount", "error")
+
+                }
+
+
+            }
+            if (type == "CY") {
+                var index = $("#containerIndexCYdb option:selected").val();
+
+
+                var amount = $("#amount").val();
+                var remarks = $("#remarks").val();
+                console.log("igm", igm)
+                console.log("index", index)
+                console.log("amount", amount)
+                console.log("remarks", remarks)
+
+                if (igm && index && amount) {
+                    console.log("ok");
+
+
+                    $.post('/Import/Setup/AddBillToLineCy?igm=' +igm +'&index=' + index + '&amount=' + amount + '&remarks=' + remarks, function (result) {
+
+                        console.log("result", result)
+
+                        if (result.error == true) {
+
+                            showToast(result.message, "error");
+
+                        }
+                        else {
+                            showToast(result.message, "success");
+                        }
+
+
+                        window.location.href = window.location.href;
+
+
+                    });
+
+                }
+                else {
+                    showToast("please select index and insert amount", "error")
+
+                }
+
+            }
+
+
+        }
+
+
+
+    </script>
+
+    <div class="right_col" role="main">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="title_left">
+                        <h3>Bill To Line</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                    <div class="x_content" id="odform">
+                        <form class="form-horizontal form-label-left" id="BillToLineForm">
+
+                            <div class="form-horizontal form-label-left row">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                    <div class="item form-group  x_panel">
+                                        <div class="newbox">
+                                            Container Type
+                                        </div>
+
+                                        <div class="radio" style="display: inline-block;">
+                                            <label>
+                                                <input type="radio" id="CFS" name="type" value="CFS" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CFS
+                                            </label>
+                                        </div>
+                                        <div class="radio" style="display: inline-block;">
+                                            <label>
+                                                <input type="radio" id="CY" value="CY" name="type" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CY
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="filters">
+
+                            </div>
+                            <div class="row" id="blnodropDown">
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                            Amount:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="number" class="form form-control" id="amount" name="BillToLineAmount" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Remarks
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <textarea type="text" required="required" id="remarks" name="Remarks" class="form-control col-md-7 col-xs-12"></textarea>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="form-group" style="float: right;">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button id="btnSubmitUpdate" type="button" onclick="saveInfo( )" class="btn btn-warning">Save</button>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@

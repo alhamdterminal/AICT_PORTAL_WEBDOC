@@ -1,0 +1,138 @@
+﻿
+@{
+
+    var GDNumbers = (IEnumerable<SelectListItem>)ViewData["GDNumbers"];
+}
+
+<script src="~/js/app.js/GDHoldView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>GD Hold</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="">
+
+                    <div class="form-horizontal form-label-left row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    GD-Number: <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @*@(Html.DevExtreme()
+                                        .Autocomplete()
+                                        .ID("GDNumber")
+                                        .DataSource(d => d.Mvc()
+                                        .Controller("APICalls")
+                                        .Area("")
+                                        .LoadAction("GetGDNumbers"))
+                                        .Placeholder("Type GDNumber...")
+                                        .OnValueChanged("gdNumber_changed"))*@
+
+                                    @Html.DropDownList("GDNumber", GDNumbers, "Select GD Number", new { @class = "form-control select2", @id = "gdnumbers", @onchange = "gdNumber_changed(this.value)" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-horizontal form-label-left row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Shipper Name
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" id="shipperName" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Clearing Agent
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" id="clearingAgent" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Package Type
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" id="packageType" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-horizontal form-label-left row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    No Of Pkgs
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" id="numberOfPackages" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Cargo Code
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input name="EnteringCargoId" type="text" class="form-control" id="enteringCargoId" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    Remarks
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <textarea type="text" class="form-control" name="remarks" id="remarks"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-horizontal form-label-left row">
+                        <div class="col-md-12">
+                            <button type="button" id="btn_Hold" class="btn btn-primary" onclick="addHold()" style="float:right">Hold </button>
+                            <button type="button" id="btn_Release" class="btn btn-success" onclick="releaseHold()" style="float:right">Release</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $('.select2').select2();
+</script>

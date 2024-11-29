@@ -1,0 +1,238 @@
+﻿@{
+    var ClearingAgent = (IEnumerable<SelectListItem>)ViewData["ClearingAgent"];
+}
+
+<style>
+
+
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+
+
+    @@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+        textarea {
+            padding: 10px;
+            vertical-align: top;
+            width: 251px !important;
+        }
+    }
+
+</style>
+<script src="~/js/app.js/IndexTransshipmentExport.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Trans Shipment</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="title_right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="">
+                    <form class="form-horizontal form-label-left" id="TPReceiveVehicleForm">
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Vehicle Number
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="vehicleNo" class="form-control" name="VehicleNo" onkeyup="getTranshipmentByVehicleNo($(this).val())" required>
+                                        <span class="error" id="vehicleNoerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Contains Container
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form-control" id="containerPresent" name="ContainerPresent" onchange="chageContainContainer($(this).val())" required>
+                                            <option value="false" selected>No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+                                        <span class="error" id="ContainerPresentError"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group" id="containerNo">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Container Number: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="cotnainerNo" name="CotnainerNo" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal form-label-left-row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Seal Number:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="sealNo" name="SealNo" />
+                                        <span class="error" id="sealNoerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Container Gross Weight:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" class="form-control" id="containerGrossWeight" name="ContainerGrossWeight" />
+                                        <span class="error" id="containerGrossWeighterror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Driver Name:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="driverName" name="DriverName" />
+                                        <span class="error" id="driverNameerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left-row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Driver CNIC:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="driverCNIC" name="DriverCNIC" />
+                                        <span class="error" id="driverCNICerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Clearing Agent
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ClearingAgentExportId", ClearingAgent, "Select Clearing Agent", new { @class = "form-control", @id = "clearingAgentExport", @required = "required" })
+                                        <span class="error" id="clearingAgentExporterror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Clearing Agent Representative:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="agentRepresentative" name="AgentRepresentative" />
+                                        <span class="error" id="agentRepresentativeerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Agent Representative CNIC:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="agentCNIC" name="AgentCNIC" />
+                                        <span class="error" id="agentCNICerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Remarks:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+
+                                        <textarea name="Remarks" id="remarks" cols="50" rows="5"></textarea>
+                                        <span class="error" id="remarkserror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button type="button" id="btnCancel" class="btn btn-primary" onclick="restform()" style="float:right;">Cancel</button>
+                           @* <button id="btnNext" type="button" style="float:right;" onclick="submitTPReceiveVehicle()" class="btn btn-success">Submit</button>*@
+                            <button id="btnSubmit" type="button" style="float:right;" onclick="addTPReceiveVehicle()" class="btn btn-success">Save</button>
+                          @* <a id="btnSubmitUpdate" class="btn btn-success" onclick="updateTPReceiveVehicle()" style="display:none ; float: right;">Update</a>*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="tpReceivedContainer"></div>
+                    <div class="ln_solid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

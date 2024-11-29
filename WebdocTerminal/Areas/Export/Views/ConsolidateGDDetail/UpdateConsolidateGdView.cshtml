@@ -1,0 +1,554 @@
+﻿@{
+
+    var VesselExports = (IEnumerable<SelectListItem>)ViewData["VesselExports"];
+
+    var ShippingLine = (IEnumerable<SelectListItem>)ViewData["ShippingLine"];
+
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var Destinations = (IEnumerable<SelectListItem>)ViewData["Destinations"];
+
+    var GoodsHeadName = (IEnumerable<SelectListItem>)ViewData["GoodsHeadName"];
+
+    var Consignee = (IEnumerable<SelectListItem>)ViewData["Consignee"];
+
+    var Port = (IEnumerable<SelectListItem>)ViewData["Port"];
+
+    var CLearingagent = (IEnumerable<SelectListItem>)ViewData["CLearingagent"];
+}
+
+
+<style>
+
+
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+
+<script src="~/js/app.js/UpdateConsolidateGdView.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Consolidated Gd Detail</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="LoadingPrgramForm">
+
+
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        GD Numbers
+                                    </label>
+                                    <div class="col-md-7 col-sm-4 col-xs-12">
+                                        @*  @Html.DropDownList("GDNumber", UnSetteledGDs, "Select GD Number", new { @class = "form-control select2", @id = "gdnumberid", @required = "required", @onchange = "changed_GDnumber(this.value)" })*@
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="gdnumber" name="GDNumber" readonly required>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-1 col-sm-4 col-xs-12">
+                                            <button id="btnSubmit" type="button" onclick="fingddetail()" class="btn btn-success" style="float: right;">Find</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Loading Program Date
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form-control has-feedback-left" id="lpdate" name="LoadingProgramDate" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Reference Number
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="rfNumber" name="ReferenceNumber" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Invoice Number
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="invnumber" name="InvoiceNumber">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Invoice Date
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form-control has-feedback-left" id="invDate" name="InvoiceDate" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Shipping Line
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingLineExportId", ShippingLine, "Select Shipping Line", new { @class = "form-control select2", @id = "shippingLine", @required = "required" })
+                                        <span class="error" id="ShippingLineerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Vessel
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("VesselExportId", VesselExports, "Select Vessel Export", new { @class = "form-control select2", @id = "vesselExports", @required = "required", @onchange = "changed_VesselExport(this.value)" })
+                                        <span class="error" id="VesselExporterror"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Voyage Export:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form-control " name="VoyageExportId" id="voyageExportidres" onchange="changed_VoyageExport(this.value)">
+                                            <option value="">Select Voyage</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Shipper Seal
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="shipperSeal" name="ShipperSeal">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Vessel ETA
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="eta" readonly>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Vessel ETD
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="etd" readonly>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Cargo Cut-Off
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control col-md-7 col-xs-12" id="cutoff" readonly>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Loading Terminal
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("PortAndTerminalExportId", Port, "Select Port", new { @class = "form-control select2", @id = "portAndTerminalExportId", @required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Clearing Agent
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ClearingAgentExportId", CLearingagent, "Select ClearingAgent", new { @class = "form-control select2", @id = "clearingAgentExportId", @required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Consignee
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ExportConsigneeId", Consignee, "Select Consignee", new { @class = "form-control select2", @id = "exportConsigneeId", @required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Shipping Agent
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentExportId", ShippingAgent, "Select Shipping Agent", new { @class = "form-control select2", @id = "shippingAgent", @required = "required" })
+                                        <span class="error" id="ShippingAgenterror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Destination / Discharge Port
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("Destination", Destinations, "Select Destination", new { @class = "form-control select2", @id = "destination", @required = "required", @onchange = "changed_DischargePort(this.value)" })
+                                        <span class="error" id="Destinationerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal form-label-left row">
+
+                                <div class="col-md-4">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4" for="name">
+                                            Final Destination
+                                        </label>
+                                        <div class="col-md-8">
+                                            @* <input type="text" id="finalDestination" class="form-control" name="FinalDestination" required>*@
+                                            @Html.DropDownList("FinalDestination", Destinations, "Select Final Destination", new { @class = "form-control select2", @id = "finalDestination", @required = "required" })
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Agent CNIC
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="clearingAgentCNIC" class="form-control" name="ClearingAgentCNIC" required>
+                                        <span class="error" id="ClearingAgentCNICerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Agent Representative
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="cLearingAgentReprsentative" class="form-control" name="CLearingAgentReprsentative" required>
+                                        <span class="error" id="CLearingAgentReprsentativeerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Receving Start
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form-control has-feedback-left" id="recevingStartTime" name="RecevingStartTime" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Driver CNIC
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="driverCNIC" class="form-control" name="DriverCNIC" required>
+                                        <span class="error" id="DriverCNICerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Driver Name
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="driverName" class="form-control" name="DriverName" required>
+                                        <span class="error" id="DriverNameerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Receving End
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form-control has-feedback-left" id="recevingEndTime" name="RecevingEndTime" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Commodity
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*@Html.DropDownList("CommodityId", Commodities, "Select Commodity", new { @class = "form-control select2", @id = "commodity", @required = "required" })*@
+                                        <input type="text" id="commodityName" class="form-control" name="CommodityName" required>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Country
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*  @Html.DropDownList("DischargeCountry", DischargeCountries, "Select Country", new { @class = "form-control select2", @id = "dischargeCountry", @required = "required" })*@
+                                        <input type="text" id="dischargeCountry" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4" for="name">
+                                        C R Condition
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="cargoRecevingCondition" class="form-control" name="CargoRecevingCondition" required>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4" for="name">
+                                        LP Code
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="loadingprogramid" class="form-control" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4" for="name">
+                                        Number of Packages
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="numberofPackages" class="form-control" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Gate-In Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" id="gateindate" required readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Association Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" id="associationDate" required readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                            Gate-Out Date:
+                                        </label>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control has-feedback-left" id="gateOutDate" required readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Goods Head
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("GoodsHeadExportId", GoodsHeadName, "Select Goods Head", new { @class = "form-control select2", @id = "goodsHeadExportId", @required = "required" })
+                                        <span class="error" id="goodsheaderror"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Cargo Type
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form-control" name="CargoType" id="cargoType" required>
+                                            <option class="form-control" value="LCL" selected>LCL</option>
+                                            <option class="form-control" value="FCL">FCL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button id="btnSubmit" type="button" onclick="submitGdDetail()" class="btn btn-success" style="float: right;">Update</button>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div id="loadingPrograms"></div>
+                                    <div class="ln_solid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

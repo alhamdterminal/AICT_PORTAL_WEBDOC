@@ -1,0 +1,134 @@
+﻿@{
+    var Agents = (IEnumerable<SelectListItem>)ViewData["Agents"];
+
+}
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/DeliveryOrderReportCFSContainerWeightWise.js"></script>
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Delivery Order Report
+            </h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    @*<div id="filters">
+
+                        </div>*@
+
+                    <div id="containerType">
+                        <partial name="~/Areas/Import/Views/Shared/_Filter_Index.cshtml" />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5  col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label  col-md-3  col-xs-12" for="first-name">
+                                    ShippingAgent
+                                </label>
+                                <div class="col-md-9  col-xs-12">
+                                    @Html.DropDownList("ShippingAgentId", Agents, "Select Shipping Agent", new { @class = "form-control select2", @id = "shippingAgent", required = "required" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+
+                            <div class="col-lg-5 col-md-5 col-sm-5  col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            From:
+                                        </label>
+                                        <div class="col-md-9 col-xs-10">
+                                            @(Html.DevExtreme().DateBox()
+                                  .Type(DateBoxType.DateTime)
+                                    .DisplayFormat("MM/dd/yyy hh:mm")
+                                .Name("DateStartTime")
+                               .ID("dateStartTime")
+
+                                            )
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5  col-xs-12">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                            To:
+                                        </label>
+                                        <div class="col-md-9  col-xs-10">
+                                            @(Html.DevExtreme().DateBox()
+                                .Type(DateBoxType.DateTime)
+                                  .DisplayFormat("MM/dd/yyy hh:mm")
+                              .Name("EndStartTime")
+                             .ID("endStartTime")
+
+                                            )
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2  col-xs-12">
+                            <button type="button" class="btn btn-dark" onclick="myFunction()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

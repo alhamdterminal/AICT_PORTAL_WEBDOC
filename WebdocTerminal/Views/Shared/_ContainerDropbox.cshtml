@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ContainerIndex>
+
+<select class="form-control select2" required="required" id="containerdb">
+    @foreach (var item in Model)
+    {
+        <option value="@item.ContainerIndexId">@item.ContainerNo</option>
+    }
+</select>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

@@ -1,0 +1,106 @@
+﻿<script src="~/js/app.js/IndexGDManagement.js"></script>
+
+<style>
+    #myTabContent {
+        min-height: 500px;
+        padding-top: 50px;
+    }
+
+    .button-row {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        float: right;
+        position: relative;
+        right: 1%;
+    }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>GD Management</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="title_right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <div class="row" id="tabsdiv">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+                                        <li class="nav-item active">
+                                            <a class="nav-link active" id="anf-tab" data-toggle="tab" href="#anf" role="tab" aria-controls="anf" aria-selected="true" onclick="renderContent('ANFStatus')">ANF Status</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="paperready-tab" data-toggle="tab" href="#paperready" role="tab" aria-controls="paperready" aria-selected="false" onclick="renderContent('PaperReady')">Paper Ready</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade active in" id="anf" role="tabpanel" aria-labelledby="anf-tab">
+
+                                            <div class="row">
+                                                <div id="anf-grid"></div>
+
+                                                <div class="ln_solid"></div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                        <button class="btn btn-warning" style="float:right;" id="btnCancel" onclick="cancel( )">Cancel</button>
+                                                        @*     <button class="btn btn-secondary" style="float:right;" id="btnRevert" onclick="revert( )">Revert</button>*@
+                                                        <button class="btn btn-primary" style="float:right;" id="btnSubmit" onclick="submit( )">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="tab-pane fade" id="paperready" role="tabpanel" aria-labelledby="paperready-tab">
+                                            <div class="row">
+
+                                                <div class="row">
+                                                    <div id="paperready-grid"></div>
+
+                                                    <div class="ln_solid"></div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <button class="btn btn-warning" style="float:right;" id="btnCancel" onclick="cancelpaperready( )">Cancel</button>
+                                                            @*     <button class="btn btn-secondary" style="float:right;" id="btnRevert" onclick="revertpaperready( )">Revert</button>*@
+                                                            <button class="btn btn-primary" style="float:right;" id="btnSubmit" onclick="submitpaperready( )">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

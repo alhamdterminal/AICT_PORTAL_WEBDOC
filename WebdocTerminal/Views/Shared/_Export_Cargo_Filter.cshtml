@@ -1,0 +1,75 @@
+﻿
+<script>
+
+    var gd;
+
+    var vesselName;
+
+    var voyage;
+
+    // var gdnumber;
+
+    //function gdNumber_changed(data) {
+    //    gdnumber = data.value;
+    //    console.log(gdnumber);
+    // }
+
+
+    function gdNumber_changed(data) {
+
+         gd = data.value;
+        console.log(gd);
+
+        getInvoicesList(gd);
+
+        $.get('/APICalls/GetExportCargoDetails?gdnumber=' + gd, function (cargo) {
+
+            if (cargo) {
+                console.log(cargo)
+                $('#gd').val(cargo.gd);
+
+                cargoCallback(cargo.cargoId);
+
+            }
+
+        });
+
+    }
+
+
+</script>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="">
+
+            <div class="">
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="item form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                GD#: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @(Html.DevExtreme()
+                                          .Autocomplete()
+                                          .ID("GDNumber")
+                                          .DataSource(d => d.Mvc()
+                                          .Controller("APICalls")
+                                          .Area("")
+                                          .LoadAction("GetGDNumbers"))
+                                          .Placeholder("Type GDNumber...")
+                                          .OnValueChanged("gdNumber_changed"))
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    </div>
+
+
+                </div>
+        </div>
+    </div>
+</div>

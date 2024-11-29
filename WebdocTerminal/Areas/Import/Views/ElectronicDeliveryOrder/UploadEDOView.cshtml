@@ -1,0 +1,962 @@
+﻿@*<style>
+
+        #CargoInformation {
+            max-height: 750px;
+        }
+
+        .my-class {
+            background-color: #4b5f71;
+            color: white;
+        }
+
+        .newbox {
+            text-align: center;
+            padding: 3px 0px 3px 0px;
+            font-size: 14px;
+            font-weight: 600;
+            margin: -3px -10px 10px -10px;
+            color: white;
+            background: #2a3f54;
+            border-bottom: 1px solid #d1d1d1;
+        }
+
+        #error {
+            visibility: hidden;
+            width: 200px;
+            background-color: #d25656;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            z-index: 1;
+            font-size: 17px;
+        }
+
+            #error.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            }
+
+        .dx-header-row > td > .dx-datagrid-text-content {
+            white-space: normal;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        .myClass {
+            background-color: #73cbad4f;
+            color: black;
+        }
+    </style>
+
+
+    <script>
+        function showToast(message, icon) {
+
+            $.toast({
+                heading: message,
+                showHideTransition: 'slide',
+                position: 'bottom-right',
+                icon: icon
+            });
+        }
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+
+    <script>
+
+
+
+        var containers = [];
+
+        function showToast(message, icon) {
+
+            $.toast({
+                heading: message,
+                showHideTransition: 'slide',
+                position: 'bottom-right',
+                icon: icon
+            });
+        }
+
+
+        function listGrid(virno, containerno, indexno, shippingagnetId) {
+
+            console.log("virno", virno)
+            console.log("containerno", containerno)
+            console.log("indexno", indexno)
+
+            if (virno == undefined) {
+                virno = "";
+            }
+            if (containerno == undefined) {
+                containerno = "";
+            }
+            if (indexno == undefined) {
+                indexno = "";
+            }
+
+            console.log("after virno", virno)
+            console.log("after containerno", containerno)
+            console.log("after indexno", indexno)
+
+
+
+            loadingBar();
+            $.get('/APICalls/GetElectronicDODetail?virno=' + virno + '&containerno=' + containerno + '&indexno=' + indexno + '&shippingagnetId=' + shippingagnetId , function (data) {
+                loadingBarHide();
+                if (data) {
+
+                    containers = data;
+
+                    console.log("containers", containers)
+
+                    const groupByCategory = groupBy(containers);
+
+
+                    console.log("groupByCategory", groupByCategory)
+
+
+                    containerIndexesGrid(groupByCategory)
+                }
+
+                else {
+                    containers = []
+                    containerIndexesGrid(containers);
+
+                }
+
+
+            });
+
+
+        }
+
+
+        function groupBy(data) {
+            var newarraydata = [];
+            if (data) {
+                data.forEach(c => {
+                    var result = newarraydata.find(t => t.key == c.key);
+
+                    if (result == null) {
+                        newarraydata.push(c);
+
+                    }
+
+                });
+            }
+            return newarraydata;
+        }
+
+
+        function loadingBar() {
+
+            console.log("load")
+            var bar = document.getElementById("large-indicator");
+            bar.style.display = 'block';
+
+            $("#large-indicator").dxLoadIndicator({
+                height: 60,
+                width: 60
+            });
+        }
+        function loadingBarHide() {
+            console.log("loaded")
+            var bar = document.getElementById("large-indicator");
+            bar.style.display = 'none';
+        }
+
+        function formfiled() {
+            loginuserinfo();
+        }
+
+        var shippingagnetId;
+
+        function loginuserinfo() {
+
+            $.get('/APICAlls/GetLoginUserInfo', function (user) {
+                console.log("user", user);
+                if (user) {
+                    console.log("ok")
+                    shippingagnetId = user;
+                }
+
+
+
+            });
+        }
+
+
+        function containerIndexesGrid(res) {
+
+
+            var grid = $("#CargoInformation").dxDataGrid(this.gridSettings).dxDataGrid('instance');
+
+
+            containers = res;
+
+            console.log("containers", containers)
+
+
+            var grid = $("#CargoInformation").dxDataGrid(this.gridSettings).dxDataGrid('instance');
+
+            var dataGrid = $("#CargoInformation").dxDataGrid({
+                dataSource: containers,
+                keyExpr: "key",
+                wordWrapEnabled: true,
+                showBorders: true,
+                showBorders: true,
+                allowColumnResizing: true,
+                columnAutoWidth: true,
+                //dateSerializationFormat: "dd/MM/yyyy",
+                paging: {
+                    enabled: false
+                },
+                editing: {
+                    mode: "cell",
+                    allowUpdating: true,
+                    selectTextOnEditStart: true,
+
+                },
+                export: {
+                    enabled: true
+                },
+                onExporting(e) {
+
+                    const workbook = new ExcelJS.Workbook();
+
+                    const worksheet = workbook.addWorksheet('ElectronicDeliveryOrder');
+
+                    DevExpress.excelExporter.exportDataGrid({
+                        component: e.component,
+                        worksheet,
+                        autoFilterEnabled: true,
+                    }).then(() => {
+                        workbook.xlsx.writeBuffer().then((buffer) => {
+                            saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'ElectronicDeliveryOrders.xlsx');
+                        });
+                    });
+                    e.cancel = true;
+
+
+                },
+                searchPanel: {
+                    visible: true,
+                    width: 240,
+                    placeholder: "Search..."
+
+                },
+                scrolling: {
+                    columnRenderingMode: 'virtual',
+                },
+                columns: [
+                    {
+                        dataField: "vessel_Name",
+                        caption: "Vessel",
+                        allowEditing: false,
+                        fixed: true,
+                        cssClass: 'myClass'
+                    },
+                    {
+                        dataField: "voyage",
+                        caption: "Voyage",
+                        allowEditing: false,
+                        fixed: true,
+                        cssClass: 'myClass'
+                    },
+                    {
+                        dataField: "igM_No",
+                        caption: "IGM",
+                        allowEditing: false,
+                        fixed: true,
+                        cssClass: 'myClass'
+                    },
+                    {
+                        dataField: "container_No",
+                        caption: "Container",
+                        allowEditing: false,
+                        fixed: true,
+                        cssClass: 'myClass'
+                    }, {
+                        dataField: "bL_No",
+                        caption: "BL",
+                        allowEditing: false,
+                        fixed: true,
+                        cssClass: 'myClass'
+                    },
+                    {
+                        dataField: "index_No",
+                        caption: "Index",
+                        allowEditing: false,
+                        fixed: true,
+                        cssClass: 'myClass'
+                    },
+                    {
+                        dataField: "conT_Size",
+                        caption: "Size",
+                        allowEditing: false,
+                        fixed: true,
+                        cssClass: 'myClass'
+                    },
+                    {
+                        dataField: "gross_Weight",
+                        caption: "GrossWeight",
+                        allowEditing: false,
+                        cssClass: 'myClass'
+
+                    },
+                    {
+                        dataField: "marks_No",
+                        caption: "MarksNo",
+                        allowEditing: false,
+                        cssClass: 'myClass'
+                    },
+                    {
+                        dataField: "no_Of_Pkgs",
+                        caption: "No_Of_Packges",
+                        allowEditing: false,
+                        cssClass: 'myClass'
+                    },
+                    {
+                        dataField: "pKg_Description",
+                        caption: "Description",
+                        allowEditing: false,
+                        cssClass: 'myClass',
+                        width :" 200"
+
+                    },
+                    {
+                        dataField: "port_of_Arrival",
+                        caption: "Port_of_Arrival",
+
+                    },
+
+                    {
+                        dataField: "do_Date",
+                        caption: "DO_Date",
+                        dataType: 'date',
+                        format: 'dd/MM/yyyy',
+                        width: " 200"
+                    },
+                    {
+                        dataField: "valid_Date",
+                        caption: "Valid_Date",
+                        format: 'dd/MM/yyyy',
+                        dataType: 'date',
+                        width: " 200"
+                    },
+                    {
+                        dataField: "agent_Name",
+                        caption: "Agent",
+
+                    },
+                    {
+                        dataField: "doc_Tran_No",
+                        caption: "Doc_Tran_No",
+
+                    },
+                    {
+                        dataField: "goods_Desc",
+                        caption: "Goods_Desc",
+
+                    },
+                    {
+                        dataField: "ref_No",
+                        caption: "Ref_No",
+
+                    },
+
+                    {
+                        dataField: "netWeight",
+                         caption: "NetWeight",
+                        format: "#,##0.##",
+                        editorOptions: {
+                            step: 0
+                        }
+                    },
+                    {
+                        dataField: "isEdo",
+                        caption: "isEdo",
+                        dataType: "boolean"
+                    },
+                    //{
+                    //    width: 100,
+                    //    alignment: 'center',
+                    //    cellTemplate: function (container, options) {
+                    //        $('<a/>').addClass('dx-link')
+                    //            .text('Print')
+                    //            .on('dxclick', function () {
+
+                    //                console.log("options.data", options.data.electronicDeliveryOrderId)
+                    //                Printedo(options.data.electronicDeliveryOrderId);
+                    //            })
+                    //            .appendTo(container);
+                    //    }
+                    //}
+
+
+
+
+                ],
+
+
+                onRowUpdated: function (e) {
+
+
+                },
+            }).dxDataGrid("instance");
+
+
+
+            grid.on('editorPrepared', function (e) {
+                if (e.parentType !== 'dataRow') {
+                    return;
+                }
+                e.editorElement[e.editorName]('instance').on('keyDown', function (arg) {
+
+                    var gridComponent = e.component;
+
+                    var event = arg.jQueryEvent;
+
+                    if (event.keyCode === 38) {
+                        if (e.editorName == "dxNumberBox") {
+                            event.stopPropagation();
+                            event.preventDefault();
+                        }
+
+                    } else if (event.keyCode === 40) {
+                        if (e.editorName == "dxNumberBox") {
+                            event.stopPropagation();
+                            event.preventDefault();
+                        }
+
+                    }
+
+                    else if (event.keyCode === 189) {
+                        if (e.editorName == "dxNumberBox") {
+                            event.stopPropagation();
+                            event.preventDefault();
+                        }
+
+                    }
+                });
+
+
+            });
+
+            $('.dx-datagrid-search-panel').removeClass('dx-state-disabled');
+            $('div.dx-texteditor-input-container > input.dx-texteditor-input').removeAttr('disabled');
+
+        }
+
+        function Printedo(data) {
+            console.log("data", data)
+            top.location.href = '/Import/Reports/EdoReportView?edoid=' + data;
+        }
+
+        var keyCodes = {
+            TAB: 9,
+            PAGE_UP: 33,
+            PAGE_DOWN: 34,
+            LEFT: 37,
+            UP: 38,
+            RIGHT: 39,
+            DOWN: 40,
+
+        };
+
+        function updateinfo(data) {
+            console.log("data", data)
+
+        }
+
+        function showcargoDetaildesc() {
+
+            console.log("shippingagnetId", shippingagnetId)
+
+            if (shippingagnetId) {
+            var res = [];
+
+            containerIndexesGrid(res);
+
+            var virno = $("#virnolist").dxAutocomplete("instance").option("value")
+            var containerno = $("#containerlist").dxAutocomplete("instance").option("value");
+            var indexno = $("#containerIndexlist").dxAutocomplete("instance").option("value")
+
+            console.log('virno', virno);
+            console.log('containerno', containerno);
+            console.log('indexno', indexno);
+
+                listGrid(virno, containerno, indexno, shippingagnetId);
+
+            }
+            else {
+                return showToast("please assign agent", "error");
+            }
+
+        }
+
+
+
+        function SaveInfo() {
+            var rowObject = $("#CargoInformation").dxDataGrid("option", "dataSource");
+
+            console.log("rowObject", rowObject)
+            var newresult = rowObject.filter(c => c.isEdo == true);
+            console.log("newresult", newresult)
+
+            if (newresult.length) {
+
+                $.post('/Import/ElectronicDeliveryOrder/SaveEDO', { model: newresult }, function (data) {
+
+                    if (data.error == false) {
+                        showToast(data.message, "success")
+                    } else {
+                        showToast(data.message, "error")
+                    }
+                });
+            }
+
+        }
+
+    </script>
+
+
+    <style>
+        .newbox {
+            text-align: center;
+            padding: 3px 0px 3px 0px;
+            font-size: 14px;
+            font-weight: 600;
+            margin: -3px -10px 10px -10px;
+            color: white;
+            background: #2a3f54;
+            border-bottom: 1px solid #d1d1d1;
+        }
+    </style>
+
+
+
+    <div class="right_col" role="main">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="title_left">
+                        <h3> Electronic Delivery Order </h3>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+
+
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        File Select: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="file" class="form form-control" id="fileUpload" accept=".xls,.xlsx" style=" background-color: beige; color: black;" /><br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <button type="button" class="btn btn-success" id="uploadExcel">Upload File</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        $('.select2').select2();
+
+        var selectedFile;
+        document
+            .getElementById("fileUpload")
+            .addEventListener("change", function (event) {
+                selectedFile = event.target.files[0];
+            });
+        document
+            .getElementById("uploadExcel")
+            .addEventListener("click", function () {
+
+                var resultvalue = true;
+
+                if (selectedFile) {
+                    var fileReader = new FileReader();
+                    fileReader.onload = function (event) {
+                        var data = event.target.result;
+
+                        var workbook = XLSX.read(data, {
+                            type: "binary"
+                        });
+                        workbook.SheetNames.forEach(sheet => {
+                            let rowObject = XLSX.utils.sheet_to_row_object_array(
+                                workbook.Sheets[sheet]
+                            );
+
+                            //do_Date: formatDate(new Date(Date.UTC(0, 0, c.DO_Date - 1))),
+                            //valid_Date: formatDate(new Date(Date.UTC(0, 0, c.Valid_Date - 1))),
+                            if (rowObject) {
+
+                                var result = [];
+
+                                var newresult = rowObject;
+
+                                console.log("newresult", newresult)
+                                //newresult.forEach(c => {
+
+                                let x = {
+
+                                        doc_Tran_No: newresult[4].__EMPTY_14,
+                                        ref_No: newresult[5].__EMPTY_14,
+                                        do_Date: formatDate(new Date(newresult[6].__EMPTY_14)),
+                                        valid_Date: formatDate(new Date(newresult[7].__EMPTY_14)),
+                                        agent_Name: newresult[8].__EMPTY_6,
+                                        vessel_Name: newresult[9].__EMPTY_2,
+                                        voyage: newresult[9].__EMPTY_7,
+                                        index_No: newresult[11].__EMPTY_2,
+                                        bL_No: newresult[11].__EMPTY_7,
+                                        igM_No: newresult[13].__EMPTY_7,
+                                         //container_No: c.Container,
+                                        pkg_Description: newresult[20].__EMPTY_6,
+                                        goods_Desc: newresult[19].__EMPTY_8,
+                                        gross_Weight: newresult[16].__EMPTY_8,
+                                        marks_No: newresult[19].__EMPTY,
+                                        netWeight: newresult[16].__EMPTY_2,
+                                        no_Of_Pkgs: newresult[19].__EMPTY_6,
+                                        port_of_Arrival: newresult[13].__EMPTY_2,
+                                        //conT_Size: c.Size,
+
+
+                                    };
+
+                                    result = x;
+
+                                /*});*/
+
+                                 console.log("result", result)
+
+
+                                if (result) {
+
+                                    $.post('/Import/ElectronicDeliveryOrder/SaveEDOFromExcel', { model: result }, function (data) {
+
+                                        if (data.error == false) {
+                                            showToast(data.message, "success")
+                                        } else {
+                                            showToast(data.message, "error")
+                                        }
+                                    });
+                                }
+                                else {
+                                    showToast("please re select file or reload page", "error")
+
+                                }
+                            }
+
+
+                        });
+                    };
+                    fileReader.readAsBinaryString(selectedFile);
+                }
+            });
+
+
+        function formatDate(date) {
+
+            console.log("date", date.getTime())
+            return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        }
+
+
+
+
+    </script>*@
+
+
+
+
+<style>
+
+    #CargoInformation {
+        max-height: 750px;
+    }
+
+    .my-class {
+        background-color: #4b5f71;
+        color: white;
+    }
+
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+    .dx-header-row > td > .dx-datagrid-text-content {
+        white-space: normal;
+        vertical-align: top;
+        text-align: center;
+    }
+
+    .myClass {
+        background-color: #73cbad4f;
+        color: black;
+    }
+</style>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+
+<script src="~/js/app.js/UploadEDOView.js"></script>
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3> Electronic Delivery Order </h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    File Select: <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input multiple type="file" class="form form-control" id="fileUpload" accept=".xls,.xlsx" style=" background-color: beige; color: black;" /><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <button type="button" class="btn btn-success" id="uploadExcel">Upload File</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ln_solid"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+    $('.select2').select2();
+
+    var selectedFile;
+    var selectedFileitem = [];
+    document
+        .getElementById("fileUpload")
+        .addEventListener("change", function (event) {
+            selectedFile = event.target.files;
+
+        });
+    document
+        .getElementById("uploadExcel")
+        .addEventListener("click", function () {
+
+            var resultvalue = true;
+
+            if (selectedFile.length) {
+
+                console.log("test", selectedFile)
+
+                for (var i = 0; i < selectedFile.length; i++) {
+                    selectedFileitem.push(selectedFile[i]);
+                }
+
+
+                console.log("selectedFileitem", selectedFileitem)
+
+                if (selectedFileitem.length) {
+                    selectedFileitem.forEach(res => {
+                        var fileReader = new FileReader();
+                        fileReader.onload = function (event) {
+                            var data = event.target.result;
+
+                            var workbook = XLSX.read(data, {
+                                type: "binary"
+                            });
+                            workbook.SheetNames.forEach(sheet => {
+                                let rowObject = XLSX.utils.sheet_to_row_object_array(
+                                    workbook.Sheets[sheet]
+                                );
+                                console.log("rowObject", rowObject)
+                                //do_Date: formatDate(new Date(Date.UTC(0, 0, c.DO_Date - 1))),
+                                //valid_Date: formatDate(new Date(Date.UTC(0, 0, c.Valid_Date - 1))),
+                                if (rowObject) {
+
+                                    var result = [];
+
+                                    var newresult = rowObject;
+
+
+                                    //newresult.forEach(c => {
+
+                                    let x = {
+
+                                        doc_Tran_No: newresult[4].__EMPTY_14,
+                                        ref_No: newresult[5].__EMPTY_14,
+                                        do_Date: formatDate(new Date(newresult[6].__EMPTY_14)),
+                                        valid_Date: formatDate(new Date(newresult[7].__EMPTY_14)),
+                                        agent_Name: newresult[8].__EMPTY_6,
+                                        vessel_Name: newresult[9].__EMPTY_2,
+                                        voyage: newresult[9].__EMPTY_7,
+                                        index_No: newresult[11].__EMPTY_2,
+                                        bL_No: newresult[11].__EMPTY_7,
+                                        igM_No: newresult[13].__EMPTY_7,
+                                        //container_No: c.Container,
+                                        pkg_Description: newresult[20].__EMPTY_6,
+                                        goods_Desc: newresult[19].__EMPTY_8,
+                                        gross_Weight: newresult[16].__EMPTY_8,
+                                        marks_No: newresult[19].__EMPTY,
+                                        netWeight: newresult[16].__EMPTY_2,
+                                        no_Of_Pkgs: newresult[19].__EMPTY_6,
+                                        port_of_Arrival: newresult[13].__EMPTY_2,
+                                        //conT_Size: c.Size,
+
+
+                                    };
+
+                                    result = x;
+
+                                    //});/
+
+                                    console.log("result", result)
+
+
+                                    if (result) {
+
+                                        $.post('/Import/ElectronicDeliveryOrder/SaveEDOFromExcel', { model: result }, function (data) {
+
+                                            if (data.error == false) {
+                                                showToast(data.message, "success")
+                                            } else {
+                                                showToast(data.message, "error")
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        showToast("please re select file or reload page", "error")
+
+                                    }
+                                }
+
+
+                            });
+                        };
+                        fileReader.readAsBinaryString(res);
+
+                    })
+
+                }
+                else {
+                    showToast("please select a file", "error")
+                }
+
+            }
+            else {
+                showToast("please select a file", "error")
+            }
+        });
+
+
+    function formatDate(date) {
+
+        /console.log("date", date.getTime())/
+        return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    }
+
+
+
+
+</script>

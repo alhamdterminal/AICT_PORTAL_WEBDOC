@@ -1,0 +1,149 @@
+﻿@{
+
+    var SealAssign = (IEnumerable<SelectListItem>)ViewData["SealAssign"];
+
+}
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+<script src="~/js/app.js/SealAssign.js"></script>
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Seal Assign</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <partial name="~/Areas/Import/Views/Shared/_Filter_Index_CY.cshtml" />
+
+
+
+                    <form class="form-horizontal form-label-left" id="assignSealForm">
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Batch:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @*@(Html.DevExtreme()
+                                            .Autocomplete()
+                                            .Name("SealPurchaseId")
+                                            .DataSource(d => d.Mvc()
+                                            .Controller("APICalls")
+                                            .Area("")
+                                            .LoadAction("GetSealsCode"))
+                                            .Placeholder("Type Batch Code...")
+                                            .OnValueChanged("ShowUnAssignSeals"))*@
+
+                                        @Html.DropDownList("SealPurchaseId", SealAssign, "Select Batch", new { @class = "form-control select2", @id = "batch", @required = "required", @onchange = "ShowUnAssignSeals()" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 " for="name">
+                                        Seal Number
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="currentSealNumber" name="CurrentSealNumber" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="ln_solid"></div>
+
+                    <button id="butonSubmit" type="button" class="btn btn-success" onclick="assignSealstoContainer()" style="float:right;">Submit</button>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+                            <div id="Assignsealdetails">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    @*<div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button type="button" id="btnCancel" class="btn btn-primary" onClick="restform()" style="float:right;">Cancel</button>
+                                <button id="butonSubmit" type="button" class="btn btn-success" onclick="saveIssueDetail()" style="float:right;">Submit</button>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $('.select2').select2();
+     
+
+</script>
+
+

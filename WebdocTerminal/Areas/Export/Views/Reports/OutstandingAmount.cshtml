@@ -1,0 +1,171 @@
+﻿
+@{
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var ClearingAgent = (IEnumerable<SelectListItem>)ViewData["ClearingAgent"];
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+
+<script src="~/js/app.js/OutstandingAmount.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Outstanding Amount Report
+            </h3>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="x_panel">
+        <div class="row">
+            @{Html.RenderPartial("_VesselVoyageSelection");}
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                            Clearing  Agent:
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            @Html.DropDownList("ClearingAgent", ClearingAgent, "Select Agent", new { @class = "form-control select2", @id = "ClearingAgent", required = "required" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                Agent:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                @Html.DropDownList("ShippingAgent", ShippingAgent, "Select Agent", new { @class = "form-control select2", @id = "shippingAgent", required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                            Container : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            @(Html.DevExtreme()
+                                                        .Autocomplete()
+                                                        .ID("ContainerNumber")
+                                                        .DataSource(d => d.Mvc()
+                                                        .Controller("APICalls")
+                                                        .Area("")
+                                                        .LoadAction("GetExpotrContainers"))
+                                                        .Placeholder("Type Container...")
+                                                        .OnValueChanged("container_changed"))
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                            GD Number : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            @(Html.DevExtreme()
+                                                 .Autocomplete()
+                                                .ID("GDNumber")
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("APICalls")
+                                                .Area("")
+                                                .LoadAction("GetGDNumbers"))
+                                                .Placeholder("Type GDNumber...")
+                                                .OnValueChanged("gdNumber_changed"))
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                From:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="date" class="form-control" id="fromdate">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                To:
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="date" class="form-control" id="todate">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-12 col-xs-12">
+
+
+                <button type="button" class="btn btn-dark mobBtn" onclick="myFunction()" style="float:right">Submit</button>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+    $('.select2').select2();
+</script>

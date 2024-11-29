@@ -1,0 +1,468 @@
+﻿@{
+    var VesselExport = (IEnumerable<SelectListItem>)ViewData["VesselExport"];
+   // var VoyageExport = (IEnumerable<SelectListItem>)ViewData["VoyageExport"];
+    var PortAndTerminal = (IEnumerable<SelectListItem>)ViewData["PortAndTerminal"];
+    var CityOfDischarge = (IEnumerable<SelectListItem>)ViewData["CityOfDischarge"];
+    var CountryOfDischarge = (IEnumerable<SelectListItem>)ViewData["CountryOfDischarge"];
+    var PackageType = (IEnumerable<SelectListItem>)ViewData["PackageType"];
+}
+
+<style>
+
+
+    .error {
+        color: red;
+    }
+
+
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+    input[type="date"] {
+        color: #fff;
+        position: relative;
+    }
+
+        input[type="date"]::-webkit-datetime-edit-year-field {
+            position: absolute !important;
+            border-left: 1px solid #8c8c8c;
+            padding: 2px;
+            color: #000;
+            left: 56px;
+        }
+
+        input[type="date"]::-webkit-datetime-edit-month-field {
+            position: absolute !important;
+            border-left: 1px solid #8c8c8c;
+            padding: 2px;
+            color: #000;
+            left: 26px;
+        }
+
+
+        input[type="date"]::-webkit-datetime-edit-day-field {
+            position: absolute !important;
+            color: #000;
+            padding: 2px;
+            left: 4px;
+        }
+</style>
+
+<script src="~/js/app.js/CargoDetails.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Cargo Detail</h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="title_right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+                    <form class="form-horizontal form-label-left" id="CargoDetailForm">
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        <a href="/Export/OPIA/OPIAView">
+                                            OPIA
+                                        </a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        <a href="/Export/OGDE/OGDEView">
+                                            OGDE
+                                        </a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+
+                                        <a href="/Export/LoadingProgram/LoadingProgramView">
+                                            Loading Program
+                                        </a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        <a href="/Export/EnteringCargo/EnteringCargoView">
+                                            Entering Cargo
+                                        </a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        LP Number: <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @(Html.DevExtreme()
+                                              .SelectBox()
+                                              .ID("loadingProgramDetail")
+                                              .ValueExpr("value")
+                                              .DisplayExpr("text")
+                                              .AcceptCustomValue(true)
+                                              .SearchEnabled(true)
+                                              .DataSource(d => d.Mvc()
+                                                .Controller("APICalls")
+                                                .Area("")
+                                                .LoadAction("GetLoadingProgram"))
+                                                .Placeholder("Type Loading Program ...")
+                                                .OnValueChanged("lpnumber_change"))
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Receive Start Date
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                         @(Html.DevExtreme().DateBox()
+                                        .Type(DateBoxType.DateTime)
+                                        .DisplayFormat("dd / MM / YYYY hh:mm")
+                                        .Value(DateTime.Now)
+                                        .Name("ReceiveStartDate")
+                                        .ID("receiveStartDate")
+                                        )
+                                        <span class="error" id="receiveStartDateerror"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Receive End Date
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @(Html.DevExtreme().DateBox()
+                                       .Type(DateBoxType.DateTime)
+                                       .DisplayFormat("dd / MM / YYYY hh:mm")
+                                       .Value(DateTime.Now)
+                                       .Name("ReceiveEndDate")
+                                       .ID("receiveEndDate")
+                                        )
+                                        <span class="error" id="receiveEndDateerror"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        No Of Pkgs
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form-control" id="noOfPackagesReceived" name="NoOfPackagesReceived">
+                                        <span class="error" id="noOfPackagesReceivederror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Package Type
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("PackageType", PackageType, "Select PackageType", new { @class = "form-control", @id = "packageType" })
+                                        <span class="error" id="packageTypeerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Is DG
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form-control" id="isdg" name="IsDG" onchange="chageIsDG( )" required>
+                                            <option value="false" selected>No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12" id="dgclass">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        DG Class
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" id="DGClass" class="form-control" name="DGClass">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Is Reefer
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form-control" id="isReefer" name="IsReefer" onchange="chageIsReefer( )" required>
+                                            <option value="false" selected>No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12" id="Temperature">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Temperature
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="temperature" class="form-control" name="Temperature">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Color Code
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="colorCode" class="form-control" name="ColorCode">
+                                        <span class="error" id="colorCodeerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Final Destination
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("FinalDestination", CityOfDischarge, "Select Final Destination", new { @class = "form-control", @id = "finalDestination" })
+                                        <span class="error" id="finalDestinationerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Discharge Port
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("DischargePort", CityOfDischarge, "Select Discharge Port", new { @class = "form-control", @id = "dischargePort" })
+                                        <span class="error" id="dischargePorterror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4">
+                                <div class="item form-group">
+                                    <label class="col-md-4" for="name">
+                                        PLID Number
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input type="text" step="any" id="plidNumber" class="form-control" name="PLIDNumber" required>
+                                        <span class="error" id="plidNumbererror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Warehouse Location
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="warehouseLocation" class="form-control" name="WarehouseLocation" required>
+                                        <span class="error" id="warehouseLocationerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        CBM
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="cbm" class="form-control" name="CBM" required>
+                                        <span class="error" id="cbmerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Weight
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" id="weight" class="form-control" name="Weight" required>
+                                        <span class="error" id="weighterror"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Vessel
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("VesselExportId", VesselExport, "Select Vessel", new { @class = "form-control", @id = "vesselExport", @onchange = "changed_VesselExport(this.value)" })
+                                        <span class="error" id="vesselExporterror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Voyage
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div class="" id="voyageSelectBox">
+
+
+                                        </div>
+                                        <span class="error" id="VoyageExporterror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Received For
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ReceivedFor", PortAndTerminal, "Select Received For", new { @class = "form-control", @id = "receivedFor"  })
+                                        <span class="error" id="receivedForerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Location
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="location" class="form-control" name="Location">
+                                        <span class="error" id="locationerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Remarks
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="remarks" class="form-control" name="Remarks">
+                                        <span class="error" id="remarkserror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Weight Decalred
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" id="weightDecalred" class="form-control" name="WeightDecalred">
+                                        <span class="error" id="weightDecalrederror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Cargo Condition
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="cargoCondition" class="form-control" name="CargoCondition">
+                                        <span class="error" id="cargoConditionerror"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Is PIFFA
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <select class="form-control" id="isPIFFA" name="IsPIFFA" required>
+                                            <option value="false" selected>No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button id="btnSubmit" type="button" style="float:right;" onclick="AddCargoDetail()" class="btn btn-success">Submit</button>
+                            <a id="btnSubmitUpdate" class="btn btn-success" onclick="updateCargoDetail()" style="display:none ; float: right;">Update</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="CargoDetails"></div>
+                    <div class="ln_solid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

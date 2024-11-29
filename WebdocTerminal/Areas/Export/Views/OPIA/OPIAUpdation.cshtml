@@ -1,0 +1,110 @@
+﻿<script src="~/lib/devextreme-aspnet-data/js/dx.aspnet.data.js"></script>
+<script src="~/lib/devextreme/js/dx.aspnet.mvc.js"></script>
+<script src="~/js/app.js/OPIAUpdation.js"></script>
+
+@{
+    var OPIAS = (IEnumerable<SelectListItem>)ViewData["OPIAS"];
+
+
+}
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        /* color: white; */
+        background: #e9e9e9;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    .borderline {
+        border-top: 1mm solid #161515;
+        color: #fff;
+        background-color: #fff;
+        height: 1px;
+        margin: 20px 0;
+    }
+
+
+    .panelform {
+        width: 100%;
+        padding: 10px 17px;
+        display: inline-block;
+        background: #fff;
+        border: 1mm solid #93b2dd;
+        -webkit-column-break-inside: avoid;
+        opacity: 1;
+        transition: all .2s ease;
+    }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>OPIAS Updation</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="x_content">
+                                <div class="form-horizontal form-label-left row">
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                GD Number:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("GDNumber", OPIAS, "Select GDNumber", new { @class = "form-control select2", @id = "GDNumberdropdown" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="ln_solid"></div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+                            <div class="x_content">
+                                <div id="opiasGrid"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.select2').select2();
+</script>
+
+<script src="~/lib/devextreme-aspnet-data/js/dx.aspnet.data.js"></script>
+<script src="~/lib/devextreme/js/dx.aspnet.mvc.js"></script>
+
+

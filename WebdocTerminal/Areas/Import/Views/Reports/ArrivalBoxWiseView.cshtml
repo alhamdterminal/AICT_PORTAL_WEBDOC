@@ -1,0 +1,190 @@
+﻿@{
+    var portAndTerminal = (IEnumerable<SelectListItem>)ViewData["portAndTerminal"];
+    var shippingAgent = (IEnumerable<SelectListItem>)ViewData["shippingAgent"];
+    var transporter = (IEnumerable<SelectListItem>)ViewData["transporter"];
+    var goodsHead = (IEnumerable<SelectListItem>)ViewData["goodsHead"];
+
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/ArrivalBoxWiseView.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Arrival Report
+            </h3>
+        </div>
+        <div class="title_right">
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">
+
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content" id="">
+
+                                <div class="row">
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label  col-md-3" for="first-name">
+                                                Principle
+                                            </label>
+                                            <div class="col-md-9">
+                                                @Html.DropDownList("ShippingAgentId", shippingAgent, "Select Shipping Agent", new { @class = "form-control select2", @id = "shippingagent", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label  col-md-3" for="first-name">
+                                                Port
+                                            </label>
+                                            <div class="col-md-9">
+                                                @Html.DropDownList("PortAndTerminalId", portAndTerminal, "Select Port", new { @class = "form-control select2", @id = "portAndTerminalId", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label  col-md-3" for="first-name">
+                                                Transporter
+                                            </label>
+                                            <div class="col-md-9">
+                                                @Html.DropDownList("TransporterId", transporter, "Select Transporter", new { @class = "form-control select2", @id = "transporterId", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label  col-md-3" for="first-name">
+                                                Goods Head
+                                            </label>
+                                            <div class="col-md-9">
+                                                @Html.DropDownList("GoodsHeadId", goodsHead, "Select Goods", new { @class = "form-control select2", @id = "goodsHeadId", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="control-label  col-md-3" for="first-name">
+                                                Cargo Type
+                                            </label>
+                                            <div class="col-md-9">
+                                                <select class="item form-control" name="ContainerType" id="cargoType">
+                                                    <option value="">Please Select</option>
+                                                    <option value="FCL">FCL</option>
+                                                    <option value="LCL">LCL</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="control-label  col-md-3" for="first-name">
+                                                Type
+                                            </label>
+                                            <div class="col-md-9">
+                                                <select class="item form-control" name="ContainerType" id="containerType">
+                                                    <option value="">Please Select</option>
+                                                    <option value="CFS">CFS</option>
+                                                    <option value="CY">CY</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                    From:
+                                                </label>
+                                                <div class="col-md-9 col-xs-12">
+                                                    <input type="text" class="form-control has-feedback-left" id="single_cal2" name="fromdate" aria-describedby="inputSuccess2Status2">
+                                                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                    <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
+                                                    To:
+                                                </label>
+                                                <div class="col-md-9 col-xs-12">
+                                                    <input type="text" class="form-control has-feedback-left" id="single_cal3" name="todate" aria-describedby="inputSuccess2Status2">
+                                                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                    <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-lg-12 col-md-2 col-sm-2 col-xs-12 pad">
+                                        <button type="button" id="btnSubmitReport" class="btn btn-dark" onclick="myFunction()">Submit</button>
+                                    </div>
+
+                                </div>
+
+                                </div>
+                            </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>
+
+

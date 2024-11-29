@@ -1,0 +1,14 @@
+﻿@model IEnumerable<VirNumberDetail>
+
+<select class="form-control select2" required="required" id="virnumberdb">
+    @foreach (var item in Model)
+    {
+        <option value="@item.VirNumber">@item.VirNumber</option>
+    }
+</select>
+
+<script>
+    $('.select2').select2();
+</script>
+
+

@@ -1,0 +1,121 @@
+﻿@{
+    var patry = (IEnumerable<SelectListItem>)ViewData["patry"];
+
+    var shippingagent = (IEnumerable<SelectListItem>)ViewData["shippingagent"];
+}
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/app.js/PartyLetPassAmount.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title x_panel">
+        <div class="title_left">
+            <h3>
+                Party Ledger
+            </h3>
+        </div>
+        <div class="title_right">
+
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+     
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content" id="">                  
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                        From:
+                                    </label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input type="text" class="form-control has-feedback-left" id="single_cal2" name="fromdate" aria-describedby="inputSuccess2Status2">
+                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <label class="control-label col-md-3 col-sm-2 col-xs-12" for="first-name">
+                                        To:
+                                    </label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input type="text" class="form-control has-feedback-left" id="single_cal3" name="todate" aria-describedby="inputSuccess2Status2">
+                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                                    Party <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-xs-12">
+                                    @*@Html.DropDownList("PatryId", patry, "Select Party", new { @class = "form-control select2", @id = "partyId", required = "required", @onchange = "callChangefunc()" })*@
+                                    @Html.DropDownList("PatryId", patry, "Select Party", new { @class = "form-control select2", @id = "partyId", required = "required" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label  col-md-4 col-xs-12" for="first-name">
+                                    FF <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-xs-12">
+                                    @Html.DropDownList("ShippingAgentId", shippingagent, "Select FF", new { @class = "form-control select2", @disabled = true, @id = "shippingagentId" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button type="button" id="btnSubmit" onclick="find()" class="btn btn-success" style="float:right;">Find</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $('.select2').select2();
+</script>

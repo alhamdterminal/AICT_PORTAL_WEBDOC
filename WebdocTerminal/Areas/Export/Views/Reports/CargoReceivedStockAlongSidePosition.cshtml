@@ -1,0 +1,145 @@
+﻿@{
+
+    var EGMNumber = (IEnumerable<SelectListItem>)ViewData["EGMNumber"];
+
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+}
+
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<script src="~/js/viewer.part.bundle.js"></script>
+
+<script src="~/js/app.js/CargoReceivedStockAlongSidePosition.js"></script>
+
+<div class="right_col" role="main">
+    <div class="x_panel">
+        <div class="page-title ">
+
+            <div class="title_left">
+                <h3>
+                    C.R / Stock / Along Side Position
+                </h3>
+
+            </div>
+            <div class="">
+                <div class="col-md-4  col-xs-12" style="float: right;">
+                    <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                            Type
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <select class="form-control" id="typeReport">
+                                <option value="AlongSide" selected>Stock / Along Side </option>
+                                <option value="Receive">Cargo Receive</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  col-xs-12" style="float: right;">
+                    <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                            Report Type
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <select class="form-control" id="type">
+                                <option value="Vessel" selected>Vessel Wise</option>
+                                <option value="Agent">Agent Wise</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="">
+
+                    <div class="form-horizontal form-label-left row">
+
+                        @{ Html.RenderPartial("_VesselVoyageSelection"); }
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    EGM
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("EGMNumber", EGMNumber, "Select EGMNumber", new { @class = "form-control select2", @id = "egm" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="form-horizontal form-label-left row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                    ShippingAgent
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @Html.DropDownList("ShippingAgent", ShippingAgent, "Select ShippingAgent", new { @class = "form-control select2", @id = "shippingAgent" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Container : <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    @(Html.DevExtreme()
+                                                                .Autocomplete()
+                                                                .ID("ContainerNumber")
+                                                                .DataSource(d => d.Mvc()
+                                                                .Controller("APICalls")
+                                                                .Area("")
+                                                                .LoadAction("GetExpotrContainers"))
+                                                                .Placeholder("Type Container...")
+                                                                .OnValueChanged("container_changed"))
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="form-horizontal form-label-left row">
+                        @{ Html.RenderPartial("_DateFilter"); }
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div id="large-indicator"></div>
+                <div class="x_content" id="repotdata">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    $('.select2').select2();
+</script>

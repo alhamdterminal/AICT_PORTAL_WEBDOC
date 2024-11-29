@@ -1,0 +1,170 @@
+﻿@{
+    var agents = (IEnumerable<SelectListItem>)ViewData["Agents"];
+
+    var ExportAgents = (IEnumerable < SelectListItem >) ViewData["ExportAgents"];
+
+    var Companies = (IEnumerable<SelectListItem>)ViewData["Companies"];
+
+    var roles = (List<SelectListItem>)ViewData["Roles"];
+
+}
+
+<script src="~/js/app.js/UserRegistration.js"></script>
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3> User</h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <form asp-controller="Users" asp-action="AddUser" method="post" id="registrationForm" class="form-horizontal form-label-left input_mask">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                First Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="first-name" required="required" name="FirstName" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                                Last Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="last-name" required="required" name="LastName" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dob">
+                                Date of Birth <span class="required">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <div class="">
+                                            <input type="date" class="fa fa-calendar-o form-control" id="dob" name="DateOfBirth">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cnic">
+                                CNIC <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" placeholder="XXXXX-XXXXXXX-X" id="cnic" maxlength="13" required="required" name="CNIC" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contact">
+                                Contact No <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="contact" required="required" name="ContactNo" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">
+                                Email <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="email" id="email" required="required" name="Email" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roles">
+                                Role <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.DropDownList("Role", roles, "Select Role", new { @id = "roles", @multiple = "multiple", @onchange = "onrolechage()" })
+
+
+                            </div>
+                        </div>
+                        <div id="shippingAgnt" class="form-group"  style="display:none">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Shipping Agent Import<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6">
+                                @Html.DropDownList("ShippingAgentId", agents, "Select Shipping Agent", new { @class = "form-control", @id = "agentId" , required = "required" })
+                            </div>
+                        </div>
+                         <div id="shippingAgntExport" class="form-group"  style="display:none">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Shipping Agent Export<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6">
+                                @Html.DropDownList("ShippingAgentExportId", ExportAgents, "Select Shipping Agent Export", new { @class = "form-control", @id = "shippingAgentExportId" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Company <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6">
+                                @Html.DropDownList("CompanyId", Companies, "Select Company", new { @class = "form-control", @id = "companyId", required = "required" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">
+                                User Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="username" required="required" name="Username" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="password" class="form-control" id="pass1" name="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirm Password</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="password" class="form-control" id="pass2">
+                            </div>
+                        </div>
+                        <span style="color:red;" id="errorspan"></span>
+
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                <button type="button" id="btnCancel" class="btn btn-primary">Cancel</button>
+
+                                <button type="submit" id="btnSubmit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

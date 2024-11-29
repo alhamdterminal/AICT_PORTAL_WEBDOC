@@ -1,0 +1,749 @@
+﻿<script src="~/js/app.js/TariffAssigningExport.js"></script>
+
+@{
+    var agents = (IEnumerable<SelectListItem>)ViewData["ShippingAgents"];
+    //  var consignes = (IEnumerable<SelectListItem>)ViewData["Consignes"];
+    var clearingAgents = (IEnumerable<SelectListItem>)ViewData["ClearingAgents"];
+    var goods = (IEnumerable<SelectListItem>)ViewData["Goods"];
+    var shippingLineExport = (IEnumerable<SelectListItem>)ViewData["shippingLineExport"];
+    var isocodes = (IEnumerable<SelectListItem>)ViewData["ISOCodes"];
+    var AgentPercentTariff = (IEnumerable<SelectListItem>)ViewData["AgentPercentTariff"];
+    var PortAndTerminal = (IEnumerable<SelectListItem>)ViewData["PortAndTerminal"];
+    var tariffHeads = (IEnumerable<SelectListItem>)ViewData["TariffHead"];
+    var tariff = (IEnumerable<SelectListItem>)ViewData["Tariffs"];
+
+}
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        /* color: white; */
+        background: #e9e9e9;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    .borderline {
+        border-top: 1mm solid #161515;
+        color: #fff;
+        background-color: #fff;
+        height: 1px;
+        margin: 20px 0;
+    }
+
+
+    .panelform {
+        width: 100%;
+        padding: 10px 17px;
+        display: inline-block;
+        background: #fff;
+        border: 1mm solid #93b2dd;
+        -webkit-column-break-inside: avoid;
+        opacity: 1;
+        transition: all .2s ease;
+    }
+</style>
+
+<div class="right_col" role="main" id="ptnpage">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Tariff Assigning</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="x_content">
+                                <div class="form-horizontal form-label-left row">
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                Tariff Code:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                <input type="number" class="form-control" id="tariffCode" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                Created Code:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                <input type="number" class="form-control" id="createdCode" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+
+                                            <div class="col-md-12 col-sm-8 col-xs-12">
+
+                                                <button id="btnSubmit" type="button" onclick="enableDisable()" class="btn btn-primary" style="float: right;">Enable / Disable</button>
+                                                <button id="btnSubmit" type="button" onclick="deleterecordbycode()" class="btn btn-primary" style="float: right;">Delete</button>
+                                                <button id="btnSubmit" type="button" onclick="Updaterecordbycode()" class="btn btn-success" style="float: right;">Update</button>
+                                                <button id="btnSubmit" type="button" onclick="findrecordbycode()" class="btn btn-success" style="float: right;">Find</button>
+                                                <button id="btnSubmit" type="button" onclick="createnewcontract()" class="btn btn-warning" style="float: right;">New Contract</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="x_content">
+                                <div class="form-horizontal form-label-left row">
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                F.F:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("Name", agents, "Select Agent", new { @class = "form-control select2", @id = "agentdropdown" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                     
+                                    <div class="col-md-4 col-sm-4 col-xs-12" id="consigneecolm">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                Consignee:
+                                            </label>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <div id="searchBoxForConsigne"></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                ClearingAgent:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("Name", clearingAgents, "Select ClearingAgent", new { @class = "form-control select2", @id = "clearingAgentdropdown" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-horizontal form-label-left row">
+
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                Good:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("Name", goods, "Select Good", new { @class = "form-control select2", @id = "gooddropdown" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                Shipping Line:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("Name", shippingLineExport, "Select Shipper", new { @class = "form-control select2", @id = "shipperdropdown" })
+                                            </div>
+                                        </div>
+                                    </div>
+ 
+                                </div>
+
+                                <div class="form-horizontal form-label-left row">
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                Cargo Type:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                <select class="form form-control" name="IndexCargoType" id="indexCargoType">
+                                                    <option value="LCL">LCL</option>
+                                                    <option value="FCL">FCL</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                Port And Terminal:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("Name", PortAndTerminal, "Select Port And Terminal", new { @class = "form-control select2", @id = "portAndTerminalId" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                F.F Percent Tariff:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                @Html.DropDownList("PercentAgeShippingAgentId", AgentPercentTariff, "Select Agent Percent Tariff", new { @class = "form-control select2", @id = "percentAgeShippingAgentId" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-horizontal form-label-left row">
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                Contract Status:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                <input type="text" class="form-control" id="contractStatus" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                Storage Free Days:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                <input type="number" class="form-control" name="StorageDays" id="storageDays">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                                DG Cargo Free Days:
+                                            </label>
+                                            <div class="col-md-10 col-sm-8 col-xs-12">
+                                                <input type="number" class="form-control" name="DGFreeDays" id="dgfreeDays">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="form-horizontal form-label-left row">
+
+                                    <div class="col-md-10 col-sm-4 col-xs-12"></div>
+                                    <div class="col-md-1 col-sm-4 col-xs-12">
+                                        <div class="form-group">
+                                            <div id="hidebutton" class="col-md-12">
+                                                <button id="btnSubmit" type="button" onclick="savedays()" class="btn btn-success" style="float: right;">Update Days</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-4 col-xs-12">
+                                        <div class="form-group">
+                                            <div id="hidebutton" class="col-md-12">
+                                                <button id="btnSubmit" type="button" onclick="printpage()" class="btn btn-dark" style="float: right;">Print Page</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="x_content">
+                            <div id="shippingAgentGrid"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="x_content">
+                            <div id="agentTariffGrid"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row" id="section-to-print">
+
+                    @*new form for tariff*@
+
+
+                    <form id="tariffCharegsForm" class="panelform">
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-12 col-sm-12 col-xs-12" for="name" style=" text-align: center; font-size: 20px; color: black;">
+                                            Tariff Head Amount
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="borderline"></div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Tariff Contract:
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            @Html.DropDownList("TariffHeadExportId", tariffHeads, "Select Tariff Head", new { @class = "form-control select2", @id = "tariffHead" })
+                                            <span class="error" id="TariffHeadIderror"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Implement From
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="date" id="implementFrom" class="form-control" name="ImplementFrom">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Implement To
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="date" id="implementto" class="form-control" name="ImplementTo">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Type of TimeLine
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <select class="form form-control" name="TypeOfImplementation" id="typeOfImplementation">
+                                                <option value="All" selected>All</option>
+                                                <option value="Arrival">Arrival</option>
+                                                <option value="Delivery">Delivery</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                            Storage Applicable on
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <select class="form form-control" name="IsCBMorRate" id="iscbmorRate">
+                                                <option value="true">CBM OR Weight</option>
+                                                <option value="false">Size</option>
+                                            </select>
+                                            <span class="error" id="IsCBMorRateerror"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                 
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+
+                                        <div class="col-md-6 col-sm-4 col-xs-12">
+                                            <div class="item form-group">
+                                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                                    Percentage
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <select class="form form-control" name="IsGeneral" id="isGeneral">
+                                                        <option value="true">General</option>
+                                                        <option value="false">Non General</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-sm-4 col-xs-12">
+                                             
+                                            <div class="checkbox" style="display: inline-block;">
+                                                <label>
+                                                    <input type="checkbox" name="IsDollerRate" class="flat" value="true"> Doller Rate
+                                                    <input type="hidden" value="false" name="IsDollerRate" />
+
+                                                </label>
+                                            </div>
+
+                                            <div class="checkbox" style="display: inline-block;">
+                                                <label>
+                                                    <input type="checkbox" name="IsFixedRate" class="flat" value="true">   Fixed Rate
+                                                    <input type="hidden" value="false" name="IsFixedRate" />
+                                                </label>
+                                            </div>
+
+                                            <div class="checkbox" style="display: inline-block;">
+                                                <label>
+                                                    <input type="checkbox" name="isactive" class="flat" checked="checked" value="true"> Active
+                                                    <input type="hidden" value="false" name="isactive" />
+                                                </label>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">
+                                            Port And Terminal:
+                                        </label>
+                                        <div class="col-md-10 col-sm-8 col-xs-12">
+                                            @Html.DropDownList("PortAndTerminalExportId", PortAndTerminal, "Select Port And Terminal", new { @class = "form-control select2", @id = "portTerminalId" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-horizontal form-label-left row">
+
+                                <div class="col-md-5 col-sm-5 col-xs-12 ">
+                                    <div class="item form-group  x_panel">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                            Rate 20
+                                        </label>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <input type="number" class="form-control" id="rate20" name="Rate20">
+                                        </div>
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                            Rate 40
+                                        </label>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <input type="number" class="form-control" id="rate40" name="Rate40">
+                                        </div>
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                            Rate 45
+                                        </label>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <input type="number" class="form-control" id="rate45" name="Rate45">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-7 col-sm-7 col-xs-12 ">
+                                    <div class="item form-group  x_panel">
+                                        <label class="control-label col-md-1 col-sm-2 col-xs-12" for="name">
+                                            CBM Rate
+                                        </label>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <input type="number" class="form-control" id="cbmRate" name="CBMRate">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-2 col-xs-12" for="name">
+                                            Weight Rate
+                                        </label>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <input type="number" class="form-control" id="weightRate" name="WeightRate">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-2 col-xs-12" for="name">
+                                            PerIndex Rate
+                                        </label>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <input type="number" class="form-control" id="perIndexRate" name="PerIndexRate">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-2 col-xs-12" for="name">
+                                            Divided Index
+                                        </label>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <input type="number" class="form-control" id="devededIndexAmount" name="DevededIndexAmount">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button type="button" id="btnSubmit" onclick="addTariff()" class="btn btn-success" style="display: inline-grid;float: right;">Add Charges</button>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="row">
+
+
+
+                    <form id="shareRateForm" class="panelform">
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-12 col-sm-12 col-xs-12" for="name" style=" text-align: center; font-size: 20px; color: black;">
+                                            Standard Agreed Tariff
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="borderline"></div>
+
+
+
+                            <div class="form-horizontal form-label-left row">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                    <div class="item form-group  x_panel" style="background-color: aliceblue; ">
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name" style=" font-size: 20px; color: #374a5e;">
+                                            AICT SHARE
+                                        </label>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 20
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="aictrate20" name="AICTRate20">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 40
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="aictrate40" name="AICTRate40">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 45
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="aictrate45" name="AICTRate45">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            CBM
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="aictcbmRate" name="AICTCBMRate">
+                                        </div>
+
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            PerIndex
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="aictPerIndexRate" name="AICTPerIndexRate">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-horizontal form-label-left row">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                    <div class="item form-group  x_panel" style="background-color: aliceblue; ">
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name" style=" font-size: 20px; color: #374a5e;">
+                                            FF Share
+                                        </label>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 20
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="ffRate20" name="FFRate20">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 40
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="ffRate40" name="FFRate40">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 45
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="ffRate45" name="FFRate45">
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            CBM
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="ffCBMRate" name="FFCBMRate">
+                                        </div>
+
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            PerIndex
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="ffPerIndexRate" name="FFPerIndexRate">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-horizontal form-label-left row">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                    <div class="item form-group  x_panel" style="background-color: aliceblue; ">
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name" style=" font-size: 20px; color: #374a5e;">
+                                            Total Share
+                                        </label>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 20
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="totalAICTRate20" disabled>
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 40
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="totalAICTRate40" disabled>
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            Rate 45
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="totalAICTRate45" disabled>
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            CBM
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="totalAICTCBMRate" disabled>
+                                        </div>
+
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="name">
+                                            PerIndex
+                                        </label>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <input type="number" class="form-control" id="totalAICTPerIndexRate" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <button type="button" id="btnSubmit" onclick="saveshareRate()" class="btn btn-primary" style="display: inline-grid;float: right;">Save Share Rate</button>
+                        </div>
+                    </form>
+
+
+                </div>
+
+                @*storage*@
+
+                <div class="row">
+
+
+
+                    <form id="shareRateFormStorage" class="panelform">
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-12 col-sm-12 col-xs-12" for="name" style=" text-align: center; font-size: 20px; color: black;">
+                                            Storage Traiff
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    Tariff <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownList("TariffId", tariff, "--Select Tariff--", new { @class = "form-control select2", @id = "tariff" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-12 col-sm-12 col-xs-12" for="first-name" style=" text-align: center; color: red; ">
+
+                                    When the limit of the day have been end user  type (OVER) in  description  and number of days
+                                </label>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group" id="gridContainerstorage">
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+ 
+<script>
+    $('.select2').select2();
+</script>
+ 
+
+

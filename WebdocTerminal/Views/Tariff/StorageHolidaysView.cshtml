@@ -1,0 +1,111 @@
+﻿<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+</style>
+
+<script src="~/js/app.js/StorageHolidaysView.js"></script>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Storage Holidays</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content" id="odform">
+                    <form class="form-horizontal form-label-left" id="BillToLineForm">
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                <div class="item form-group  x_panel">
+                                    <div class="newbox">
+                                        Container Type
+                                    </div>
+
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="CFS" name="type" value="CFS" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CFS
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" id="CY" value="CY" name="type" onclick="showFilters()" style="position: absolute;width: 40%;  height: 60%;  margin-left: -20px;  margin-top: 1px;">   CY
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="filters">
+
+                        </div>
+
+
+                        <div class="form-horizontal form-label-left row">
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                        Storage Holidays
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="number" id="freedays" required="required" class="form-control mask col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+
+                                <button type="button" class="btn btn-primary" onclick="UpdateDays()" style="float: right;">Update Days</button>
+                                 
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <div class="row">
+                        <div id="resdataGrid"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,518 @@
+﻿@{
+
+
+    var Goods = (IEnumerable<SelectListItem>)ViewData["Goods"];
+   // var Consigne = (IEnumerable<SelectListItem>)ViewData["Consigne"];
+
+    var ShippingLine = (IEnumerable<SelectListItem>)ViewData["ShippingLine"];
+
+    var ShippingAgent = (IEnumerable<SelectListItem>)ViewData["ShippingAgent"];
+
+    var Shipper = (IEnumerable<SelectListItem>)ViewData["Shipper"];
+
+    var PortAndTerminal = (IEnumerable<SelectListItem>)ViewData["PortAndTerminal"];
+
+    var PortOfLoading = (IEnumerable<SelectListItem>)ViewData["PortOfLoading"];
+
+}
+
+<style>
+    .dx-scrollbar-horizontal {
+        top: 0;
+    }
+
+    input[type=text]:disabled {
+        background: #dddddd;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        color: white;
+        background: #2a3f54;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    #error {
+        visibility: hidden;
+        width: 200px;
+        background-color: #d25656;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        z-index: 1;
+        font-size: 17px;
+    }
+
+        #error.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+
+    #containerDetailList {
+        max-height: 700px;
+    }
+</style>
+
+
+<script src="~/js/app.js/IGMDetailView.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>IGM-Detail</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    IGM Number:
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" id="igmno" required="required" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          
+                        </div>
+
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+
+                            <div class="form-horizontal form-label-left">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button class="btn btn-primary" style="float:right;" onclick="UploadInfo()" type="button" id="btnSubmit">Update Info</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                         
+                        </div>
+                    <div class="row">
+                         
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Dat Files:
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="file" class="form-control" id="datfiles" multiple required="required"  onchange="uploadFiles(event)"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+ 
+                        </div> 
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+
+                            <div class="form-horizontal form-label-left">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button class="btn btn-success" style="float:right;" onclick="UploadDatFiles()" type="button" id="btnSubmit">Upload Files</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                      
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+
+
+                    <div class="form-horizontal form-label-left row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="item form-group  x_panel">
+                                <div class="newbox">
+                                    Container Type
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                <select class="form-control selectpicker" id="type" onchange="showFilters()" disabled>
+                                                    <option selected>Please Select Type</option>
+                                                    <option value="CFSIndexWise">CFS Index Wise</option>
+                                                    <option value="CFSContainerWise">CFS Container Wise</option>
+                                                    <option value="CYContainers">CY Containers</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <button class="btn btn-success" style="float:right;" onclick="AddConsignee()" type="button" id="btnSubmit">Add Consignee</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="filters">
+                    </div>
+                    <form class="form-horizontal form-label-left" novalidate="" id="IGMDetailSheet">
+
+
+                        <div class="row" id="vesselinfo" style="display:none">
+
+                             
+
+                            <div class="col-md-4 col-sm-4 col-xs-12" >
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Vessel :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="vesselname"  readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 col-sm-4 col-xs-12" >
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Voyage :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="voyageNo"  readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="row">
+
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Line:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingAgentId", ShippingAgent, "Select Shipping Agent ", new { @class = "form-control select2", @id = "shippingAgents" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Principal:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShippingLineId", ShippingLine, "Select Principal ", new { @class = "form-control select2", @id = "shippingLiness" })
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                    Arrival Date:
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="date" class="form form-control" id="arrivalDate" name="ArrivalDate" readonly />
+                                </div>
+                            </div>
+                        </div>*@
+
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Vessel-Arrival Date:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form-control has-feedback-left" id="etaDate" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Goods:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("GoodsHeadId", Goods, "Select Goods", new { @class = "form-control select2", @id = "goods" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            @*<div class="col-md-4 col-sm-4 col-xs-12" id="consigneecolm">
+                <div class="item form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                        Consignee:
+                    </label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        @Html.DropDownList("ConsigneId", Consigne, "Select Consignee", new { @class = "form-control select2", @id = "consignee" })
+
+                    </div>
+                </div>
+            </div>*@
+
+                            <div class="col-md-4 col-sm-4 col-xs-12" id="consigneecolm">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Consignee:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div id="searchBoxForConsigne"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Shipper:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("ShipperId", Shipper, "Select Shipper", new { @class = "form-control select2", @id = "shipper" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Port Of Terminal:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("PortAndTerminalId", PortAndTerminal, "Select PortAndTerminal ", new { @class = "form-control select2", @id = "portAndTerminal" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Port Of Loading:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("PortOfLoadingId", PortOfLoading, "Select POL ", new { @class = "form-control select2", @id = "portOfLoading" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12" style="background-color: beige; border-radius: 20px; padding: 4px;">
+                                <div class="item form-group">
+                                    <div class="checkbox" style="display: inline-block; float: right;">
+                                        <label>
+                                            <input type="checkbox" id="isDGCargo" name="IsDGCargo" value="true"> DG Cargo
+                                            <input type="hidden" value="false" name="IsDGCargo" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+
+                            @*<div class="col-md-2 col-sm-4 col-xs-12" style="background-color: #ecf3f9; border-radius: 20px; padding: 4px;">
+                                <div class="item form-group">
+                                    <div class="checkbox" style="display: inline-block; float: right;">
+                                        <label>
+                                            <input type="checkbox" id="isPartialContainer" name="IsPartialContainer" value="true"> Partial
+                                            <input type="hidden" value="false" name="IsPartialContainer" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="col-md-1 col-sm-8 col-xs-12">
+                            </div>
+                            
+
+                            <div class="col-md-7 col-sm-8 col-xs-12">
+                            </div>
+                        </div>
+
+
+                        <div class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button class="btn btn-danger" style="float:right;" onclick="updateallInfo()" type="button" id="btnSubmit">Update All</button>
+                                    <button class="btn btn-primary" style="float:right;" onclick="updateInfo()" type="button" id="btnSubmit">Update Info</button>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_content">
+                                        <div id="containerDetailList"></div>
+                                        <div class="ln_solid"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="containerDetailList"></div>
+                    <div class="ln_solid"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div id="consigneeModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Consignee</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal form-label-left" novalidate="" id="ConsigneeForm">
+
+
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Consignee :
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="consigneName" name="ConsigneName" required="required" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Consigne Code:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="consigneCode" name="ConsigneCode" required="required" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        Consigne NTN:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="consigneNTN" name="ConsigneNTN" required="required" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-3 col-xs-12" for="name">
+                                        ST Reg  No
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="form form-control" id="stregistrationNo" name="STRegistrationNo" required="required" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-horizontal form-label-left">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <button class="btn btn-primary" style="float:right;" onclick="saveInfo()" type="button" id="btnSubmit">Save Info</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                @*<div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="addExcessRemark()">Save</button>
+                    </div>*@
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<script>
+    $('.select2').select2();
+</script>

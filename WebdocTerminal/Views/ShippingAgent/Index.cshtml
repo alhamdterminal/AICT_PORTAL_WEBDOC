@@ -1,0 +1,110 @@
+﻿
+<script src="~/js/app.js/IndexShippingAgent.js"></script>
+
+
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="title_left">
+                    <h3>Freight Forwarder</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="form-group" id="gridContainer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<script src="~/lib/devextreme-aspnet-data/js/dx.aspnet.data.js"></script>
+    <script src="~/lib/devextreme/js/dx.aspnet.mvc.js"></script>
+     <script>
+         function formfiled() {
+
+         }
+     </script>
+    <div class="right_col" role="main">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Shipping Agent</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+
+
+
+                        @(Html.DevExtreme().DataGrid<WebdocTerminal.Models.ShippingAgent>
+        ()
+        .ID("ShippingAgentGrid")
+        .WordWrapEnabled(true)
+        .AllowColumnResizing(true)
+        .ColumnAutoWidth(true)
+        .FilterRow(filterRow => filterRow
+        .Visible(true)
+        .ApplyFilter(GridApplyFilterMode.Auto))
+        .Paging(paging => paging.PageSize(10))
+        .SearchPanel(searchPanel => searchPanel
+        .Visible(true)
+        .Width(240)
+        .Placeholder("Search...")
+        ).Editing(editing =>
+        {
+        editing.Mode(GridEditMode.Popup);
+        editing.AllowAdding(true);
+        editing.AllowDeleting(true);
+        editing.AllowUpdating(true);
+        editing.UseIcons(true);
+        editing.Popup(p => p
+        .ShowTitle(false)
+        .Width(700)
+        .Height(345)
+        .Position(pos => pos
+        .My(HorizontalAlignment.Center, VerticalAlignment.Center)
+        .At(HorizontalAlignment.Center, VerticalAlignment.Center)
+        .Of(new JS("window"))
+        )
+        );
+        })
+        .Columns(c =>
+        {
+        c.Add().DataField("name");
+        c.Add().DataField("line");
+        c.Add().DataField("lineCode");
+
+        })
+        .DataSource(d => d.Mvc()
+        .Controller("ShippingAgent")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("shippingAgentId"))
+        )
+
+    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>*@
+
+

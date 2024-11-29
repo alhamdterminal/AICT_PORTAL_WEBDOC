@@ -1,0 +1,105 @@
+﻿@model IEnumerable<WebdocTerminal.Models.GroundingStatusViewModel>
+
+@{
+    ViewData["Title"] = "GroundingStatusCFS";
+}
+
+<script src="~/js/app.js/GroundingStatusCFS.js"></script>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Grounding Status
+            </h3>
+        </div>
+        <div class="title_right">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <div id="groundingStatusContainers">
+                        @(Html.DevExtreme().DataGrid()
+                            .ID("containerIndexId")
+                            .WordWrapEnabled(true)
+                            .ColumnAutoWidth(true)
+                            .FilterRow(filterRow => filterRow
+                            .Visible(true)
+                            
+                            .ApplyFilter(GridApplyFilterMode.Auto))
+                            .Paging(paging => paging.PageSize(5))
+                            .Editing(editing =>
+                            {
+                                editing.AllowAdding(false);
+                                editing.AllowDeleting(false);
+                                editing.AllowUpdating(false);
+                                editing.UseIcons(true);
+                            })
+                            .Columns(c =>
+                            {
+                                c.Add().DataField("virNumber");
+                                c.Add().DataField("blNumber");
+                                c.Add().DataField("indexNumber");
+                                c.Add().DataField("containerNumber");
+                                c.Add().DataField("handlingCode");
+                                c.Add().DataField("activityStatus");
+                                c.Add().DataField("performed");
+                             })
+                            .FocusedRowEnabled(true)
+                            .OnFocusedRowChanged("onFocusedRowChanged")
+                            .DataSource(d => d.Mvc().Area("Import").Controller("Grounding").LoadAction("GetGroundingStatusCFS")
+                            .Key("containerIndexId"))
+                        )
+                    </div>
+                    <div class="ln_solid"></div>
+                    <table class="table table-borderless table-dark">
+                        <tbody>
+                            <tr class="table-primary">
+                                <td><strong>IHCO: @ViewData["TotalRecords"]</strong></td>
+                                <td><strong>SRCO: @ViewData["TotalSRCO"]</strong></td>
+                                <td><strong>Exam Completed: @ViewData["ExaminationCompleted"]</strong></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h2>Examination Mark</h2>
+                    <div id="examinationMark">
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="x_title">
+                    <h2>Examination Complete</h2>
+
+                    <div id="examinationComplete">
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

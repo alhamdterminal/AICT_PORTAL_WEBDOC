@@ -1,0 +1,182 @@
+﻿<script src="~/lib/devextreme-aspnet-data/js/dx.aspnet.data.js"></script>
+<script src="~/lib/devextreme/js/dx.aspnet.mvc.js"></script>
+@{
+    var tariffHeads = (IEnumerable<SelectListItem>)ViewData["TariffHead"];
+}
+<script src="~/js/app.js/TariffExportCharges.js"></script>
+
+<style>
+    .newbox {
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: -3px -10px 10px -10px;
+        /* color: white; */
+        background: #e9e9e9;
+        border-bottom: 1px solid #d1d1d1;
+    }
+</style>
+
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Tariff Charges</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+
+                    <form id="tariffCharegsForm">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Tariff Head:
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        @Html.DropDownList("TariffHeadExportId", tariffHeads, "Select Tariff Head", new { @class = "form-control", @id = "tariffHeadExport" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="name">
+                                        Implement From
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="date" class="form-control" name="ImplementFrom" id="implementFrom">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="item form-group">
+                                    <div class="checkbox" style="display: inline-block;" id="active">
+                                        <label>
+                                            <input type="checkbox" name="isactive" class="flat" checked="checked" value="true"> Active
+                                            <input type="hidden" value="false" name="isactive" />
+                                        </label>
+                                    </div>
+                                    <div class="checkbox" style="display: inline-block;" id="dailycharge">
+                                        <label>
+                                            <input type="checkbox" name="dailycharges" class="flat"> Daily Charges
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="ln_solid"></div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-4 col-sm-5 col-xs-12 ">
+                                <div class="item form-group  x_panel">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                        Rate 20
+                                    </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input type="text" class="form-control" id="rate20" name="rate20">
+                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                        Rate 40
+                                    </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input type="text" class="form-control" id="rate40" name="rate40">
+                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                        Rate 45
+                                    </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input type="text" class="form-control" id="rate45" name="rate45">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-7 col-xs-12 ">
+                                <div class="item form-group  x_panel">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                        CBM Rate
+                                    </label>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <input type="text" class="form-control" id="cbmRate" name="cbmrate">
+                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                        Weight Rate
+                                    </label>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <input type="text" class="form-control" id="weightRate" name="weightrate">
+                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                        PerIndex Rate
+                                    </label>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <input type="text" class="form-control" id="perIndexRate" name="perindexrate">
+                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">
+                                        CBM Fixed Rate
+                                    </label>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <input type="text" class="form-control" id="cbmFixedRate" name="cbmFixedRate">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-horizontal form-label-left row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                <div class="item form-group  x_panel" id="rccode">
+                                    <div class="newbox">
+                                        Round CBM Code
+                                    </div>
+
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" class="flat" checked name="roundcbmcode"> A - Actual CBM/WT
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" class="flat" name="roundcbmcode"> B - Round 1 CBM 0.01
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="display: inline-block;">
+                                        <label>
+                                            <input type="radio" class="flat" name="roundcbmcode"> C - Round 0.5
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button type="button" id="btnSubmit" onclick="addTariff()" class="btn btn-success">Add Charges</button>
+                    </form>
+
+
+
+                    <div class="ln_solid"></div>
+                    <div class="x_content">
+
+                        <div id="tariffGrid"></div>
+
+
+                    </div>
+                </div>
+
+        </div>
+
+    </div>
+   
+
+</div>

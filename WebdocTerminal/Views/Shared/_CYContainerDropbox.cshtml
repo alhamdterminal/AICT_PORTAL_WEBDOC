@@ -1,0 +1,8 @@
+﻿@model IEnumerable<CYContainer>
+
+<select class="form-control" required="required" id="containerCYdb"  name="CYContainerId">
+    @foreach (var item in Model)
+    {
+        <option value="@item.CYContainerId">@item.ContainerNo</option>
+    }
+</select>
