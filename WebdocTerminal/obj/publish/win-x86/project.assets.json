@@ -23179,11 +23179,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AICTMAIN_WEBDOCTERMINAL\\AICT_DECRYPTED\\AICT-Source\\WebdocTerminal\\WebdocTerminal.csproj",
+      "projectUniqueName": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\WebdocTerminal.csproj",
       "projectName": "WebdocTerminal",
-      "projectPath": "D:\\AICTMAIN_WEBDOCTERMINAL\\AICT_DECRYPTED\\AICT-Source\\WebdocTerminal\\WebdocTerminal.csproj",
+      "projectPath": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\WebdocTerminal.csproj",
       "packagesPath": "C:\\Users\\Noman\\.nuget\\packages\\",
-      "outputPath": "D:\\AICTMAIN_WEBDOCTERMINAL\\AICT_DECRYPTED\\AICT-Source\\WebdocTerminal\\obj\\publish\\win-x86\\",
+      "outputPath": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\obj\\publish\\win-x86\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

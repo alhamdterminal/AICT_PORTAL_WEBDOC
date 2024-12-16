@@ -3733,7 +3733,7 @@ namespace WebdocTerminal.Repos
                        && crl.VIRNumber == cycontainer.VIRNo
                        && gdcr.VirNumber == cycontainer.VIRNo
                        && gdcr.BLNumber == cycontainer.BLNo
-                       && cycontainer.IsCSEmtyptyRecieved == true
+                       && cycontainer.IsCSEmtyptyRecieved == false
                        && cycontainer.IsCrossStuffed == true
                        && !Db.PGOs.Any(es => (es.VIRNumber == cycontainer.VIRNo && es.ContainerNumber == cycontainer.CSContainerNumber))
 

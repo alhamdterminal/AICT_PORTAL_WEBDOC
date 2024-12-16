@@ -1395,3 +1395,4 @@ D:\AICT_GIT_PROJECTS\WebDoc\WebdocTerminal\obj\Debug\netcoreapp2.1\WebdocTermina
 D:\AICT_GIT_PROJECTS\WebDoc\WebdocTerminal\obj\Debug\netcoreapp2.1\WebdocTerminal.pdb
 D:\AICT_GIT_PROJECTS\WebDoc\WebdocTerminal\obj\Debug\netcoreapp2.1\WebdocTerminal.genruntimeconfig.cache
 D:\AICT_GIT_PROJECTS\WebDoc\WebdocTerminal\obj\Debug\netcoreapp2.1\WebdocTe.DE1D326A.Up2Date
+D:\AICT_GIT_PROJECTS\WebDoc\WebdocTerminal\obj\Debug\netcoreapp2.1\WebdocTerminal.sourcelink.json

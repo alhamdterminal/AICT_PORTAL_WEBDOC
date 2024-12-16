@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DevExpress.DataProcessing;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,9 @@ namespace WebdocTerminal.Repos
 
         public List<string> RolesWithOutFinance()
         {
-            return Db.Roles.Where(x => x.Name != "ACCOUNT(FINANCE)" && x.Name != "FinanceSuperAdmin" && x.Name != "FinanceUser" && x.Name != "FinanceAdmin").Select(r => r.Name).ToList();
+//            return Db.Roles.Where(x => x.Name != "ACCOUNT(FINANCE)" && x.Name != "FinanceSuperAdmin" && x.Name != "FinanceUser" && x.Name != "FinanceAdmin").Select(r => r.Name).ToList();
+            return Db.Roles.Select(r => r.Name).ToList();
+            //Noman did changes 
         }
 
         public List<IdentityRole> GetRoles()

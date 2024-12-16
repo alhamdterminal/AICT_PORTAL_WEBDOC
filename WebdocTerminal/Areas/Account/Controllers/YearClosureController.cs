@@ -240,7 +240,7 @@ namespace WebdocTerminal.Areas.Account.Controllers
                      
                     foreach (var item in types)
                     {
-                        var VoucherServiceTyperes = _voucherServiceTypeRepository.GetAll().Where(x => x.CompanyId == users.CompanyId && x.Code == (item.Key == "R" ? "I" : item.Key) ).LastOrDefault();
+                        var VoucherServiceTyperes = _voucherServiceTypeRepository.GetAll().Where(x => x.CompanyId == users.CompanyId && x.Code == (item.Key == "R" || item.Key == "O" ? "I" : item.Key) ).LastOrDefault();
 
                         if(VoucherServiceTyperes != null)
                         { 

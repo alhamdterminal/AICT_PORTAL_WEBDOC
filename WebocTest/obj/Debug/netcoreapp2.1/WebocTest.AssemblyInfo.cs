@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebocTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c594318adf1108b19c7367eadf8d1d574c9a0c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebocTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebocTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

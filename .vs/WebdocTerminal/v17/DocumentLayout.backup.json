@@ -1,7 +1,42 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\AICT_GIT_PROJECTS\\WebDoc\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|d:\\aict_git_projects\\webdoc\\webdocterminal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|solutionrelative:webdocterminal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|d:\\aict_git_projects\\webdoc\\webdocterminal\\wwwroot\\css\\custom.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|solutionrelative:webdocterminal\\wwwroot\\css\\custom.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|d:\\aict_git_projects\\webdoc\\webdocterminal\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|solutionrelative:webdocterminal\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|d:\\aict_git_projects\\webdoc\\webdocterminal\\areas\\account\\controllers\\yearclosurecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|solutionrelative:webdocterminal\\areas\\account\\controllers\\yearclosurecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|d:\\aict_git_projects\\webdoc\\webdocterminal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|solutionrelative:webdocterminal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|d:\\aict_git_projects\\webdoc\\webdocterminal\\repos\\financialyearclosurerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|solutionrelative:webdocterminal\\repos\\financialyearclosurerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Noman\\AppData\\Local\\SourceServer\\83a75777e6c84831c8bdb7190bdfa70577e698e2c88d786b0ca48485058e9f8f\\WebdocTerminal\\Areas\\Account\\Controllers\\YearClosureController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|d:\\aict_git_projects\\webdoc\\webdocterminal\\wwwroot\\js\\app.js\\yearclosureview.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
+      "RelativeMoniker": "D:0:0:{116A558E-7FD1-475F-8AA9-6A8339D551F0}|WebdocTerminal\\WebdocTerminal.csproj|solutionrelative:webdocterminal\\wwwroot\\js\\app.js\\yearclosureview.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +44,122 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "custom.min.css",
+              "DocumentMoniker": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\wwwroot\\css\\custom.min.css",
+              "RelativeDocumentMoniker": "WebdocTerminal\\wwwroot\\css\\custom.min.css",
+              "ToolTip": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\wwwroot\\css\\custom.min.css",
+              "RelativeToolTip": "WebdocTerminal\\wwwroot\\css\\custom.min.css",
+              "ViewState": "AgIAANADAAAAAAAAAAAhwOMDAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-16T13:07:14.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Microsoft.PackageDependencyResolution.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ViewState": "AgIAAP4AAAAAAAAAAAAAAA4BAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-12-16T12:45:07.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "WebdocTerminal\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "WebdocTerminal\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T12:39:52.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "YearClosureController.cs",
+              "DocumentMoniker": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\Areas\\Account\\Controllers\\YearClosureController.cs",
+              "RelativeDocumentMoniker": "WebdocTerminal\\Areas\\Account\\Controllers\\YearClosureController.cs",
+              "ToolTip": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\Areas\\Account\\Controllers\\YearClosureController.cs",
+              "RelativeToolTip": "WebdocTerminal\\Areas\\Account\\Controllers\\YearClosureController.cs",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAhwOQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T11:52:17.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FinancialYearClosureRepository.cs",
+              "DocumentMoniker": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\Repos\\FinancialYearClosureRepository.cs",
+              "RelativeDocumentMoniker": "WebdocTerminal\\Repos\\FinancialYearClosureRepository.cs",
+              "ToolTip": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\Repos\\FinancialYearClosureRepository.cs",
+              "RelativeToolTip": "WebdocTerminal\\Repos\\FinancialYearClosureRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T11:36:19.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "YearClosureController.cs",
+              "DocumentMoniker": "C:\\Users\\Noman\\AppData\\Local\\SourceServer\\83a75777e6c84831c8bdb7190bdfa70577e698e2c88d786b0ca48485058e9f8f\\WebdocTerminal\\Areas\\Account\\Controllers\\YearClosureController.cs",
+              "ToolTip": "C:\\Users\\Noman\\AppData\\Local\\SourceServer\\83a75777e6c84831c8bdb7190bdfa70577e698e2c88d786b0ca48485058e9f8f\\WebdocTerminal\\Areas\\Account\\Controllers\\YearClosureController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAIBJwEsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T11:36:01.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "YearClosureView.js",
+              "DocumentMoniker": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\wwwroot\\js\\app.js\\YearClosureView.js",
+              "RelativeDocumentMoniker": "WebdocTerminal\\wwwroot\\js\\app.js\\YearClosureView.js",
+              "ToolTip": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\wwwroot\\js\\app.js\\YearClosureView.js",
+              "RelativeToolTip": "WebdocTerminal\\wwwroot\\js\\app.js\\YearClosureView.js",
+              "ViewState": "AgIAALYAAAAAAAAAAIAwwMsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-10T11:35:43.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\appsettings.json",
+              "RelativeDocumentMoniker": "WebdocTerminal\\appsettings.json",
+              "ToolTip": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\appsettings.json",
+              "RelativeToolTip": "WebdocTerminal\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-10T11:04:04.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebdocTerminal\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\AICT_GIT_PROJECTS\\WebDoc\\WebdocTerminal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebdocTerminal\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAG8CAAAAAAAAAAAAAAABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-10T11:00:15.785Z",
+              "EditorCaption": ""
             }
           ]
         }

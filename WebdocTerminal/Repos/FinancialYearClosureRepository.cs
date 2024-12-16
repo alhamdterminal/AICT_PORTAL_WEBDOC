@@ -36,7 +36,7 @@ namespace WebdocTerminal.Repos
                        where
                        voucer.Year == year
                        && voucer.Status == "Posted"
-                       && (accountNatures.Code ==  "E" || accountNatures.Code == "R")
+                       && (accountNatures.Code ==  "E" || accountNatures.Code == "R" || accountNatures.Code == "O" || accountNatures.Code == "T")
 
                        && voucer.CompanyId == CompanyId && voucherDetail.CompanyId == CompanyId && chartofaccount.CompanyId == CompanyId
                        && accounttype.CompanyId == CompanyId && accountSubCategories.CompanyId == CompanyId && accountCategories.CompanyId == CompanyId
@@ -90,9 +90,11 @@ namespace WebdocTerminal.Repos
             var resofRetained = Db.ChartOfAccounts.FromSql($"select * from ChartOfAccount where  AccCode = '2990' and IsDeleted = 0   ").LastOrDefault();
              
 
+            // 
+
             if (resofRetained != null)
             {
-                var revenueres = finalres.Where(x => x.ServiceType == "R").ToList();
+                var revenueres = finalres.Where(x => x.ServiceType == "R" || x.ServiceType == "O" || x.ServiceType == "T").ToList();
 
                 if (revenueres.Count() > 0)
                 {
@@ -114,7 +116,7 @@ namespace WebdocTerminal.Repos
                                              
                                             ChartOfAccountId = resofRetained.ChartOfAccountId,
                                             //VoucherServiceTypeId = g.FirstOrDefault().VoucherServiceTypeId,
-                                            Balance = revenueres.ToList().Sum(x => x.Debit) - revenueres.ToList().Sum(x => x.Credit),
+                                            Balance =   revenueres.ToList().Sum(x => x.Credit) - revenueres.ToList().Sum(x => x.Debit),
                                         }).ToList();
                     finalres.AddRange(resforincome);
                 }
@@ -126,7 +128,7 @@ namespace WebdocTerminal.Repos
 
             if (resofRetained != null)
             {
-                var expenseres = finalres.Where(x => x.ServiceType == "E").ToList();
+                var expenseres = finalres.Where(x => x.ServiceType == "E" ).ToList();
 
                 if (expenseres.Count() > 0)
                 {
@@ -147,7 +149,7 @@ namespace WebdocTerminal.Repos
 
                                             ChartOfAccountId = resofRetained.ChartOfAccountId,
                                             //VoucherServiceTypeId = g.FirstOrDefault().VoucherServiceTypeId,
-                                            Balance = expenseres.ToList().Sum(x => x.Debit) - expenseres.ToList().Sum(x => x.Credit),
+                                            Balance =   expenseres.ToList().Sum(x => x.Credit) - expenseres.ToList().Sum(x => x.Debit),
                                         }).ToList();
 
                     finalres.AddRange(resforincome);

@@ -1,24 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using WebdocTerminal.AuthTradelens;
 using WebdocTerminal.Data;
 using WebdocTerminal.Models;
-using WebdocTerminal.Repos;
 using WebdocTerminal.Repos.Interfaces;
-using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
 
 namespace WebdocTerminal.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
-    public class AdvanceBillingController :ControllerBase
+    public class AdvanceBillingController : ControllerBase
     {
         private IInvoiceRepository _invoiceRepo;
         private APICallsController _aPICalls;
@@ -26,9 +19,7 @@ namespace WebdocTerminal.Controllers
         private IUsersRepository _userRepo;
         private IContainerRepository _containerRepo;
         private ApplicationDbContext Db;
-
-
-        public AdvanceBillingController(IInvoiceRepository invoiceRepo, ICYContainerRepository cyContaienrRepo, IUsersRepository userRepo, IContainerRepository containerRepo,ApplicationDbContext dbContext)
+        public AdvanceBillingController(IInvoiceRepository invoiceRepo, ICYContainerRepository cyContaienrRepo, IUsersRepository userRepo, IContainerRepository containerRepo, ApplicationDbContext dbContext)
         {
             _invoiceRepo = invoiceRepo;
             _cyContaienrRepo = cyContaienrRepo;
@@ -37,10 +28,9 @@ namespace WebdocTerminal.Controllers
             Db = dbContext;
             //_aPICalls = aPICalls;
         }
-
-        // HTTP GET method to retrieve the list
+        // HTTP GET method to generate the bill for CY containers (Noman Ali)
         [HttpGet("GetList")]
-        public IActionResult GetList(string igm, int indexNo,DateTime BillDate)
+        public IActionResult GetList(string igm, int indexNo, DateTime BillDate)
         {
             try
             {
@@ -55,7 +45,7 @@ namespace WebdocTerminal.Controllers
                        .Where(c => c.VIRNo == igm &&
                                    c.IndexNo == indexNo &&
                                    c.IsDeleted == false)
-                       .Count();              
+                       .Count();
                 var indexcargotype = Db.CYContainers.Where(c => c.VIRNo == igm && c.IndexNo == indexNo && c.IsDeleted == false).Select(c => c.Status).FirstOrDefault();
 
                 // Call the repository method to get the data
@@ -69,15 +59,11 @@ namespace WebdocTerminal.Controllers
                      BillDate //DateTime.Parse("11/22/2024 12:00:00 AM")
                 );
 
-                
-
-                var storage =  _invoiceRepo.GetStorageTotalCY(igm, indexNo, BillDate, DateTime.Parse(GateInDate.ToString()), ClearingAgent, indexcargotype);
+                var storage = _invoiceRepo.GetStorageTotalCY(igm, indexNo, BillDate, DateTime.Parse(GateInDate.ToString()), ClearingAgent, indexcargotype);
 
                 var _sealCharges2 = GetInvoiceCY(igm, indexNo); // GateinDate
 
                 var storageDaysAmount = GetCYContainerListBYIGM(igm, indexNo);
-
-                
 
                 var totalAmount = result.Sum(item => item.Amount);
 
@@ -85,61 +71,44 @@ namespace WebdocTerminal.Controllers
                 if (storage != null)
                 {
                     // Assuming `storage` is a single object
-                     storageTotal = (int)storage.StorageTotal; // Replace 'StorageTotal' with the actual property name
-                     _storageDays = storage.StorageDays;   // Replace 'StorageDays' with the actual property name
+                    storageTotal = (int)storage.StorageTotal; // Replace 'StorageTotal' with the actual property name
+                    _storageDays = storage.StorageDays;   // Replace 'StorageDays' with the actual property name
                 }
 
-                if (_sealCharges2 != null)
+                if (_sealCharges2 != 0)
                 {
-                    
-                    _sealcharges =  _sealCharges2;
+
+                    _sealcharges = _sealCharges2;
                 }
-
-
 
                 var totalStorageDaysAmount = storageDaysAmount * _storageDays;
 
-
                 totalAmount += _sealCharges2 + totalStorageDaysAmount + storageTotal;
-
 
                 var totalAmountGST1 = totalAmount * 0.15;
 
                 var totalwithGST = totalAmount + totalAmountGST1;
 
-
-                // Return the result as JSON
-                //return Ok(result);
                 return Ok(new Dictionary<string, object>
                         {
-                    //        { "Result", result },
-                    //        { "Storage", storage },
-                           
-                    //{"StorageDays",totalStorageDaysAmount },
-                    
-                    //{"TotalStorageCharges",storageTotal },
-                    //{"TodatStorageDays",_storageDays }
-                    // ,{ "SealCharges", _sealcharges },
                     {"Totalwithoutgst",Math.Round(totalAmount) },
                     {"Totalwithgst",Math.Round(totalwithGST) },
 
-
-
                         });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Handle and log exceptions
                 return NotFound();
             }
         }
 
+        // HTTP GET method to generate the bill for CFS containers (Noman Ali)
         [HttpGet("GetListCFS")]
-        public IActionResult GetListCFS(string igm, int indexNo, DateTime BillDate)
+        public IActionResult GetListCFS(string igm, int indexNo, DateTime BillDate, double? cbm)
         {
             try
             {
-                //DateTime BillDate = DateTime.Now.AddDays(34);
                 int ClearingAgent = 72193;
 
                 var GateInDate = Db.ContainerIndices.Where(c => c.VirNo == igm && c.IndexNo == indexNo && c.IsDeleted == false).Select(c => c.CFSContainerGateInDate).FirstOrDefault();
@@ -153,100 +122,37 @@ namespace WebdocTerminal.Controllers
                        .Count();
 
                 var indexcargotype = Db.ContainerIndices.Where(c => c.VirNo == igm && c.IndexNo == indexNo && c.IsDeleted == false).Select(c => c.CargoType).FirstOrDefault();
-                
-                
-               var _ActualWeight = GetInvoice_Weight(containerIndexID);
+                var _ActualWeight = GetInvoice_Weight(containerIndexID);
                 var _CBM = GetInvoice_CBM(containerIndexID);
 
-     //           var destuffDate = Db.TellySheets.FromSql(@"
-     //   SELECT tsheet.DestuffDate 
-     //   FROM DestuffedContainer dc
-     //   INNER JOIN TellySheet tsheet ON dc.TellySheetId = tsheet.TellySheetId
-     //   WHERE dc.ContainerIndexId = {0}", containerIndexID)
-     //.Select(tsheet => tsheet.DestuffDate)
-     //.FirstOrDefault();
+                if (cbm != null)
+                {
+                    _CBM = cbm.Value;
+                }
+
                 var destuffDate = Db.DestuffedContainers
                          .Where(dc => dc.ContainerIndexId == containerIndexID)
                          .Select(dc => dc.TellySheet.DestuffDate)
                          .FirstOrDefault();
-
-
                 var result = _invoiceRepo.GetStorageTotal(containerIndexID, ClearingAgent, BillDate, DateTime.Parse(GateInDate.ToString()), DateTime.Parse(destuffDate.ToString()), _ActualWeight, _CBM, indexcargotype);
 
-                // Call the repository method to get the data
-                //var result = _invoiceRepo.GetSizeTotal(
-                //    igm,
-                //    indexNo,
-                //    ClearingAgent,
-                //    DateTime.Parse(GateInDate.ToString()),
-                //    containerCount,
-                //    indexcargotype,
-                //     BillDate //DateTime.Parse("11/22/2024 12:00:00 AM")
-                //);
-
-
-
-
-                var v2 = GetCBMTariffs(containerIndexID, ClearingAgent,_ActualWeight,_CBM, indexcargotype, DateTime.Parse(GateInDate.ToString()), BillDate);
-               // var storage = _invoiceRepo.GetStorageTotalCY(igm, indexNo, BillDate, DateTime.Parse(GateInDate.ToString()), ClearingAgent, indexcargotype);
-
-                //var _sealCharges2 = GetInvoiceCY(igm, indexNo); // GateinDate
-
-                //var storageDaysAmount = GetCYContainerListBYIGM(igm, indexNo);
-
-
+                var v2 = GetCBMTariffs(containerIndexID, ClearingAgent, _ActualWeight, _CBM, indexcargotype, DateTime.Parse(GateInDate.ToString()), BillDate);
 
                 var totalAmount = v2 + result.StorageTotal;
-
-                // Check if the result contains the properties you need
-                //if (storage != null)
-                //{
-                //    // Assuming `storage` is a single object
-                //    storageTotal = (int)storage.StorageTotal; // Replace 'StorageTotal' with the actual property name
-                //    _storageDays = storage.StorageDays;   // Replace 'StorageDays' with the actual property name
-                //}
-
-                //if (_sealCharges2 != null)
-                //{
-
-                //    _sealcharges = _sealCharges2;
-                //}
-
-
-
-                //var totalStorageDaysAmount = storageDaysAmount * _storageDays;
-
-
-                //totalAmount += storageTotal;
-
 
                 var totalAmountGST1 = totalAmount * 0.15;
 
                 var totalwithGST = totalAmount + totalAmountGST1;
 
-
-                // Return the result as JSON
-                //return Ok(result);
                 return Ok(new Dictionary<string, object>
                         {
-                          //  { "Result", 1 }
-                    //        { "Storage", storage },
-                           
-                    //{"StorageDays",totalStorageDaysAmount },
-                    
-                    //{"TotalStorageCharges",storageTotal },
-                    //{"TodatStorageDays",_storageDays }
-                    // ,{ "SealCharges", _sealcharges },
-                    {"Totalwithoutgst",Math.Round(totalAmount) },
-                    {"Totalwithgst",Math.Round(totalwithGST) }
-
-
-
+                            {"Totalwithoutgst",Math.Round(totalAmount) },
+                            {"Totalwithgst",Math.Round(totalwithGST) },
+                            {"CBM",_CBM}
                         });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Handle and log exceptions
                 return NotFound();
             }
         }
@@ -256,13 +162,7 @@ namespace WebdocTerminal.Controllers
 
             var invoice = _invoiceRepo.GetInvoice(ContainerIndexId);
 
-            //var role = User.Claims.Where(c => c.Type == ClaimTypes.Role)
-            //                      .Select(c => c.Value).ToList();
 
-            //if(invoice.IsDelivered == true &&  role.Contains("ADMINISTRATOR") == true)
-            //{
-            //    invoice.IsDelivered = false;
-            //}
 
             var resuser = GetLoginUserInfo();
 
@@ -270,7 +170,7 @@ namespace WebdocTerminal.Controllers
             {
                 resdata.SealChargers = 0;
                 resdata.SalesTax = 0;
-               
+
             }
 
             var ffuserslist = GetFFUsers();
@@ -289,14 +189,6 @@ namespace WebdocTerminal.Controllers
 
             var invoice = _invoiceRepo.GetInvoice(ContainerIndexId);
 
-            //var role = User.Claims.Where(c => c.Type == ClaimTypes.Role)
-            //                      .Select(c => c.Value).ToList();
-
-            //if(invoice.IsDelivered == true &&  role.Contains("ADMINISTRATOR") == true)
-            //{
-            //    invoice.IsDelivered = false;
-            //}
-
             var resuser = GetLoginUserInfo();
 
             if (resuser != 0 && resuser != invoice.ShippingAgentId)
@@ -313,10 +205,9 @@ namespace WebdocTerminal.Controllers
                 invoice.IsLinkedWithFF = true;
             }
 
-            double _CBM =  invoice.CBM.Value;
+            double _CBM = invoice.CBM.Value;
             return _CBM;
         }
-
         public double GetCBMTariffs(long ContainerIndexId, long clearingAgentId, double Weight, double CBM, string indexcargotype, DateTime gateInDate, DateTime BillDate)
         {
             var items = _invoiceRepo.GetCBMTotal(ContainerIndexId, clearingAgentId, Weight, CBM, indexcargotype, gateInDate, BillDate);
@@ -332,26 +223,17 @@ namespace WebdocTerminal.Controllers
         public int GetInvoiceCY(string igm, int indexNo)
         {
             var resdata = new InvoiceViewModel();
-
-
             //var cyContainer = _cyContaienrRepo.GetFirst(s => s.VIRNo == igm && s.IndexNo == indexNo);
             var cyContainer = _cyContaienrRepo.GetContainerCYByIGMAndIndex(igm, indexNo);
-
-
             var item = _invoiceRepo.GetInvoiceCY(cyContainer != null ? cyContainer.CYContainerId : 0);
-
-
             var resuser = GetLoginUserInfo();
-
             if (resuser != 0 && resuser != item.ShippingAgentId)
             {
                 resdata.SealChargers = 0;
                 resdata.SalesTax = 0;
                 return 0;
             }
-
             var ffuserslist = GetFFUsers();
-
             if (ffuserslist.Count() > 0 && ffuserslist.Where(x => x.ShippingAgentId == item.ShippingAgentId).Count() > 0 && resuser == 0)
             {
                 item.IsLinkedWithFF = true;
@@ -378,7 +260,6 @@ namespace WebdocTerminal.Controllers
         {
             throw new NotImplementedException();
         }
-
         public long GetLoginUserInfo()
         {
 
@@ -394,7 +275,6 @@ namespace WebdocTerminal.Controllers
             return 0;
 
         }
-
         public List<User> GetFFUsers()
         {
             var appUser = _userRepo.GetAll().Where(x => x.ShippingAgentId != null).ToList();
@@ -402,6 +282,5 @@ namespace WebdocTerminal.Controllers
             return appUser;
 
         }
-
     }
 }

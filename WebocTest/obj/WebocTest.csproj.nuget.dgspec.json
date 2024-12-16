@@ -38,9 +38,6 @@
           }
         },
         "warningProperties": {
-          "noWarn": [
-            "NU1603"
-          ],
           "warnAsError": [
             "NU1605"
           ]

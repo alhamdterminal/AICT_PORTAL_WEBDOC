@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Off-Dock Terminal</title>
   
-    <environment include="Development">
+     <environment exclude="Development">
+    @* <environment include="Development"> *@
         @* do exclude instead of include when publish to server *@
 
         <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +47,8 @@
         @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
             <link rel="stylesheet" href="~/css/site.css" />*@
     </environment>
-    <environment exclude="Development">
+@*     <environment exclude="Development"> *@
+        <environment include="Development">
         @* do include instead of exclude when publish to server *@
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
@@ -54,7 +56,8 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 
-    <environment include ="Development">
+ @*    <environment include="Development"> *@
+        <environment exclude="Development">
         @* do exclude instead of include when publish to server *@
         @* do exclude instead of include when publish to server *@
         <script src="~/vendors/jquery/dist/jquery.min.js"></script>
@@ -63,10 +66,7 @@
         <script src="~/js/select2.min.js"></script>
         <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
     </environment>
-
-
     <script src="~/lib/knockout/dist/knockout.js"></script>
-  
     <link href="~/css/select2.min.css" rel="stylesheet">
     <link href="~/css/vendor.css" rel="stylesheet" />
     <script src="~/js/vendor.js" asp-append-version="true"></script>
@@ -78,115 +78,112 @@
         <link href="~/lib/xtrareportsjs/css/dx-analytics.light.min.css" rel="stylesheet" />
         <link href="~/lib/xtrareportsjs/css/dx-webdocumentviewer.css" rel="stylesheet" />
     @*<script src="https://cdn.korzh.com/eq/6.0.9/eq.enterprise.min.js"></script>*@
+    <style>
+        @@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .page-title .title_left {
+                width: 100%;
+                float: left;
+                display: block;
+            }
 
 
-</head>
-<style>
-    @@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-        .page-title .title_left {
+            .dx-texteditor.dx-editor-underlined {
+                background-color: transparent;
+                width: 100% !important;
+            }
+
+            .mobBtn {
+                margin-top: 23px;
+            }
+        }
+
+        .dxrd-preview.dxrd-designer-wrapper .dxrdp-toolbar-scrollable.dxrd-toolbar-wrapper .dxrd-toolbar {
             width: 100%;
-            float: left;
-            display: block;
+            text-align: center;
         }
 
 
-        .dx-texteditor.dx-editor-underlined {
-            background-color: transparent;
-            width: 100% !important;
-        }
-
-        .mobBtn {
-            margin-top: 23px;
-        }
-    }
-
-    .dxrd-preview.dxrd-designer-wrapper .dxrdp-toolbar-scrollable.dxrd-toolbar-wrapper .dxrd-toolbar {
-        width: 100%;
-        text-align: center;
-    }
-
-
-    .top_nav .navbar-right {
-        margin: 0;
-        width: 75% !important;
-        float: right;
-    }
-
-        .top_nav .navbar-right li {
-            display: block;
+        .top_nav .navbar-right {
+            margin: 0;
+            width: 75% !important;
             float: right;
-            position: relative;
         }
 
-    .dxrd-preview .dxrd-right-panel-collapse, .dxrd-preview .dxrd-right-panel, .dxrd-preview .dxrd-right-tabs {
-        display: none;
-    }
+            .top_nav .navbar-right li {
+                display: block;
+                float: right;
+                position: relative;
+            }
 
-    .dx-datagrid  { 
-        color: black;
-        font-weight: bold;
-    }
-
-        .dx-datagrid .dx-row-lines > td {
-            border: 1px solid #51b5ab;
+        .dxrd-preview .dxrd-right-panel-collapse, .dxrd-preview .dxrd-right-panel, .dxrd-preview .dxrd-right-tabs {
+            display: none;
         }
 
+        .dx-datagrid {
+            color: black;
+            font-weight: bold;
+        }
 
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    /* Firefox */
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
-
-    .form-horizontal .control-label {
-        padding-top: 8px;
-        color: black;
-    }
-
-    .select2-results__option[aria-selected] {
-        cursor: pointer;
-        color: black;
-        font-weight: bold;
-    }
-
-    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-        background-color: #eee;
-        opacity: 1;
-        color: black;
-        font-weight: bold;
-    }
-
-    .item input, .item textarea {
-        transition: .42s;
-        color: black;
-        font-weight: bold;
-    }
-
-    .dx-datagrid-headers .dx-datagrid-table .dx-row > td {
-        border: 1px solid #020202;
-        color: black;
-        font-weight: bold;
-    }
-    .select2-selection__rendered {
-        color: black;
-        font-weight: bold;
-    }
+            .dx-datagrid .dx-row-lines > td {
+                border: 1px solid #51b5ab;
+            }
 
 
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-</style>
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .form-horizontal .control-label {
+            padding-top: 8px;
+            color: black;
+        }
+
+        .select2-results__option[aria-selected] {
+            cursor: pointer;
+            color: black;
+            font-weight: bold;
+        }
+
+        .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+            background-color: #eee;
+            opacity: 1;
+            color: black;
+            font-weight: bold;
+        }
+
+        .item input, .item textarea {
+            transition: .42s;
+            color: black;
+            font-weight: bold;
+        }
+
+        .dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+            border: 1px solid #020202;
+            color: black;
+            font-weight: bold;
+        }
+
+        .select2-selection__rendered {
+            color: black;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
 <body class="nav-md" oncontextmenu="return false">
     <div class="container body">
         <div class="main_container">
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="/home/DashboardImport" class="site_title"><i class="fa fa-ship"></i> <span>Off-Dock Terminal</span></a>
+                        <a href="/home/DashboardImport" class="site_title"><i class="fa fa-dashboard"></i> <span> AICT Dashboard </span></a>
                     </div>
                     <div class="clearfix"></div>                  
                     <br />
@@ -214,7 +211,8 @@
     </div>
 
 
-    <environment include="Development">
+@*     <environment include="Development"> *@
+        <environment exclude="Development">
         @* do exclude instead of include when publish to server *@
         <!--Multi-Select-->
         <script src="~/vendors/bootstrap-multiselect-master/dist/js/bootstrap-multiselect.js"></script>

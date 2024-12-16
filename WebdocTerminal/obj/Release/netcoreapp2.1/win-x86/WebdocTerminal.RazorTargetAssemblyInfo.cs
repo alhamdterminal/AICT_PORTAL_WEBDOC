@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebdocTerminal")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f27a2f632c7e3bb848cc88ac495a524818bc5b7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c594318adf1108b19c7367eadf8d1d574c9a0c1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebdocTerminal.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

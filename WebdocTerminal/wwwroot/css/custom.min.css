@@ -164,7 +164,7 @@
 }
 
 .left_col {
-    background: #2A3F54
+    background: darkred;
 }
 
 .nav-sm .container.body .col-md-3.left_col {
@@ -376,11 +376,12 @@
 
 .nav_menu {
     float: left;
-    background: #00968821;
+    background: border-box;
     border-bottom: 1px solid #D9DEE4;
     margin-bottom: 10px;
     width: 100%;
-    position: relative
+    position: relative;
+    
 }
 
 @media (min-width:480px) {
@@ -416,7 +417,7 @@ body .container.body .right_col {
 .nav_title {
     width: 230px;
     float: left;
-    background: #2A3F54;
+    /*background: #2A3F54;*/
     border-radius: 0;
     height: 57px
 }
@@ -992,7 +993,7 @@ a {
 }
 
 footer {
-    background: #1abb9c;
+    background: white;
     padding: 15px 20px;
     display: block
 }
@@ -3840,7 +3841,7 @@ ul.project_files li {
 
 .login {
     background: #F7F7F7;
-    background-image: url(../images/bg_login_sea.jpg);
+    background-image: url(../images/img2.png);
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
